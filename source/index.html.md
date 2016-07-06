@@ -94,11 +94,11 @@ The user object and the user's authentication token is returned.
 
 # Game Play
 
-## Get All Kittens
+## Get Active FaceOffSet
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "http://localhost:1337/faceoffset/active"
+  -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
@@ -106,37 +106,30 @@ curl "http://example.com/api/kittens"
 ```json
 [
   {
+  // TODO: REPLACE WITH REAL EXAMPLE
     "id": 1,
     "name": "Fluffums",
     "breed": "calico",
     "fluffiness": 6,
     "cuteness": 7
   },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves the authorized user's active FaceOffSet.  If no FaceOffSet is currently active or all the FaceOffs in the set have been completed then a new FaceOffSet is created and returned..
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET http://localhost:1337/faceoffset/active`
 
-### Query Parameters
+### Header Parameters
 
-Parameter | Default | Description
+Parameter | Required | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Returns the active FaceOffSet for the user to begin the game play session.
 </aside>
 
 ## Get a Specific Kitten
