@@ -1,66 +1,32 @@
 # Game Play
 
-## Get Active FaceOffSet
+## Initialize the game
 
 ```shell
-curl "http://api.parade.pet/faceoffset/active"
+curl "http://api.parade.pet/game/init"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-  // TODO: REPLACE WITH REAL EXAMPLE
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
+{
+'entries':
+  [{
+    "entry_id": 123,
+    "image_id": 789,
+  }],
+  'current_faceoffset': 224789
 ]
 ```
 
-This endpoint retrieves the authorized user's active FaceOffSet.  If no FaceOffSet is currently active or all the FaceOffs in the set have been completed then a new FaceOffSet is created and returned.
+This endpoint returns:
+  - an array of Entries (including Entry id, Image id) that the current user has not yet seen in a FaceOff
+  - the current FaceOffSet, if there is one
 
 ### HTTP Request
 
-`GET http://api.parade.pet/faceoffset/active`
-
-### Header Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
-
-<aside class="success">
-Returns the active FaceOffSet for the user to begin the game play session.
-</aside>
-
-
-## Get Pet Entries
-
-```shell
-curl "http://api.parade.pet/entries"
-  -H "Authorization:  Bearer meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[{
-  "pet_id": 123,
-  "image_id": 789,
-  "cropped": "image.jpg"
-}]
-```
-
-This endpoint returns an array of Pet objects (including Pet id, Image id, and Image cropped filename) that the current user has not yet seen in a FaceOff.
-
-### HTTP Request
-
-`GET http://api.parade.pet/entries`
+`GET http://api.parade.pet/game/init`
 
 ### Header Parameters
 
@@ -76,11 +42,11 @@ Returns array of Pet id values that will be used for future FaceOffs for this us
 ## Start a new FaceOff
 
 ```shell
-curl "http://api.parade.pet/faceoff/start"
+curl "http://api.parade.pet/game/faceoff/start"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'entryA=123'
   -d 'entryA=456'
-  -d 'current_faceoffset_=224789'
+  -d 'current_faceoffset=224789'
 ```
 
 > The above command returns JSON structured like this:
@@ -96,7 +62,7 @@ This endpoint is called at the start of a new FaceOff.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/faceoff/start`
+`POST http://api.parade.pet/game/faceoff/start`
 
 ### Header Parameters
 
@@ -121,7 +87,7 @@ Returns id values for the current FaceOffSet and new active FaceOff.
 ## End a FaceOff
 
 ```shell
-curl "http://api.parade.pet/faceoff/end"
+curl "http://api.parade.pet/game/faceoff/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'active_faceoff=274661'
   -d 'winner=123'
@@ -137,7 +103,7 @@ This endpoint is called at the end of a FaceOff.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/faceoff/end`
+`POST http://api.parade.pet/game/faceoff/end`
 
 ### Header Parameters
 
@@ -160,7 +126,7 @@ Returns "OK" or an error message.
 ## End a FaceOffSet
 
 ```shell
-curl "http://api.parade.pet/faceoffset/end"
+curl "http://api.parade.pet/game/faceoffset/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'current_faceoffset=224789'
 ```
@@ -180,7 +146,7 @@ This endpoint is called at the end of a FaceOffSet.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/faceoffset/end`
+`POST http://api.parade.pet/game/faceoffset/end`
 
 ### Header Parameters
 
@@ -199,37 +165,3 @@ current_faceoffset | true | id value of current FaceOffSet
 Returns silverAwarded, goldAwarded, numJudged for completed FaceOffSet.
 </aside>
 
-
-
-## Judge FaceOff
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
