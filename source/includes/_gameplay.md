@@ -49,12 +49,14 @@ curl "http://localhost:1337/entries"
 > The above command returns JSON structured like this:
 
 ```json
-[
-  1, 2, 3,
-]
+[{
+  "pet_id": 123,
+  "image_id": 789,
+  "cropped": "image.jpg"
+}]
 ```
 
-This endpoint gets a list of X Pet id values that the current user has not yet seen in a FaceOff.
+This endpoint returns an array of Pet objects (including Pet id, Image id, and Image cropped filename) that the current user has not yet seen in a FaceOff.
 
 ### HTTP Request
 
