@@ -3,7 +3,7 @@
 ## Get Active FaceOffSet
 
 ```shell
-curl "http://localhost:1337/faceoffset/active"
+curl "http://api.parade.pet/faceoffset/active"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -26,7 +26,7 @@ This endpoint retrieves the authorized user's active FaceOffSet.  If no FaceOffS
 
 ### HTTP Request
 
-`GET http://localhost:1337/faceoffset/active`
+`GET http://api.parade.pet/faceoffset/active`
 
 ### Header Parameters
 
@@ -42,7 +42,7 @@ Returns the active FaceOffSet for the user to begin the game play session.
 ## Get Pet Entries
 
 ```shell
-curl "http://localhost:1337/entries"
+curl "http://api.parade.pet/entries"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -60,7 +60,7 @@ This endpoint returns an array of Pet objects (including Pet id, Image id, and I
 
 ### HTTP Request
 
-`GET http://localhost:1337/entries`
+`GET http://api.parade.pet/entries`
 
 ### Header Parameters
 
@@ -76,7 +76,7 @@ Returns array of Pet id values that will be used for future FaceOffs for this us
 ## Start a new FaceOff
 
 ```shell
-curl "http://localhost:1337/faceoff/start"
+curl "http://api.parade.pet/faceoff/start"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'entryA=123'
   -d 'entryA=456'
@@ -96,7 +96,7 @@ This endpoint is called at the start of a new FaceOff.
 
 ### HTTP Request
 
-`POST http://localhost:1337/faceoff/start`
+`POST http://api.parade.pet/faceoff/start`
 
 ### Header Parameters
 
@@ -121,7 +121,7 @@ Returns id values for the current FaceOffSet and new active FaceOff.
 ## End a FaceOff
 
 ```shell
-curl "http://localhost:1337/faceoff/end"
+curl "http://api.parade.pet/faceoff/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'active_faceoff=274661'
   -d 'winner=123'
@@ -137,7 +137,7 @@ This endpoint is called at the end of a FaceOff.
 
 ### HTTP Request
 
-`POST http://localhost:1337/faceoff/end`
+`POST http://api.parade.pet/faceoff/end`
 
 ### Header Parameters
 
@@ -160,7 +160,7 @@ Returns "OK" or an error message.
 ## End a FaceOffSet
 
 ```shell
-curl "http://localhost:1337/faceoffset/end"
+curl "http://api.parade.pet/faceoffset/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'current_faceoffset=224789'
 ```
@@ -180,7 +180,7 @@ This endpoint is called at the end of a FaceOffSet.
 
 ### HTTP Request
 
-`POST http://localhost:1337/faceoffset/end`
+`POST http://api.parade.pet/faceoffset/end`
 
 ### Header Parameters
 
