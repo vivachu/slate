@@ -12,6 +12,7 @@ includes:
   - authentication
   - gameplay
   - treats
+  - pets
   - errors
 
 search: true
