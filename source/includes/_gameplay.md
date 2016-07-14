@@ -9,20 +9,65 @@ curl "http://api.parade.pet/game/init"
 
 > The above command returns JSON structured like this:
 
-```json
+```json 
 {
-'entries':
-  [{
-    "entry_id": 123,
-    "image_id": 789,
-  }],
-  'current_faceoffset': 224789
-]
+	"faceOffSet": {
+		"id": 29,
+		"type": "dogs vs cats", 
+		"activeFaceOff": {"id":29, "entryA": 222, "entryB": 292 },
+		"numJudged": 4,
+		"size": 10
+	},
+	"dogs": [
+	{ 
+	  "entry_id": 129,
+	  "image_id": 234
+	},
+	{ 
+	  "entry_id": 282,
+	  "image_id": 123
+	},
+	{ 
+	  "entry_id": 1282,
+	  "image_id": 567
+	}
+	],
+	"cats": [
+	{ 
+	  "entry_id": 2182,
+	  "image_id": 678
+	},
+	{ 
+	  "entry_id": 18,
+	  "image_id": 480
+	},
+	{ 
+	  "entry_id": 128,
+	  "image_id": 170
+	}
+	],
+	"other": [
+	{ 
+	  "entry_id": 282,
+	  "image_id": 681
+	},
+	{ 
+	  "entry_id": 8878,
+	  "image_id": 481
+	},
+	{ 
+	  "entry_id": 8982,
+	  "image_id": 801
+	}
+	],
+	"award": {
+		"silver": 5,
+		"points": 10
+	}
+}
 ```
 
-This endpoint returns:
-  - an array of Entries (including Entry id, Image id) that the current user has not yet seen in a FaceOff
-  - the current FaceOffSet, if there is one
+This endpoint is called only once each time the app loaded. This call represents a game play session. 
 
 ### HTTP Request
 
@@ -35,30 +80,51 @@ Parameter | Required | Description
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 <aside class="success">
-Returns array of Pet id values that will be used for future FaceOffs for this user.
+The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes three arrays of possible entries organized by pet type that the game can use to create new FaceOffs. The return data also contains the award values for silver and points for successfully judging a FaceOff.
 </aside>
 
 
-## Start a new FaceOff
+## Start FaceOff
 
 ```shell
 curl "http://api.parade.pet/game/faceoff/start"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'entryA=123'
   -d 'entryA=456'
-  -d 'current_faceoffset=224789'
+  -d 'faceOffSet=29122'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "current_faceoffset": 224789,
-  "active_faceoff": 274661
+  "faceOff": { 
+  	"id": 224789,
+  	"entryA": {
+  		"id":123,
+  		"pet": {
+  			"id": 292,
+  			"name": "Sparky",
+  			"points": 9282
+  		}
+  	},
+  	"entryB": {
+  		"id":456,
+  		"pet": {
+  			"id": 908,
+  			"name": "Tom",
+  			"points": 282
+  		}
+  	} 	
+  },
+  "coins": {
+  	"silver": 300,
+  	"gold": 20
+  }
 }
 ```
 
-This endpoint is called at the start of a new FaceOff.
+This endpoint is called at the start of a new FaceOff. The client is responsible for randomly selecting pairings of entries to create new FaceOff's from the array lists returned.  
 
 ### HTTP Request
 
@@ -77,19 +143,19 @@ Parameter | Required | Description
 --------- | ------- | -----------
 entryA | true | id value of Pet entry A
 entryB | true | id value of Pet entry B
-current_faceoffset | false | id value of current FaceOffSet, if we are in the middle of a set
+faceOffSet | true | id value of FaceOffSet to assign the FaceOff.
 
 <aside class="success">
-Returns id values for the current FaceOffSet and new active FaceOff.
+Returns the newly created FaceOff along with the Pet name and point balances for each entry in the FaceOff and the user's current coin balances.  The point and coin balances are displayed by the client after the winner is picked.  
 </aside>
 
 
-## End a FaceOff
+## End FaceOff
 
 ```shell
 curl "http://api.parade.pet/game/faceoff/end"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'active_faceoff=274661'
+  -d 'faceOff=274661'
   -d 'winner=123'
 ```
 
@@ -116,33 +182,38 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-active_faceoff | true | id value of active FaceOff
+faceOff | true | id value of active FaceOff
 winner | true | id value of winning Pet
 
 <aside class="success">
-Returns "OK" or an error message.
+Returns "OK" or an error message.  The client does not need to wait for this call and can use the award values returned from /game/init to increment the user's silver and the pet's points returned from /faceoff/start. 
 </aside>
 
-## End a FaceOffSet
+## End FaceOffSet
 
 ```shell
 curl "http://api.parade.pet/game/faceoffset/end"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'current_faceoffset=224789'
+  -d 'faceOffSet=224789'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 224789,
-  "silverAwarded": 10,
-  "goldAwarded": 5,
-  "numJudged": 10
+  "award": {
+  	"type": "treat",
+  	"value": {"id":292, "name": "Steak" }	
+  },
+  "faceOffSet": {
+	"id": 29,
+	"type": "dogs", 
+	"size": 10
+  }
 }
 ```
 
-This endpoint is called at the end of a FaceOffSet.
+This endpoint is called when a FaceOffSet has been completed.  The call automatically closes the currently active set and creates a new active FaceOffSet for the user.  
 
 ### HTTP Request
 
@@ -159,9 +230,9 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-current_faceoffset | true | id value of current FaceOffSet
+faceOffSet | true | id value of the FaceOffSet to end.
 
 <aside class="success">
-Returns silverAwarded, goldAwarded, numJudged for completed FaceOffSet.
+Returns the award for completing the set and the new active FaceOffSet.  Valid award type values are treat, silver, or gold.  If the award type is "treat," then the value is the treat object.  If the award type is silver or gold, then the value is the amount of coins awarded.  
 </aside>
 
