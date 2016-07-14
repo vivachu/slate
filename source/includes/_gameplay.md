@@ -20,44 +20,44 @@ curl "http://api.parade.pet/game/init"
 	},
 	"dogs": [
 	{ 
-	  "entry_id": 129,
-	  "image_id": 234
+	  "entry": 129,
+	  "image": 234
 	},
 	{ 
-	  "entry_id": 282,
-	  "image_id": 123
+	  "entry": 282,
+	  "image": 123
 	},
 	{ 
-	  "entry_id": 1282,
-	  "image_id": 567
+	  "entry": 1282,
+	  "image": 567
 	}
 	],
 	"cats": [
 	{ 
-	  "entry_id": 2182,
-	  "image_id": 678
+	  "entry": 2182,
+	  "image": 678
 	},
 	{ 
-	  "entry_id": 18,
-	  "image_id": 480
+	  "entry": 18,
+	  "image": 480
 	},
 	{ 
-	  "entry_id": 128,
-	  "image_id": 170
+	  "entry": 128,
+	  "image": 170
 	}
 	],
 	"other": [
 	{ 
-	  "entry_id": 282,
-	  "image_id": 681
+	  "entry": 282,
+	  "image": 681
 	},
 	{ 
-	  "entry_id": 8878,
-	  "image_id": 481
+	  "entry": 8878,
+	  "image": 481
 	},
 	{ 
-	  "entry_id": 8982,
-	  "image_id": 801
+	  "entry": 8982,
+	  "image": 801
 	}
 	],
 	"award": {
@@ -212,16 +212,16 @@ curl "http://api.parade.pet/game/faceoffset/end"
   },
   "winners": [
     {
-      "entry_id": 123,
-      "num_points": 157
+      "entry": 123,
+      "points": 157
     },
     {
-      "entry_id": 456,
-      "num_points": 83
+      "entry": 456,
+      "points": 83
     },
     {
-      "entry_id": 789,
-      "num_points": 27
+      "entry": 789,
+      "points": 27
     }
   ]
 }
