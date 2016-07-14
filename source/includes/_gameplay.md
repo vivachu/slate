@@ -206,10 +206,24 @@ curl "http://api.parade.pet/game/faceoffset/end"
   	"value": {"id":292, "name": "Steak" }	
   },
   "faceOffSet": {
-	"id": 29,
-	"type": "dogs", 
-	"size": 10
-  }
+	  "id": 29,
+	  "type": "dogs", 
+	  "size": 10
+  },
+  "winners": [
+    {
+      "entry_id": 123,
+      "num_points": 157
+    },
+    {
+      "entry_id": 456,
+      "num_points": 83
+    },
+    {
+      "entry_id": 789,
+      "num_points": 27
+    }
+  ]
 }
 ```
 
@@ -233,6 +247,6 @@ Parameter | Required | Description
 faceOffSet | true | id value of the FaceOffSet to end.
 
 <aside class="success">
-Returns the award for completing the set and the new active FaceOffSet.  Valid award type values are treat, silver, or gold.  If the award type is "treat," then the value is the treat object.  If the award type is silver or gold, then the value is the amount of coins awarded.  
+Returns the award for completing the set and the new active FaceOffSet.  Valid award type values are treat, silver, or gold.  If the award type is "treat," then the value is the treat object.  If the award type is silver or gold, then the value is the amount of coins awarded.  It also returns the winners of the completed FaceOffSet, with number of points you gave to each winner.
 </aside>
 
