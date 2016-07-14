@@ -42,14 +42,3 @@ end
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below
 set :port, 4567
-
-activate :deploy do |deploy|
-  deploy.deploy_method = :rsync
-  deploy.host          = 'app-staging.parade.pet'
-  deploy.path          = '/var/www/pets-api-docs'
-  # Optional Settings
-  # deploy.user  = 'tvaughan' # no default
-  # deploy.port  = 5309 # ssh port, default: 22
-  # deploy.clean = true # remove orphaned files on remote host, default: false
-  # deploy.flags = '-rltgoDvzO --no-p --del' # add custom flags, default: -avz
-end
