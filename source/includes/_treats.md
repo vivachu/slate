@@ -104,7 +104,7 @@ curl "http://api.parade.pet/treat/send"
 "OK"
 ```
 
-This endpoint is used to send treats to a Pet.  If the user currently owns a treat, then the id of owned treat is passed via the "owned" query parameter. If the user does not own the treat, then the "owned" query parameter is omitted and the treat is purchased and immediately sent to the specified pet. 
+This endpoint is used to send treats to a Pet.  If the user currently owns a treat, then the id of owned treat is passed via the "owned" query parameter. If the user does not own the treat, then the "owned" query parameter is omitted and the treat is purchased and immediately sent to the specified pet.  If the sender is the same as pet owner of the receiving pet, then the treat is immediately accepted.  
 
 ### HTTP Request
 
@@ -128,4 +128,41 @@ entry | false | id value of Entry that referred the treat purchase
 
 <aside class="success">
 Returns OK if success or an error message and code if the user does not have enough coins.  The client should pre-check whether the user has enough coins before sending this request to the server.  The design of this call is such that the client should call this asynchronously without waiting for it to return.  
+</aside>
+
+## Accept Treat
+
+```shell
+curl "http://api.parade.pet/treat/accept"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=291,8272,8272'
+```
+
+> The above command returns "OK" or an error message
+
+```
+"OK"
+```
+
+This endpoint is used to accept the treat(s) that were given to authorized user's Pet by another user.
+
+### HTTP Request
+
+`POST http://api.parade.pet/game/treat/accept`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | comma separated list of id values of TreatPurchase objects to accept
+
+<aside class="success">
+Returns OK if success or an error message and code if TreatPurchase object does not exist, or the authorized user does not own the Pet who was the target of the treat. The design of this call is such that the client should call this asynchronously without waiting for it to return.  
 </aside>
