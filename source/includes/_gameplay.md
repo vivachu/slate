@@ -105,6 +105,7 @@ curl "http://api.parade.pet/game/faceoff/start"
   		"pet": {
   			"id": 292,
   			"name": "Sparky",
+  			"image": 92,
   			"points": 9282
   		}
   	},
@@ -113,6 +114,7 @@ curl "http://api.parade.pet/game/faceoff/start"
   		"pet": {
   			"id": 908,
   			"name": "Tom",
+  			"image": 211,
   			"points": 282
   		}
   	} 	
@@ -203,7 +205,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
 {
   "award": {
   	"type": "treat",
-  	"value": {"id":292, "name": "Steak" }	
+  	"value": {"id":292, "name": "Steak", "image": 2912 }	
   },
   "faceOffSet": {
 	  "id": 29,
@@ -212,15 +214,24 @@ curl "http://api.parade.pet/game/faceoffset/end"
   },
   "winners": [
     {
+	  "id": 88,
+      "name": "Sparks",
       "entry": 123,
+      "image": 282,
       "points": 157
     },
     {
+	  "id": 927,
+      "name": "Petunia",
       "entry": 456,
+      "image": 2292,
       "points": 83
     },
     {
+	  "id": 288,
+      "name": "Dhalia",
       "entry": 789,
+      "image": 2828,
       "points": 27
     }
   ]
