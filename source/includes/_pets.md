@@ -23,21 +23,27 @@ curl "http://api.parade.pet/pet/leaderboard"
 	  "image": 234,
 	  "name": "Fluffy",
 	  "place": 200,
-	  "points": 10900
+	  "points": 10900,
+	  "numFaceOffs": 900,
+	  "numTreats": 212
 	},
 	{ 
 	  "id": 1928,
 	  "image": 2328,
 	  "name": "Spanky",
 	  "place": 201,
-	  "points": 10800
+	  "points": 10800,
+	  "numFaceOffs": 1029,
+	  "numTreats": 29
 	},
 	{ 
 	  "id": 876,
 	  "image": 202,
 	  "name": "Donald",
-	  "place": 3,
-	  "points": 10500
+	  "place": 202,
+	  "points": 10500,
+	  "numFaceOffs": 872,
+	  "numTreats": 450
 	}
 	]
 }
@@ -91,14 +97,18 @@ curl "http://api.parade.pet/pets"
 	  "image": 234,
 	  "name": "Mr Big",
 	  "place": 1292,
-	  "points": 900
+	  "points": 900,
+	  "numFaceOffs": 98,
+	  "numTreats": 9	  
 	},
 	{ 
 	  "id": 1928,
 	  "image": 2328,
 	  "name": "Sparks",
 	  "place": 989,
-	  "points": 1010
+	  "points": 1010,
+	  "numFaceOffs": 289,
+	  "numTreats": 21
 	}
 	]
 }
