@@ -46,7 +46,7 @@ curl "http://api.parade.pet/game/init"
 	  "image": 170
 	}
 	],
-	"other": [
+	"critters": [
 	{ 
 	  "entry": 282,
 	  "image": 681
