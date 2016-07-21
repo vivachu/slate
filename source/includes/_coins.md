@@ -1,3 +1,5 @@
+# Coins
+
 ## Exchange Coins
 
 ```shell
