@@ -261,3 +261,42 @@ faceOffSet | true | id value of the FaceOffSet to end.
 Returns the award for completing the set and the new active FaceOffSet.  Valid award type values are treat, silver, or gold.  If the award type is "treat," then the value is the treat object.  If the award type is silver or gold, then the value is the amount of coins awarded.  It also returns the winners of the completed FaceOffSet, with number of points you gave to each winner.
 </aside>
 
+## Exchange Silver for Gold
+
+```shell
+curl "http://api.parade.pet/game/faceoff/end"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'faceOff=274661'
+  -d 'winner=123'
+```
+
+> The above command returns "OK" or an error message
+
+```
+"OK"
+```
+
+This endpoint is called at the end of a FaceOff.
+
+### HTTP Request
+
+`POST http://api.parade.pet/game/faceoff/end`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+faceOff | true | id value of active FaceOff
+winner | true | id value of winning Pet
+
+<aside class="success">
+Returns "OK" or an error message.  The client does not need to wait for this call and can use the award values returned from /game/init to increment the user's silver and the pet's points returned from /faceoff/start. 
+</aside>
+
