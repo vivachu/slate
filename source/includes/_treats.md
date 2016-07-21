@@ -3,7 +3,7 @@
 ## Get Treats
 
 ```shell
-curl "http://api.parade.pet/game/treats"
+curl "http://api.parade.pet/treats"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -90,7 +90,7 @@ The endpoint returns the authorized user's owned treats acquired from completing
 ## Send Treat
 
 ```shell
-curl "http://api.parade.pet/game/treat/send"
+curl "http://api.parade.pet/treat/send"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'owned=291'
   -d 'treat=123'
@@ -108,7 +108,7 @@ This endpoint is used to send treats to a Pet.  If the user currently owns a tre
 
 ### HTTP Request
 
-`POST http://api.parade.pet/game/treat/send`
+`POST http://api.parade.pet/treat/send`
 
 ### Header Parameters
 
@@ -133,7 +133,7 @@ Returns OK if success or an error message and code if the user does not have eno
 ## Accept Treat
 
 ```shell
-curl "http://api.parade.pet/game/treat/accept"
+curl "http://api.parade.pet/treat/accept"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'id=291,8272,8272'
 ```
@@ -148,7 +148,7 @@ This endpoint is used to accept the treat(s) that were given to authorized user'
 
 ### HTTP Request
 
-`POST http://api.parade.pet/game/treat/accept`
+`POST http://api.parade.pet/treat/accept`
 
 ### Header Parameters
 
