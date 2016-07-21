@@ -3,7 +3,7 @@
 ## Get Treats
 
 ```shell
-curl "http://api.parade.pet/treats"
+curl "http://api.parade.pet/game/treats"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -90,7 +90,7 @@ The endpoint returns the authorized user's owned treats acquired from completing
 ## Send Treat
 
 ```shell
-curl "http://api.parade.pet/treat/send"
+curl "http://api.parade.pet/game/treat/send"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'owned=291'
   -d 'treat=123'
@@ -121,9 +121,9 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-owned | false | id value of TreatPurchase object representing the owned Treat.
-treat | true | id value of Treat to send
 pet | true | id value of Pet receiving the treat
+owned | false | id value of TreatPurchase object representing the owned Treat.
+treat | false | id value of Treat to send
 entry | false | id value of Entry that referred the treat purchase
 
 <aside class="success">
@@ -133,7 +133,7 @@ Returns OK if success or an error message and code if the user does not have eno
 ## Accept Treat
 
 ```shell
-curl "http://api.parade.pet/treat/accept"
+curl "http://api.parade.pet/game/treat/accept"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'id=291,8272,8272'
 ```
