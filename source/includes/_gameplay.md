@@ -209,7 +209,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
   },
   "faceOffSet": {
 	  "id": 29,
-	  "type": "dogs", 
+	  "type": "Dogs vs Critters", 
 	  "size": 10
   },
   "winners": [
@@ -219,7 +219,8 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "entry": 123,
       "image": 282,
       "points": 30,
-      "place": 212
+      "place": 212,
+      "type": "dog"
     },
     {
 	  "id": 927,
@@ -227,7 +228,8 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "entry": 456,
       "image": 2292,
       "points": 30,
-      "place": 87
+      "place": 87,
+      "type": "dog"
     },
     {
 	  "id": 288,
@@ -235,7 +237,8 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "entry": 789,
       "image": 2828,
       "points": 20,
-      "place": 928
+      "place": 928,
+      "type": "critter"
     }
   ]
 }
