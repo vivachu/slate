@@ -220,7 +220,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "image": 282,
       "points": 30,
       "place": 212,
-      "type": "dog"
+      "type": "Dog"
     },
     {
 	  "id": 927,
@@ -229,7 +229,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "image": 2292,
       "points": 30,
       "place": 87,
-      "type": "dog"
+      "type": "Rabbit"
     },
     {
 	  "id": 288,
@@ -238,7 +238,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "image": 2828,
       "points": 20,
       "place": 928,
-      "type": "critter"
+      "type": "Horse"
     }
   ]
 }
