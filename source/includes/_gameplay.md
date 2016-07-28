@@ -209,7 +209,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
   },
   "faceOffSet": {
 	  "id": 29,
-	  "type": "dogs", 
+	  "type": "Dogs vs Critters", 
 	  "size": 10
   },
   "winners": [
@@ -218,21 +218,27 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "name": "Sparks",
       "entry": 123,
       "image": 282,
-      "points": 157
+      "points": 30,
+      "place": 212,
+      "type": "Dog"
     },
     {
 	  "id": 927,
       "name": "Petunia",
       "entry": 456,
       "image": 2292,
-      "points": 83
+      "points": 30,
+      "place": 87,
+      "type": "Rabbit"
     },
     {
 	  "id": 288,
       "name": "Dhalia",
       "entry": 789,
       "image": 2828,
-      "points": 27
+      "points": 20,
+      "place": 928,
+      "type": "Horse"
     }
   ]
 }

@@ -11,58 +11,127 @@ curl "http://api.parade.pet/treats"
 
 ```json 
 {
-	"owns": [
-	{ 
-	  "id": 22,
-	  "treat": {
+	"dogs": {
+		"owns": [
+		{ 
+		  "id": 22,
+		  "treat": {
+			  "id": 129,
+			  "image": 234,
+			  "name": "Ribeye"
+		  }
+		},
+		{ 
+		  "id": 23,
+		  "treat": {
+			  "id": 130,
+			  "image": 235,
+			  "name": "Chicken Drumstick"
+		  }
+		},
+		{ 
+		  "id": 24,
+		  "treat": {
+			  "id": 129,
+			  "image": 234,
+			  "name": "Ribeye"
+		  }
+		},
+		],
+		"forSale": [
+		{ 
 		  "id": 129,
 		  "image": 234,
-		  "name": "Ribeye"
-	  }
-	},
-	{ 
-	  "id": 23,
-	  "treat": {
+		  "name": "Ribeye",
+		  "isPremium": true,
+		  "price": 20,
+		  "points": 100
+		},
+		{ 
 		  "id": 130,
 		  "image": 235,
-		  "name": "Chicken Drumstick"
-	  }
+		  "name": "Chicken Drumstick",
+		  "isPremium": false,
+		  "price": 20,
+		  "points": 10
+		},
+		{ 
+		  "id": 131,
+		  "image": 236,
+		  "name": "Yellow Dog Biscuit",
+		  "isPremium": true,
+		  "price": 10,
+		  "points": 5
+		}
+		]
 	},
-	{ 
-	  "id": 24,
-	  "treat": {
-		  "id": 129,
-		  "image": 234,
-		  "name": "Ribeye"
-	  }
+	"cats": {
+		"owns": [
+		{ 
+		  "id": 27,
+		  "treat": {
+			  "id": 18,
+			  "image": 18,
+			  "name": "Goldfish"
+		  }
+		}
+		],
+		"forSale": [
+		{ 
+		  "id": 229,
+		  "image": 334,
+		  "name": "Fatty Tuna",
+		  "isPremium": true,
+		  "price": 20,
+		  "points": 100
+		},
+		{ 
+		  "id": 230,
+		  "image": 335,
+		  "name": "Kitten Kibble",
+		  "isPremium": false,
+		  "price": 20,
+		  "points": 10
+		},
+		{ 
+		  "id": 231,
+		  "image": 336,
+		  "name": "Yellowtail Sashimi",
+		  "isPremium": true,
+		  "price": 10,
+		  "points": 50
+		}
+		]
 	},
-	],
-	"forSale": [
-	{ 
-	  "id": 129,
-	  "image": 234,
-	  "name": "Ribeye",
-	  "isPremium": true,
-	  "price": 20,
-	  "points": 100
-	},
-	{ 
-	  "id": 130,
-	  "image": 235,
-	  "name": "Chicken Drumstick",
-	  "isPremium": false,
-	  "price": 20,
-	  "points": 10
-	},
-	{ 
-	  "id": 131,
-	  "image": 236,
-	  "name": "Yellow Dog Biscuit",
-	  "isPremium": true,
-	  "price": 10,
-	  "points": 5
-	}
-	],
+	"critters": {
+		"owns": [],
+		"forSale": [
+		{ 
+		  "id": 329,
+		  "image": 434,
+		  "name": "Baby Carrots",
+		  "isPremium": true,
+		  "price": 20,
+		  "points": 100
+		},
+		{ 
+		  "id": 330,
+		  "image": 435,
+		  "name": "Hay",
+		  "isPremium": false,
+		  "price": 20,
+		  "points": 10
+		},
+		{ 
+		  "id": 331,
+		  "image": 436,
+		  "name": "Alfafa Srouts",
+		  "isPremium": true,
+		  "price": 10,
+		  "points": 50
+		}
+		]
+	},	
 	"coins": {
 		"silver": 50,
 		"gold": 10
@@ -70,7 +139,7 @@ curl "http://api.parade.pet/treats"
 }
 ```
 
-A user may use her coins to purchase treats to send to a Pet.  In addition, users may acquire treats as awards for completing FaceOffSets.  This endpoint retrieves the list of treats that the user currently owns as well as a list of the treats that are available for sale. 
+A user may use her coins to purchase treats to send to a Pet.  In addition, users may acquire treats as awards for completing FaceOffSets.  This endpoint retrieves the list of treats that the user currently owns as well as a list of the treats that are available for sale. The treats are organized into three separate arrays based upon pet type: dogs, cats, and others.  Pets are only allowed to eat treats that match the pet type. When /game/faceoffset/end is called, the winners list contains the pets with the type returned as a string.  If the pet type is anything other than "Dog" or "Cat" then it is a critter.  
 
 ### HTTP Request
 
