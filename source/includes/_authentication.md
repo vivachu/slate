@@ -44,8 +44,8 @@ curl "http://localhost:1337/user/create"
     "faceOffType": 1,
     "createdAt": "2016-07-29T17:11:58.788Z",
     "updatedAt": "2016-07-29T17:11:58.788Z",
-    "id": 15027,
-    "fullName": "Mike Wisz",
+    "id": 1,
+    "fullName": "Janice Lu",
     "profileThumb": "https://assets.parade.pet/images/default-user-thumb.png",
     "profileMedium": "https://assets.parade.pet/images/default-user-med.png",
     "profileLarge": "https://assets.parade.pet/images/default-user-large.png"
