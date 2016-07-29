@@ -58,7 +58,7 @@ This endpoint creates the new user, logs the user in, and returns an authorizati
 
 ### HTTP Request
 
-`GET http://api.parade.pet/user/create`
+`POST http://api.parade.pet/user/create`
 
 ### Query Parameters
 
