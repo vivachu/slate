@@ -63,6 +63,10 @@ curl "http://api.parade.pet/game/init"
 	"award": {
 		"silver": 5,
 		"points": 10
+	},
+	"alerts": {
+		"faceoffs": 8,
+		"treats": 4
 	}
 }
 ```
@@ -80,7 +84,11 @@ Parameter | Required | Description
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 <aside class="success">
-The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes three arrays of possible entries organized by pet type that the game can use to create new FaceOffs. The return data also contains the award values for silver and points for successfully judging a FaceOff.
+The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes three arrays of possible entries organized by pet type that the game can use to create new FaceOffs.
+
+The alerts object contains the count of new faceoff and treat alerts to show in the Alerts tab.  The total number of alerts in the bottom nav is the sum of faceoff and treat alerts.
+
+The return data also contains the award values for silver and points for successfully judging a FaceOff.
 </aside>
 
 
