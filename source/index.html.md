@@ -14,6 +14,7 @@ includes:
   - treats
   - coins
   - pets
+  - alerts
   - errors
 
 search: true
