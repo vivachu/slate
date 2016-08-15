@@ -155,7 +155,6 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 The endpoint returns the authorized user's owned treats acquired from completing FaceOffSets as well as a list of treats that are available for purchase.  The authorized user's coin balance is also returned.  
 </aside>
 
-
 ## Send Treat
 
 ```shell
@@ -184,7 +183,6 @@ This endpoint is used to send treats to a Pet.  If the user currently owns a tre
 Parameter | Required | Description
 --------- | ------- | -----------
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
-
 
 ### Query Parameters
 
@@ -224,7 +222,6 @@ This endpoint is used to accept the treat(s) that were given to authorized user'
 Parameter | Required | Description
 --------- | ------- | -----------
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
-
 
 ### Query Parameters
 
