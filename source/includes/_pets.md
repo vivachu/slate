@@ -68,7 +68,6 @@ Parameter | Required | Description
 start | false | Start date in yyyy-mm-dd format to limit results. If no start date is defined, the first day of the current month is assumed as the time period.  
 end | false | End date in yyyy-mm-dd format to limit results.  The end date is inclusive, meaning if 2016-06-30 is specified then points scored any time on 6/30 are included. If no end date is defined, the last day of the start month is assumed as the time period. 
 place | false | The placement position to start the return results.
-size | false | The total number of pets to return.
 type | false | The type of pet to filter against: dog, cat, other.  No value indicates all pets.
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
