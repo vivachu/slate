@@ -27,18 +27,11 @@ curl "http://api.parade.pet/alerts/treats"
 		  	"image": 2928,
 		  	"points": 9287
 		  },
-		  "treats": [
-		  	{
+		  "treat": {
 			  "accept": 129,
 			  "name": "Ribeye",
 			  "points": 100
-		  	},
-		  	{
-			  "accept": 130,
-			  "name": "T-Bone",
-			  "points": 100
-		  	}		  	
-		  ]
+		  }	  	
 		},
 		{ 
 		  "timestamp": "1 day",
@@ -55,13 +48,11 @@ curl "http://api.parade.pet/alerts/treats"
 		  	"image": 28892,
 		  	"points": 300
 		  },
-		  "treats": [
-		  	{
+		  "treat": {
 			  "accept": 2982,
 			  "name": "Cute Sushi",
 			  "points": 100
-		  	}	  	
-		  ]
+		  }	  	
 		}		
 	]
 }
@@ -144,7 +135,7 @@ This endpoint retrieves the list of FaceOff results for the past 30 days. Each t
 
 ### HTTP Request
 
-`GET http://api.parade.pet/alerts/treats`
+`GET http://api.parade.pet/alerts/faceoffs`
 
 ### Header Parameters
 
