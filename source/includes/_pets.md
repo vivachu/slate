@@ -136,3 +136,139 @@ contest | false | id value of the Contest to filter the results against.  If no 
 <aside class="success">
 Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
 </aside>
+
+## Pet Types
+
+```shell
+curl "http://api.parade.pet/pettype"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+[
+  {
+    "name": "Dog",
+    "id": 1,
+    "createdAt": "2016-07-21T05:35:37.000Z",
+    "updatedAt": "2016-07-21T05:35:37.000Z"
+  },
+  {
+    "name": "Cat",
+    "id": 2,
+    "createdAt": "2016-07-21T05:35:37.000Z",
+    "updatedAt": "2016-07-21T05:35:37.000Z"
+  },
+  {
+    "name": "Bird",
+    "id": 3,
+    "createdAt": "2016-07-21T05:35:37.000Z",
+    "updatedAt": "2016-07-21T05:35:37.000Z"
+  },
+  {
+    "name": "Horse",
+    "id": 4,
+    "createdAt": "2016-07-21T05:35:37.000Z",
+    "updatedAt": "2016-07-21T05:35:37.000Z"
+  },
+  {
+    "name": "Other",
+    "id": 16,
+    "createdAt": "2016-07-21T05:35:37.000Z",
+    "updatedAt": "2016-07-21T05:35:37.000Z"
+  }
+]
+```
+
+Return list of pet types.
+
+### HTTP Request
+
+`GET http://api.parade.pet/pettype`
+
+
+<aside class="success">
+Return list of pet types.
+</aside>
+
+## Search Entries
+
+```shell
+curl "http://api.parade.pet/entries"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'search=Black Lab named Waggie'
+  -d 'type=Dog'
+  -d 'sort=created'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+	"entries": [
+	{ 
+	  "id": 129,
+	  "image": 234,
+	  "points": 10,
+	  "numFaceOffs": 2,
+	  "numTreats": 0,
+	  "pet": {
+	  	"id": 298,
+	  	"name": "Waggie",
+	  	"owner": "Chris Anderson",
+	  	"type": "Dog"
+	  }
+	},
+	{ 
+	  "id": 130,
+	  "image": 235,
+	  "points": 90,
+	  "numFaceOffs": 291,
+	  "numTreats": 12,
+	  "pet": {
+	  	"id": 298,
+	  	"name": "Waggie",
+	  	"owner": "Chris Anderson",
+	  	"type": "Dog"
+	  }
+	},
+	{ 
+	  "id": 131,
+	  "image": 236,
+	  "points": 100,
+	  "numFaceOffs": 198,
+	  "numTreats": 19,
+	  "pet": {
+	  	"id": 298,
+	  	"name": "Waggie",
+	  	"owner": "Chris Anderson",
+	  	"type": "Dog"
+	  }
+	}
+	]
+}
+```
+
+Search all entries by name, pet type, and breed. Return sorted list of entries by points or by created date descending.  If no query parameters are passed, then the top 300 entries across all pets types are returned sorted by points descending.  
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+search | false | Search by name, pet type or breed.  If no search query is passed then return the top 300 listings by points descending.  
+type | false | Comma separated list of pet types:  "Dog,Cat,Horse,Bird"
+sort | false | Sort by either "created" or "points" descending.  Default value is "points."  
+
+<aside class="success">
+Return sorted list of entries matching search query by points or by created date descending. 
+</aside>
