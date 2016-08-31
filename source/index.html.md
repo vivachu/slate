@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - authentication
+  - notifications
   - gameplay
   - treats
   - coins
