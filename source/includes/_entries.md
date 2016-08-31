@@ -1,5 +1,58 @@
 # Entries
 
+## Get entry
+
+```shell
+curl "http://api.parade.pet/entry/<id>"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "id": 283,
+  "caption": "Arvel",
+  "location": "Vancouver, Canada",
+  "image": 19878,
+  "points": 880,
+  "numFaceOffs": 172,
+  "numTreats": 47,
+  "pet": {
+    "id": 9864,
+    "name": "Arvel",
+    "owner": {
+      "id": 10027,
+      "name": "Emery McLaughlin",
+      "image": 19877
+    },
+    "type": "Dog"
+  }
+}
+```
+Return a specific entry based on entryId value. A single entry is returned.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entry/<id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  entryId value, passed in the url path
+
+
+<aside class="success">
+Return a single entry based on entryId 
+</aside>
+
 ## Search Entries
 
 ```shell
@@ -26,7 +79,11 @@ curl "http://api.parade.pet/entries"
 	  "pet": {
 	  	"id": 298,
 	  	"name": "Waggie",
-	  	"owner": "Chris Anderson",
+	  	"owner": {
+          "id": 11720,
+          "name": "Chris Anderson",
+          "image": 26649
+        },	  
 	  	"type": "Dog"
 	  }
 	},
@@ -41,7 +98,11 @@ curl "http://api.parade.pet/entries"
 	  "pet": {
 	  	"id": 298,
 	  	"name": "Waggie",
-	  	"owner": "Chris Anderson",
+	  	"owner": {
+          "id": 11720,
+          "name": "Chris Anderson",
+          "image": 26649
+        },
 	  	"type": "Dog"
 	  }
 	},
@@ -56,7 +117,11 @@ curl "http://api.parade.pet/entries"
 	  "pet": {
 	  	"id": 298,
 	  	"name": "Waggie",
-	  	"owner": "Chris Anderson",
+	  	"owner": {
+          "id": 11720,
+          "name": "Chris Anderson",
+          "image": 26649
+        },
 	  	"type": "Dog"
 	  }
 	}
