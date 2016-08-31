@@ -4,7 +4,6 @@
 
 ```shell
 curl "http://api.parade.pet/entry/<id>"
-  -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
@@ -38,9 +37,7 @@ Return a specific entry based on entryId value. A single entry is returned.
 
 ### Header Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+None. This endpoint is open to the outside world.
 
 ### Query Parameters
 
