@@ -3,9 +3,8 @@
 ## Set Firebase token
 
 ```shell
-curl "http://api.parade.pet/user/setFirebaseToken"
+curl "http://api.parade.pet/user/setFirebaseToken/<token>"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'token=jkh3kjh32kj32kj3'
 ```
 
 > The above command returns “OK” or an error message
@@ -18,7 +17,7 @@ This endpoint is used to set the authenticated user's Firebase token.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/user/setFirebaseToken`
+`POST http://api.parade.pet/user/setFirebaseToken/<token>`
   
 ### Header Parameters
 
@@ -30,7 +29,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-token | true |  Firebase token string
+token | true |  Firebase token string, included as part of url
 
 
 <aside class="success">
