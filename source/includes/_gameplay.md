@@ -5,6 +5,7 @@
 ```shell
 curl "http://api.parade.pet/game/init"
   -H "Authorization:  Bearer meowmeowmeow"
+  -d entry=283
 ```
 
 > The above command returns JSON structured like this:
@@ -137,8 +138,16 @@ Parameter | Required | Description
 --------- | ------- | -----------
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry | false | id value of first faceOff entry
+
+
 <aside class="success">
-The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes three arrays of possible entries organized by pet type that the game can use to create new FaceOffs.
+The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes three arrays of possible entries organized by pet type that the game can use to create new FaceOffs. If the entry parameter is specified, this entry will be added to the top of the appropriate dogs/cats/critters list, and will be used  as entryA in the first faceOff.
 
 The alerts object contains the count of new faceoff and treat alerts to show in the Alerts tab.  The total number of alerts in the bottom nav is the sum of faceoff and treat alerts.
 
