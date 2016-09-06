@@ -5,7 +5,7 @@
 ```shell
 curl "http://api.parade.pet/game/init"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d entry=283
+  -d "entry=283"
 ```
 
 > The above command returns JSON structured like this:
