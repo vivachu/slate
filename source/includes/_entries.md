@@ -1,6 +1,6 @@
 # Entries
 
-## Get entry
+## Get Entry
 
 ```shell
 curl "http://api.parade.pet/entry/<id>"
@@ -228,3 +228,46 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Return sorted list of entries owned by user ordered by created date descending. 
 </aside>
 
+## Create Entry
+
+```shell
+curl "http://api.parade.pet/entry/create"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'caption=My good boy playing'
+  -d 'image=129827'
+  -d 'pet=29722'
+  -d 'location=Myrtle Beach, SC'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+	"entry": 12922
+}
+```
+
+This endpoint creates the entry with the user set to the authorized user. The endpoint returns the ID of the newly created entry.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/create`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+caption | false | The name of the pet  
+image | true | The ID of the image.   
+pet | true | The ID of the pet.    
+location | false | The location string.
+
+<aside class="success">
+Returns the ID of the newly created entry.
+</aside>

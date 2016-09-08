@@ -137,6 +137,55 @@ contest | false | id value of the Contest to filter the results against.  If no 
 Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
 </aside>
 
+## Create Pet
+
+```shell
+curl "http://api.parade.pet/pet/create"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'name=Joel'
+  -d 'petType=1'
+  -d 'petBreed=Alaskan Husky'
+  -d 'birthDate=2015-09-01'
+  -d 'gender=1'
+  -d 'profileImage=21982'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+	"pet": 12922
+}
+```
+
+This endpoint creates the pet with the owner set to the authorized user. The endpoint returns the ID of the newly created pet.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/pet/create`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+name | true | The name of the pet  
+petType | true | The ID of the pet's type.  Call /pettype to get the list of pet types.   
+petBreed | false | The name of the pet's breed.    
+birthDate | false | The pet's birthdate in yyyy-mm-dd format.
+gender | true | 1 for boy, 0 for girl.
+profileImage | true | The id of the pet's profile image.
+
+<aside class="success">
+Returns the ID of the newly created pet.
+</aside>
+
+
 ## Pet Types
 
 ```shell
@@ -189,4 +238,52 @@ Return list of pet types.
 
 <aside class="success">
 Return list of pet types.
+</aside>
+
+## Pet Breeds
+
+```shell
+curl "http://api.parade.pet/petbreed"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+[
+  {
+    "name": "Pitbull",
+    "id": 16,
+    "createdAt": "2016-07-21T05:35:38.000Z",
+    "updatedAt": "2016-07-21T05:35:38.000Z"
+  },
+  {
+    "name": "Norwegian Forest",
+    "id": 17,
+    "createdAt": "2016-07-21T05:35:38.000Z",
+    "updatedAt": "2016-07-21T05:35:38.000Z"
+  },
+  {
+    "name": "American Dingo",
+    "id": 18,
+    "createdAt": "2016-07-21T05:35:38.000Z",
+    "updatedAt": "2016-07-21T05:35:38.000Z"
+  },
+  {
+    "name": "American Shorthair",
+    "id": 19,
+    "createdAt": "2016-07-21T05:35:38.000Z",
+    "updatedAt": "2016-07-21T05:35:38.000Z"
+  }
+]
+```
+
+Return list of pet types.
+
+### HTTP Request
+
+`GET http://api.parade.pet/petbreed`
+
+
+<aside class="success">
+Return list of pet breeds.
 </aside>
