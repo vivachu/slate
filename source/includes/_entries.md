@@ -237,6 +237,10 @@ curl "http://api.parade.pet/entry/create"
   -d 'image=129827'
   -d 'pet=29722'
   -d 'location=Myrtle Beach, SC'
+  -d 'shareOnFacebook=true'
+  -d 'shareOnTwitter=true'
+  -d 'shareOnGoogle=false'
+  -d 'shareOnInstagram=true'
 ```
 
 > The above command returns JSON structured like this:
@@ -247,7 +251,7 @@ curl "http://api.parade.pet/entry/create"
 }
 ```
 
-This endpoint creates the entry with the user set to the authorized user. The endpoint returns the ID of the newly created entry.  
+This endpoint creates the entry for the specified pet and user and shares the post to the specified social networks.  The endpoint returns the ID of the newly created entry.  
 
 ### HTTP Request
 
@@ -267,6 +271,10 @@ caption | false | The name of the pet
 image | true | The ID of the image.   
 pet | true | The ID of the pet.    
 location | false | The location string.
+shareOnFacebook | false | Whether or not to share the entry on Facebook.
+shareOnTwitter | false | Whether or not to share the entry on Twitter.
+shareOnGoogle | false | Whether or not to share the entry on Google.
+shareOnInstagram | false | Whether or not to share the entry on Instagram.
 
 <aside class="success">
 Returns the ID of the newly created entry.
