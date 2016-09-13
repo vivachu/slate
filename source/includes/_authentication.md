@@ -123,7 +123,6 @@ The user object and the user's authentication token is returned.
 
 ```shell
 curl "http://localhost:1337/auth/loginWithTwitter"
-  -d 'twitterUserId=853018704828094'
   -d 'twitterToken=woofwoofwoof'
 ```
 
@@ -156,7 +155,6 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 
 Parameter | Required | Description
 --------- | ------- | -----------
-twitterUserId | true | The user's Twitter user ID as returned by the Google API.
 twitterToken | true | A valid Twitter auth token.
 
 <aside class="success">
@@ -167,7 +165,6 @@ The user object and the user's authentication token is returned.
 
 ```shell
 curl "http://localhost:1337/auth/loginWithGoogle"
-  -d 'googleUserId=853018704828094'
   -d 'googleToken=woofwoofwoof'
 ```
 
@@ -200,7 +197,6 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 
 Parameter | Required | Description
 --------- | ------- | -----------
-googleUserId | true | The user's Google user ID as returned by the Google API.
 googleToken | true | A valid Google auth token.
 
 <aside class="success">
