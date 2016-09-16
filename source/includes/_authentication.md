@@ -149,7 +149,7 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 
 ### HTTP Request
 
-`GET http://api.parade.pet/auth/loginWithGoogle`
+`GET http://api.parade.pet/auth/loginWithTwitter`
 
 ### Query Parameters
 
