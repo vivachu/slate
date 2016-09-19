@@ -36,17 +36,11 @@ curl "http://localhost:1337/auth/login"
     "firstName": "Janice",
     "lastName": "Lu",
     "email": "janice@parade.pet",
-    "facebookId": null,
-    "facebookToken": null,
     "silverCoins": 0,
     "goldCoins": 0,
     "id": 1,
-    "createdAt": "2016-06-15T18:36:43.000Z",
-    "updatedAt": "2016-06-15T18:36:43.000Z",
     "fullName": "Janice Lu",
-    "profileThumb": "https://d1rm8ch162y542.cloudfront.net/images/default-user-thumb.png",
-    "profileMedium": "https://d1rm8ch162y542.cloudfront.net/images/default-user-med.png",
-    "profileLarge": "https://d1rm8ch162y542.cloudfront.net/images/default-user-large.png"
+    "profileImage": 1232
   },
   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
 }
@@ -80,33 +74,27 @@ curl "http://localhost:1337/auth/loginWithFacebook"
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "user": {
-    "location": 6,
-    "firstName": "Janice",
-    "lastName": "Lu",
-    "email": "janice@parade.pet",
-    "facebookId": null,
-    "facebookToken": null,
-    "silverCoins": 0,
-    "goldCoins": 0,
-    "id": 1,
-    "createdAt": "2016-06-15T18:36:43.000Z",
-    "updatedAt": "2016-06-15T18:36:43.000Z",
-    "fullName": "Janice Lu",
-    "profileThumb": "https://d1rm8ch162y542.cloudfront.net/images/default-user-thumb.png",
-    "profileMedium": "https://d1rm8ch162y542.cloudfront.net/images/default-user-med.png",
-    "profileLarge": "https://d1rm8ch162y542.cloudfront.net/images/default-user-large.png"
-  },
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
-}
+		{
+		  "user": {
+			"location": 6,
+			"firstName": "Janice",
+			"lastName": "Lu",
+			"email": "janice@parade.pet",
+			"silverCoins": 0,
+			"goldCoins": 0,
+			"id": 1,
+			"fullName": "Janice Lu",
+			"profileImage": 1232
+		  },
+		  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
+		}
 ```
 
 If the user exists in the Pet Parade database, this endpoint logs the user in and returns an authorization token.  If the user does not exist in the db, the user is automatically verified with Facebook and created in the Pet Parade database if the FB token is valid.  
 
 ### HTTP Request
 
-`GET http://api.parade.pet/auth/loginWithFacebook`
+`POST http://api.parade.pet/auth/loginWithFacebook`
 
 ### Query Parameters
 
@@ -149,7 +137,7 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 
 ### HTTP Request
 
-`GET http://api.parade.pet/auth/loginWithTwitter`
+`POST http://api.parade.pet/auth/loginWithTwitter`
 
 ### Query Parameters
 
@@ -191,7 +179,7 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 
 ### HTTP Request
 
-`GET http://api.parade.pet/auth/loginWithGoogle`
+`POST http://api.parade.pet/auth/loginWithGoogle`
 
 ### Query Parameters
 
@@ -202,4 +190,118 @@ googleToken | true | A valid Google auth token.
 <aside class="success">
 The user object and the user's authentication token is returned.
 </aside>
+
+## Forgot Password
+
+```shell
+curl "http://localhost:1337/auth/forgotPassword"
+  -d 'email=janice@parade.pet'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  "OK"
+```
+
+If the user exists in the Pet Parade database, this endpoint sends an email to the user with a randomly generated password reset code that expires after 24 hours.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/auth/forgotPassword`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+email | true | The username of the user.
+
+<aside class="success">
+Returns OK if user was found and email sent successfully.
+</aside>
+
+## Verify Forgot Password Code
+
+```shell
+curl "http://localhost:1337/auth/verifyForgotPasswordCode"
+  -d 'email=janice@parade.pet'
+  -d 'code=2828XJHSU'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "Forgot-Token": "DJANNkkdnadsnadsfkhheaed.asdfajskewen"
+}
+```
+
+If the user exists in the Pet Parade database and the code is correct, then a temporary authorization token is passed back to the user which must be passed as the Authorization header to the changePassword endpoint.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/auth/verifyForgotPasswordCode`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+email | true | The username of the user.
+code | true | The code sent to the user.
+
+<aside class="success">
+Returns the authorization token to use for the changePassword endpoint.
+</aside>
+
+## Change Password
+
+```shell
+curl "http://localhost:1337/auth/changePassword"
+  -d 'email=janice@parade.pet'
+  -d 'newPassword=myNewPassword'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "user": {
+    "location": 6,
+    "firstName": "Janice",
+    "lastName": "Lu",
+    "email": "janice@parade.pet",
+    "silverCoins": 2920,
+    "goldCoins": 5,
+    "id": 1,
+    "fullName": "Janice Lu",
+    "profileImage": 12282
+  },
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
+}
+```
+
+If the user exists in the Pet Parade database and the code is correct, then a temporary authorization token is passed back to the user which must be passed as the Authorization header to the resetPassword endpoint.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/auth/changePassword`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization: Forgot-Token meowmeowmeow | true | Replace "meowmeowmeow" with the temporary ForgotPassword token of the user. 
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+email | true | The username of the user.
+newPassword | true | The new password.
+
+<aside class="success">
+Returns the user object and the authorization token for subsequent requests.  
+</aside>
+
 

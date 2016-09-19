@@ -16,20 +16,15 @@ curl "http://localhost:1337/user/create"
 ```json
 {
   "user": {
-    "email": "janice@parade.pet",
+    "location": 6,
     "firstName": "Janice",
     "lastName": "Lu",
+    "email": "janice@parade.pet",
     "silverCoins": 0,
     "goldCoins": 0,
-    "registerStep": 1,
-    "faceOffType": 1,
-    "createdAt": "2016-07-29T17:11:58.788Z",
-    "updatedAt": "2016-07-29T17:11:58.788Z",
     "id": 1,
     "fullName": "Janice Lu",
-    "profileThumb": "https://assets.parade.pet/images/default-user-thumb.png",
-    "profileMedium": "https://assets.parade.pet/images/default-user-med.png",
-    "profileLarge": "https://assets.parade.pet/images/default-user-large.png"
+    "profileImage": 1232
   },
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjE1MDI3LCJpYXQiOjE0Njk4MTIzMTh9.vul5bXtU69sKPUQG4-taH5YGeHbRQ4BPBYQpq-QA5ZU"
 }
