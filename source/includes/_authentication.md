@@ -19,61 +19,6 @@ You must replace <code>meowmeowmeow</code> with your user's API token.
 </aside>
 API tokens are specific to each Pet Parade user account.  To get a new token, you must first call the <code>/auth/login</code> or <code>/auth/loginWithFacebook</code> or endpoint.  
 
-## Sign up With Email
-
-```shell
-curl "http://localhost:1337/user/create"
-  -d 'email=janice@parade.pet'
-  -d 'password=p3tp@rad3!'
-  -d 'confirmPassword=p3tp@rad3!'
-  -d 'firstName=Janice'
-  -d 'lastName=Lu'
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "user": {
-    "email": "janice@parade.pet",
-    "firstName": "Janice",
-    "lastName": "Lu",
-    "silverCoins": 0,
-    "goldCoins": 0,
-    "registerStep": 1,
-    "faceOffType": 1,
-    "createdAt": "2016-07-29T17:11:58.788Z",
-    "updatedAt": "2016-07-29T17:11:58.788Z",
-    "id": 1,
-    "fullName": "Janice Lu",
-    "profileThumb": "https://assets.parade.pet/images/default-user-thumb.png",
-    "profileMedium": "https://assets.parade.pet/images/default-user-med.png",
-    "profileLarge": "https://assets.parade.pet/images/default-user-large.png"
-  },
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjE1MDI3LCJpYXQiOjE0Njk4MTIzMTh9.vul5bXtU69sKPUQG4-taH5YGeHbRQ4BPBYQpq-QA5ZU"
-}
-```
-
-This endpoint creates the new user, logs the user in, and returns an authorization token.  If this email already exists in the database, or the password does not match the confirmPassword, an error message is returned.   
-
-### HTTP Request
-
-`POST http://api.parade.pet/user/create`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-email | true | The user's email address.  This is the user's unique username.
-password | true | The unencrypted password.
-confirmPassword | true | The unencrypted password
-firstName | true | The user's first name
-lastName | true | The user's last name
-
-<aside class="success">
-The user object and the user's authentication token is returned.
-</aside>
-
 ## Login With Email
 
 ```shell
