@@ -17,7 +17,30 @@ curl "http://api.parade.pet/game/init"
 		"type": "dogs vs cats", 
 		"activeFaceOff": {"id":29, "entryA": 222, "entryB": 292 },
 		"numJudged": 4,
-		"size": 10
+		"size": 10,
+		"activeFaceOff": {
+        "id": 2838867,
+          "entryA": {
+            "id": 6374,
+            "image": 27999,
+            "pt": 1,
+            "f": 151,
+            "w": 73,
+            "t": 0,
+            "p": 730,
+            "u": "2016-07-15"
+          },
+          "entryB": {
+            "id": 284,
+            "image": 19880,
+            "pt": 1,
+            "f": 171,
+            "w": 79,
+            "t": 0,
+            "p": 790,
+            "u": "2016-07-15"
+          }
+        }
 	},
 	"dogs": [
 	{ 
@@ -122,7 +145,11 @@ curl "http://api.parade.pet/game/init"
 	"alerts": {
 		"faceoffs": 8,
 		"treats": 4
-	}
+	},
+	"messages": [
+	  "SIGNED IN USER CANNOT OWN ENTRY",
+	  "USER HAS EXCEEDED 50 POINTS ON THIS ENTRY"
+	]
 }
 ```
 
@@ -152,6 +179,8 @@ The endpoint returns the user's active FaceOffSet, which is where the user left 
 The alerts object contains the count of new faceoff and treat alerts to show in the Alerts tab.  The total number of alerts in the bottom nav is the sum of faceoff and treat alerts.
 
 The return data also contains the award values for silver and points for successfully judging a FaceOff.
+
+Also, a the "messages" field will is an array of warning messages for testing purposes, and to be used by the client if necessary.
 </aside>
 
 
