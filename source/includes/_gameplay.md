@@ -15,32 +15,33 @@ curl "http://api.parade.pet/game/init"
 	"faceOffSet": {
 		"id": 29,
 		"type": "dogs vs cats", 
-		"activeFaceOff": {"id":29, "entryA": 222, "entryB": 292 },
 		"numJudged": 4,
 		"size": 10,
-		"activeFaceOff": {
-        "id": 2838867,
-          "entryA": {
-            "id": 6374,
-            "image": 27999,
-            "pt": 1,
-            "f": 151,
-            "w": 73,
-            "t": 0,
-            "p": 730,
-            "u": "2016-07-15"
-          },
-          "entryB": {
-            "id": 284,
-            "image": 19880,
-            "pt": 1,
-            "f": 171,
-            "w": 79,
-            "t": 0,
-            "p": 790,
-            "u": "2016-07-15"
-          }
-        }
+		"activeFaceOff": { 
+			"id": 224789,
+			"entryA": {
+				"id":123,
+				"pet": {
+					"id": 292,
+					"name": "Sparky",
+					"image": 92,
+					"points": 9282
+				}
+			},
+			"entryB": {
+				"id":456,
+				"pet": {
+					"id": 908,
+					"name": "Tom",
+					"image": 211,
+					"points": 282
+				}
+			} 	
+		}
+	},
+	"coins": {
+		"silver": 300,
+		"gold": 20
 	},
 	"dogs": [
 	{ 
