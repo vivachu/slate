@@ -21,6 +21,7 @@ curl "http://api.parade.pet/game/init"
 			"id": 224789,
 			"entryA": {
 				"id":123,
+				"image": 2292,
 				"pet": {
 					"id": 292,
 					"name": "Sparky",
@@ -30,6 +31,7 @@ curl "http://api.parade.pet/game/init"
 			},
 			"entryB": {
 				"id":456,
+				"image": 222,
 				"pet": {
 					"id": 908,
 					"name": "Tom",
