@@ -22,7 +22,7 @@ curl "http://api.parade.pet/game/init"
 			"entryA": {
 				"id":123,
 				"image": 2292,
-				"pt": 1
+				"pt": 1,
 				"pet": {
 					"id": 292,
 					"name": "Sparky",
