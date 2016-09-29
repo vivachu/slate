@@ -112,6 +112,7 @@ The user object and the user's authentication token is returned.
 ```shell
 curl "http://localhost:1337/auth/loginWithTwitter"
   -d 'twitterToken=woofwoofwoof'
+  -d 'twitterSecret=woofwoofwoofSecret'
 ```
 
 > The above command returns JSON structured like this:
@@ -144,6 +145,7 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 Parameter | Required | Description
 --------- | ------- | -----------
 twitterToken | true | A valid Twitter auth token.
+twitterSecret | true | A valid Twitter secret that pais with the auth token.
 
 <aside class="success">
 The user object and the user's authentication token is returned.
