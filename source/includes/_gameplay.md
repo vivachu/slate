@@ -22,6 +22,7 @@ curl "http://api.parade.pet/game/init"
 			"entryA": {
 				"id":123,
 				"image": 2292,
+				"pt": 1,
 				"pet": {
 					"id": 292,
 					"name": "Sparky",
@@ -32,6 +33,7 @@ curl "http://api.parade.pet/game/init"
 			"entryB": {
 				"id":456,
 				"image": 222,
+				"pt": 2,
 				"pet": {
 					"id": 908,
 					"name": "Tom",
@@ -151,6 +153,7 @@ curl "http://api.parade.pet/game/faceoff/start"
   	"id": 224789,
   	"entryA": {
   		"id":123,
+  		"image": 456,
   		"pet": {
   			"id": 292,
   			"name": "Sparky",
@@ -160,6 +163,7 @@ curl "http://api.parade.pet/game/faceoff/start"
   	},
   	"entryB": {
   		"id":456,
+  		"image": 789,
   		"pet": {
   			"id": 908,
   			"name": "Tom",
