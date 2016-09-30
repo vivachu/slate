@@ -155,7 +155,7 @@ The user object and the user's authentication token is returned.
 
 ```shell
 curl "http://localhost:1337/auth/loginWithGoogle"
-  -d 'authCode=woofwoofwoof'
+  -d 'googleToken=woofwoofwoof'
 ```
 
 > The above command returns JSON structured like this:
@@ -187,7 +187,7 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 
 Parameter | Required | Description
 --------- | ------- | -----------
-authCode  | true | Pet Parade server will use the authCode to retrieve an access_token and refresh_token to access Google resources
+googleToken  | true | Pet Parade server will validate the googleToken with Google
 
 <aside class="success">
 The user object and the user's Pet Parade authentication token is returned.
