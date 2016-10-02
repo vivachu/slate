@@ -234,7 +234,7 @@ curl "http://localhost:1337/auth/verifyForgotPasswordCode"
 
 ```json
 {
-  "Forgot-Token": "DJANNkkdnadsnadsfkhheaed.asdfajskewen"
+  "forgotToken": "DJANNkkdnadsnadsfkhheaed.asdfajskewen"
 }
 ```
 
@@ -282,7 +282,7 @@ curl "http://localhost:1337/auth/changePassword"
 }
 ```
 
-If the user exists in the Pet Parade database and the code is correct, then a temporary authorization token is passed back to the user which must be passed as the Authorization header to the resetPassword endpoint.  
+The user's password is changed and the user object and permanent authentication token is returned.   
 
 ### HTTP Request
 
@@ -292,7 +292,7 @@ If the user exists in the Pet Parade database and the code is correct, then a te
 
 Parameter | Required | Description
 --------- | ------- | -----------
-Authorization: Forgot-Token meowmeowmeow | true | Replace "meowmeowmeow" with the temporary ForgotPassword token of the user. 
+Authorization: Forgot meowmeowmeow | true | Replace "meowmeowmeow" with the temporary ForgotPassword token of the user. 
 
 
 ### Query Parameters
@@ -303,7 +303,7 @@ email | true | The username of the user.
 newPassword | true | The new password.
 
 <aside class="success">
-Returns the user object and the authorization token for subsequent requests.  
+Sets the user's password to the new value and returns the user object and the authorization token for subsequent requests.  
 </aside>
 
 
