@@ -84,7 +84,8 @@ curl "http://localhost:1337/auth/loginWithFacebook"
 			"goldCoins": 0,
 			"id": 1,
 			"fullName": "Janice Lu",
-			"profileImage": 1232
+			"profileImage": null,
+			"socialImageUrl": "https://graph.facebook.com/v2.7/10205685653854321/picture?height=100&width=100"
 		  },
 		  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
 		}
@@ -128,7 +129,8 @@ curl "http://localhost:1337/auth/loginWithTwitter"
     "goldCoins": 5,
     "id": 1,
     "fullName": "Janice Lu",
-    "profileImage": 12282
+    "profileImage": null,
+	"socialImageUrl": "https://pbs.twimg.com/profile_images/378800000753932431/676c96084573bd3f0cf8cdda9bf9b81c_bigger.jpeg"
   },
   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
 }
@@ -171,7 +173,8 @@ curl "http://localhost:1337/auth/loginWithGoogle"
     "goldCoins": 5,
     "id": 1,
     "fullName": "Janice Lu",
-    "profileImage": 12282
+    "profileImage": null,
+	"socialImageUrl": "https://lh5.googleusercontent.com/-qwH0vbfyHXo/AAAAAAAAAAI/AAAAAAAAAA0/r7qnmlhNFV4/s96-c/photo.jpg"    
   },
   "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzaWQiOjEsImlhdCI6MTQ2NjAxNjcyM30.ASL8gaX3Ulfs7I_lcLfa-1RVJX83qfsQP4rVbIH9AkI"
 }
