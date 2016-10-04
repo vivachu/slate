@@ -204,7 +204,11 @@ curl "http://api.parade.pet/entries/me"
         "type": "Dog"
       }
     }
-	]
+	],
+  "coins": {
+    "silver": 1000,
+    "gold": 640
+  }	
 }
 ```
 
