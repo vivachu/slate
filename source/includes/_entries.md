@@ -284,9 +284,11 @@ Returns the newly created boost object and the user's gold balance after purchas
 ```shell
 curl "http://api.parade.pet/entry/create"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'caption=My good boy playing'
   -d 'image=129827'
   -d 'pet=29722'
+  -d 'contest=1'
+  -d 'entryFee=123'
+  -d 'caption=My good boy playing'
   -d 'location=Myrtle Beach, SC'
   -d 'shareOnFacebook=true'
   -d 'shareOnTwitter=true'
@@ -298,7 +300,20 @@ curl "http://api.parade.pet/entry/create"
 
 ```json 
 {
-	"entry": 12922
+  "entry": {
+    "image": 39976,
+    "pet": 11259,
+    "contest": 1,
+    "caption": "My dog is da bomb",
+    "entryFee": 10,
+    "location": 35,
+    "owner": 11422,
+    "numFaceOffs": 0,
+    "numWins": 0,
+    "numTreats": 0,
+    "numPoints": 0,
+    "id": 8731
+  }
 }
 ```
 
@@ -318,9 +333,11 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-caption | false | The name of the pet  
 image | true | The ID of the image.   
 pet | true | The ID of the pet.    
+contest | true | The ID of the contest.    
+entryFee | false | The entry fee paid   
+caption | false | The description of the entry  
 location | false | The location string.
 shareOnFacebook | false | Whether or not to share the entry on Facebook.
 shareOnTwitter | false | Whether or not to share the entry on Twitter.
@@ -328,5 +345,5 @@ shareOnGoogle | false | Whether or not to share the entry on Google.
 shareOnInstagram | false | Whether or not to share the entry on Instagram.
 
 <aside class="success">
-Returns the ID of the newly created entry.
+Returns the newly created entry.
 </aside>

@@ -154,7 +154,16 @@ curl "http://api.parade.pet/pet/create"
 
 ```json 
 {
-	"pet": 12922
+  "pet": {
+    "name": "Radiant",
+    "petType": 2,
+    "owner": 11422,
+    "petBreed": 13,
+    "gender": 2,
+    "birthYear": 2016,
+    "profileImage": 39960,
+    "id": 14893
+  }
 }
 ```
 
@@ -177,12 +186,12 @@ Parameter | Required | Description
 name | true | The name of the pet  
 petType | true | The ID of the pet's type.  Call /pettype to get the list of pet types.   
 petBreed | false | The name of the pet's breed.    
-birthDate | false | The pet's birthdate in yyyy-mm-dd format.
+birthYear | false | The pet's birth year in yyyy format.
 gender | true | 1 for boy, 0 for girl.
 profileImage | true | The id of the pet's profile image.
 
 <aside class="success">
-Returns the ID of the newly created pet.
+Returns the newly created pet object.
 </aside>
 
 

@@ -14,12 +14,20 @@ curl "http://api.parade.pet/image/create"
 ```json 
 {
 	"image": 12922,
-	"petType": {id: 1, name: 'Dog'}
+	"petType": {
+		"id": 1, 
+		"name": "Dog"
+	}
 }
 
 {
   "err": "Grrrrrr... That's not a pet."
 }
+
+{
+  "err": "Grrrrrr... That's inappropriate."
+}
+
 
 ```
 
