@@ -1,26 +1,60 @@
 # Coins
 
-## Exchange Coins
+## Coins For Sale
 
 ```shell
-curl "http://api.parade.pet/coins/exchange"
+curl "http://api.parade.pet/coins/forSale"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'silver=1000'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "gold:": 100
+  "gold": [
+    {
+      "productId": "com.goodboystudios.petparade.gold.pile",
+      "name": "Pile of Gold",
+      "numGold": 40,
+      "numSilver": 0,
+      "price": 1.99,
+      "id": 7
+    },
+    {
+      "productId": "com.goodboystudios.petparade.gold.bag",
+      "name": "Bag of Gold",
+      "numGold": 125,
+      "numSilver": 0,
+      "price": 4.99,
+      "id": 8
+    }
+  ],
+  "silver": [
+    {
+      "productId": "com.goodboystudios.petparade.silver.pile",
+      "name": "Pile of Silver",
+      "numGold": 0,
+      "numSilver": 100,
+      "price": 0.99,
+      "id": 1
+    },
+    {
+      "productId": "com.goodboystudios.petparade.silver.bag",
+      "name": "Bag of Silver",
+      "numGold": 0,
+      "numSilver": 350,
+      "price": 2.99,
+      "id": 2
+    }
+  ]
 }
 ```
 
-Call this endpoint to exchange silver coins to gold or gold to silver.  Pass in silver to return gold or pass gold to return silver at the current exchange rate of 1 gold = 10 silver.  The user's coin balance is automatically adjusted based upon the exchange.  
+Retrieve the list of CoinBundle objects for sale organized by gold and silver.  The productId is the unique app store productId whereas the id is the CoinBundle.id used for the /coins/buy Pet Parade endpoint.    
 
 ### HTTP Request
 
-`POST http://api.parade.pet/coins/exchange`
+`POST http://api.parade.pet/coins/forSale`
 
 ### Header Parameters
 
@@ -33,10 +67,53 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-silver | false | Amount of silver to exchange for gold.  This value must be greater than or equal to 10 and in increments of 10.  
-gold | false | Amount of gold to exchange for silver.  This value must be a positive integer.
 
 <aside class="success">
-Returns gold or silver based upon the input query parameter using the exchange rate of 10 silver per 1 gold. The user's coin balance is automatically adjusted based upon the exchange.  Returns an error message if the user does not have enough of the input coin specified.   
+Returns CoinBundle objects for sale in the app store organized as two separate arrays silver and gold.
+</aside>
+
+
+## Buy Coins
+
+```shell
+curl "http://api.parade.pet/coins/buy"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'coinBundle=10'
+  -d 'receipt=DKSHNE-NSNHE'
+  -d 'store=apple'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "goldBalance": 100,
+  "silverBalance": 220
+}
+```
+
+Call this endpoint to inform the server of a successful in-app purchase of coins and to persist the sale record and increment the user's coin balance.  The server verifies the receipt with the specified store (apple, google, or amazon) and increments the user's coin balance.   
+
+### HTTP Request
+
+`POST http://api.parade.pet/coins/buy`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+coinBundle | true | The id of the coinBundle purchased.  
+receipt | true | The unique sales receipt to verify with the specified store
+store | true | Either apple, google, or amazon.
+
+<aside class="success">
+Returns the user's coin balance upon success. Returns an error if the receipt is invalid.  
 </aside>
 

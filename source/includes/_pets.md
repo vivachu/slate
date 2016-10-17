@@ -145,7 +145,9 @@ curl "http://api.parade.pet/pet/create"
   -d 'name=Joel'
   -d 'petType=1'
   -d 'petBreed=Alaskan Husky'
-  -d 'birthDate=2015-09-01'
+  -d 'birthYear=2015'
+  -d 'birthMonth=10'
+  -d 'birthDay=1'
   -d 'gender=1'
   -d 'profileImage=21982'
 ```
@@ -161,6 +163,8 @@ curl "http://api.parade.pet/pet/create"
     "petBreed": 13,
     "gender": 2,
     "birthYear": 2016,
+    "birthMonth": 10,
+    "birthDay": 20,
     "profileImage": 39960,
     "id": 14893
   }
@@ -186,7 +190,9 @@ Parameter | Required | Description
 name | true | The name of the pet  
 petType | true | The ID of the pet's type.  Call /pettype to get the list of pet types.   
 petBreed | false | The name of the pet's breed.    
-birthYear | false | The pet's birth year in yyyy format.
+birthYear | false | The pet's birth year in yyyy format. Compute from the pet's age.
+birthMonth | false | The pet's birth month in integer format.
+birthDay | false | The pet's birth day in integer format.
 gender | true | 1 for boy, 0 for girl.
 profileImage | true | The id of the pet's profile image.
 
