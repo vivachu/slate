@@ -289,11 +289,12 @@ curl "http://api.parade.pet/entry/create"
   -d 'contest=1'
   -d 'entryFee=123'
   -d 'caption=My good boy playing'
-  -d 'location=Myrtle Beach, SC'
+  -d 'locationName=Old Greenwich'
+  -d 'locationPlaceId=ChIJ40eAhsuYwokRQRwdUvcEqH4'
+  -d 'locationAddress=Old Greenwich, CT 06870'
+  -d 'locationLocale=US'
   -d 'shareOnFacebook=true'
   -d 'shareOnTwitter=true'
-  -d 'shareOnGoogle=false'
-  -d 'shareOnInstagram=true'
 ```
 
 > The above command returns JSON structured like this:
@@ -338,11 +339,12 @@ pet | true | The ID of the pet.
 contest | true | The ID of the contest.    
 entryFee | false | The entry fee paid   
 caption | false | The description of the entry  
-location | false | The location string.
+locationName | false | The location name as returned from Google Place API.
+locationPlaceId | false | The location placeId as returned from Google Place API.
+locationAddress | false | The location address as returned from Google Place API.
+locationLocale | false | The location locale as returned from Google Place API.
 shareOnFacebook | false | Whether or not to share the entry on Facebook.
 shareOnTwitter | false | Whether or not to share the entry on Twitter.
-shareOnGoogle | false | Whether or not to share the entry on Google.
-shareOnInstagram | false | Whether or not to share the entry on Instagram.
 
 <aside class="success">
 Returns the newly created entry.

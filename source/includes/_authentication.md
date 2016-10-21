@@ -196,6 +196,38 @@ googleToken  | true | Pet Parade server will validate the googleToken with Googl
 The user object and the user's Pet Parade authentication token is returned.
 </aside>
 
+## Validate Social Tokens
+
+```shell
+curl "http://api.parade.pet/user/validateSocialTokens"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this: 
+
+```
+{
+    "facebook": true,
+    "twitter": false
+}
+```
+
+This endpoint validates the user's saved auth tokens for Facebook and Twitter and confirms whether the token is valid to share content on the user's behalf.  
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/validateSocialTokens
+  
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns true or false for each social network. Note that false will be returned if a social network's token has expired or does not possess access rights to post on the user's behalf.  
+</aside>
+
 ## Forgot Password
 
 ```shell
