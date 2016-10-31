@@ -199,7 +199,7 @@ The user object and the user's Pet Parade authentication token is returned.
 ## Validate Social Tokens
 
 ```shell
-curl "http://api.parade.pet/user/validateSocialTokens"
+curl "http://api.parade.pet/auth/validateSocialTokens"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -216,7 +216,7 @@ This endpoint validates the user's saved auth tokens for Facebook and Twitter an
 
 ### HTTP Request
 
-`GET http://api.parade.pet/user/validateSocialTokens
+`GET http://api.parade.pet/auth/validateSocialTokens`
   
 ### Header Parameters
 
@@ -226,6 +226,46 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 <aside class="success">
 Returns true or false for each social network. Note that false will be returned if a social network's token has expired or does not possess access rights to post on the user's behalf.  
+</aside>
+
+## Set Social Token
+
+```shell
+curl "http://api.parade.pet/auth/setSocialToken"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'fbUserId=218127272'
+  -d 'fbToken=28SAKJDNBHDHAKAJJEJE28XJHSU'  
+```
+
+> The above command returns JSON structured like this: 
+
+```
+    "OK"
+```
+
+This endpoint saves either the user's facebook and/or twitter social tokens.  If you are passing in the fbToken, then the user's fbUserId is also required.  If you are passing in the user's twitterToken, then the user's twitterSecret is also required.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/auth/setSocialToken`
+  
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+fbToken | false | Either the facebook token or the twitter token is required.
+fbUserId | false | The facebookId of the user.
+twitterToken | false | Either the facebook token or the twitter token is required.
+twitterSecret | false | The user's twitter secret.
+
+<aside class="success">
+Returns OK if the logged in user's social tokens was updated successfully.
 </aside>
 
 ## Forgot Password

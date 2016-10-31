@@ -50,6 +50,41 @@ id | true |  entryId value, passed in the url path
 Return a single entry based on entryId 
 </aside>
 
+## Delete Entry
+
+```shell
+curl -X "DELETE" "http://api.parade.pet/entry/<id>"
+```
+
+> The above command returns JSON structured like this:
+
+```
+	"OK"
+```
+Return OK if the entry was deleted successfully.  Error otherwise.
+
+### HTTP Request
+
+`DELETE http://api.parade.pet/entry/<entry_id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry_id | true |  entryId value, passed in the url path
+
+
+<aside class="success">
+Return OK if the entry was successfully deleted.  
+</aside>
+
+
 ## Search Entries
 
 ```shell
@@ -278,6 +313,56 @@ price | false | The purchase price in gold.
 <aside class="success">
 Returns the newly created boost object and the user's gold balance after purchasing the boost.
 </aside>
+
+## Get Boost
+
+```shell
+curl "http://api.parade.pet/boost/<id>"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "boost": {
+    "entry": {
+      "id": 292,
+      "image": 755
+    },
+    "numBoosted": 10,
+    "price": 20,
+    "numFaceOffs": 10,
+    "numWins": 5,
+    "numPoints": 0,
+    "completed": "2016-10-24T21:10:28.000Z",
+    "id": 1
+  },
+  "goldBalance": 80
+}
+```
+Return a specific boost based on boost id value. A single boost is returned.
+
+### HTTP Request
+
+`GET http://api.parade.pet/boost/<id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  boostId value, passed in the url path
+
+
+<aside class="success">
+Return a single boost based on boostId 
+</aside>
+
 
 ## Create Entry
 
