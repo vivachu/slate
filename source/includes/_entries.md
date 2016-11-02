@@ -243,7 +243,8 @@ curl "http://api.parade.pet/entries/me"
   "coins": {
     "silver": 1000,
     "gold": 640
-  }	
+  },
+  "canPost": true
 }
 ```
 
@@ -433,4 +434,42 @@ shareOnTwitter | false | Whether or not to share the entry on Twitter.
 
 <aside class="success">
 Returns the newly created entry.
+</aside>
+
+## Report Entry
+
+```shell
+curl "http://api.parade.pet/entry/report"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'entry=8372'
+  -d 'reason=Not pet'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint reports an entry that the user finds questionable.
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/report`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry | true | The ID of the entry being reported.   
+reason | true | The reason the user is reporting. Valid reasons:  Not pet, Spam, Objectionable   
+
+<aside class="success">
+Returns OK
 </aside>

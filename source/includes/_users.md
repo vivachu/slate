@@ -85,3 +85,39 @@ token | true |  Firebase token string, included as part of url
 <aside class="success">
 Sets the authenticated user's firebaseToken field to the POSTed Firebase token.  Returns "OK" if successful.
 </aside>
+
+## Block User
+
+```shell
+curl "http://api.parade.pet/user/block"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'userToBlock=8372'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint reports an entry that the user finds questionable.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/block`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userToBlock | true | The ID of the user to block   
+
+<aside class="success">
+Returns OK
+</aside>
