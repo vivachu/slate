@@ -76,7 +76,7 @@ curl "http://api.parade.pet/image/payEntryFee"
     "id": 2
   },
   "goldBalance": 180,
-  "silverBalance": 90,
+  "silverBalance": 90
 }
 
 {
