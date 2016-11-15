@@ -61,6 +61,7 @@ curl "http://api.parade.pet/image/payEntryFee"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'image=1292'
   -d 'fee=10'
+  -d 'feeType=silver'
 ```
 
 > The above command returns JSON structured like this:
@@ -74,7 +75,8 @@ curl "http://api.parade.pet/image/payEntryFee"
     "silverFee": 0,
     "id": 2
   },
-  "goldBalance": 180
+  "goldBalance": 180,
+  "silverBalance": 90,
 }
 
 {
@@ -83,7 +85,7 @@ curl "http://api.parade.pet/image/payEntryFee"
 
 ```
 
-This endpoint creates the EntryFee object and charges the user the fee in goldCoins.  The user's goldBalance is returned after deducting the fee. 
+This endpoint creates the EntryFee object and charges the user the fee in feeType.  The user's gold and silver balance is returned after deducting the fee. 
 
 ### HTTP Request
 
@@ -100,8 +102,9 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 image | true | The image to pay the fee on.
-fee| true | The fee to pay in gold coins. 
+fee| true | The fee to pay in gold or silver coins. 
+feeType| true | Whether to pay in gold or silver coins. 
 
 <aside class="success">
-Returns the EntryFee object and the user's goldBalance after the fee has been deducted.
+Returns the EntryFee object and the user's gold and silver balance after the fee has been deducted.
 </aside>

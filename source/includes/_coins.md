@@ -67,6 +67,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
+store | true | Either apple, google, or amazon.
 
 <aside class="success">
 Returns CoinBundle objects for sale in the app store organized as two separate arrays silver and gold.
