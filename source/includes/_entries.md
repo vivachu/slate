@@ -436,6 +436,71 @@ shareOnTwitter | false | Whether or not to share the entry on Twitter.
 Returns the newly created entry.
 </aside>
 
+## Create Entry
+
+```shell
+curl "http://api.parade.pet/entry/create"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'entry=127'
+  -d 'pet=29722'
+  -d 'caption=My good boy playing'
+  -d 'locationName=Old Greenwich'
+  -d 'locationPlaceId=ChIJ40eAhsuYwokRQRwdUvcEqH4'
+  -d 'shareOnFacebook=true'
+  -d 'shareOnTwitter=true'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "entry": {
+    "image": 39976,
+    "pet": 11259,
+    "contest": 1,
+    "caption": "My dog is da bomb",
+    "entryFee": 10,
+    "location": 35,
+    "owner": 11422,
+    "numFaceOffs": 0,
+    "numWins": 0,
+    "numTreats": 0,
+    "numPoints": 0,
+    "id": 8731
+  }
+}
+```
+
+This endpoint updates the entry for the specified pet and user and shares the post to the specified social networks.  The endpoint returns the updated entry.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/update`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry | true | The ID of the entry being updated.    
+pet | true | The ID of the pet.    
+caption | false | The description of the entry  
+locationName | false | The location name as returned from Google Place API.
+locationPlaceId | false | The location placeId as returned from Google Place API.
+locationAddress | false | The location address as returned from Google Place API.
+locationLocale | false | The location locale as returned from Google Place API.
+shareOnFacebook | false | Whether or not to share the entry on Facebook.
+shareOnTwitter | false | Whether or not to share the entry on Twitter.
+
+<aside class="success">
+Returns the updated entry.
+</aside>
+
 ## Report Entry
 
 ```shell
