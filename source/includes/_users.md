@@ -6,9 +6,13 @@
 curl "http://localhost:1337/user/create"
   -d 'email=janice@parade.pet'
   -d 'password=p3tp@rad3!'
-  -d 'confirmPassword=p3tp@rad3!'
   -d 'firstName=Janice'
   -d 'lastName=Lu'
+  -d 'utm_campaign=contest-adwords'
+  -d 'utm_medium=display'
+  -d 'utm_source=google'
+  -d 'device={"model":"SM-G930P","vendor":"Samsung","type":"mobile"}'
+  -d 'os={"name":"Android","version":"6.0.1"}'
 ```
 
 > The above command returns JSON structured like this:
@@ -42,9 +46,14 @@ Parameter | Required | Description
 --------- | ------- | -----------
 email | true | The user's email address.  This is the user's unique username.
 password | true | The unencrypted password.
-confirmPassword | true | The unencrypted password
+confirmPassword | false | The unencrypted password
 firstName | true | The user's first name
 lastName | true | The user's last name
+utm_campaign | false | Marketing campaign pass through
+utm_medium | false | Marketing pass through
+utm_source | false | Marketing pass through
+device | false | The device model, vendor and type passed through as a JSON string 
+os | false | The iOS name and version passed through as a JSON string
 
 <aside class="success">
 The user object and the user's authentication token is returned.
@@ -121,3 +130,42 @@ userToBlock | true | The ID of the user to block
 <aside class="success">
 Returns OK
 </aside>
+
+## Send Feedback
+
+```shell
+curl "http://api.parade.pet/user/sendFeedback"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'subject=Feature Suggestion'
+  -d 'message=I would love to be able to delete a photo.'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint reports an entry that the user finds questionable.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/sendFeedback`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+subject | true | The subject of your message  
+message | true | The message
+
+<aside class="success">
+Returns OK
+</aside>
+

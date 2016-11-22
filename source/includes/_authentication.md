@@ -69,6 +69,11 @@ The user object and the user's authentication token is returned.
 curl "http://localhost:1337/auth/loginWithFacebook"
   -d 'fbUserId=853018704828094'
   -d 'fbToken=woofwoofwoof'
+  -d 'utm_campaign=contest-adwords'
+  -d 'utm_medium=display'
+  -d 'utm_source=google'
+  -d 'device={"model":"SM-G930P","vendor":"Samsung","type":"mobile"}'
+  -d 'os={"name":"Android","version":"6.0.1"}'  
 ```
 
 > The above command returns JSON structured like this:
@@ -103,6 +108,11 @@ Parameter | Required | Description
 --------- | ------- | -----------
 fbUserId | true | The user's Facebook user ID as returned by the Facebook API.
 fbToken | true | A valid Facebook auth token.
+utm_campaign | false | Marketing campaign pass through
+utm_medium | false | Marketing pass through
+utm_source | false | Marketing pass through
+device | false | The device model, vendor and type passed through as a JSON string 
+os | false | The iOS name and version passed through as a JSON string
 
 <aside class="success">
 The user object and the user's authentication token is returned.
@@ -114,6 +124,11 @@ The user object and the user's authentication token is returned.
 curl "http://localhost:1337/auth/loginWithTwitter"
   -d 'twitterToken=woofwoofwoof'
   -d 'twitterSecret=woofwoofwoofSecret'
+  -d 'utm_campaign=contest-adwords'
+  -d 'utm_medium=display'
+  -d 'utm_source=google'
+  -d 'device={"model":"SM-G930P","vendor":"Samsung","type":"mobile"}'
+  -d 'os={"name":"Android","version":"6.0.1"}'  
 ```
 
 > The above command returns JSON structured like this:
@@ -148,6 +163,11 @@ Parameter | Required | Description
 --------- | ------- | -----------
 twitterToken | true | A valid Twitter auth token.
 twitterSecret | true | A valid Twitter secret that pais with the auth token.
+utm_campaign | false | Marketing campaign pass through
+utm_medium | false | Marketing pass through
+utm_source | false | Marketing pass through
+device | false | The device model, vendor and type passed through as a JSON string 
+os | false | The iOS name and version passed through as a JSON string
 
 <aside class="success">
 The user object and the user's authentication token is returned.
@@ -158,6 +178,11 @@ The user object and the user's authentication token is returned.
 ```shell
 curl "http://localhost:1337/auth/loginWithGoogle"
   -d 'googleToken=woofwoofwoof'
+  -d 'utm_campaign=contest-adwords'
+  -d 'utm_medium=display'
+  -d 'utm_source=google'
+  -d 'device={"model":"SM-G930P","vendor":"Samsung","type":"mobile"}'
+  -d 'os={"name":"Android","version":"6.0.1"}'  
 ```
 
 > The above command returns JSON structured like this:
@@ -191,6 +216,11 @@ If the user exists in the Pet Parade database, this endpoint logs the user in an
 Parameter | Required | Description
 --------- | ------- | -----------
 googleToken  | true | Pet Parade server will validate the googleToken with Google
+utm_campaign | false | Marketing campaign pass through
+utm_medium | false | Marketing pass through
+utm_source | false | Marketing pass through
+device | false | The device model, vendor and type passed through as a JSON string 
+os | false | The iOS name and version passed through as a JSON string
 
 <aside class="success">
 The user object and the user's Pet Parade authentication token is returned.

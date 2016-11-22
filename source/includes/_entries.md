@@ -436,10 +436,10 @@ shareOnTwitter | false | Whether or not to share the entry on Twitter.
 Returns the newly created entry.
 </aside>
 
-## Create Entry
+## Update Entry
 
 ```shell
-curl "http://api.parade.pet/entry/create"
+curl "http://api.parade.pet/entry/update"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'entry=127'
   -d 'pet=29722'
