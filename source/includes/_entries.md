@@ -12,7 +12,8 @@ curl "http://api.parade.pet/entry/<id>"
 {
   "id": 283,
   "caption": "Arvel",
-  "location": "Vancouver, Canada",
+  "location": "Chicago",
+  "locationPlaceId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
   "image": 19878,
   "points": 880,
   "numFaceOffs": 172,
