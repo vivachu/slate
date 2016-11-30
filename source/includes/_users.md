@@ -169,3 +169,80 @@ message | true | The message
 Returns OK
 </aside>
 
+## Get User Profile
+
+```shell
+curl "http://api.parade.pet/user/profile"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=1523'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "name": "Kaylyn may",
+  "profileImage": 5927,
+  "socialImageUrl": null,
+  "location": "Knoxville, Tn",
+  "pets": [
+    {
+      "id": 1408,
+      "name": "Moose"
+    },
+    {
+      "id": 1409,
+      "name": "Hank"
+    }
+  ],
+  "entries": [
+    {
+      "id": 3253,
+      "image": 5926
+    },
+    {
+      "id": 3252,
+      "image": 5925
+    },
+    {
+      "id": 3251,
+      "image": 5924
+    },
+    {
+      "id": 3250,
+      "image": 5923
+    },
+    {
+      "id": 3246,
+      "image": 5919
+    },
+    {
+      "id": 3245,
+      "image": 5918
+    }
+  ]
+}
+```
+
+This endpoint returns the user profile for the specific userId passed as a parameter.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/profile/<id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | userId value, passed in the url path
+
+<aside class="success">
+Returns the user profile for the specific userId.
+</aside>
+

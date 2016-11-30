@@ -137,6 +137,67 @@ contest | false | id value of the Contest to filter the results against.  If no 
 Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
 </aside>
 
+## Get Pet Profile
+
+```shell
+curl "http://api.parade.pet/pet/profile"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=1003'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "name": "Bella",
+  "breed": "Yorkie",
+  "type": "Dog",
+  "age": "1 Year",
+  "owner": {
+    "id": 1054,
+    "profileImage": 4197,
+    "socialImageUrl": null,
+    "name": "Carle dickerson"
+  },
+  "entries": [
+    {
+      "id": 2242,
+      "image": 4196
+    },
+    {
+      "id": 2241,
+      "image": 4194
+    },
+    {
+      "id": 2240,
+      "image": 4192
+    }
+  ]
+}
+```
+
+This endpoint returns the pet profile for the specific petId passed as a parameter.
+
+### HTTP Request
+
+`GET http://api.parade.pet/pet/profile/<id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | petId value, passed in the url path
+
+<aside class="success">
+Returns the pet profile for the specific petId.
+</aside>
+
 ## Create Pet
 
 ```shell
