@@ -141,7 +141,6 @@ Returns the authorized user's pets and their points total and placement over the
 
 ```shell
 curl "http://api.parade.pet/pet/profile"
-  -H "Authorization:  Bearer meowmeowmeow"
   -d 'id=1003'
 ```
 
@@ -184,9 +183,7 @@ This endpoint returns the pet profile for the specific petId passed as a paramet
 
 ### Header Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+None
 
 ### Query Parameters
 
@@ -196,6 +193,49 @@ id | true | petId value, passed in the url path
 
 <aside class="success">
 Returns the pet profile for the specific petId.
+</aside>
+
+## Edit Pet Profile
+
+```shell
+curl "http://api.parade.pet/pet/update"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=1003'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+"OK"
+```
+
+This endpoint updates the pet profile for the specific petId passed as a parameter.
+
+### HTTP Request
+
+`GET http://api.parade.pet/pet/update/<id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | petId value, passed in the url path
+name | false | The name of the pet  
+petBreed | false | The name of the pet's breed.    
+birthYear | false | The pet's birth year in yyyy format. Compute from the pet's age.
+birthMonth | false | The pet's birth month in integer format.
+birthDay | false | The pet's birth day in integer format.
+gender | false | 1 for boy, 0 for girl.
+profileImage | false | The id of the pet's profile image.
+
+<aside class="success">
+Returns OK if success or an error message.
 </aside>
 
 ## Create Pet

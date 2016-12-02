@@ -7,6 +7,7 @@ curl "http://api.parade.pet/image/create"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'platform=ios'
   -d 'directory=129292323903238'
+  -d 'mode=profile'
 ```
 
 > The above command returns JSON structured like this:
@@ -49,6 +50,7 @@ Parameter | Required | Description
 --------- | ------- | -----------
 platform | true | Either web, ios, or android
 directory| true | The unique directory under the platform containing the orig.jpg and cropped.jpg files
+profile | false | This parameter is set to "profile" when uploading a user profile image
 
 <aside class="success">
 Returns the ID of the newly created image along with the pet type of the image.  

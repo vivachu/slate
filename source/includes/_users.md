@@ -173,7 +173,6 @@ Returns OK
 
 ```shell
 curl "http://api.parade.pet/user/profile"
-  -H "Authorization:  Bearer meowmeowmeow"
   -d 'id=1523'
 ```
 
@@ -232,9 +231,8 @@ This endpoint returns the user profile for the specific userId passed as a param
 
 ### Header Parameters
 
-Parameter | Required | Description
---------- | ------- | -----------
-Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+None
+
 
 ### Query Parameters
 
@@ -244,5 +242,46 @@ id | true | userId value, passed in the url path
 
 <aside class="success">
 Returns the user profile for the specific userId.
+</aside>
+
+## Edit User Profile
+
+```shell
+curl "http://api.parade.pet/user/update"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=1523'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+"OK"
+```
+
+This endpoint update the user profile for the specific userId passed as a parameter.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/update/<id>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | userId value, passed in the url path
+firstName | false | The user's first name
+lastName | false | The user's last name
+location | false | The user's location
+profileImage | false | The id of the user's profile image
+
+
+<aside class="success">
+Returns OK if success or an error message.
 </aside>
 
