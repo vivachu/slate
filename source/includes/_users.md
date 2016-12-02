@@ -262,7 +262,7 @@ This endpoint update the user profile for the specific userId passed as a parame
 
 ### HTTP Request
 
-`GET http://api.parade.pet/user/update/<id>`
+`POST http://api.parade.pet/user/update/<id>`
 
 ### Header Parameters
 

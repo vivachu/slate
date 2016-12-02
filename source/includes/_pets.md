@@ -213,7 +213,7 @@ This endpoint updates the pet profile for the specific petId passed as a paramet
 
 ### HTTP Request
 
-`GET http://api.parade.pet/pet/update/<id>`
+`POST http://api.parade.pet/pet/update/<id>`
 
 ### Header Parameters
 
