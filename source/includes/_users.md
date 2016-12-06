@@ -249,7 +249,6 @@ Returns the user profile for the specific userId.
 ```shell
 curl "http://api.parade.pet/user/update"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'id=1523'
 ```
 
 > The above command returns JSON structured like this:
@@ -258,11 +257,11 @@ curl "http://api.parade.pet/user/update"
 "OK"
 ```
 
-This endpoint update the user profile for the specific userId passed as a parameter.
+This endpoint update the user profile for the signed in user.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/user/update/<id>`
+`POST http://api.parade.pet/user/update`
 
 ### Header Parameters
 
@@ -274,7 +273,6 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-id | true | userId value, passed in the url path
 firstName | false | The user's first name
 lastName | false | The user's last name
 location | false | The user's location
