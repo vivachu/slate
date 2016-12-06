@@ -152,6 +152,8 @@ curl "http://api.parade.pet/pet/profile"
   "breed": "Yorkie",
   "type": "Dog",
   "age": "1 Year",
+  "gender": 0,
+  "profileImage": 1265,
   "owner": {
     "id": 1054,
     "profileImage": 4197,
