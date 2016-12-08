@@ -173,7 +173,9 @@ curl "http://api.parade.pet/pet/profile"
       "id": 2240,
       "image": 4192
     }
-  ]
+  ],
+  "place": 770,
+  "placeByType": 96
 }
 ```
 
