@@ -27,7 +27,77 @@ curl "http://api.parade.pet/entry/<id>"
       "image": 19877
     },
     "type": "Dog"
-  }
+  },
+  "comments": [
+    {
+      "replies": [],
+      "user": {
+        "id": 104,
+        "name": "Paula Pickles",
+        "profileImage": 713,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100"
+      },
+      "entry": 6280,
+      "parent": null,
+      "comment": "Mmmm smells so good",
+      "id": 1523,
+      "timestamp": 8162.516
+    },
+    {
+      "replies": [
+        {
+          "id": 2049,
+          "user": {
+            "id": 104,
+            "name": "Paula Pickles",
+            "profileImage": 713,
+            "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100"
+          },
+          "entry": 6280,
+          "parent": 2048,
+          "comment": "The best ever",
+          "timestamp": 4167.518
+        },
+        {
+          "id": 2050,
+          "user": {
+            "id": 104,
+            "name": "Paula Pickles",
+            "profileImage": 713,
+            "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100"
+          },
+          "entry": 6280,
+          "parent": 2048,
+          "comment": "My dog eats my socks",
+          "timestamp": 51.519
+        },
+        {
+          "id": 2051,
+          "user": {
+            "id": 212,
+            "name": "concetta78 ",
+            "profileImage": null,
+            "socialImageUrl": null
+          },
+          "entry": 6280,
+          "parent": 2048,
+          "comment": "Mine get into the laundry",
+          "timestamp": 3.52
+        }
+      ],
+      "user": {
+        "id": 1090,
+        "name": "Viva Chu",
+        "profileImage": null,
+        "socialImageUrl": null
+      },
+      "entry": 6280,
+      "parent": null,
+      "comment": "My dog loves stinky fee too",
+      "id": 2048,
+      "timestamp": 4214.521
+    }
+  ]  
 }
 ```
 Return a specific entry based on entryId value. A single entry is returned.
@@ -538,4 +608,77 @@ reason | true | The reason the user is reporting. Valid reasons:  Not pet, Spam,
 
 <aside class="success">
 Returns OK
+</aside>
+
+## Comment On Entry
+
+```shell
+curl "http://api.parade.pet/entry/comment"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'entry=8372'
+  -d 'comment=She is sooo cute'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint creates a comment on entry.
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/comment`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry | true | The ID of the entry being commented on.   
+comment | true | The comment
+parent | false | The id of the parent comment if replying to a comment
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Delete Comment
+
+```shell
+curl -X "DELETE" "http://api.parade.pet/entry/comment/<commentId>"
+```
+
+> The above command returns JSON structured like this:
+
+```
+	"OK"
+```
+Return OK if the comment was deleted successfully.  Error otherwise.
+
+### HTTP Request
+
+`DELETE http://api.parade.pet/entry/comment/<commentId>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+commentId | true |  commentId value, passed in the url path
+
+
+<aside class="success">
+Return OK if the comment was successfully deleted.  Note all child replies to the comment will also be deleted.
 </aside>

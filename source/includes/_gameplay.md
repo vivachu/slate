@@ -95,7 +95,8 @@ curl "http://api.parade.pet/game/init"
 	},
 	"alerts": {
 		"faceoffs": 8,
-		"treats": 4
+		"treats": 4,
+		"comments": 6
 	},
 	"messages": [
 	  "SIGNED IN USER CANNOT OWN ENTRY",
@@ -292,7 +293,12 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "points": 20,
       "place": 928,
       "type": "Horse"
-    }
+    },
+	"alerts": {
+		"faceoffs": 8,
+	   	"treats": 4,
+	   	"comments": 6
+	}    
   ]
 }
 ```
