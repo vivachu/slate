@@ -13,7 +13,7 @@ curl "http://api.parade.pet/alerts/treats"
 {
 	"alerts": [
 		{ 
-		  "timestamp": "1 hour",
+		  "timestamp": 99749.137,
 		  "new": true,
 		  "sender": {
 		  	"id": 2912,
@@ -34,7 +34,7 @@ curl "http://api.parade.pet/alerts/treats"
 		  }	  	
 		},
 		{ 
-		  "timestamp": "1 day",
+		  "timestamp": 99749.137,
 		  "new": false,
 		  "sender": {
 		  	"id": 2812,
@@ -87,7 +87,7 @@ curl "http://api.parade.pet/alerts/faceoffs"
 {
 	"alerts": [
 		{ 
-		  "timestamp": "30 min",
+		  "timestamp": 99749.137,
 		  "new": true,
 		  "entryA": {
 		  	"id": 282,
@@ -107,7 +107,7 @@ curl "http://api.parade.pet/alerts/faceoffs"
 		  }
 		},
 		{ 
-		  "timestamp": "12 days",
+		  "timestamp": 99749.137,
 		  "new": false,
 		  "entryA": {
 		  	"id": 398,
@@ -145,4 +145,90 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 <aside class="success">
 Returns an array of Alert objects.  Each Alert has a timestamp, entryA, entryB and winner. 
+</aside>
+
+## Get Comments
+
+```shell
+curl "http://api.parade.pet/alerts/comments"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "alerts": [
+    {
+      "comment": {
+        "id": 2572,
+        "comment": "Fido eats my socks too"
+      },
+      "entry": {
+        "id": 6280,
+        "image": 9998
+      },
+      "user": {
+        "id": 2531,
+        "name": "Jacob McGinley",
+        "profileImage": null,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10210721727656243/picture?height=100&width=100"
+      },
+      "timestamp": 99749.137,
+      "new": false
+    },
+    {
+      "comment": {
+        "id": 2571,
+        "comment": "Like crusty time"
+      },
+      "entry": {
+        "id": 6280,
+        "image": 9998
+      },
+      "user": {
+        "id": 2531,
+        "name": "Jacob McGinley",
+        "profileImage": null,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10210721727656243/picture?height=100&width=100"
+      },
+      "timestamp": 99785.137,
+      "new": false
+    },
+    {
+      "comment": {
+        "id": 2570,
+        "comment": "My cat loves stinky feet"
+      },
+      "entry": {
+        "id": 6280,
+        "image": 9998
+      },
+      "user": {
+        "id": 2531,
+        "name": "Jacob McGinley",
+        "profileImage": null,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10210721727656243/picture?height=100&width=100"
+      },
+      "timestamp": 99884.138,
+      "new": false
+    }
+  ]
+}
+```
+
+This endpoint retrieves the list of Comments on entries owned by the authenticated user for the past 30 days. Each time this endpoint is called a timestamp is recorded on the backend which is used to determine whether the Alert is new or not.   
+
+### HTTP Request
+
+`GET http://api.parade.pet/alerts/comments`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns an array of Alert objects.  Each Alert has a timestamp, comment, entry, and user who sent the comment. 
 </aside>
