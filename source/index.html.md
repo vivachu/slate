@@ -18,6 +18,7 @@ includes:
   - images
   - entries
   - alerts
+  - prizes
   - errors
 
 search: true

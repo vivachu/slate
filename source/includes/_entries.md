@@ -682,3 +682,77 @@ commentId | true |  commentId value, passed in the url path
 <aside class="success">
 Return OK if the comment was successfully deleted.  Note all child replies to the comment will also be deleted.
 </aside>
+
+## Report Comment
+
+```shell
+curl "http://api.parade.pet/entry/comment/report"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'comment=8372'
+  -d 'reason=Not pet'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint reports a comment that the user finds questionable.
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/comment/report`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+comment | true | The ID of the comment being reported.   
+reason | true | The reason the user is reporting. Valid reasons:  Not pet, Spam, Objectionable   
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Read Comment
+
+```shell
+curl "http://api.parade.pet/entry/comment/read"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'comment=8372'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint marks a comment as read
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/comment/read`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+comment | true | The ID of the comment being read.   
+
+<aside class="success">
+Returns OK
+</aside>

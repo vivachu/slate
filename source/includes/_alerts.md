@@ -232,3 +232,74 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 <aside class="success">
 Returns an array of Alert objects.  Each Alert has a timestamp, comment, entry, and user who sent the comment. 
 </aside>
+
+## Get Prizes
+
+```shell
+curl "http://api.parade.pet/alerts/prizes"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "alerts": [
+    {
+      "timestamp": 73321.093,
+      "new": false,
+      "profileImage": 5981,
+      "socialImageUrl": null,
+      "award": "Coder won 13th for the Week of Jan 1, 2017.",
+      "ticketAward": {
+        "id": 1928,
+        "numTickets": 5,
+        "isGold": false,
+        "opened": true
+      }
+    },
+    {
+      "timestamp": 73321.093,
+      "new": true,
+      "profileImage": 5981,
+      "socialImageUrl": null,
+      "award": "Coder won 92nd for the Month of Jan 2017.",
+      "ticketAward": {
+        "id": 2001,
+        "numTickets": 10,
+        "isGold": false,
+        "opened": false
+      }
+    },
+    {
+      "timestamp": 73321.093,
+      "new": true,
+      "profileImage": 11012,
+      "socialImageUrl": null,
+      "award": "You won the \"Most Generous Pet Parent Award\" for the Week of Jan 1, 2017.",
+      "ticketAward": {
+        "id": 1928,
+        "numTickets": 10,
+        "isGold": true,
+        "opened": false
+      }
+    }
+  ]
+}
+```
+
+This endpoint retrieves the list of Prize awarded to the user for the past 60 days. Each prize alert contains the award text and the ticketAward object to accept.  If the prize box has been opened, then display the alert in the opened state.  If the prize box has not been opened then show the Open button to allow the user to accept the ticketAward.  
+ 
+### HTTP Request
+
+`GET http://api.parade.pet/alerts/prizes`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns an array of Alert objects.  Each Alert has a timestamp, award, and the profileImage or socialImageUrl of the person or pet who received the award.  If socialImageUrl is not null, use that as the image.   
+</aside>
