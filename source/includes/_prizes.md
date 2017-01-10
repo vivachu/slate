@@ -173,3 +173,41 @@ id | true | ID of the TicketAward object to accept
 <aside class="success">
 Returns OK if success or an error message and code if Ticket object does not exist, or the authorized user does not own the TicketAward object. The design of this call is such that the client should call this asynchronously without waiting for it to return.  
 </aside>
+
+## Redeem Prize
+
+```shell
+curl "http://api.parade.pet/redeem/prize"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=291'
+```
+
+> The above command returns "OK" or an error message
+
+```
+"OK"
+```
+
+This endpoint is used to accept the tickets that were given to the user from the prize award after opening the Prize Box.
+
+### HTTP Request
+
+`POST http://api.parade.pet/redeem/prize`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+prize | true | ID of the Prize object to redeem
+address | true | ID of the Address object to ship to
+
+<aside class="success">
+Returns OK if success or an error message if the user does not have enough tickets to redeem the prize.  
+</aside>
+

@@ -15,10 +15,28 @@ curl "http://api.parade.pet/alerts/treats"
 		{ 
 		  "timestamp": 99749.137,
 		  "new": true,
+		  "accepted": false,
 		  "sender": {
 		  	"id": 2912,
 		  	"name": "John Snow",
-		  	"image": 9287
+		  	"image": 9287,
+			"socialImageUrl": null,
+			"pets": [
+			  {
+				"id": 3089,
+				"name": "Grendel",
+				"entry": 9728,
+				"points": 993,
+				"type": "Dog"
+			  },
+			  {
+				"id": 966,
+				"name": "Velveteen",
+				"entry": 2179,
+				"points": 8732,
+				"type": "Cat"
+			  }
+			]		  	
 		  },
 		  "pet": {
 		  	"id": 282,
@@ -36,10 +54,13 @@ curl "http://api.parade.pet/alerts/treats"
 		{ 
 		  "timestamp": 99749.137,
 		  "new": false,
+		  "accepted": true,
 		  "sender": {
 		  	"id": 2812,
 		  	"name": "Taylor Swift",
-		  	"image": 276
+		  	"image": 276, 
+			"socialImageUrl": "https://graph.facebook.com/v2.7/10211118676179859/picture?height=100&width=100",
+        	"pets": null
 		  },
 		  "pet": {
 		  	"id": 958,
@@ -244,13 +265,24 @@ curl "http://api.parade.pet/alerts/prizes"
 
 ```json 
 {
+  "user": {
+    "id": 1090,
+    "name": "Viva Chu",
+    "profileImage": 11012,
+    "socialImageUrl": null,
+    "silverTickets": 10,
+    "goldTickets": 5
+  },
   "alerts": [
     {
-      "timestamp": 73321.093,
+      "timestamp": 234506.884,
       "new": false,
-      "profileImage": 5981,
-      "socialImageUrl": null,
-      "award": "Coder won 13th for the Week of Jan 1, 2017.",
+      "pet": {
+        "id": 1039,
+        "name": "Coder",
+        "profileImage": 5981
+      },
+      "award": "Coder won 44th for the Week of Jan 3, 2017.",
       "ticketAward": {
         "id": 1928,
         "numTickets": 5,
@@ -259,11 +291,14 @@ curl "http://api.parade.pet/alerts/prizes"
       }
     },
     {
-      "timestamp": 73321.093,
+      "timestamp": 234506.893,
       "new": true,
-      "profileImage": 5981,
-      "socialImageUrl": null,
-      "award": "Coder won 92nd for the Month of Jan 2017.",
+      "pet": {
+        "id": 1039,
+        "name": "Coder",
+        "profileImage": 5981
+      },
+      "award": "Coder won 8th for the Month of Jan 2017.",
       "ticketAward": {
         "id": 2001,
         "numTickets": 10,
@@ -272,11 +307,10 @@ curl "http://api.parade.pet/alerts/prizes"
       }
     },
     {
-      "timestamp": 73321.093,
+      "timestamp": 234506.893,
       "new": true,
-      "profileImage": 11012,
-      "socialImageUrl": null,
-      "award": "You won the \"Most Generous Pet Parent Award\" for the Week of Jan 1, 2017.",
+      "pet": null,
+      "award": "You won the \"Most Generous Pet Parent Award\" for the Week of Jan 3, 2017.",
       "ticketAward": {
         "id": 1928,
         "numTickets": 10,
@@ -288,7 +322,7 @@ curl "http://api.parade.pet/alerts/prizes"
 }
 ```
 
-This endpoint retrieves the list of Prize awarded to the user for the past 60 days. Each prize alert contains the award text and the ticketAward object to accept.  If the prize box has been opened, then display the alert in the opened state.  If the prize box has not been opened then show the Open button to allow the user to accept the ticketAward.  
+This endpoint retrieves the user object with current ticket balance and a list of Prize alerts awarded to the user for the past 60 days. Each prize alert contains the award text and the ticketAward object to accept.  If the prize box has been opened, then display the alert in the opened state.  If the prize box has not been opened then show the Open button to allow the user to accept the ticketAward.  
  
 ### HTTP Request
 

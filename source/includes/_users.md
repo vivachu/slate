@@ -283,3 +283,149 @@ profileImage | false | The id of the user's profile image
 Returns OK if success or an error message.
 </aside>
 
+## Create Address
+
+```shell
+curl "http://localhost:1337/user/address/create"
+  -d 'email=janice@parade.pet'
+  -d 'contactName=Janice Lu'
+  -d 'street1=123 Any Ln'
+  -d 'street2=Apt 1'
+  -d 'city=San Francisco'
+  -d 'state=California'
+  -d 'postalCode=94546'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "address": 4
+}
+```
+
+Create a new address for the user.  Returns the ID of the address object.
+### HTTP Request
+
+`POST http://api.parade.pet/user/address/create`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+email | true | The user's email address to send the shipping confirmation
+contactName | true | The contact name of the user to ship to.
+street1 | tree | The street address
+street2 | false | Second line of address
+city | true | City
+state | true | State
+postalCode | true | Zip Code
+placeId | false | Google Place ID
+
+<aside class="success">
+The newly created address ID is returned.
+</aside>
+
+## Update Address
+
+```shell
+curl "http://localhost:1337/user/address/update"
+  -d 'id=4'
+  -d 'email=janice@parade.pet'
+  -d 'contactName=Janice Lu'
+  -d 'street1=123 Any Ln'
+  -d 'street2=Apt 1'
+  -d 'city=San Francisco'
+  -d 'state=California'
+  -d 'postalCode=94546'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "address": 4
+}
+```
+
+Update the address for the user.  Returns the ID of the address object.
+### HTTP Request
+
+`POST http://api.parade.pet/user/address/update`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | The ID of the address object to update
+email | true | The user's email address to send the shipping confirmation
+contactName | true | The contact name of the user to ship to.
+street1 | tree | The street address
+street2 | false | Second line of address
+city | true | City
+state | true | State
+postalCode | true | Zip Code
+placeId | false | Google Place ID
+
+<aside class="success">
+The updated address ID is returned.
+</aside>
+
+## Get Shipping Address
+
+```shell
+curl "http://api.parade.pet/user/address"
+  -d 'id=1523'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "user": 104,
+  "contactName": "Paula Pickles",
+  "email": "paulapickles@gmail.com",
+  "street1": "67 Baldwin",
+  "street2": null,
+  "city": "San Francisco",
+  "state": "California",
+  "postalCode": "012922",
+  "placeId": null,
+  "id": 1
+}
+```
+
+This endpoint returns the user profile for the specific userId passed as a parameter.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/address`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+
+<aside class="success">
+Returns the user's shipping address.
+</aside>
+
