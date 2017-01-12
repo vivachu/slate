@@ -177,7 +177,7 @@ Returns OK if success or an error message and code if Ticket object does not exi
 ## Redeem Prize
 
 ```shell
-curl "http://api.parade.pet/redeem/prize"
+curl "http://api.parade.pet/prize/redeem"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'id=291'
 ```
@@ -192,7 +192,7 @@ This endpoint is used to accept the tickets that were given to the user from the
 
 ### HTTP Request
 
-`POST http://api.parade.pet/redeem/prize`
+`POST http://api.parade.pet/prize/redeem`
 
 ### Header Parameters
 
