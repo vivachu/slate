@@ -315,7 +315,35 @@ curl "http://api.parade.pet/entries/me"
     "silver": 1000,
     "gold": 640
   },
-  "canPost": true
+  "canPost": true,
+  "pricing": {
+    "entryFee": {
+      "type": "silver",
+      "fee": 100
+    },
+    "boost": [
+      {
+        "num": 10,
+        "type": "gold",
+        "fee": 20
+      },
+      {
+        "num": 25,
+        "type": "gold",
+        "fee": 50
+      },
+      {
+        "num": 50,
+        "type": "silver",
+        "fee": 1000
+      },
+      {
+        "num": 100,
+        "type": "silver",
+        "fee": 2000
+      }
+    ]
+  }  
 }
 ```
 
