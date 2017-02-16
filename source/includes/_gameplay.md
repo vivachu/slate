@@ -102,7 +102,11 @@ curl "http://api.parade.pet/game/init"
 	"messages": [
 	  "SIGNED IN USER CANNOT OWN ENTRY",
 	  "USER HAS EXCEEDED 50 POINTS ON THIS ENTRY"
-	]
+	],
+	"showAds": {
+		"start": 1,
+		"interval": 1
+	}
 }
 ```
 

@@ -342,7 +342,11 @@ curl "http://api.parade.pet/entries/me"
         "type": "silver",
         "fee": 2000
       }
-    ]
+    ],
+    "shareReward": {
+    	"type": "gold",
+    	"reward": 5
+    }
   }  
 }
 ```
@@ -372,6 +376,7 @@ curl "http://api.parade.pet/entry/boost"
   -d 'entry=1223'
   -d 'numBoosted=100'
   -d 'price=200'
+  -d 'priceType=gold'
 ```
 
 > The above command returns JSON structured like this:
@@ -381,11 +386,13 @@ curl "http://api.parade.pet/entry/boost"
   "boost": {
     "numBoosted": 25,
     "price": 50,
+    "isPriceGold": true,
     "numFaceOffs": 0,
     "numWins": 0,
     "numPoints": 0,
     "id": 12
   },
+  "silverBalance": 1010,
   "goldBalance": 640
 }
 ```
@@ -408,10 +415,11 @@ Parameter | Required | Description
 --------- | ------- | -----------
 entry | true | The ID of the entry being boosted.   
 numBoosted | true | The number of Face Offs purchased.    
-price | false | The purchase price in gold.
+price | true | The purchase price in coins;  by default the value is in gold; pass in the priceType to set to silver.
+priceType | false | Either gold or silver.
 
 <aside class="success">
-Returns the newly created boost object and the user's gold balance after purchasing the boost.
+Returns the newly created boost object and the user's silver and gold balance after purchasing the boost.
 </aside>
 
 ## Get Boost
@@ -780,6 +788,46 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 comment | true | The ID of the comment being read.   
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Log Shared Entry
+
+```shell
+curl "http://api.parade.pet/entry/shared"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'entry=8372'
+  -d 'reward=5'
+  -d 'rewardType=gold'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This records the entry as being shared and optionally gives the user a share reward.
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/shared`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry | true | The ID of the entry that was shared
+reward | false | Optional reward value in coins
+rewardType | false | Either gold or silver
 
 <aside class="success">
 Returns OK

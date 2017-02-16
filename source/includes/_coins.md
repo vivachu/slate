@@ -81,7 +81,9 @@ curl "http://api.parade.pet/coins/buy"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'coinBundle=10'
   -d 'receipt=DKSHNE-NSNHE'
-  -d 'store=apple'
+  -d 'signature=SIGNED-AHSEKWNNWNBN922k2ndAAJ'
+  -d 'transactionId=GPA.0021-2k22-2021-2122'
+  -d 'store=google'
 ```
 
 > The above command returns JSON structured like this:
@@ -110,9 +112,11 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
+store | true | Either apple, google, or amazon.
 coinBundle | true | The id of the coinBundle purchased.  
 receipt | true | The unique sales receipt to verify with the specified store
-store | true | Either apple, google, or amazon.
+signature | false | If store is google, then this is the signature for the encoded receipt string
+transactionId | false | If store is google, then this is the unique transactionId for the sale
 
 <aside class="success">
 Returns the user's coin balance upon success. Returns an error if the receipt is invalid.  

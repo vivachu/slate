@@ -24,7 +24,8 @@ curl "http://api.parade.pet/prizes/dog"
       "description": "A stylish tent for your pup to play and lounge in.",
       "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81njkstSTQL._SL600_.jpg",
       "id": 30,
-      "ticketPrice": 416
+      "ticketPrice": 416,
+      "pinned": true
     },
     {
       "type": "Dog",
@@ -34,7 +35,8 @@ curl "http://api.parade.pet/prizes/dog"
       "description": "This ultra comfortable memory foam dog bed includes a fuzzy blanket. ",
       "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71TpXNii47L._SL600_.jpg",
       "id": 29,
-      "ticketPrice": 1499
+      "ticketPrice": 1499,
+      "pinned": false
     }
     ]
 }
@@ -211,3 +213,74 @@ address | true | ID of the Address object to ship to
 Returns OK if success or an error message if the user does not have enough tickets to redeem the prize.  
 </aside>
 
+## Pin Prize
+
+```shell
+curl "http://api.parade.pet/prize/pin"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'prize=100'
+```
+
+> The above command returns "OK" or an error message
+
+```
+"OK"
+```
+
+This endpoint is used to pin a prize to the top of the list.
+
+### HTTP Request
+
+`POST http://api.parade.pet/prize/pin`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+prize | true | ID of the Prize object to pin
+
+<aside class="success">
+Returns OK if success. The design of this call is such that the client should call this asynchronously without waiting for it to return.  
+</aside>
+
+## Unpin Prize
+
+```shell
+curl "http://api.parade.pet/prize/unpin"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'prize=100'
+```
+
+> The above command returns "OK" or an error message
+
+```
+"OK"
+```
+
+This endpoint is used to unpin a prize.
+
+### HTTP Request
+
+`POST http://api.parade.pet/prize/unpin`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+prize | true | ID of the Prize object to unpin
+
+<aside class="success">
+Returns OK if success. The design of this call is such that the client should call this asynchronously without waiting for it to return.  
+</aside>
