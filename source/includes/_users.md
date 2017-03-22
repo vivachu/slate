@@ -429,3 +429,77 @@ Parameter | Required | Description
 Returns the user's shipping address.
 </aside>
 
+## Archive User
+
+```shell
+curl "http://api.parade.pet/user/archive"
+  -d 'userid=1523'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint archives the user and all associated data and unsubscribes from Mailchimp when passed userid as a parameter. You must be logged in as an admin user.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/archive`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user (must be an admin user)
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userid | true | The userId of the user to archive
+
+<aside class="success">
+Returns "OK"
+</aside>
+
+
+## Unarchive User
+
+```shell
+curl "http://api.parade.pet/user/unarchive"
+  -d 'userid=1523'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint unarchives the user and all associated data and resubscribes to Mailchimp when passed userid as a parameter. You must be logged in as an admin user.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/unarchive`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user (must be an admin user)
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userid | true | The userId of the user to unarchive
+
+<aside class="success">
+Returns "OK"
+</aside>
+
+
