@@ -89,6 +89,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 token | true |  Firebase token string, included as part of url
+timeZoneOffset | false |  the local timezone offset as a signed floating point number.  For example -4.5 is four hours and 30 minutes from GMT. 
 
 
 <aside class="success">
@@ -164,6 +165,7 @@ Parameter | Required | Description
 --------- | ------- | -----------
 subject | true | The subject of your message  
 message | true | The message
+email | false | The replyTo address
 
 <aside class="success">
 Returns OK

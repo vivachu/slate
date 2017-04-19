@@ -105,7 +105,11 @@ curl "http://api.parade.pet/game/init"
 	],
 	"showAds": {
 		"start": 1,
-		"interval": 1
+		"interval": 1,
+		"adFree": {
+		  "productId": "com.goodboystudios.petparade.adfree.2",
+		  "interval": 6
+		}		
 	}
 }
 ```
@@ -305,7 +309,16 @@ curl "http://api.parade.pet/game/faceoffset/end"
 		"treats": 4,
 		"comments": 6,
 		"prizes": 2
-	} 
+	},
+	 "shareReward": {
+		"type": "gold",
+		"reward": 5
+	  },
+	  "watchAdReward": {
+		"type": "gold",
+		"reward": 5
+	  },
+	"showTutorial": 0	
 }
 ```
 

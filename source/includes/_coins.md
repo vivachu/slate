@@ -1,4 +1,4 @@
-# Coins
+# In App Purchase
 
 ## Coins For Sale
 
@@ -120,5 +120,52 @@ transactionId | false | If store is google, then this is the unique transactionI
 
 <aside class="success">
 Returns the user's coin balance upon success. Returns an error if the receipt is invalid.  
+</aside>
+
+## Buy Ad Free Version
+
+```shell
+curl "http://api.parade.pet/iap/adFree"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'productId=com.goodboystudios.petparade.adfree.2'
+  -d 'price=14.99'
+  -d 'receipt=DKSHNE-NSNHE'
+  -d 'signature=SIGNED-AHSEKWNNWNBN922k2ndAAJ'
+  -d 'transactionId=GPA.0021-2k22-2021-2122'
+  -d 'store=google'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+OK
+```
+
+Call this endpoint to inform the server of a successful in-app purchase of Ad Free and to persist the sale record and disable ads for the user.  The server verifies the receipt with the specified store (apple, google, or amazon) and disables ads for the user.   
+
+### HTTP Request
+
+`POST http://api.parade.pet/iap/adFree`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+store | true | Either apple, google, or amazon.
+productId | true | The productId string of the IAP purchased.  
+price | true | The price charged for the IAP purchased.  
+receipt | true | The unique sales receipt to verify with the specified store
+signature | false | If store is google, then this is the signature for the encoded receipt string
+transactionId | false | If store is google, then this is the unique transactionId for the sale
+
+<aside class="success">
+Returns OK if successful. Returns an error if the receipt is invalid.  
 </aside>
 
