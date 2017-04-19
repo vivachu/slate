@@ -411,7 +411,6 @@ Return list of pet types.
 
 `GET http://api.parade.pet/pettype`
 
-
 <aside class="success">
 Return list of pet types.
 </aside>
@@ -419,7 +418,10 @@ Return list of pet types.
 ## Pet Breeds
 
 ```shell
-curl "http://api.parade.pet/petbreed"
+curl "http://api.parade.pet/breeds"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'name=labra'
+  -d 'petType=1'
 ```
 
 > The above command returns JSON structured like this:
@@ -427,39 +429,53 @@ curl "http://api.parade.pet/petbreed"
 ```json 
 [
   {
-    "name": "Pitbull",
-    "id": 16,
-    "createdAt": "2016-07-21T05:35:38.000Z",
-    "updatedAt": "2016-07-21T05:35:38.000Z"
+    "id": 1540,
+    "name": "Labrabull"
   },
   {
-    "name": "Norwegian Forest",
-    "id": 17,
-    "createdAt": "2016-07-21T05:35:38.000Z",
-    "updatedAt": "2016-07-21T05:35:38.000Z"
+    "id": 1843,
+    "name": "Labrabull Mix"
   },
   {
-    "name": "American Dingo",
-    "id": 18,
-    "createdAt": "2016-07-21T05:35:38.000Z",
-    "updatedAt": "2016-07-21T05:35:38.000Z"
+    "id": 1541,
+    "name": "Labradoodle"
   },
   {
-    "name": "American Shorthair",
-    "id": 19,
-    "createdAt": "2016-07-21T05:35:38.000Z",
-    "updatedAt": "2016-07-21T05:35:38.000Z"
+    "id": 1844,
+    "name": "Labradoodle Mix"
+  },
+  {
+    "id": 1542,
+    "name": "Labrador Retriever"
+  },
+  {
+    "id": 1846,
+    "name": "Labrador Retriever Mix"
   }
 ]
 ```
 
-Return list of pet types.
+Return list of breeds that start with the "name" parameter and match "petType" parameter.
+
 
 ### HTTP Request
 
-`GET http://api.parade.pet/petbreed`
+`GET https://api.parade.pet/breeds?name=labra&petType=1
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+name | true | Full or partial string of the breed name.
+petType | true | The ID of the pet's type.  Call /pettype to get the list of pet types.   
 
 
 <aside class="success">
-Return list of pet breeds.
+Return list of pet breeds that start with the "name" parameter and match the "petType" parameter.
 </aside>
