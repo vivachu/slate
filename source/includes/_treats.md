@@ -302,7 +302,8 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-days | false | The number of days to look back from the current day to limit the amount of treats and users to return.  For example, a value of 1 looks for treats that were given since yesterday.  The default is 7 days.
+hours | false | The number of hours to look back from the current day to limit the amount of treats and users to return.  For example, a value of 12 looks for treats that were given since 12 hours from the current time.  The default is 168 hours (7 days).
+test | false | If this parameter is set, then all email addresses in the return data will be set to the value of this parameter.  For example, set test=yourEmail@you.com to send email to yourself. 
 
 <aside class="success">
 Returns an array of email addresses mapped to treats for the specific user.  
