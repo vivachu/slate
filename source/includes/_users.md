@@ -221,7 +221,35 @@ curl "http://api.parade.pet/user/profile"
       "id": 3245,
       "image": 5918
     }
-  ]
+  ],
+  "awards": [
+    {
+      "pet": {
+        "id": 1039,
+        "name": "Coder",
+        "profileImage": 5981
+      },
+      "name": "33rd Place Dog",
+      "period": "Month of Mar 2017",
+      "ribbon": "33rd"
+    },
+    {
+      "pet": null,
+      "name": "The Generous Pet Parent Award",
+      "period": "Week of Feb 26, 2017",
+      "ribbon": "G"
+    },
+    {
+      "pet": {
+        "id": 1040,
+        "name": "Joey",
+        "profileImage": 5981
+      },
+      "name": "24th Place Cat",
+      "period": "Week of Feb 26, 2017",
+      "ribbon": "24th"
+    }
+    ]          
 }
 ```
 

@@ -231,7 +231,24 @@ curl "http://api.parade.pet/pet/profile"
     }
   ],
   "place": 770,
-  "placeByType": 96
+  "placeByType": 96,
+  "awards": [
+    {
+      "name": "33rd Place Dog",
+      "period": "Month of Mar 2017",
+      "ribbon": "33rd"
+    },
+    {
+      "name": "75th Place All Pets",
+      "period": "Month of Mar 2017",
+      "ribbon": "75th"
+    },
+    {
+      "name": "93rd Place Dog",
+      "period": "Week of Mar 19, 2017",
+      "ribbon": "93rd"
+    }
+	]  
 }
 ```
 
