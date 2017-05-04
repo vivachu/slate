@@ -13,6 +13,15 @@ curl "http://api.parade.pet/coins/forSale"
 {
   "gold": [
     {
+      "productId": "com.goodboystudios.petparade.gold.promo.1",
+      "name": "Box of Gold - Special 50% off",
+      "numGold": 2000,
+      "numSilver": 0,
+      "price": 9.99,
+      "id": 107,
+      "expires": 124538.268
+    },  
+    {
       "productId": "com.goodboystudios.petparade.gold.pile",
       "name": "Pile of Gold",
       "numGold": 40,

@@ -110,7 +110,12 @@ curl "http://api.parade.pet/game/init"
 		  "productId": "com.goodboystudios.petparade.adfree.2",
 		  "interval": 6
 		}		
-	}
+	},
+    "coinPromo": {
+      	"coinBundle": 107,
+    	"type": "gold",
+    	"expires": 123115.598
+  	}
 }
 ```
 
