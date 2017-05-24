@@ -429,6 +429,45 @@ Parameter | Required | Description
 Returns the user's shipping address.
 </aside>
 
+## Set User Location
+
+```shell
+curl "http://api.parade.pet/user/setLocation"
+  -d 'locationName=New York, NY, United States'
+  -d 'placeId=ChIJOwg_06VPwokRYv534QaPC8g'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+"OK"
+```
+
+This endpoint updates the user's location, creating a new Location object if necessary.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/setLocation`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+locationName | true | New York, NY, United States
+placeId | true | ChIJOwg_06VPwokRYv534QaPC8g
+
+<aside class="success">
+Returns "OK"
+</aside>
+
+
 ## Archive User
 
 ```shell

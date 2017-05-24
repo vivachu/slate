@@ -19,6 +19,7 @@ includes:
   - entries
   - alerts
   - prizes
+  - location
   - errors
 
 search: true
