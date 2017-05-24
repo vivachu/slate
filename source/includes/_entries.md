@@ -445,7 +445,8 @@ curl "http://api.parade.pet/boost/<id>"
     "completed": "2016-10-24T21:10:28.000Z",
     "id": 1
   },
-  "goldBalance": 80
+  "goldBalance": 80,
+  "boostRemaining": 9
 }
 ```
 Return a specific boost based on boost id value. A single boost is returned.
@@ -831,4 +832,127 @@ rewardType | false | Either gold or silver
 
 <aside class="success">
 Returns OK
+</aside>
+
+## Log Ad Watched from Entry
+
+```shell
+curl "http://api.parade.pet/entry/adWatched"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'entry=8372'
+  -d 'reward=5'
+  -d 'rewardType=gold'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This records an ad being watched tied to the entry and gives the user a reward.
+
+### HTTP Request
+
+`POST http://api.parade.pet/entry/adWatched`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entry | true | The ID of the entry that was shared
+reward | false | Optional reward value in coins
+rewardType | false | Either gold or silver
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Top 10 Featured Entries
+
+```shell
+curl "http://api.parade.pet/entries/topTenFeatured"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+[
+  {
+    "id": 49489,
+    "image": 64599,
+    "imageUrl": "http://stage-assets.parade.pet/images/64599/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49489&link=http://parade.pet/entry/49489",
+    "petName": "Bear",
+    "petType": "Dog",
+    "breed": "Bernese Mountain Dog",
+    "numFaceOffs": 247,
+    "numWins": 180,
+    "winRate": 0.7287
+  },
+  {
+    "id": 49225,
+    "image": 64245,
+    "imageUrl": "http://stage-assets.parade.pet/images/64245/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49225&link=http://parade.pet/entry/49225",
+    "petName": "Bennie",
+    "petType": "Cat",
+    "breed": "Tabby",
+    "numFaceOffs": 149,
+    "numWins": 108,
+    "winRate": 0.7248
+  },
+  {
+    "id": 48252,
+    "image": 62939,
+    "imageUrl": "http://stage-assets.parade.pet/images/62939/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/48252&link=http://parade.pet/entry/48252",
+    "petName": "Lexie",
+    "petType": "Cat",
+    "breed": "Persian",
+    "numFaceOffs": 278,
+    "numWins": 147,
+    "winRate": 0.5288
+  },
+  {
+    "id": 49205,
+    "image": 64213,
+    "imageUrl": "http://stage-assets.parade.pet/images/64213/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49205&link=http://parade.pet/entry/49205",
+    "petName": "Lyra",
+    "petType": "Dog",
+    "breed": "Black Labrador Retriever4",
+    "numFaceOffs": 438,
+    "numWins": 255,
+    "winRate": 0.5822
+  },
+  {
+    "id": 49016,
+    "image": 63972,
+    "imageUrl": "http://stage-assets.parade.pet/images/63972/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49016&link=http://parade.pet/entry/49016",
+    "petName": "Squeak ",
+    "petType": "Hamster",
+    "breed": "Dwarf Chinese ",
+    "numFaceOffs": 477,
+    "numWins": 249,
+    "winRate": 0.522
+  },
+]
+```
+
+Returns the top ten featured entries for the day. 
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries/topTenFeatured`
+
+<aside class="success">
+Return list of top ten featured entries.
 </aside>

@@ -4,7 +4,6 @@
 
 ```shell
 curl "http://api.parade.pet/pet/leaderboard"
-  -H "Authorization:  Bearer meowmeowmeow"
   -d 'start=2016-06-01'
   -d 'end=2016-06-30'
   -d 'place=200'
@@ -55,12 +54,6 @@ Pets accumulate points for FaceOff wins and Treats received.  The leaderboard en
 
 `GET http://api.parade.pet/pet/leaderboard`
 
-### Header Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -96,6 +89,7 @@ curl "http://api.parade.pet/pets"
 	  "image": 234,
 	  "name": "Mr Big",
 	  "place": 1292,
+	  "placeByType": 129,	  
 	  "points": 900,
 	  "numFaceOffs": 98,
 	  "numTreats": 9	  
@@ -105,6 +99,7 @@ curl "http://api.parade.pet/pets"
 	  "image": 2328,
 	  "name": "Sparks",
 	  "place": 989,
+	  "placeByType": 129,	  
 	  "points": 1010,
 	  "numFaceOffs": 289,
 	  "numTreats": 21
@@ -134,7 +129,68 @@ end | false | End date in yyyy-mm-dd format over which to calculate points and p
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
 <aside class="success">
-Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
+Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current week across all contests. 
+</aside>
+
+## Get Pets For Username
+
+```shell
+curl "http://api.parade.pet/pets/vivachu@yahoo.com"
+  -d 'start=2016-06-01'
+  -d 'end=2016-06-30'
+  -d 'contest=1'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+	"pets": [
+	{ 
+	  "id": 129,
+	  "image": 234,
+	  "name": "Mr Big",
+	  "place": 1292,
+	  "placeByType": 290,
+	  "points": 900,
+	  "numFaceOffs": 98,
+	  "numTreats": 9	  
+	},
+	{ 
+	  "id": 1928,
+	  "image": 2328,
+	  "name": "Sparks",
+	  "place": 989,
+	  "placeByType": 33,
+	  "points": 1010,
+	  "numFaceOffs": 289,
+	  "numTreats": 21
+	}
+	],
+	"treats": {
+    	"count": 21,
+    	"points": 928
+  	}
+}
+```
+
+This endpoint returns the specified user's pets and their points total and placement over the specified time period and contest. The pet's placeByType is the pet's rank by pet type (dog, cat, critter) and the pet's place is the pet's rank across all pets. By default if no parameters are passed, then the pet's points balance and placement are calculated for the current week. 
+
+### HTTP Request
+
+`GET http://api.parade.pet/pets/:username`
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+start | false | Start date in yyyy-mm-dd format over which to calculate points and placement. If no start date is defined, the first day of the current month is assumed as the time period.  
+end | false | End date in yyyy-mm-dd format over which to calculate points and placement. If no end date is defined, the last day of the start month is assumed as the time period. 
+contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
+
+<aside class="success">
+Returns the specified user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
 </aside>
 
 ## Get Pet Profile
@@ -175,7 +231,24 @@ curl "http://api.parade.pet/pet/profile"
     }
   ],
   "place": 770,
-  "placeByType": 96
+  "placeByType": 96,
+  "awards": [
+    {
+      "name": "33rd Place Dog",
+      "period": "Month of Mar 2017",
+      "ribbon": "33rd"
+    },
+    {
+      "name": "75th Place All Pets",
+      "period": "Month of Mar 2017",
+      "ribbon": "75th"
+    },
+    {
+      "name": "93rd Place Dog",
+      "period": "Week of Mar 19, 2017",
+      "ribbon": "93rd"
+    }
+	]  
 }
 ```
 

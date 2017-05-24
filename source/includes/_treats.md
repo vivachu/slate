@@ -232,3 +232,79 @@ id | true | comma separated list of id values of TreatPurchase objects to accept
 <aside class="success">
 Returns OK if success or an error message and code if TreatPurchase object does not exist, or the authorized user does not own the Pet who was the target of the treat. The design of this call is such that the client should call this asynchronously without waiting for it to return.  
 </aside>
+
+## Treats Email
+
+```shell
+curl "http://api.parade.pet/treats/email"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'id=291,8272,8272'
+```
+
+> The above command returns an array of user emails and treats for the users pets
+
+```
+[
+  {
+    "email": "24-petparade@mailinator.com",
+    "treats": [
+      {
+        "pet": "CaliGrace",
+        "sender": "Stephanie Smith",
+        "points": 3,
+        "treat": "California Roll",
+        "treatImage": "http://stage-assets.parade.pet/cats/california_roll/california_roll_t@2x.png"
+      }
+    ]
+  },
+  {
+    "email": "25-petparade@mailinator.com",
+    "treats": [
+      {
+        "pet": "Goldie",
+        "sender": "Beth Downs ",
+        "points": 5,
+        "treat": "Oatmeal Cookie",
+        "treatImage": "http://stage-assets.parade.pet/critters/oatmeal_cookie/oatmeal_cookie_t@2x.png"
+      },
+      {
+        "pet": "Goldie",
+        "sender": "Stephanie Betancurt",
+        "points": 2,
+        "treat": "Pet Pellets",
+        "treatImage": "http://stage-assets.parade.pet/critters/pet_pellets/pet_pellets_t@2x.png"
+      },
+      {
+        "pet": "Goldie",
+        "sender": "Kaylyn bourassa",
+        "points": 15,
+        "treat": "Blueberries",
+        "treatImage": "http://stage-assets.parade.pet/critters/blueberries/blueberries_t@2x.png"
+      }
+    ]
+  }
+]
+```
+
+This endpoint requires authentication from a valid admin user.
+
+### HTTP Request
+
+`POST http://api.parade.pet/treats/email`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated Admin user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+hours | false | The number of hours to look back from the current day to limit the amount of treats and users to return.  For example, a value of 12 looks for treats that were given since 12 hours from the current time.  The default is 168 hours (7 days).
+test | false | If this parameter is set, then all email addresses in the return data will be set to the value of this parameter.  For example, set test=yourEmail@you.com to send email to yourself. 
+
+<aside class="success">
+Returns an array of email addresses mapped to treats for the specific user.  
+</aside>
