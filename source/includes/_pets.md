@@ -10,7 +10,7 @@ curl "http://api.parade.pet/pet/leaderboard"
   -d 'size=3'  
   -d 'type=dog'
   -d 'breed=3529'
-  -d 'city=new york'
+  -d 'city=New York'
   -d 'state=NY'
   -d 'contest=1'
 ```
