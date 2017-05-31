@@ -11,6 +11,7 @@ curl "http://api.parade.pet/pet/leaderboard"
   -d 'size=3'  
   -d 'type=dog'
   -d 'breed=3529'
+  -d 'critter=3'
   -d 'city=new york'
   -d 'state=NY'
   -d 'contest=1'
@@ -73,6 +74,7 @@ end | false | End date in yyyy-mm-dd format to limit results.  The end date is i
 place | false | The placement position to start the return results.
 type | false | The type of pet to filter against: dog, cat, other.  No value indicates all pets.
 breed | false | The breedId of the pet to filter against
+critter | false | The petType id (> 2) of the critter leaderboard 
 city | false | The city of the pet to filter against
 state | false | The state of the pet to filter against
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
