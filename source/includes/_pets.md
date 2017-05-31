@@ -311,6 +311,39 @@ profileImage | true | The id of the pet's profile image.
 Returns the newly created pet object.
 </aside>
 
+## Delete Pet
+
+```shell
+curl "http://api.parade.pet/pet/delete"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'pet_id=1234'
+```
+
+> The above command returns 200 OK response
+
+This endpoint deletes the pet. The authenticated user must be the owner of the pet. The endpoint returns the 200 OK response if successful.  
+
+### HTTP Request
+
+`POST http://api.parade.pet/pet/delete`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user (must be pet owner)
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+pet_id | true | The id of the pet  
+
+
+<aside class="success">
+Returns the 200 OK response
+</aside>
+
 
 ## Pet Types
 
