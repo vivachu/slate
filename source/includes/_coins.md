@@ -55,7 +55,11 @@ curl "http://api.parade.pet/coins/forSale"
       "price": 2.99,
       "id": 2
     }
-  ]
+  ],
+  "owned": {
+    "silver": 12200,
+    "gold": 950
+  }
 }
 ```
 
