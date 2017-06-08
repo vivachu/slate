@@ -497,6 +497,49 @@ placeId | true | ChIJOwg_06VPwokRYv534QaPC8g
 Returns "OK"
 </aside>
 
+## Set Marketing Info
+
+```shell
+curl "http://api.parade.pet/user/setMarketingInfo"
+  -d 'petStoreName="Petco"
+  -d 'petStoreplaceId=ChIJOwg_06VPwokRYv534QaPC8g'
+  -d 'petStoreAddress="157 Chambers Street, New York"
+  -d 'petSite="http://www.petco.com"  
+```
+
+> The above command returns JSON structured like this:
+
+```json
+"OK"
+```
+
+This endpoint updates the user's marketing info, creating a new PetSite object or pet store Location object if necessary.  Either (petStore, petStorePlaceId, petStoreAddress) OR petSite parameters are required.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/setMarketingInfo`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+petStoreName | false | PetCo
+petStorePlaceId | false | ChIJOwg_06VPwokRYv534QaPC8g
+petStoreAddress | false | 157 Chambers Street, New York
+petSite | false | www.petco.com
+
+
+<aside class="success">
+Returns "OK"
+</aside>
+
 
 ## Archive User
 
