@@ -471,10 +471,11 @@ Returns "OK"
 
 ```shell
 curl "http://api.parade.pet/user/setMarketingInfo"
+  -d 'shopType=1'
   -d 'petStoreName="Petco"
   -d 'petStoreplaceId=ChIJOwg_06VPwokRYv534QaPC8g'
   -d 'petStoreAddress="157 Chambers Street, New York"
-  -d 'petSite="http://www.petco.com"  
+  -d 'petSite="PetCo"
 ```
 
 > The above command returns JSON structured like this:
@@ -500,11 +501,11 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
+shopType | true | 0=phone, 1=computer, 2=local store
 petStoreName | false | PetCo
 petStorePlaceId | false | ChIJOwg_06VPwokRYv534QaPC8g
 petStoreAddress | false | 157 Chambers Street, New York
-petSite | false | www.petco.com
-
+petSite | false | PetCo
 
 <aside class="success">
 Returns "OK"
