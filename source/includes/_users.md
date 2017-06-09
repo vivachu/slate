@@ -433,7 +433,7 @@ Returns the user's shipping address.
 
 ```shell
 curl "http://api.parade.pet/user/setLocation"
-  -d 'locationName=New York, NY, United States'
+  -d 'name=New York, NY, United States'
   -d 'placeId=ChIJOwg_06VPwokRYv534QaPC8g'
 ```
 
@@ -460,7 +460,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-locationName | true | New York, NY, United States
+name | true | New York, NY, United States
 placeId | true | ChIJOwg_06VPwokRYv534QaPC8g
 
 <aside class="success">
