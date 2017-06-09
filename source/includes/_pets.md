@@ -12,7 +12,7 @@ curl "http://api.parade.pet/pet/leaderboard"
   -d 'breed=3529'
   -d 'city=New York'
   -d 'critter=3'
-  -d 'state=NY'
+  -d 'placeId=ChIJ-0qgNoF_3YgRg3Lh7xHDooU'
   -d 'contest=1'
 ```
 
@@ -68,8 +68,7 @@ place | false | The placement position to start the return results.
 type | false | The type of pet to filter against: dog, cat, other.  No value indicates all pets.
 breed | false | The breedId of the pet to filter against
 critter | false | The petType id (> 2) of the critter leaderboard 
-city | false | The city of the pet to filter against
-state | false | The state of the pet to filter against
+placeId | false | The Google Places API placeId
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
 <aside class="success">
@@ -98,6 +97,7 @@ curl "http://api.parade.pet/pets"
 	  "name": "Mr Big",
 	  "place": 1292,
 	  "placeByType": 129,	  
+    "placeByLocation": 132,
 	  "points": 900,
 	  "numFaceOffs": 98,
 	  "numTreats": 9	  
@@ -108,15 +108,20 @@ curl "http://api.parade.pet/pets"
 	  "name": "Sparks",
 	  "place": 989,
 	  "placeByType": 129,	  
+    "placeByLocation": 132,
 	  "points": 1010,
 	  "numFaceOffs": 289,
 	  "numTreats": 21
 	}
-	]
+	],
+	"location": {
+    "name": "Brooklyn, NY, USA",
+    "placeId": "ChIJ04p7LZwrQVMRGGwqz1jWcfU1"
+  }
 }
 ```
 
-This endpoint returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
+This endpoint returns the authorized user's pets, their points total, their placement over the specified time period and contest, and the user's location information.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
 
 ### HTTP Request
 
