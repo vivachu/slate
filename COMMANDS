@@ -1,0 +1,2 @@
+# Sync to S3
+s3cmd sync -c /Users/wisz/.s3cfg -r ./build/ -P --exclude="./.git/" s3://docs.parade.pet
