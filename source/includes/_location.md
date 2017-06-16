@@ -59,7 +59,6 @@ This endpoint returns a list of online pet stores.
 ```shell
 curl "http://api.parade.pet/location/top
   -H "Authorization:  Bearer meowmeowmeow"
-  -d "type=state"
   -d "limit=50"
 ```
 
@@ -67,56 +66,56 @@ curl "http://api.parade.pet/location/top
 
 ```json 
 [
-  {
-    "state": "GA",
-    "count": 118,
-    "type": "state"
-  },
-  {
-    "state": "AR",
-    "count": 94,
-    "type": "state"
-  },
-  {
-    "state": "NY",
-    "count": 87,
-    "type": "state"
-  },
-  {
-    "state": "AK",
-    "count": 79,
-    "type": "state"
-  },
-  {
-    "state": "VA",
-    "count": 75,
-    "type": "state"
-  },
-  {
-    "state": "OR",
-    "count": 73,
-    "type": "state"
-  },
-  {
-    "state": "WY",
-    "count": 72,
-    "type": "state"
-  },
-  {
-    "state": "PR",
-    "count": 57,
-    "type": "state"
-  },
-  {
-    "state": "AZ",
-    "count": 55,
-    "type": "state"
-  },
-  {
-    "state": "MA",
-    "count": 52,
-    "type": "state"
-  }
+    {
+      "name": "Texas",
+      "placeId": "ChIJGWX8w2t_b4YRLFJWSGka37E",
+      "count": 312
+    },
+    {
+      "name": "California",
+      "placeId": "ChIJvWVL3UDMkIARvE9eGaSLWEg",
+      "count": 146
+    },
+    {
+      "name": "New York",
+      "placeId": "ChIJgc1ChHnb3IkRYg4uANW_g6w",
+      "count": 142
+    },
+    {
+      "name": "Missouri",
+      "placeId": "ChIJ1cOynQSaeIgRgxmUgdI3T-g",
+      "count": 139
+    },
+    {
+      "name": "Little River, MO",
+      "placeId": "ChIJ1cOynQSaeIgRgxmUgdI3T-g",
+      "count": 139
+    },
+    {
+      "name": "Celeste, TX",
+      "placeId": "ChIJ6akkvNiSS4YRErv6N_ZS8Xo",
+      "count": 129
+    },
+    {
+      "name": "Brownsville, TX",
+      "placeId": "ChIJGWX8w2t_b4YRLFJWSGka37E",
+      "count": 115
+    },
+    {
+      "name": "Arkansas",
+      "placeId": "ChIJ5UTQkHCu1YcRxtzZD8B4qso",
+      "count": 99
+    },
+    {
+      "name": "Yarbo Place, AR",
+      "placeId": "ChIJ5UTQkHCu1YcRxtzZD8B4qso",
+      "count": 96
+    },
+    {
+      "name": "Camp Earnest, CA",
+      "placeId": "ChIJvWVL3UDMkIARvE9eGaSLWEg",
+      "count": 93
+    }
 ]
 ```
 Returns a list of locations ordered by number of pets in that location.
