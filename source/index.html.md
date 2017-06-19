@@ -20,6 +20,7 @@ includes:
   - alerts
   - prizes
   - location
+  - minigames
   - errors
 
 search: true
