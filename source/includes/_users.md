@@ -514,7 +514,7 @@ curl "http://api.parade.pet/user/setMarketingInfo"
 "OK"
 ```
 
-This endpoint updates the user's marketing info, creating a new PetSite object or pet store Location object if necessary.  Either (petStore, petStorePlaceId, petStoreAddress) OR petSite parameters are required.
+This endpoint updates the user's marketing info, creating a new PetSite object or pet store Location object if necessary.  Either (shopType, petStore, petStorePlaceId, petStoreAddress, petStoreCity, petStoreState) OR (shopType, petSite) parameters are required.
 
 ### HTTP Request
 
@@ -534,7 +534,9 @@ Parameter | Required | Description
 shopType | true | 0=phone, 1=computer, 2=local store
 petStoreName | false | PetCo
 petStorePlaceId | false | ChIJOwg_06VPwokRYv534QaPC8g
-petStoreAddress | false | 157 Chambers Street, New York
+petStoreAddress | false | 157 Chambers Street
+petStoreCity | false | New York
+petStoreState | false | NY
 petSite | false | PetCo
 
 <aside class="success">
