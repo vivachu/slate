@@ -124,7 +124,6 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the min
 Parameter | Required | Description
 --------- | ------- | -----------
 score | true | score for this minigame session
-bonusType | true | "silver" or "gold"
 user | true | id value of signed in user
 
 <aside class="success">
