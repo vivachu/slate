@@ -94,15 +94,16 @@ Returns list of entries to be used in the current minigame.
 curl "http://api.parade.pet/minigame/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d "score=10"
-  -d "bonusType=silver"
-  -d "user=25"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "coinBonus": 50
+    "coinBonus": {
+        "amount": 190,
+        "type": "silver"
+    }
 }
 ```
 
@@ -124,7 +125,6 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the min
 Parameter | Required | Description
 --------- | ------- | -----------
 score | true | score for this minigame session
-user | true | id value of signed in user
 
 <aside class="success">
 Returns coin bonus.
