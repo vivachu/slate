@@ -435,6 +435,10 @@ Returns the user's shipping address.
 curl "http://api.parade.pet/user/setLocation"
   -d 'name=New York, NY, United States'
   -d 'placeId=ChIJOwg_06VPwokRYv534QaPC8g'
+  -d 'city=New York'
+  -d 'state=NY'
+  -d 'country=United States'
+  -d 'postalCode=10014'
 ```
 
 > The above command returns JSON structured like this:
@@ -461,7 +465,11 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 name | true | New York, NY, United States
-placeId | true | ChIJOwg_06VPwokRYv534QaPC8g
+placeId | true | placeId returned by Google Places API
+city | true | full city name returned by Google Places API
+state | true | 2-letter abbreviation for state
+country | true | country name returned by Google Places API
+postalCode | true | postal code
 
 <aside class="success">
 Returns "OK"
