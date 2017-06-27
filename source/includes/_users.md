@@ -521,6 +521,61 @@ petSite | false | PetCo
 Returns "OK"
 </aside>
 
+## Get Marketing Info
+
+```shell
+curl "http://api.parade.pet/user/setMarketingInfo"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "shopType": 1,
+    "petsite": {
+        "name": "PetEdge",
+        "url": "https://www.petedge.com"
+    }
+}
+```
+> OR
+
+```json
+{
+    "shopType": 1,
+    "petstore": {
+        "name": "PetCo",
+        "address": "157 Chambers Street, New York",
+        "city": "New York",
+        "state": "NY",
+        "country": "United States"
+    }
+}
+
+```
+
+This endpoint returns the user's marketing info, including either the petsite or petstore.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/setMarketingInfo`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+None
+
+<aside class="success">
+Returns user marketing info.  If no marketing info, returns {}.
+</aside>
+
 
 ## Archive User
 
