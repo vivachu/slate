@@ -524,7 +524,7 @@ Returns "OK"
 ## Get Marketing Info
 
 ```shell
-curl "http://api.parade.pet/user/setMarketingInfo"
+curl "http://api.parade.pet/user/marketingInfo"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -559,7 +559,7 @@ This endpoint returns the user's marketing info, including either the petsite or
 
 ### HTTP Request
 
-`GET http://api.parade.pet/user/setMarketingInfo`
+`GET http://api.parade.pet/user/marketingInfo`
 
 ### Header Parameters
 
