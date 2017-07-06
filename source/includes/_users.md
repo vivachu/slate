@@ -533,18 +533,11 @@ curl "http://api.parade.pet/user/marketingInfo"
 ```json
 {
     "shopType": 1,
-    "petsite": {
-        "name": "PetEdge",
-        "url": "https://www.petedge.com"
-    }
-}
-```
-> OR
-
-```json
-{
-    "shopType": 1,
-    "petstore": {
+    "petSite": {
+        "name": "BarkBox",
+        "url": "https://barkbox.com"
+    },
+    "petStore": {
         "name": "PetCo",
         "address": "157 Chambers Street, New York",
         "city": "New York",
@@ -552,7 +545,6 @@ curl "http://api.parade.pet/user/marketingInfo"
         "country": "United States"
     }
 }
-
 ```
 
 This endpoint returns the user's marketing info, including either the petsite or petstore.
