@@ -463,12 +463,13 @@ Returns the user's shipping address.
 
 ```shell
 curl "http://api.parade.pet/user/setLocation"
-  -d 'name=New York, NY, United States'
+  -d 'name=Brooklyn, NY, United States'
+  -d 'street='158 Berkeley Place'
   -d 'placeId=ChIJOwg_06VPwokRYv534QaPC8g'
   -d 'city=New York'
   -d 'state=NY'
   -d 'country=United States'
-  -d 'postalCode=10014'
+  -d 'postalCode=11215'
 ```
 
 > The above command returns JSON structured like this:
@@ -494,7 +495,8 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-name | true | New York, NY, United States
+name | true | city, state, country (i.e., New York, NY, United States)
+street | true | street address 
 placeId | true | placeId returned by Google Places API
 city | true | full city name returned by Google Places API
 state | true | 2-letter abbreviation for state
