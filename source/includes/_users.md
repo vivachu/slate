@@ -434,7 +434,7 @@ Returns the user's shipping address.
 ```shell
 curl "http://api.parade.pet/user/setLocation"
   -d 'name=Brooklyn, NY, United States'
-  -d 'street='158 Berkeley Place'
+  -d 'street=158 Berkeley Place'
   -d 'placeId=ChIJOwg_06VPwokRYv534QaPC8g'
   -d 'city=New York'
   -d 'state=NY'
