@@ -65,6 +65,56 @@ type | true | Either dog, cat, or critter.
 Returns prizes for the specified store type. The authorized user's ticket balance is also returned.
 </aside>
 
+## Get User Prizes
+
+```shell
+curl "http://api.parade.pet/prizes/user/1021"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "prizes": [
+        {
+            "name": "Critter Grooming Kit",
+            "timestamp": 5884676.358,
+            "action": "redeemed",
+            "tickets": 145,
+            "isPremium": false
+        },
+        {
+            "name": "Puppy Training Kit",
+            "timestamp": 5884787.36,
+            "action": "pinned"
+        },
+        {
+            "name": "Exercise Wheel",
+            "timestamp": 5885085.36,
+            "action": "pinned"
+        }
+    ]
+}
+```
+
+Retrieve the list of prizes that the specified user has pinned or redeemed.  The timestamp for each prize is in seconds since the current time. If the prize has been redeemed, then the action is "redeemed" and the tickets and isPremium properties are set.  If isPremium = true, then the tickets are gold.  
+
+### HTTP Request
+
+`GET http://api.parade.pet/prizes/user/:userId`
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userId | true | The ID of the User whose prizes you want to retrieve
+
+<aside class="success">
+Returns list of prizes that the user has pinned or redeemed.
+</aside>
+
 
 ## Get Leaderboard Ticket Payouts
 
