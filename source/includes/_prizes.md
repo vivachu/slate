@@ -78,23 +78,25 @@ curl "http://api.parade.pet/prizes/user/1021"
 {
     "prizes": [
         {
-            "name": "Critter Grooming Kit",
-            "timestamp": 5884676.358,
-            "action": "redeemed",
-            "tickets": 145,
-            "isPremium": false
-        },
-        {
-            "name": "Puppy Training Kit",
-            "timestamp": 5884787.36,
+            "name": "10 Gallon Aquarium",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81zvlOIT5nL._SL600_.jpg",
+            "timestamp": 10081906.448,
             "action": "pinned"
         },
         {
-            "name": "Exercise Wheel",
-            "timestamp": 5885085.36,
+            "name": "52\" Cat Tower",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41DAcsWFnJL.jpg",
+            "timestamp": 10964373.447,
+            "action": "redeemed",
+            "tickets": 240,
+            "isPremium": true
+        },
+        {
+            "name": "T-Shirt with Your Cat's Photo",
+            "imageUrl": "http://www.parade.pet/assets/images/T-Shirt-Cat.png",
+            "timestamp": 10964579.448,
             "action": "pinned"
         }
-    ]
 }
 ```
 
