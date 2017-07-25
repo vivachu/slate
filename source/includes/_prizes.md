@@ -121,7 +121,7 @@ Returns list of prizes that the user has pinned or redeemed.
 ## Get Leaderboard Ticket Payouts
 
 ```shell
-curl "http://api.parade.pet/tickets/leaderboard"
+curl "http://api.parade.pet/tickets/payouts?type=dog"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -129,48 +129,85 @@ curl "http://api.parade.pet/tickets/leaderboard"
 
 ```json
 {
-  "tickets": {
-    "silver": 0,
-    "gold": 0
-  },
-  "week": [
-    {
-      "place": "1st",
-      "gold": 25,
-      "silver": 50
+    "myTickets": {
+        "silver": 24,
+        "gold": 9
     },
-    {
-      "place": "2nd",
-      "gold": 23,
-      "silver": 45
-    },
-    {
-      "place": "3rd",
-      "gold": 20,
-      "silver": 41
-    },
-  ],
-  "month": [
-    {
-      "place": "1st",
-      "gold": 50,
-      "silver": 100
-    },
-    {
-      "place": "2nd",
-      "gold": 45,
-      "silver": 90
-    },
-    {
-      "place": "3rd",
-      "gold": 41,
-      "silver": 81
-    },
-  ]
-}
+    "payouts": [
+        {
+            "place": "1st",
+            "week": {
+                "tickets": 50,
+                "type": "gold"
+            },
+            "month": {
+                "tickets": 100,
+                "type": "gold"
+            }
+        },
+        {
+            "place": "2nd",
+            "week": {
+                "tickets": 45,
+                "type": "gold"
+            },
+            "month": {
+                "tickets": 90,
+                "type": "gold"
+            }
+        },
+        {
+            "place": "46-100",
+            "week": {
+                "tickets": 1,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 1,
+                "type": "silver"
+            }
+        },
+        {
+            "place": "N",
+            "week": {
+                "tickets": 50,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 100,
+                "type": "silver"
+            }
+        },
+        {
+            "place": "G",
+            "week": {
+                "tickets": 10,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 20,
+                "type": "silver"
+            }
+        },
+        {
+            "place": "I",
+            "week": {
+                "tickets": 50,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 100,
+                "type": "silver"
+            }
+        }
+    ],
+    "endOfWeek": "4d 6h",
+    "endOfMonth": "6d 6h"
+}    
+    
 ```
 
-Retrieve the ticket payouts for placing in the weekly and monthly leaderboards.     
+Retrieve the ticket payouts for placing in the weekly and monthly leaderboards for the specified type.     
 
 ### HTTP Request
 
@@ -187,9 +224,10 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
+type | false | The leaderboard: all, location, dog, cat, or critter
 
 <aside class="success">
-Returns tickets payouts for weekly and monthly leaderboards. The authorized user's ticket balance is also returned.
+Returns tickets payouts for weekly and monthly for the specified leaderboard type. The authorized user's ticket balance is also returned and the time till the end of the week and month.
 </aside>
 
 ## Accept Tickets
