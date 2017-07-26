@@ -42,7 +42,7 @@ curl "http://api.parade.pet/prizes/dog"
 }
 ```
 
-Retrieve the Prize Catalog for the specified type: Dog, Cat or Critter.     
+Retrieve the Prize Catalog for the specified type: Parent, Dog, Cat or Critter.     
 
 ### HTTP Request
 
@@ -59,10 +59,50 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-type | true | Either dog, cat, or critter.
+type | true | Either parent, dog, cat, or critter.
 
 <aside class="success">
 Returns prizes for the specified store type. The authorized user's ticket balance is also returned.
+</aside>
+
+## Get Prize
+
+```shell
+curl "http://api.parade.pet/prize/115"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "type": "Dog",
+    "name": "Medium Furminator",
+    "brand": "Furminator",
+    "isPremium": false,
+    "description": "The top name in dog grooming, this medium size Furminator will reduce shedding by up to 90%.",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71H3Kd60biL._SL600_.jpg",
+    "state": 1,
+    "id": 115,
+    "ticketPrice": 505
+}
+```
+
+Retrieve the Prize Catalog for the specified type: Dog, Cat or Critter.     
+
+### HTTP Request
+
+`GET http://api.parade.pet/prize/:id`
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | The id of the prize
+
+<aside class="success">
+Returns the prize details matching the id.  If no prize matches the id then 404 error is returned.
 </aside>
 
 ## Get User Prizes
@@ -78,12 +118,14 @@ curl "http://api.parade.pet/prizes/user/1021"
 {
     "prizes": [
         {
+            "id": 110,
             "name": "10 Gallon Aquarium",
             "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81zvlOIT5nL._SL600_.jpg",
             "timestamp": 10081906.448,
             "action": "pinned"
         },
         {
+            "id": 111,
             "name": "52\" Cat Tower",
             "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41DAcsWFnJL.jpg",
             "timestamp": 10964373.447,
@@ -92,6 +134,7 @@ curl "http://api.parade.pet/prizes/user/1021"
             "isPremium": true
         },
         {
+            "id": 117,
             "name": "T-Shirt with Your Cat's Photo",
             "imageUrl": "http://www.parade.pet/assets/images/T-Shirt-Cat.png",
             "timestamp": 10964579.448,
@@ -211,7 +254,7 @@ Retrieve the ticket payouts for placing in the weekly and monthly leaderboards f
 
 ### HTTP Request
 
-`GET http://api.parade.pet/tickets/leaderboard`
+`GET http://api.parade.pet/tickets/payouts`
 
 ### Header Parameters
 
