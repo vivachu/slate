@@ -42,7 +42,7 @@ curl "http://api.parade.pet/prizes/dog"
 }
 ```
 
-Retrieve the Prize Catalog for the specified type: Dog, Cat or Critter.     
+Retrieve the Prize Catalog for the specified type: Parent, Dog, Cat or Critter.     
 
 ### HTTP Request
 
@@ -59,17 +59,16 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-type | true | Either dog, cat, or critter.
+type | true | Either parent, dog, cat, or critter.
 
 <aside class="success">
 Returns prizes for the specified store type. The authorized user's ticket balance is also returned.
 </aside>
 
-
-## Get Leaderboard Ticket Payouts
+## Get Prize
 
 ```shell
-curl "http://api.parade.pet/tickets/leaderboard"
+curl "http://api.parade.pet/prize/115"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -77,52 +76,185 @@ curl "http://api.parade.pet/tickets/leaderboard"
 
 ```json
 {
-  "tickets": {
-    "silver": 0,
-    "gold": 0
-  },
-  "week": [
-    {
-      "place": "1st",
-      "gold": 25,
-      "silver": 50
-    },
-    {
-      "place": "2nd",
-      "gold": 23,
-      "silver": 45
-    },
-    {
-      "place": "3rd",
-      "gold": 20,
-      "silver": 41
-    },
-  ],
-  "month": [
-    {
-      "place": "1st",
-      "gold": 50,
-      "silver": 100
-    },
-    {
-      "place": "2nd",
-      "gold": 45,
-      "silver": 90
-    },
-    {
-      "place": "3rd",
-      "gold": 41,
-      "silver": 81
-    },
-  ]
+    "type": "Dog",
+    "name": "Medium Furminator",
+    "brand": "Furminator",
+    "isPremium": false,
+    "description": "The top name in dog grooming, this medium size Furminator will reduce shedding by up to 90%.",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71H3Kd60biL._SL600_.jpg",
+    "state": 1,
+    "id": 115,
+    "ticketPrice": 505
 }
 ```
 
-Retrieve the ticket payouts for placing in the weekly and monthly leaderboards.     
+Retrieve the Prize Catalog for the specified type: Dog, Cat or Critter.     
 
 ### HTTP Request
 
-`GET http://api.parade.pet/tickets/leaderboard`
+`GET http://api.parade.pet/prize/:id`
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | The id of the prize
+
+<aside class="success">
+Returns the prize details matching the id.  If no prize matches the id then 404 error is returned.
+</aside>
+
+## Get User Prizes
+
+```shell
+curl "http://api.parade.pet/prizes/user/1021"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "prizes": [
+        {
+            "id": 110,
+            "name": "10 Gallon Aquarium",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81zvlOIT5nL._SL600_.jpg",
+            "timestamp": 10081906.448,
+            "action": "pinned"
+        },
+        {
+            "id": 111,
+            "name": "52\" Cat Tower",
+            "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/41DAcsWFnJL.jpg",
+            "timestamp": 10964373.447,
+            "action": "redeemed",
+            "tickets": 240,
+            "isPremium": true
+        },
+        {
+            "id": 117,
+            "name": "T-Shirt with Your Cat's Photo",
+            "imageUrl": "http://www.parade.pet/assets/images/T-Shirt-Cat.png",
+            "timestamp": 10964579.448,
+            "action": "pinned"
+        }
+}
+```
+
+Retrieve the list of prizes that the specified user has pinned or redeemed.  The timestamp for each prize is in seconds since the current time. If the prize has been redeemed, then the action is "redeemed" and the tickets and isPremium properties are set.  If isPremium = true, then the tickets are gold.  
+
+### HTTP Request
+
+`GET http://api.parade.pet/prizes/user/:userId`
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userId | true | The ID of the User whose prizes you want to retrieve
+
+<aside class="success">
+Returns list of prizes that the user has pinned or redeemed.
+</aside>
+
+
+## Get Leaderboard Ticket Payouts
+
+```shell
+curl "http://api.parade.pet/tickets/payouts?type=dog"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "myTickets": {
+        "silver": 24,
+        "gold": 9
+    },
+    "payouts": [
+        {
+            "place": "1st",
+            "week": {
+                "tickets": 50,
+                "type": "gold"
+            },
+            "month": {
+                "tickets": 100,
+                "type": "gold"
+            }
+        },
+        {
+            "place": "2nd",
+            "week": {
+                "tickets": 45,
+                "type": "gold"
+            },
+            "month": {
+                "tickets": 90,
+                "type": "gold"
+            }
+        },
+        {
+            "place": "46-100",
+            "week": {
+                "tickets": 1,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 1,
+                "type": "silver"
+            }
+        },
+        {
+            "place": "N",
+            "week": {
+                "tickets": 50,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 100,
+                "type": "silver"
+            }
+        },
+        {
+            "place": "G",
+            "week": {
+                "tickets": 10,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 20,
+                "type": "silver"
+            }
+        },
+        {
+            "place": "I",
+            "week": {
+                "tickets": 50,
+                "type": "silver"
+            },
+            "month": {
+                "tickets": 100,
+                "type": "silver"
+            }
+        }
+    ],
+    "endOfWeek": "4d 6h",
+    "endOfMonth": "6d 6h"
+}    
+    
+```
+
+Retrieve the ticket payouts for placing in the weekly and monthly leaderboards for the specified type.     
+
+### HTTP Request
+
+`GET http://api.parade.pet/tickets/payouts`
 
 ### Header Parameters
 
@@ -135,9 +267,10 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
+type | false | The leaderboard: all, location, dog, cat, or critter
 
 <aside class="success">
-Returns tickets payouts for weekly and monthly leaderboards. The authorized user's ticket balance is also returned.
+Returns tickets payouts for weekly and monthly for the specified leaderboard type. The authorized user's ticket balance is also returned and the time till the end of the week and month.
 </aside>
 
 ## Accept Tickets
