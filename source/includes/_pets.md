@@ -4,14 +4,13 @@
 
 ```shell
 curl "http://api.parade.pet/pet/leaderboard"
-  -H "Authorization:  Bearer meowmeowmeow"
   -d 'start=2016-06-01'
   -d 'end=2016-06-30'
   -d 'place=200'
   -d 'size=3'  
   -d 'type=dog'
   -d 'breed=3529'
-  -d 'critter=3'
+  -d 'city=New York'
   -d 'placeId=ChIJ-0qgNoF_3YgRg3Lh7xHDooU'
   -d 'contest=1'
 ```
@@ -58,12 +57,6 @@ Pets accumulate points for FaceOff wins and Treats received.  The leaderboard en
 
 `GET http://api.parade.pet/pet/leaderboard`
 
-### Header Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -101,34 +94,34 @@ curl "http://api.parade.pet/pets"
 	  "image": 234,
 	  "name": "Mr Big",
 	  "place": 1292,
-    "placeByType": 22381,
+	  "placeByType": 129,	  
     "placeByLocation": 132,
     "placeByBreed": 53,
 	  "points": 900,
 	  "numFaceOffs": 98,
 	  "numTreats": 9,
-	"type": "dog",
-	"breed": {
-		"id": 3773,
-		"name": "Hound"
-        }  
+    "type": "dog",
+    "breed": {
+	    "id": 3773,
+	    "name": "Hound"
+    }  
 	},
 	{ 
 	  "id": 1928,
 	  "image": 2328,
 	  "name": "Sparks",
 	  "place": 989,
-	  "placeByType": 22381,	  
+	  "placeByType": 129,	  
     "placeByLocation": 132,
     "placeByBreed": 10,
 	  "points": 1010,
 	  "numFaceOffs": 289,
 	  "numTreats": 21,
-            "type": "critter",
-            "breed": {
-                "id": 3,
-                "name": "Bird"
-            }
+    "type": "critter",
+    "breed": {
+      "id": 3,
+      "name": "Bird"
+    }
 	}
 	],
 	"location": {
@@ -162,6 +155,79 @@ contest | false | id value of the Contest to filter the results against.  If no 
 Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests.  Please note that if the pet is of type "dog" or "cat", the breed id is the petbreed id of the pet; if the pet is of type "critter", the breed id is the pettype id.
 </aside>
 
+## Get Pets For Username
+
+```shell
+curl "http://api.parade.pet/pets/vivachu@yahoo.com"
+  -d 'start=2016-06-01'
+  -d 'end=2016-06-30'
+  -d 'contest=1'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+	"pets": [
+	{ 
+	  "id": 129,
+	  "image": 234,
+	  "name": "Mr Big",
+	  "place": 1292,
+	  "placeByType": 290,
+	  "placeByBreed": 29,
+    "type": "dog",
+    "breed": {
+      "id": 2345,
+      "name": "Hound"
+    },
+	  "points": 900,
+	  "numFaceOffs": 98,
+	  "numTreats": 9	  
+	},
+	{ 
+	  "id": 1928,
+	  "image": 2328,
+	  "name": "Sparks",
+	  "place": 989,
+	  "placeByType": 33,
+	  "placeByBreed": 3,
+    "type": "critter",
+    "breed": {
+      "id": 3,
+      "name": "Bird"
+    },
+	  "points": 1010,
+	  "numFaceOffs": 289,
+	  "numTreats": 21
+	}
+	],
+	"treats": {
+    	"count": 21,
+    	"points": 928
+  	}
+}
+```
+
+This endpoint returns the specified user's pets and their points total and placement over the specified time period and contest. The pet's placeByType is the pet's rank by pet type (dog, cat, critter) and the pet's place is the pet's rank across all pets. By default if no parameters are passed, then the pet's points balance and placement are calculated for the current week.  Please note that if the pet is of type "dog" or "cat", the breed id is the petbreed id of the pet; if the pet is of type "critter", the breed id is the pettype id.
+
+### HTTP Request
+
+`GET http://api.parade.pet/pets/:username`
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+start | false | Start date in yyyy-mm-dd format over which to calculate points and placement. If no start date is defined, the first day of the current month is assumed as the time period.  
+end | false | End date in yyyy-mm-dd format over which to calculate points and placement. If no end date is defined, the last day of the start month is assumed as the time period. 
+contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
+
+<aside class="success">
+Returns the specified user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
+</aside>
+
 ## Get Pet Profile
 
 ```shell
@@ -179,6 +245,10 @@ curl "http://api.parade.pet/pet/profile"
   "age": "1 Year",
   "gender": 0,
   "profileImage": 1265,
+  "breed": {
+    "id": 3703,
+    "name": "Shetland Sheepdog"
+  },
   "owner": {
     "id": 1054,
     "profileImage": 4197,
@@ -200,7 +270,25 @@ curl "http://api.parade.pet/pet/profile"
     }
   ],
   "place": 770,
-  "placeByType": 96
+  "placeByType": 96,
+  "placeByBreed": 9,
+  "awards": [
+    {
+      "name": "33rd Place Dog",
+      "period": "Month of Mar 2017",
+      "ribbon": "33rd"
+    },
+    {
+      "name": "75th Place All Pets",
+      "period": "Month of Mar 2017",
+      "ribbon": "75th"
+    },
+    {
+      "name": "93rd Place Dog",
+      "period": "Week of Mar 19, 2017",
+      "ribbon": "93rd"
+    }
+	]  
 }
 ```
 

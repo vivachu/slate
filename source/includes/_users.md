@@ -89,6 +89,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 token | true |  Firebase token string, included as part of url
+timeZoneOffset | false |  the local timezone offset as a signed floating point number.  For example -4.5 is four hours and 30 minutes from GMT. 
 
 
 <aside class="success">
@@ -164,6 +165,7 @@ Parameter | Required | Description
 --------- | ------- | -----------
 subject | true | The subject of your message  
 message | true | The message
+email | false | The replyTo address
 
 <aside class="success">
 Returns OK
@@ -219,7 +221,35 @@ curl "http://api.parade.pet/user/profile"
       "id": 3245,
       "image": 5918
     }
-  ]
+  ],
+  "awards": [
+    {
+      "pet": {
+        "id": 1039,
+        "name": "Coder",
+        "profileImage": 5981
+      },
+      "name": "33rd Place Dog",
+      "period": "Month of Mar 2017",
+      "ribbon": "33rd"
+    },
+    {
+      "pet": null,
+      "name": "The Generous Pet Parent Award",
+      "period": "Week of Feb 26, 2017",
+      "ribbon": "G"
+    },
+    {
+      "pet": {
+        "id": 1040,
+        "name": "Joey",
+        "profileImage": 5981
+      },
+      "name": "24th Place Cat",
+      "period": "Week of Feb 26, 2017",
+      "ribbon": "24th"
+    }
+    ]          
 }
 ```
 

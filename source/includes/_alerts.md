@@ -337,3 +337,97 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 <aside class="success">
 Returns an array of Alert objects.  Each Alert has a timestamp, award, and the profileImage or socialImageUrl of the person or pet who received the award.  If socialImageUrl is not null, use that as the image.   
 </aside>
+
+## Get Alert Settings
+
+```shell
+curl "http://api.parade.pet/alerts/settings"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "notifyAnnouncements": false,
+  "notifyFaceOffSummary": true,
+  "notifyFaceOffSummaryHour": 9,
+  "notifyTreatAlerts": false,
+  "notifyTreatSummary": true,
+  "notifyTreatSummaryHour": 11,
+  "notifyCommentAlerts": true,
+  "notifyPrizes": true,
+  "notifyWeeklyWinners": false,
+  "notifyMonthlyWinners": false,
+  "notifyCoinPromos": false,
+  "notifyPetBirthdays": false,
+  "id": 1,
+  "user": 104
+}
+```
+
+This endpoint retrieves the user's alert settings.
+ 
+### HTTP Request
+
+`GET http://api.parade.pet/alerts/settings`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns the user's alert settings.  
+</aside>
+
+## Set Alert Settings
+
+```shell
+curl "http://api.parade.pet/alerts/settings"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'notifyAnnouncements=false'
+  -d 'notifyFaceOffSummary=true'
+  -d 'notifyFaceOffSummaryHour=8'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint reports an entry that the user finds questionable.
+
+### HTTP Request
+
+`POST http://api.parade.pet/alerts/settings`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+notifyAnnouncements | false | true or false
+notifyFaceOffSummary | false | true or false
+notifyFaceOffSummaryHour | false | The hour to send
+notifyTreatAlerts | false | true or false
+notifyTreatSummary | false | true or false
+notifyTreatSummaryHour | false | The hour to send
+notifyCommentAlerts | false | true or false
+notifyPrizes | false | true or false
+notifyAnnouncements | false | true or false
+notifyWeeklyWinners | false | true or false
+notifyMonthlyWinners | false | true or false
+notifyCoinPromos | false | true or false
+notifyPetBirthdays | false | true or false
+
+<aside class="success">
+Returns OK
+</aside>
