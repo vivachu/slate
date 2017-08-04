@@ -72,8 +72,7 @@ start | false | Start date in yyyy-mm-dd format to limit results. If no start da
 end | false | End date in yyyy-mm-dd format to limit results.  The end date is inclusive, meaning if 2016-06-30 is specified then points scored any time on 6/30 are included. If no end date is defined, the last day of the start month is assumed as the time period. 
 place | false | The placement position to start the return results.
 type | false | The type of pet to filter against: dog, cat, other.  No value indicates all pets.
-breed | false | The breedId of the pet to filter against
-critter | false | The petType id (> 2) of the critter leaderboard 
+breed | false | The breedId of the pet to filter against; if type is "other", the breed here is the pettype id value
 placeId | false | The Google Places API placeId
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
@@ -104,9 +103,15 @@ curl "http://api.parade.pet/pets"
 	  "place": 1292,
     "placeByType": 22381,
     "placeByLocation": 132,
+    "placeByBreed": 53,
 	  "points": 900,
 	  "numFaceOffs": 98,
-	  "numTreats": 9	  
+	  "numTreats": 9,
+	"type": "dog",
+	"breed": {
+		"id": 3773,
+		"name": "Hound"
+        }  
 	},
 	{ 
 	  "id": 1928,
@@ -115,9 +120,15 @@ curl "http://api.parade.pet/pets"
 	  "place": 989,
 	  "placeByType": 22381,	  
     "placeByLocation": 132,
+    "placeByBreed": 10,
 	  "points": 1010,
 	  "numFaceOffs": 289,
-	  "numTreats": 21
+	  "numTreats": 21,
+            "type": "critter",
+            "breed": {
+                "id": 3,
+                "name": "Bird"
+            }
 	}
 	],
 	"location": {
@@ -148,7 +159,7 @@ end | false | End date in yyyy-mm-dd format over which to calculate points and p
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
 <aside class="success">
-Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
+Returns the authorized user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests.  Please note that if the pet is of type "dog" or "cat", the breed id is the petbreed id of the pet; if the pet is of type "critter", the breed id is the pettype id.
 </aside>
 
 ## Get Pet Profile
