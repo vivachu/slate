@@ -76,15 +76,29 @@ curl "http://api.parade.pet/prize/115"
 
 ```json
 {
-    "type": "Dog",
-    "name": "Medium Furminator",
-    "brand": "Furminator",
-    "isPremium": false,
-    "description": "The top name in dog grooming, this medium size Furminator will reduce shedding by up to 90%.",
-    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71H3Kd60biL._SL600_.jpg",
-    "state": 1,
-    "id": 115,
-    "ticketPrice": 505
+    "prize": {
+        "type": "Critter",
+        "name": "Pet Parade T-Shirt",
+        "brand": null,
+        "isPremium": false,
+        "description": "Premium cotton purple tee with Pet Parade logo. Available in all adult and youth sizes.",
+        "checkoutUrl": null,
+        "imageUrl": "http://www.parade.pet/assets/images/T-Shirt-Logo.png",
+        "state": 1,
+        "prizeOption1": null,
+        "prizeOption2": null,
+        "prizeOption3": null,
+        "prizeOption4": null,
+        "fulfillmentTime": 3,
+        "id": 194,
+        "pinned": true,
+        "pinnedId": 28,
+        "ticketPrice": 560
+    },
+    "tickets": {
+        "silver": 440,
+        "gold": 1000
+    }
 }
 ```
 
@@ -93,6 +107,12 @@ Retrieve the Prize Catalog for the specified type: Dog, Cat or Critter.
 ### HTTP Request
 
 `GET http://api.parade.pet/prize/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 
 ### Query Parameters
