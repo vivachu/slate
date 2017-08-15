@@ -334,7 +334,10 @@ Returns OK if success or an error message and code if Ticket object does not exi
 ```shell
 curl "http://api.parade.pet/prize/redeem"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'id=291'
+  -d 'prize=2912'
+  -d 'address=532'
+  -d 'option1=red'
+  -d 'option2=Medium'
 ```
 
 > The above command returns "OK" or an error message
@@ -361,6 +364,10 @@ Parameter | Required | Description
 --------- | ------- | -----------
 prize | true | ID of the Prize object to redeem
 address | true | ID of the Address object to ship to
+option1 | false | Custom option 1
+option2 | false | Custom option 2
+option3 | false | Custom option 3
+option4 | false | Custom option 4
 
 <aside class="success">
 Returns OK if success or an error message if the user does not have enough tickets to redeem the prize.  
