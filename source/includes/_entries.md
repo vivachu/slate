@@ -686,6 +686,48 @@ parent | false | The id of the parent comment if replying to a comment
 Returns OK
 </aside>
 
+## Smart Comments
+
+```shell
+curl "http://api.parade.pet/entry/smartComments/2012"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```
+[
+    "❤️❤️❤️",
+    "Soo cute 😍",
+    "Gizmo 💜💜💜",
+    "Great photo!",
+    "Awww... so adorable"
+]
+```
+
+This endpoint gets the smart comments for an entry.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entry/smartComment:entryId`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entryId | true | The ID of the entry being commented on.   
+
+<aside class="success">
+Returns an array of comment suggestions for the user on the entry.
+</aside>
+
+
 ## Delete Comment
 
 ```shell
