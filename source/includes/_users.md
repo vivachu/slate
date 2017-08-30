@@ -599,6 +599,186 @@ Returns user marketing info.  If no marketing info, returns {}.
 </aside>
 
 
+
+
+## Get Friend Code
+
+```shell
+curl "http://api.parade.pet/user/friendCode"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "friendCode": "123abc"
+}
+```
+
+This endpoint returns the user's friend code.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/friendCode`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+None
+
+<aside class="success">
+Returns user friend code.
+</aside>
+
+
+## Get Friends
+
+```shell
+curl "http://api.parade.pet/user/friends"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "referers": [
+        {
+            "userid": 25,
+            "pets": [
+                {
+                    "pet": 32,
+                    "name": "Fido",
+                    "image": 3227,
+                    "type": "dog",
+                    "place": 68148,
+                    "placeByType": 39140,
+                    "placeByLocation": 2761,
+                    "placeByBreed": 44,
+                    "points": 0,
+                    "birthYear": 2016,
+                    "birthMonth": null,
+                    "birthDay": null
+                }
+            ]
+        }
+    ],
+    "referred": [
+        {
+            "referralBonus": null,
+            "referralBonusType": null,
+            "referralBonusAwardedDate": null,
+            "userid": 7220,
+            "pets": [
+                {
+                    "pet": 6406,
+                    "name": "Ava",
+                    "image": 31823,
+                    "type": "dog",
+                    "place": 40183,
+                    "placeByLocation": 10000,
+                    "placeByBreed": 360,
+                    "placeByType": 23122,
+                    "points": 0,
+                    "birthYear": 2014,
+                    "birthMonth": null,
+                    "birthDay": null
+                }
+            ]
+        },
+        {
+            "referralBonus": 25,
+            "referralBonusType": 1,
+            "referralBonusAwardedDate": "2017-08-30T23:27:24.000Z",
+            "userid": 30,
+            "pets": [
+                {
+                    "pet": 52,
+                    "name": "blue",
+                    "image": 186,
+                    "type": "dog",
+                    "placeByLocation": 10000,
+                    "placeByBreed": 40,
+                    "points": 0,
+                    "place": 50765,
+                    "placeByType": 29299,
+                    "birthYear": 2014,
+                    "birthMonth": null,
+                    "birthDay": null
+                }
+            ]
+        }
+    ]
+}
+```
+
+This endpoint returns the user's friends, separated into referred and referers.  For referred friends, the fields "referralBonus", "referralBonusType", and "referralBonusAwardedDate" will show from which referred friend the current user received a referral bonus.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/friends`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+None
+
+<aside class="success">
+Returns user's friends.
+</aside>
+
+## Add Friend
+
+```shell
+curl "http://api.parade.pet/user/addFriend"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d "user=10000"
+  -d "friendCode=abc123"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+    "OK"
+```
+
+This endpoint adds a friend if the POSTed friendCode matches the POSTed user.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/addFriend`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+user | true | The userId of the friend to add
+friendCode | true | The friendCode of the friend to add
+
+<aside class="success">
+Returns OK
+</aside>
+
 ## Archive User
 
 ```shell
