@@ -3,7 +3,7 @@
 ## Get Prize Catalog
 
 ```shell
-curl "http://api.parade.pet/prizes/dog"
+curl "http://api.parade.pet/prizes/parent"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -17,26 +17,64 @@ curl "http://api.parade.pet/prizes/dog"
   },
   "prizes": [
     {
-      "type": "Dog",
-      "name": "Puppy Teepee",
-      "brand": "zoovilla",
-      "isPremium": true,
-      "description": "A stylish tent for your pup to play and lounge in.",
-      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81njkstSTQL._SL600_.jpg",
-      "id": 30,
-      "ticketPrice": 416,
-      "pinned": true
+            "type": "Parent",
+            "name": "Custom Dog Tag",
+            "brand": "Field Trip",
+            "price": 14.99,
+            "shippingCost": 0,
+            "isPremium": false,
+            "description": "A beautiful floral dog tag with your pet's name and your phone number. Make a statement in style!",
+            "checkoutUrl": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4EHGLVD8U8R8E",
+            "imageUrl": "http://assets.parade.pet/prizes/1502412591285.jpeg",
+            "state": 1,
+            "prizeOption1": {
+                "name": "Pet Name",
+                "type": 0,
+                "options": [
+                    ""
+                ]
+            },
+            "prizeOption2": {
+                "name": "Phone Number",
+                "type": 0,
+                "options": [
+                    ""
+                ]
+            },
+            "prizeOption3": null,
+            "prizeOption4": null,
+            "fulfillmentTime": "Ships in 3-6 days.",
+            "isCharity": false,
+            "id": 201,
+            "pinned": false,
+            "ticketPrice": 1499,
+            "promo": {
+                "type": "price",
+                "value": 10.49,
+                "expires": 109325.671
+            }
     },
     {
-      "type": "Dog",
-      "name": "Memory Foam Pet Bed",
-      "brand": "LatitudeC",
-      "isPremium": false,
-      "description": "This ultra comfortable memory foam dog bed includes a fuzzy blanket. ",
-      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71TpXNii47L._SL600_.jpg",
-      "id": 29,
-      "ticketPrice": 1499,
-      "pinned": false
+            "type": "Parent",
+            "name": "Mug With Your Pet's Pic",
+            "brand": "Country Crafts",
+            "price": 16.99,
+            "shippingCost": 0,
+            "isPremium": false,
+            "description": "Add your pet's photo and name to this versatile mug!",
+            "checkoutUrl": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6RZS85LNVVE2N",
+            "imageUrl": "http://assets.parade.pet/prizes/1502411684348.jpeg",
+            "state": 1,
+            "prizeOption1": null,
+            "prizeOption2": null,
+            "prizeOption3": null,
+            "prizeOption4": null,
+            "fulfillmentTime": "Ships in 5-10 days.",
+            "isCharity": false,
+            "id": 198,
+            "pinned": false,
+            "ticketPrice": 1699,
+            "promo": null
     }
     ]
 }
@@ -77,32 +115,52 @@ curl "http://api.parade.pet/prize/115"
 ```json
 {
     "prize": {
-        "type": "Critter",
-        "name": "Pet Parade T-Shirt",
-        "brand": null,
+        "type": "Parent",
+        "name": "Custom Dog Tag",
+        "brand": "Field Trip",
+        "price": 14.99,
+        "shippingCost": 0,
         "isPremium": false,
-        "description": "Premium cotton purple tee with Pet Parade logo. Available in all adult and youth sizes.",
-        "checkoutUrl": null,
-        "imageUrl": "http://www.parade.pet/assets/images/T-Shirt-Logo.png",
+        "description": "A beautiful floral dog tag with your pet's name and your phone number. Make a statement in style!",
+        "checkoutUrl": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4EHGLVD8U8R8E",
+        "imageUrl": "http://assets.parade.pet/prizes/1502412591285.jpeg",
         "state": 1,
-        "prizeOption1": null,
-        "prizeOption2": null,
+        "prizeOption1": {
+            "name": "Pet Name",
+            "type": 0,
+            "options": [
+                ""
+            ]
+        },
+        "prizeOption2": {
+            "name": "Phone Number",
+            "type": 0,
+            "options": [
+                ""
+            ]
+        },
         "prizeOption3": null,
         "prizeOption4": null,
-        "fulfillmentTime": 3,
-        "id": 194,
-        "pinned": true,
-        "pinnedId": 28,
-        "ticketPrice": 560
+        "fulfillmentTime": "Ships in 3-6 days.",
+        "isCharity": false,
+        "id": 201,
+        "pinned": false,
+        "pinnedId": null,
+        "ticketPrice": 1499,
+        "promo": {
+            "type": "price",
+            "value": 10.49,
+            "expires": 109230.869
+        }
     },
     "tickets": {
-        "silver": 440,
-        "gold": 1000
+        "silver": 48,
+        "gold": 10
     }
 }
 ```
 
-Retrieve the Prize Catalog for the specified type: Dog, Cat or Critter.     
+Retrieve the Prize for the specified prize.     
 
 ### HTTP Request
 
