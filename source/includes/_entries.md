@@ -446,7 +446,8 @@ curl "http://api.parade.pet/boost/<id>"
     "id": 1
   },
   "goldBalance": 80,
-  "boostRemaining": 9
+  "boostRemaining": 9,
+  "showAds": true
 }
 ```
 Return a specific boost based on boost id value. A single boost is returned.
