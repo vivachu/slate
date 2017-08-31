@@ -719,7 +719,7 @@ curl "http://api.parade.pet/user/friends"
 }
 ```
 
-This endpoint returns the user's friends, separated into referred and referers.  For referred friends, the fields "referralBonus", "referralBonusType", and "referralBonusAwardedDate" will show from which referred friend the current user received a referral bonus.
+This endpoint returns the user's friends, separated into referred and referers.  For referred friends, the fields "referralBonus", "referralBonusType", and "referralBonusAwardedDate" will show from which referred friend the current user received a referral bonus.  For referer friends, these fields will be fields will show which referer friend received the referral bonus from referring the current user.
 
 ### HTTP Request
 
