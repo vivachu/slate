@@ -719,7 +719,7 @@ curl "http://api.parade.pet/user/friends"
 }
 ```
 
-This endpoint returns the user's friends, separated into referred and referers.  For referred friends, the fields "referralBonus", "referralBonusType", and "referralBonusAwardedDate" will show from which referred friend the current user received a referral bonus.
+This endpoint returns the user's friends, separated into referred and referers.  For referred friends, the fields "referralBonus", "referralBonusType", and "referralBonusAwardedDate" will show from which referred friend the current user received a referral bonus.  For referer friends, these fields will be fields will show which referer friend received the referral bonus from referring the current user.
 
 ### HTTP Request
 
@@ -745,7 +745,6 @@ Returns user's friends.
 ```shell
 curl "http://api.parade.pet/user/addFriend"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d "user=10000"
   -d "friendCode=abc123"
 ```
 
@@ -755,7 +754,7 @@ curl "http://api.parade.pet/user/addFriend"
     "OK"
 ```
 
-This endpoint adds a friend if the POSTed friendCode matches the POSTed user.
+This endpoint adds a friend if the POSTed friendCode matches existing user's code.
 
 ### HTTP Request
 
@@ -772,7 +771,6 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-user | true | The userId of the friend to add
 friendCode | true | The friendCode of the friend to add
 
 <aside class="success">
