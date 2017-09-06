@@ -47,6 +47,7 @@ curl "http://api.parade.pet/prizes/parent"
             "isCharity": false,
             "id": 201,
             "pinned": false,
+            "isNew": true,
             "ticketPrice": 1499,
             "promo": {
                 "type": "price",
@@ -73,6 +74,7 @@ curl "http://api.parade.pet/prizes/parent"
             "isCharity": false,
             "id": 198,
             "pinned": false,
+            "isNew": false,            
             "ticketPrice": 1699,
             "promo": null
     }
@@ -147,6 +149,7 @@ curl "http://api.parade.pet/prize/115"
         "pinned": false,
         "pinnedId": null,
         "ticketPrice": 1499,
+        "isNew": true,
         "promo": {
             "type": "price",
             "value": 10.49,
