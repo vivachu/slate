@@ -97,7 +97,14 @@ curl "http://api.parade.pet/game/init"
 		"faceoffs": 8,
 		"treats": 4,
 		"comments": 6,
-		"prizes": 2
+		"prizes": 2,
+        "prizeStore": {
+            "parent": 4,
+            "dog": 2,
+            "cat": 1,
+            "critter": 0,
+            "total": 7
+        }		
 	},
 	"messages": [
 	  "SIGNED IN USER CANNOT OWN ENTRY",
@@ -313,7 +320,14 @@ curl "http://api.parade.pet/game/faceoffset/end"
 		"faceoffs": 8,
 		"treats": 4,
 		"comments": 6,
-		"prizes": 2
+		"prizes": 2,
+        "prizeStore": {
+            "parent": 4,
+            "dog": 2,
+            "cat": 1,
+            "critter": 0,
+            "total": 7
+        }		
 	},
 	 "shareReward": {
 		"type": "gold",
