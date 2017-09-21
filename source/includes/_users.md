@@ -652,6 +652,10 @@ curl "http://api.parade.pet/user/friends"
     "referers": [
         {
             "userid": 25,
+	    "profileImage": 954,
+            "socialImageUrl": null,
+            "initials": "MW",
+            "fullname": "Mike W",
             "pets": [
                 {
                     "pet": 32,
