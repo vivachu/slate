@@ -254,10 +254,10 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Returns an array of Alert objects.  Each Alert has a timestamp, comment, entry, and user who sent the comment. 
 </aside>
 
-## Get Prizes
+## Get Prizes and Awards
 
 ```shell
-curl "http://api.parade.pet/alerts/prizes"
+curl "http://api.parade.pet/alerts/prizesAwards"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -274,23 +274,36 @@ curl "http://api.parade.pet/alerts/prizes"
     "goldTickets": 5
   },
   "alerts": [
-    {
-      "timestamp": 234506.884,
-      "new": false,
-      "pet": {
-        "id": 1039,
-        "name": "Coder",
-        "profileImage": 5981
+      {
+            "type": "award",
+            "timestamp": 204588.979,
+            "new": false,
+            "pet": {
+                "id": 23658,
+                "name": "Pebbles",
+                "profileImage": 242840
+            },
+            "award": "Pebbles won 22nd Place All Pets for the Week of Aug 6, 2017.",
+            "ticketAward": {
+                "id": 16872,
+                "numTickets": 6,
+                "isGold": true,
+                "opened": true
+            }
       },
-      "award": "Coder won 44th for the Week of Jan 3, 2017.",
-      "ticketAward": {
-        "id": 1928,
-        "numTickets": 5,
-        "isGold": false,
-        "opened": true
-      }
-    },
-    {
+      {
+            "type": "prize",
+            "timestamp": 204517.935,
+            "new": false,
+            "prize": {
+                "name": "Grooming Glove",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/81eizom38cL._SL600_.jpg",
+                "status": "Shipped",
+                "statusDetail": "Your order is expected to arrive by 8/15/17."
+            }
+      },
+      {
+      "type": "award",
       "timestamp": 234506.893,
       "new": true,
       "pet": {
@@ -326,7 +339,7 @@ This endpoint retrieves the user object with current ticket balance and a list o
  
 ### HTTP Request
 
-`GET http://api.parade.pet/alerts/prizes`
+`GET http://api.parade.pet/alerts/prizesAwards`
 
 ### Header Parameters
 
