@@ -899,7 +899,7 @@ Parameter | Required | Description
 start | true | start date for the leaderboard
 end | true | end date for the leaderboard
 placeId | false | placeId for the location leaderboard
-type | true | leaderboard type (dog, cat, other, all)
+type | true | leaderboard type (dog, cat, other, all, location)
 
 <aside class="success">
 Returns user's friend ladder as an array of friends, where each friend has an array of pets, for the chosen leaderboard.
