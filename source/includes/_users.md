@@ -781,6 +781,130 @@ friendCode | true | The friendCode of the friend to add
 Returns OK
 </aside>
 
+## Friend Ladder
+
+```shell
+curl "http://api.parade.pet/user/friends"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'start=2017-09-01'
+  -d 'end=2017-09-30'
+  -d 'placeId=ChIJ7cv00DwsDogRAMDACa2m4K8'
+  -d 'type=dog'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": 25,
+        "firstName": "Mike",
+        "lastName": "W",
+        "profileImage": "http://stage-assets.parade.pet/images/954/medium.jpg",
+        "socialImageUrl": null,
+        "highestRank": 0,
+        "pets": [
+            {
+                "pet": 3151,
+                "name": "Birdie",
+                "image": 14858,
+                "type": "other",
+                "place": 2096,
+                "placeByBreed": 19,
+                "placeByType": 241,
+                "placeByLocation": 115,
+                "placeId": "ChIJOwg_06VPwokRYv534QaPC8g",
+                "points": 3450,
+                "birthYear": 2015,
+                "birthMonth": null,
+                "birthDay": null
+            },
+            {
+                "pet": 32,
+                "name": "Fido",
+                "image": 3227,
+                "type": "dog",
+                "place": 5798,
+                "placeByLocation": 303,
+                "placeId": "ChIJOwg_06VPwokRYv534QaPC8g",
+                "placeByBreed": 10000,
+                "placeByType": 2849,
+                "points": 1570,
+                "birthYear": 2016,
+                "birthMonth": null,
+                "birthDay": null
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "firstName": "Kristi",
+        "lastName": " Clark",
+        "profileImage": null,
+        "socialImageUrl": null,
+        "highestRank": 26384,
+        "pets": [
+            {
+                "pet": 1474,
+                "name": "Chirp",
+                "image": 6234,
+                "type": "other",
+                "place": 26384,
+                "placeByType": 1413,
+                "placeByLocation": 771,
+                "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
+                "placeByBreed": 139,
+                "points": 490,
+                "birthYear": 2016,
+                "birthMonth": 5,
+                "birthDay": 31
+            },
+            {
+                "pet": 49951,
+                "name": "Callie",
+                "image": 200918,
+                "type": "cat",
+                "place": 42314,
+                "placeByBreed": 547,
+                "points": 100,
+                "placeByType": 15674,
+                "placeByLocation": 1279,
+                "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
+                "birthYear": 2016,
+                "birthMonth": 3,
+                "birthDay": 2
+            }
+        ]
+    }
+]
+```
+
+This endpoint returns the user's friend ladder for the specific leaderboard chosen.
+
+### HTTP Request
+
+`GET http://api.parade.pet/user/friendLadder`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+start | true | start date for the leaderboard
+end | true | end date for the leaderboard
+placeId | false | placeId for the location leaderboard
+type | true | leaderboard type (dog, cat, other, all)
+
+<aside class="success">
+Returns user's friend ladder as an array of friends, where each friend has an array of pets, for the chosen leaderboard.
+</aside>
+
 ## Archive User
 
 ```shell
