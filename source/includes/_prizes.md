@@ -241,6 +241,50 @@ userId | true | The ID of the User whose prizes you want to retrieve
 Returns list of prizes that the user has pinned or redeemed.
 </aside>
 
+## Get Special Offers
+
+```shell
+curl "http://api.parade.pet/tickets/offers"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "title": "INVITE FRIENDS",
+        "description": "Get 25 gold tickets per friend who enters the contest using your code.",
+        "image": "http://assets.parade.pet/offers/friend-referral.png",
+        "awardAmount": 25,
+        "awardType": 1,
+        "buttonText": "SHARE MY CODE",
+        "link": "/invite-friends",
+        "linkType": "internal"
+    },
+    {
+        "title": "BARKBOX SUBSCRIPTION",
+        "description": "Get 50 gold tickets when you subscribe to BarkBox.",
+        "image": "http://assets.parade.pet/offers/barkbox.png",
+        "awardAmount": 50,
+        "awardType": 1,
+        "buttonText": "GET BARKBOX",
+        "link": "https://barkbox.evyy.net/c/391283/307028/1369",
+        "linkType": "external"
+    }
+]     
+```
+
+Retrieve an array of special offers.     
+
+### HTTP Request
+
+`GET http://api.parade.pet/tickets/offers`
+
+
+<aside class="success">
+Returns list of special offers.  Valid values for awardType are 0 = silver tickets and 1 = gold tickets.  The linkType is either "internal" or "external" and indicates whether to launch an external web link outside of the app or link to a page internal to the app.   
+</aside>
+
 
 ## Get Leaderboard Ticket Payouts
 
