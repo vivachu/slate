@@ -612,7 +612,11 @@ curl "http://api.parade.pet/user/friendCode"
 
 ```json
 {
-    "friendCode": "123abc"
+    "friendCode": "123abc", 
+    "referralBonus": { 
+      "amount": 25, 
+      "type": "goldTickets"
+    }
 }
 ```
 
