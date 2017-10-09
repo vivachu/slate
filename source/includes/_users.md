@@ -800,9 +800,13 @@ curl "http://api.parade.pet/user/friends"
         "id": 25,
         "firstName": "Mike",
         "lastName": "W",
-        "profileImage": "http://stage-assets.parade.pet/images/954/medium.jpg",
+        "profileImage": 954,
         "socialImageUrl": null,
         "highestRank": 0,
+        "referralBonus": {
+          "amount": 25,
+          "type": "goldTickets"
+        },
         "pets": [
             {
                 "pet": 3151,
@@ -843,6 +847,10 @@ curl "http://api.parade.pet/user/friends"
         "profileImage": null,
         "socialImageUrl": null,
         "highestRank": 26384,
+        "referralBonus": {
+          "amount": 50,
+          "type": "silverTickets"
+        },
         "pets": [
             {
                 "pet": 1474,
