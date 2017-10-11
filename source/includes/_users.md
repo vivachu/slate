@@ -827,7 +827,14 @@ curl "http://api.parade.pet/user/friends"
                     "points": 3450,
                     "birthYear": 2015,
                     "birthMonth": null,
-                    "birthDay": null
+                    "birthDay": null,
+                    "owner": 25,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NCwiaWF0IjoxNTA3NzQ5MzkwfQ.iDxXhU5u_iiUWw-4QSq2qdiTzW7phbCpZfGhcA_TpKA",
+                        "path": "pet-cleanup",
+                        "secondsRemaining": 11038,
+                        "percentTimeRemaining": 0.57
+                    }
                 },
                 {
                     "pet": 32,
@@ -842,7 +849,14 @@ curl "http://api.parade.pet/user/friends"
                     "points": 1570,
                     "birthYear": 2016,
                     "birthMonth": null,
-                    "birthDay": null
+                    "birthDay": null,
+                    "owner": 25,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NSwiaWF0IjoxNTA3NzQ5MzkwfQ.nfSaTnHqschSAc5sCeUk_EgZv9GtAafkfKL29kzE8FY",
+                        "path": "pet-wash",
+                        "secondsRemaining": 32638,
+                        "percentTimeRemaining": 0.31
+                    }
                 }
             ]
         },
@@ -867,7 +881,14 @@ curl "http://api.parade.pet/user/friends"
                     "points": 490,
                     "birthYear": 2016,
                     "birthMonth": 5,
-                    "birthDay": 31
+                    "birthDay": 31,
+                    "owner": 26,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NiwiaWF0IjoxNTA3NzQ5MzkwfQ.GHd4TrqWJRhnBwSSNx0NxNS35UkgIULaRi-4pktb4EY",
+                        "path": "pet-walk",
+                        "secondsRemaining": 44038,
+                        "percentTimeRemaining": 0.25
+                    }
                 },
                 {
                     "pet": 49951,
@@ -882,7 +903,14 @@ curl "http://api.parade.pet/user/friends"
                     "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
                     "birthYear": 2016,
                     "birthMonth": 3,
-                    "birthDay": 2
+                    "birthDay": 2,
+                    "owner": 26,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NywiaWF0IjoxNTA3NzQ5MzkwfQ.nuecG6QpJgi24vqKY7e_iqn1k-SIIX0-Tjja4b922EY",
+                        "path": "pet-cleanup",
+                        "secondsRemaining": 57838,
+                        "percentTimeRemaining": 0.2
+                    }
                 }
             ]
         }
