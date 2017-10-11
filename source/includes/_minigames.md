@@ -104,7 +104,7 @@ curl "http://api.parade.pet/minigame/end"
         "amount": 190,
         "type": "silver"
     },
-    "pointBonus": 100
+    "pointBonus": 100,
     "pet": {
         "id": 111668,
         "name": "Sammy",
