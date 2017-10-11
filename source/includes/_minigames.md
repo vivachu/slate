@@ -103,6 +103,19 @@ curl "http://api.parade.pet/minigame/end"
     "coinBonus": {
         "amount": 190,
         "type": "silver"
+    },
+    "pointBonus": 100
+    "pet": {
+        "id": 111668,
+        "name": "Sammy",
+        "profileImage": 474438,
+        "user": {
+            "id": 112944,
+            "profileImage": null,
+            "socialImageUrl": "https://graph.facebook.com/v2.7/10213976261738231/picture?height=100&width=100",
+            "name": "Sunshine Stone",
+            "initials": "SS"
+        }
     }
 }
 ```
