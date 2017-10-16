@@ -833,7 +833,7 @@ curl "http://api.parade.pet/user/friends"
                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NCwiaWF0IjoxNTA3NzQ5MzkwfQ.iDxXhU5u_iiUWw-4QSq2qdiTzW7phbCpZfGhcA_TpKA",
                         "path": "pet-cleanup",
                         "secondsRemaining": 11038,
-                        "percentTimeRemaining": 0.57
+                        "percentWait": 0.57
                     }
                 },
                 {
@@ -855,7 +855,7 @@ curl "http://api.parade.pet/user/friends"
                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NSwiaWF0IjoxNTA3NzQ5MzkwfQ.nfSaTnHqschSAc5sCeUk_EgZv9GtAafkfKL29kzE8FY",
                         "path": "pet-wash",
                         "secondsRemaining": 32638,
-                        "percentTimeRemaining": 0.31
+                        "percentWait": 0.31
                     }
                 }
             ]
@@ -887,7 +887,7 @@ curl "http://api.parade.pet/user/friends"
                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NiwiaWF0IjoxNTA3NzQ5MzkwfQ.GHd4TrqWJRhnBwSSNx0NxNS35UkgIULaRi-4pktb4EY",
                         "path": "pet-walk",
                         "secondsRemaining": 44038,
-                        "percentTimeRemaining": 0.25
+                        "percentWait": 0.25
                     }
                 },
                 {
@@ -909,7 +909,7 @@ curl "http://api.parade.pet/user/friends"
                         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NywiaWF0IjoxNTA3NzQ5MzkwfQ.nuecG6QpJgi24vqKY7e_iqn1k-SIIX0-Tjja4b922EY",
                         "path": "pet-cleanup",
                         "secondsRemaining": 57838,
-                        "percentTimeRemaining": 0.2
+                        "percentWait": 0.2
                     }
                 }
             ]
