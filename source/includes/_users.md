@@ -613,6 +613,9 @@ curl "http://api.parade.pet/user/friendCode"
 ```json
 {
     "friendCode": "123abc", 
+    "shareLink": "http://stage-share.parade.pet/vote/389360",
+    "shareMessage": "Hi! Use this link to vote for my dog Glen for The Cutest Pet of 2017 Photo Contest. To vote you have to download the Pet Parade app which is super fun (trust me you'll love it)! And if you enter your own Pet, we can help each other win cool prizes for our pets.",
+    "shareImage": "http://assets.parade.pet/images/534165/medium.jpg",
     "referralBonus": { 
       "amount": 25, 
       "type": "goldTickets"
