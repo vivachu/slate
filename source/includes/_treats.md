@@ -353,16 +353,22 @@ curl "http://api.parade.pet/treatjar/buy"
 			"profileImage": 213,
 			"socialImageUrl": null,
 			"pets": [{
-				"name": "Terry",
-				"type": "Dog",
-				"entry": 1231,
-				"image": 1229
+				"id": 80539,
+				"name": "Mr.Fuzzy",
+				"onTreatBreak": 0,
+				"entry": 252951,
+				"image": 337923,
+				"points": 267504,
+				"type": "Cat"
 			}, 
 			{
-				"name": "Tom",
-				"type": "Cat",
-				"entry": 12312,
-				"image": 122912			
+				"id": 80540,
+				"name": "Kuddles",
+				"onTreatBreak": 0,
+				"entry": 252951,
+				"image": 337923,
+				"points": 267504,
+				"type": "Dog"	
 			}]				
 		}
 	],
@@ -370,29 +376,42 @@ curl "http://api.parade.pet/treatjar/buy"
 		{
 			"id": 123,
 			"name": "T-bone Steak",
+			"type": "dogs",
 			"points": 100,
 			"price": 50,
 			"isPremium": true, 
 			"count": 3,
-			"totalPrice": 300
+			"totalPrice": 300,
+			"pets": [
+				{"id": 80540, "name": "Kuddles"}
+			]
 		},
 		{
 			"id": 124,
 			"name": "Turducken",
+			"type": "dogs",
 			"points": 150,
 			"price": 100,
 			"isPremium": true,
 			"count": 1,
-			"totalPrice": 150
+			"totalPrice": 150,
+			"pets": [
+				{"id": 80540, "name": "Kuddles"}
+			]
 		},
 		{
 			"id": 12,
 			"name": "Tuna Steak",
+			"type": "cats",
 			"points": 150,
 			"price": 100,
 			"isPremium": true,
 			"count": 2,
-			"totalPrice": 300
+			"totalPrice": 300,
+			"pets": [
+				{"id": 80540, "name": "Mr. Fuzzy"},
+				{"id": 80541, "name": "Kitten"}				
+			]
 		},
 	]
 }
