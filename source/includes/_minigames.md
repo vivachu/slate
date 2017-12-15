@@ -115,7 +115,7 @@ curl "http://api.parade.pet/minigame/end"
             "socialImageUrl": "https://graph.facebook.com/v2.7/10213976261738231/picture?height=100&width=100",
             "name": "Sunshine Stone",
             "initials": "SS",
-            coins: { 
+            "coins": { 
                 silver: 425, 
                 gold: 620 
             }
