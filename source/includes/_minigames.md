@@ -116,6 +116,13 @@ curl "http://api.parade.pet/minigame/end"
             "name": "Sunshine Stone",
             "initials": "SS"
         }
+    },
+    "nextSession": {
+        "friendPet": {
+            "name": "Coder",
+            "image": 476501
+        },
+        "message": "Walk Coder in 6 h 0 m 0 s"
     }
 }
 ```
