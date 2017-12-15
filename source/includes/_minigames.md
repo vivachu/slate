@@ -116,8 +116,8 @@ curl "http://api.parade.pet/minigame/end"
             "name": "Sunshine Stone",
             "initials": "SS",
             "coins": { 
-                silver: 425, 
-                gold: 620 
+                "silver": 425, 
+                "gold": 620 
             }
         }
     },
