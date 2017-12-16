@@ -126,7 +126,7 @@ curl "http://api.parade.pet/minigame/end"
             "name": "Coder",
             "image": 476501
         },
-        "message": "Walk Coder in 6 h 0 m 0 s"
+        "message": "Walk Coder in 6 h 0 m "
     }
 }
 ```
