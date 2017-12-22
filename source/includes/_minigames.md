@@ -104,9 +104,12 @@ curl "http://api.parade.pet/minigame/end"
         "amount": 190,
         "type": "silver"
     },
-    "coins": { 
-        "silver": 425, 
-        "gold": 620 
+    "user": {
+        "profileImage": 123,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10154880732247388/picture?height=100&width=100",
+        "initials": "MW",
+        "silverCoins": 200,
+        "goldCoins": 100
     },
     "pointBonus": 100,
     "pet": {
