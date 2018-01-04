@@ -349,9 +349,17 @@ curl "http://api.parade.pet/treatjar/buy"
 	},
 	"usersToTreatBack": [  
 		{
+			"id": 19221,
 			"name": "Jamie Oliver",
 			"profileImage": 213,
 			"socialImageUrl": null,
+			"gaveTreatsTo": [
+				{
+					"name": "Coder",
+					"numTreats": 1,
+					"points": 2
+				}
+			],
 			"pets": [{
 				"id": 80539,
 				"name": "Mr.Fuzzy",
