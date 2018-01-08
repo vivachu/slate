@@ -391,7 +391,12 @@ curl "http://api.parade.pet/treatjar/buy"
 			"count": 3,
 			"totalPrice": 300,
 			"pets": [
-				{"id": 80540, "name": "Kuddles"}
+				{"id": 80540, "name": "Kuddles", 
+				  "onTreatBreak": 0,
+                   "entry": 457394,
+                   "image": 626416,
+                   "points": 28881,
+                   "type": "Dog"}
 			]
 		},
 		{
@@ -404,7 +409,12 @@ curl "http://api.parade.pet/treatjar/buy"
 			"count": 1,
 			"totalPrice": 150,
 			"pets": [
-				{"id": 80540, "name": "Kuddles"}
+				{"id": 80540, "name": "Kuddles", 
+				  "onTreatBreak": 0,
+                   "entry": 457394,
+                   "image": 626416,
+                   "points": 28881,
+                   "type": "Dog"}
 			]
 		},
 		{
@@ -417,8 +427,18 @@ curl "http://api.parade.pet/treatjar/buy"
 			"count": 2,
 			"totalPrice": 300,
 			"pets": [
-				{"id": 80540, "name": "Mr. Fuzzy"},
-				{"id": 80541, "name": "Kitten"}				
+				{"id": 80542, "name": "Mr Fuzzy", 
+				  "onTreatBreak": 0,
+                   "entry": 457394,
+                   "image": 626416,
+                   "points": 28881,
+                   "type": "Cat"},
+				{"id": 80543, "name": "Kitten", 
+				  "onTreatBreak": 0,
+                   "entry": 457394,
+                   "image": 626416,
+                   "points": 28881,
+                   "type": "Cat"}                		
 			]
 		},
 	]
