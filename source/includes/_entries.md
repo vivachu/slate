@@ -346,8 +346,14 @@ curl "http://api.parade.pet/entries/me"
     "shareReward": {
     	"type": "gold",
     	"reward": 5
-    }
-  }  
+    }    
+  },
+	"referralBonus": {
+		"amount": 25,
+		"type": "goldTickets"
+	},
+	"showTutorial": 4,
+	"showAds": true  
 }
 ```
 
