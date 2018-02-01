@@ -202,7 +202,7 @@ curl -X "POST" "http://api.parade.pet/entries/search"
                 "petType": 1,
                 "breed": 4688
             }
-        }
+        }]
 }
 ```
 

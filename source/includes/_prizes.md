@@ -445,10 +445,12 @@ curl "http://api.parade.pet/prize/redeem"
   -d 'option2=Medium'
 ```
 
-> The above command returns "OK" or an error message
+> The above command returns JSON structured like this:
 
-```
-"OK"
+```json
+{
+	"shareUrl": "https://share.parade.pet/prize/won/9281"
+}
 ```
 
 This endpoint is used to accept the tickets that were given to the user from the prize award after opening the Prize Box.
@@ -475,7 +477,7 @@ option3 | false | Custom option 3
 option4 | false | Custom option 4
 
 <aside class="success">
-Returns OK if success or an error message if the user does not have enough tickets to redeem the prize.  
+Returns a 200 response with a shareUrl string if success or an error code and message if the user does not have enough tickets to redeem the prize.  
 </aside>
 
 ## Pin Prize
