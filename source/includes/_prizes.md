@@ -437,7 +437,7 @@ Returns OK if success or an error message and code if Ticket object does not exi
 ## Redeem Prize
 
 ```shell
-curl "http://api.parade.pet/prize/redeem"
+curl "http://api.parade.pet/prize/redemption"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'prize=2912'
   -d 'address=532'

@@ -110,7 +110,7 @@ curl "http://api.parade.pet/user/block"
 "OK"
 ```
 
-This endpoint reports an entry that the user finds questionable.
+This endpoint blocks the user with id userToBlock.
 
 ### HTTP Request
 
@@ -127,6 +127,42 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 userToBlock | true | The ID of the user to block   
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Unblock User
+
+```shell
+curl "http://api.parade.pet/user/unblock"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'userToUnblock=8372'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint unblocks a user that was blocked.  If the userToUnblock was not blocked, then a 404 is returned.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/unblock`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userToUnblock | true | The ID of the user to unblock   
 
 <aside class="success">
 Returns OK
