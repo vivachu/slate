@@ -457,7 +457,7 @@ This endpoint is used to accept the tickets that were given to the user from the
 
 ### HTTP Request
 
-`POST http://api.parade.pet/prize/redeem`
+`POST http://api.parade.pet/prize/redemption`
 
 ### Header Parameters
 
