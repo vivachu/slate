@@ -120,6 +120,11 @@ curl "http://api.parade.pet/game/init"
 		  "interval": 6
 		}		
 	},
+    "canPost": true,
+    "entryFee": {
+        "type": "silver",
+        "fee": 50
+    },	
     "coinPromo": {
       	"coinBundle": 107,
     	"type": "gold",

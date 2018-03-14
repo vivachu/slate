@@ -240,6 +240,7 @@ curl "http://api.parade.pet/stickers/1"
     "price": 100,
     "isPremium": false,
     "isFont": false,
+    "isAnimated": true,
     "id": 1
   },
   {
@@ -249,6 +250,7 @@ curl "http://api.parade.pet/stickers/1"
     "price": 100,
     "isPremium": false,
     "isFont": false,
+    "isAnimated": false,
     "id": 16
   },
   {
@@ -258,6 +260,7 @@ curl "http://api.parade.pet/stickers/1"
     "price": 100,
     "isPremium": false,
     "isFont": false,
+    "isAnimated": false,
     "id": 17
   }
 ]
