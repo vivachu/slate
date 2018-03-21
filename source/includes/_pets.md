@@ -288,7 +288,27 @@ curl "http://api.parade.pet/pet/profile"
       "period": "Week of Mar 19, 2017",
       "ribbon": "93rd"
     }
-	]  
+  ],
+  "profileProperties": [
+    {
+      "id": 7,
+      "pet": 1039,
+      "profileProperty": {
+        "type": "trait",
+        "value": "Fur Bar",
+        "id": 5
+      }
+    },
+    {
+      "id": 8,
+      "pet": 1039,
+      "profileProperty": {
+        "type": "love",
+        "value": "Cuddle",
+        "id": 6
+      }
+    }
+  ]
 }
 ```
 
@@ -353,6 +373,127 @@ profileImage | false | The id of the pet's profile image.
 
 <aside class="success">
 Returns OK if success or an error message.
+</aside>
+
+## Search Pet Profile Properties
+
+```shell
+curl "http://api.parade.pet/pet/profileProperties/love/cuddle"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+[
+  {
+    "type": "love",
+    "value": "Cuddle",
+    "id": 6
+  }
+]
+```
+
+This endpoint search for existing profile property for pets.
+
+### HTTP Request
+
+`GET http://api.parade.pet/pet/profileProperties/<type>/<value>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+type | true | The type of Profile Property, it must be "toy", "treat", "food", "trait", or "love".
+value | true | Name of the property's value.
+
+<aside class="success">
+Returns list of Profile Properties.
+</aside>
+
+## Create Pet Profile Property 
+
+```shell
+curl "http://api.parade.pet/pet/profileProperty/create"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'petId=1003'
+  -d 'type=love'
+  -d 'value=Cuddle'
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+{
+  "pet": 1039,
+  "profileProperty": 6,
+  "id": 8
+}
+```
+
+This endpoint add a new or existing Profile Property for the specific petId passed as parameter.
+
+### HTTP Request
+
+`POST http://api.parade.pet/pet/profileProperty/create`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+petId | true | petId value.
+type | true | The type of Profile Property, it must be "toy", "treat", "food", "trait", or "love".
+value | true | Name of the property's value.
+
+<aside class="success">
+Returns a new or existing Pet Profile Property.
+</aside>
+
+## Delete Pet Profile Property
+
+```shell
+curl -X "DELETE" "http://api.parade.pet/pet/profileProperty/<petPropertyId>"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+"OK"
+```
+
+Return OK if the Pet Profile Property was deleted successfully. Error otherwise.
+
+### HTTP Request
+
+`DELETE http://api.parade.pet/pet/profileProperty/<petPropertyId>`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+petPropertyId | true | petPropertyId value, passed in the url path.
+
+<aside class="success">
+Returns OK
 </aside>
 
 ## Create Pet
