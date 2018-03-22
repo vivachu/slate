@@ -245,6 +245,8 @@ curl "http://api.parade.pet/pet/profile"
   "age": "1 Year",
   "gender": 0,
   "profileImage": 1265,
+  "shortBio": "Coder loves to nap and play and eat ",
+  "longBio": "He is my snuggle bunny and is so cute and snuggly.❤️",
   "breed": {
     "id": 3703,
     "name": "Shetland Sheepdog"
@@ -370,6 +372,8 @@ birthMonth | false | The pet's birth month in integer format.
 birthDay | false | The pet's birth day in integer format.
 gender | false | 1 for boy, 0 for girl.
 profileImage | false | The id of the pet's profile image.
+shortBio | false | The short bio of the pet
+longBio | false | The long bio of the pet
 
 <aside class="success">
 Returns OK if success or an error message.
