@@ -23,6 +23,7 @@ curl "http://api.parade.pet/game/init"
 				"id":123,
 				"image": 2292,
 				"pt": 1,
+				"isAnimated": 1,
 				"pet": {
 					"id": 292,
 					"name": "Sparky",
@@ -34,6 +35,7 @@ curl "http://api.parade.pet/game/init"
 				"id":456,
 				"image": 222,
 				"pt": 2,
+				"isAnimated": 0,
 				"pet": {
 					"id": 908,
 					"name": "Tom",
@@ -50,43 +52,52 @@ curl "http://api.parade.pet/game/init"
 	"dogs": [
 	{ 
 	  "entry": 129,
-	  "image": 234
+	  "image": 234,
+	  "isAnimated": 0
 	},
 	{ 
 	  "entry": 282,
-	  "image": 123
+	  "image": 123,
+	  "isAnimated": 1
 	},
 	{ 
 	  "entry": 1282,
-	  "image": 567
+	  "image": 567,
+	  "isAnimated": 0
 	}
 	],
 	"cats": [
 	{ 
 	  "entry": 2182,
-	  "image": 678
+	  "image": 678,
+	  "isAnimated": 1
 	},
 	{ 
 	  "entry": 18,
-	  "image": 480
+	  "image": 480,
+	  "isAnimated": 0
 	},
 	{ 
 	  "entry": 128,
-	  "image": 170
+	  "image": 170,
+	  "isAnimated": 0
 	}
 	],
 	"critters": [
 	{ 
 	  "entry": 282,
-	  "image": 681
+	  "image": 681,
+	  "isAnimated": 0
 	},
 	{ 
 	  "entry": 8878,
-	  "image": 481
+	  "image": 481,
+	  "isAnimated": 0
 	},
 	{ 
 	  "entry": 8982,
-	  "image": 801
+	  "image": 801,
+	  "isAnimated": 0
 	}
 	],
 	"award": {
