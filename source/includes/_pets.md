@@ -307,7 +307,11 @@ curl "http://api.parade.pet/pet/profile"
         "type": "love",
         "value": "To Eat"
     }
-  ]
+  ],
+  "profileBonus": {
+	"type": "gold",
+	"bonus": 100
+  }  
 }
 ```
 
