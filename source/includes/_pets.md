@@ -293,22 +293,19 @@ curl "http://api.parade.pet/pet/profile"
   ],
   "profileProperties": [
     {
-      "id": 7,
-      "pet": 1039,
-      "profileProperty": {
-        "type": "trait",
-        "value": "Fur Bar",
-        "id": 5
-      }
+      	"id": 7,
+		"type": "trait",
+       	"value": "Smart"
     },
     {
-      "id": 8,
-      "pet": 1039,
-      "profileProperty": {
+    	"id": 8,
         "type": "love",
-        "value": "Cuddle",
-        "id": 6
-      }
+        "value": "Cuddle"
+    },
+    {
+    	"id": 9,
+        "type": "love",
+        "value": "To Eat"
     }
   ]
 }
@@ -382,7 +379,7 @@ Returns OK if success or an error message.
 ## Search Pet Profile Properties
 
 ```shell
-curl "http://api.parade.pet/pet/profileProperties/love/cuddle"
+curl "http://api.parade.pet/pet/profileProperties/treat/p"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -390,11 +387,9 @@ curl "http://api.parade.pet/pet/profileProperties/love/cuddle"
 
 ```json 
 [
-  {
-    "type": "love",
-    "value": "Cuddle",
-    "id": 6
-  }
+    "Peanut Butter Biscuits",
+    "Peanut Butter",
+    "Peanut Butter Cookies"
 ]
 ```
 
@@ -459,7 +454,7 @@ Parameter | Required | Description
 --------- | ------- | -----------
 petId | true | petId value.
 type | true | The type of Profile Property, it must be "toy", "treat", "food", "trait", or "love".
-value | true | Name of the property's value.
+value | true | Name of the property's value, i.e. "Peanut Butter Cookie"
 
 <aside class="success">
 Returns a new or existing Pet Profile Property.
