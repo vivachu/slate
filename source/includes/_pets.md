@@ -247,6 +247,7 @@ curl "http://api.parade.pet/pet/profile"
   "profileImage": 1265,
   "shortBio": "Coder loves to nap and play and eat ",
   "longBio": "He is my snuggle bunny and is so cute and snuggly.❤️",
+  "weightProfile": "Just right",  
   "breed": {
     "id": 3703,
     "name": "Shetland Sheepdog"
@@ -375,6 +376,7 @@ gender | false | 1 for boy, 0 for girl.
 profileImage | false | The id of the pet's profile image.
 shortBio | false | The short bio of the pet
 longBio | false | The long bio of the pet
+weightProfile | false | The weight description for a pet: i.e. "Just right"
 
 <aside class="success">
 Returns OK if success or an error message.
