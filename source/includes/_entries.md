@@ -489,6 +489,8 @@ curl "http://api.parade.pet/entry/create"
   -d 'locationLocale=US'
   -d 'shareOnFacebook=true'
   -d 'shareOnTwitter=true'
+  -d 'effect=2'
+  -d 'sound=3'
 ```
 
 > The above command returns JSON structured like this:
@@ -539,6 +541,9 @@ locationAddress | false | The location address as returned from Google Place API
 locationLocale | false | The location locale as returned from Google Place API.
 shareOnFacebook | false | Whether or not to share the entry on Facebook.
 shareOnTwitter | false | Whether or not to share the entry on Twitter.
+isAnimated | false | Whether or not entry is a video
+effect | false | Video effect (integer)
+sound | false | Video sound (integer)
 
 <aside class="success">
 Returns the newly created entry.
