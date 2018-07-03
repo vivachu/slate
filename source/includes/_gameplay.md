@@ -6,6 +6,7 @@
 curl "http://api.parade.pet/game/init"
   -H "Authorization:  Bearer meowmeowmeow"
   -d "entry=283"
+  -d "contest=2"
 ```
 
 > The above command returns JSON structured like this:
@@ -15,6 +16,14 @@ curl "http://api.parade.pet/game/init"
 	"faceOffSet": {
 		"id": 29,
 		"type": "dogs vs cats", 
+		"typeId": 2,
+		"contest": 2,
+		"partner": {
+            "name": "VitaPup",
+            "path": "vp",
+            "hexCode": "B6C800",
+          	"id": 1
+       	},
 		"numJudged": 4,
 		"size": 10,
 		"activeFaceOff": { 
@@ -162,6 +171,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 entry | false | id value of first faceOff entry
+contest | false | id value of contest
 
 
 <aside class="success">
@@ -290,6 +300,7 @@ Returns "OK" or an error message.  The client does not need to wait for this cal
 curl "http://api.parade.pet/game/faceoffset/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'faceOffSet=224789'
+  -d 'contest=2'
 ```
 
 > The above command returns JSON structured like this:
@@ -379,6 +390,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 faceOffSet | true | id value of the FaceOffSet to end.
+contest | false | id value of current contest
 
 <aside class="success">
 Returns the award for completing the set and the new active FaceOffSet.  Valid award type values are treat, silver, or gold.  If the award type is "treat," then the value is the treat object.  If the award type is silver or gold, then the value is the amount of coins awarded.  It also returns the winners of the completed FaceOffSet, with number of points you gave to each winner.
