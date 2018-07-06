@@ -824,6 +824,42 @@ friendCode | true | The friendCode of the friend to add
 Returns OK
 </aside>
 
+## Delete Friend
+
+```shell
+curl "http://api.parade.pet/user/deleteFriend/:friendUser"
+  -X DELETE
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+    "OK"
+```
+
+This endpoint delete a friend.
+
+### HTTP Request
+
+`DELETE http://api.parade.pet/user/deleteFriend/:friendUser`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+friendUser | true | User ID of the friend to delete
+
+<aside class="success">
+Returns OK
+</aside>
+
 ## Friend Ladder
 
 ```shell
