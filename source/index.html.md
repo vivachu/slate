@@ -21,6 +21,7 @@ includes:
   - prizes
   - location
   - minigames
+  - contests
   - errors
 
 search: true
