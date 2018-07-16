@@ -192,8 +192,9 @@ Detailed information about sponsor is returned.
 ## Follow a Contest
 
 ```shell
-curl "POST http://api.parade.pet/follow/:id?type=:type"
+curl "http://api.parade.pet/follow/2"
   -H "Authorization: Bearer meowmeowmeow"
+  -d 'type=1'
 ```
 
 > The above command returns JSON structured like this:
@@ -204,11 +205,11 @@ curl "POST http://api.parade.pet/follow/:id?type=:type"
 }
 ```
 
-This endpoint will add current user into follower of a contest, and return its updated followers number.
+This endpoint will add current user as a follower of a contest, and return the contest's updated follower number.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/follow/:id?type=:type`
+`POST http://api.parade.pet/follow/:contestId`
 
 ### Header Parameters
 
@@ -220,18 +221,19 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-id | true |  contestId value, passed in the url path
-type | false | petType, please use 1 for dog, 2 for cat, or empty for another type
+contestId | true |  The id of the contest passed in the url path
+type | false | The target pet type. Use 1 for dog, 2 for cat, or a number greater than 3 for critter.  Or unknown otherwise.
 
 <aside class="success">
-Updated number of contest followers is returned.
+The number of contest followers is returned.
 </aside>
 
 ## Unfollow a Contest
 
 ```shell
-curl "http://api.parade.pet/unfollow/:id?type=:type"
+curl "http://api.parade.pet/unfollow/2"
   -H "Authorization: Bearer meowmeowmeow"
+  -d "type=1"
 ```
 
 > The above command returns JSON structured like this:
@@ -246,7 +248,7 @@ This endpoint will remove current user as follower of a contest, and return its 
 
 ### HTTP Request
 
-`POST http://api.parade.pet/unfollow/:id?type=:type`
+`POST http://api.parade.pet/unfollow/2`
 
 ### Header Parameters
 
@@ -258,18 +260,19 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-id | true |  contestId value, passed in the url path
-type | false | petType, please use 1 for dog, 2 for cat, or empty for another type
+contestId | true |  The contest id passed in the url path
+type | false | petType, please use 1 for dog, 2 for cat, or above 3 for critter, or empty if unknown.
 
 <aside class="success">
 Updated number of contest followers is returned.
 </aside>
 
-## Becoma a fan of a Sponsor
+## Fan a Sponsor
 
 ```shell
-curl "http://api.parade.pet/fan/:id?type=:type"
+curl "http://api.parade.pet/fan/1"
   -H "Authorization: Bearer meowmeowmeow"
+  -d "contest=2"
 ```
 
 > The above command returns JSON structured like this:
@@ -280,11 +283,11 @@ curl "http://api.parade.pet/fan/:id?type=:type"
 }
 ```
 
-This endpoint will add current user as a fan of a sponsor, and return its updated fans number.
+This endpoint will add current user as a fan of a sponsor, and return the sponsor's number of fans.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/fan/:id?type=:type`
+`POST http://api.parade.pet/fan/:sponsor`
 
 ### Header Parameters
 
@@ -296,8 +299,8 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-id | true |  sponsorId value, passed in the url path
-type | false | petType, please use 1 for dog, 2 for cat, or empty for another type 
+sponsor | true |  The sponsor id value passed in the url path
+contest | false | The contest id that the sponsor is sponsoring 
 
 <aside class="success">
 Updated number of sponsor fans is returned.
@@ -306,8 +309,9 @@ Updated number of sponsor fans is returned.
 ## Unfan a Sponsor
 
 ```shell
-curl "http://api.parade.pet/unfan/:id?type=:type"
+curl "http://api.parade.pet/unfan/1"
   -H "Authorization: Bearer meowmeowmeow"
+  -d "contest=2"
 ```
 
 > The above command returns JSON structured like this:
@@ -335,7 +339,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 id | true |  sponsorId value, passed in the url path
-type | false | petType, please use 1 for dog, 2 for cat, or empty for another type
+contest | false | The contest id that the sponsor is sponsoring 
 
 <aside class="success">
 Updated number of sponsor fans is returned.
