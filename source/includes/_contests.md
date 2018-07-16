@@ -79,7 +79,14 @@ curl "http://api.parade.pet/contest/:id"
   "id": 5,
   "name": "#naptime",
   "description": "Zzzzz",
-  "sponsor": null,
+  "numFollowers": 10,
+  "isFollower": true,
+  "sponsor": {
+    "id": 2,
+    "name": "VitaPup",
+    "path": "vp",
+    "hexCode": "123456"
+  },
   "entries": [
     {
       "id": 590295,
@@ -134,6 +141,8 @@ curl "http://api.parade.pet/sponsor/:id"
   "name": "VitaPup",
   "path": "vp",
   "hexCode": "123456",
+  "numFans": 10,
+  "isFan": false,
   "contests": [
     {
       "id": 9,
