@@ -1,5 +1,142 @@
 # Contests
 
+## Contest Home
+
+```shell
+curl "http://api.parade.pet/contest/home"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "trending": [
+    {
+      "id": 1,
+      "name": "#dogs",
+      "numEntries": 0,
+      "isAnimated": 0,
+      "image": 392509
+    },
+    {
+      "id": 2,
+      "name": "#cats",
+      "numEntries": 0,
+      "isAnimated": 0,
+      "image": 323355
+    },
+    {
+      "id": -1,
+      "name": "#critters",
+      "numEntries": 0,
+      "isAnimated": 0,
+      "image": 460811
+    }
+  ],
+  "recent": [
+    {
+      "id": 1,
+      "name": "#dogs",
+      "numEntries": 15,
+      "isAnimated": 0,
+      "image": 9569
+    },
+    {
+      "id": 2,
+      "name": "#cats",
+      "numEntries": 0,
+      "isAnimated": 0,
+      "image": 323355
+    },
+    {
+      "id": -1,
+      "name": "#critters",
+      "numEntries": 0,
+      "isAnimated": 0,
+      "image": 460811
+    }
+  ],
+  "featured": [
+    {
+      "id": 2,
+      "name": "#play",
+      "active": true,
+      "description": "Chase, run, jump, chew, pull, scratch, & play, play, play!",
+      "numFollowers": 1,
+      "numEntries": 1,
+      "sponsor": null,
+      "image": 633295,
+      "isAnimated": 0
+    },
+    {
+      "id": 14,
+      "name": "#highTechPet",
+      "active": true,
+      "description": "Show off your furry friend's high tech gadgets and toys.",
+      "numFollowers": 1,
+      "numEntries": 1,
+      "sponsor": null,
+      "image": 737504,
+      "isAnimated": 0
+    },
+    {
+      "id": 9,
+      "name": "#healthyPet",
+      "active": true,
+      "description": "Show off your pet eating nutritious food, getting groomed, or exercising. ",
+      "numFollowers": 1,
+      "numEntries": 1,
+      "sponsor": {
+        "id": 2,
+        "name": "VitaPup",
+        "path": "vp",
+        "hexCode": "123456",
+        "numFans": 1
+      },
+      "image": 671641,
+      "isAnimated": 0
+    }
+  ],
+  "friends": [
+    {
+      "id": 170150,
+      "name": "David Dundas",
+      "image": 768743,
+      "isAnimated": 0
+    },
+    {
+      "id": 144638,
+      "name": "Honnah Lea VomSteeg",
+      "image": 634383,
+      "isAnimated": 0
+    },
+    {
+      "id": 139755,
+      "name": "Kelly F",
+      "image": 605809,
+      "isAnimated": 0
+    }
+  ]
+}
+```
+
+This endpoint returns all required data by Contest home screen. Those are list of Featured Contests, Trending Contests, Recent Contests, and Current User' friends Entries.
+
+### HTTP Request
+
+`GET http://api.parade.pet/contest/home`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+All data required by contest home screen are returned.
+</aside>
+
 ## List All Available Contests
 
 ```shell
