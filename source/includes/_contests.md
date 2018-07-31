@@ -391,6 +391,6 @@ Parameter | Required | Description
 id | true |  contestId value, passed in the url path
 
 <aside class="success">
-List of rules for current Contest, returned in array. Each of array consisting the Section header, and Rule content, formatted in HTML.
+List of rules for current Contest, returned as an array. Each of array consisting the Section header, and Rule content, formatted in HTML.
 </aside>
 
