@@ -346,6 +346,78 @@ contest | false | The contest id that the sponsor is sponsoring
 Updated number of sponsor fans is returned.
 </aside>
 
+## Contest Prizes
+
+```shell
+curl "http://api.parade.pet/contest/5/prizes"
+  -H "Authorization: Bearer meowmeowmeow"
+  -d "contest=2"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "weekCountdown": 433281.421,
+  "monthCountdown": 87681.421,
+  "prizes": [
+    {
+      "id": 16,
+      "place": 1,
+      "weekType": "silverTickets",
+      "weekAmount": 10,
+      "monthType": "prize",
+      "monthAmount": 1,
+      "prize": {
+        "id": 196,
+        "name": "T-Shirt with Your Cat's Photo",
+        "imageUrl": "https://www.parade.pet/assets/images/T-Shirt-Cat.png"
+      }
+    },
+    {
+      "id": 17,
+      "place": 2,
+      "weekType": "silverTickets",
+      "weekAmount": 10,
+      "monthType": "goldTickets",
+      "monthAmount": 10,
+      "prize": null
+    },
+    {
+      "id": 18,
+      "place": 3,
+      "weekType": "silverTickets",
+      "weekAmount": 10,
+      "monthType": "goldTickets",
+      "monthAmount": 10,
+      "prize": null
+    }
+  ]
+}
+```
+
+This endpoint will returns a list of contest's prizes.
+
+### HTTP Request
+
+`GET http://api.parade.pet/contest/:id/prizes`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  contestId value, passed in the url path
+
+<aside class="success">
+List of Prizes for current Contest, along with remaining time until the end of the week and the end of the month in seconds.
+</aside>
+
 ## Contest Rules
 
 ```shell
