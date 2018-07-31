@@ -85,7 +85,8 @@ curl "http://api.parade.pet/contest/:id"
     "id": 2,
     "name": "VitaPup",
     "path": "vp",
-    "hexCode": "123456"
+    "hexCode": "123456",
+    "isFan": true
   },
   "entries": [
     {
