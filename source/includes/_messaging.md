@@ -226,7 +226,7 @@ Parameter | Required | Description
 id | true |  The id of the messageGroup
 
 <aside class="success">
-List of last 200 messages from the messageGroup are returned.
+List of last 200 messages from the messageGroup are returned. Each message object has a sender, entry info, path of sticker, message, and timestamp.
 </aside>
 
 
