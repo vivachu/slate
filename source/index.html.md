@@ -22,6 +22,7 @@ includes:
   - location
   - minigames
   - contests
+  - messaging
   - errors
 
 search: true
