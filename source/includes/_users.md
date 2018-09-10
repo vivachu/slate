@@ -62,7 +62,10 @@ The user object and the user's authentication token is returned.
 ## Set Firebase Token
 
 ```shell
-curl "http://api.parade.pet/user/setFirebaseToken/<token>"
+curl "http://api.parade.pet/user/setFirebaseToken"
+  -d 'token=AJDAIWJEDMJ81221AJDJS'
+  -d 'advertiserId=00129-21292-21212mdsjd'
+  -d 'timeZoneOffset=-4'
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -76,7 +79,7 @@ This endpoint is used to set the authenticated user's Firebase Token.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/user/setFirebaseToken/<token>`
+`POST http://api.parade.pet/user/setFirebaseToken`
   
 ### Header Parameters
 
@@ -88,7 +91,8 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-token | true |  Firebase token string, included as part of url
+token | true |  Firebase token string
+advertiserId | false |  The unique device advertiser id of the mobile handset
 timeZoneOffset | false |  the local timezone offset as a signed floating point number.  For example -4.5 is four hours and 30 minutes from GMT. 
 
 
