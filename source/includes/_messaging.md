@@ -229,6 +229,43 @@ id | true |  The id of the messageGroup
 List of last 200 messages from the messageGroup are returned. Each message object has a sender, entry info, path of sticker, message, and timestamp.
 </aside>
 
+## Report Message
+
+```shell
+curl "http://api.parade.pet/message"
+  -H "Authorization: Bearer meowmeowmeow"
+  -d "message: 123"
+  -d "reason: Inappropiate"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+"OK"
+```
+
+This endpoint report a message.
+
+### HTTP Request
+
+`POST http://api.parade.pet/message/report`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+message | true | The id of the message
+reason | true | The reason the user is reporting. Valid reasons: Spam, Inappropiate, Not pet related
+
+<aside class="success">
+Returns OK
+</aside>
 
 
 
