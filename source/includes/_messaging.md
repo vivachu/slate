@@ -183,8 +183,10 @@ curl "https://api.parade.pet/messages/messageGroup/:id"
     "id": 2,
     "entry": null,
     "sticker": {
-      "isAnimated": 1,
-      "path": "animated_sticker/ladybug"
+      "state": 1,
+      "id": 1070,
+      "path": "animated_sticker/ladybug",
+      "isAnimated": 1
     },
     "message": "Message with sticker data, but has no entry attached.",
     "user": {
