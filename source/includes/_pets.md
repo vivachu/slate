@@ -12,15 +12,16 @@ curl "http://api.parade.pet/pet/leaderboard"
   -d 'breed=3529'
   -d 'city=New York'
   -d 'placeId=ChIJ-0qgNoF_3YgRg3Lh7xHDooU'
+  -d 'state=NY'
   -d 'contest=1'
 ```
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"leaderboard": [
-	{ 
+	{
 	  "id": 129,
 	  "image": 234,
 	  "name": "Fluffy",
@@ -29,7 +30,7 @@ curl "http://api.parade.pet/pet/leaderboard"
 	  "numFaceOffs": 900,
 	  "numTreats": 212
 	},
-	{ 
+	{
 	  "id": 1928,
 	  "image": 2328,
 	  "name": "Spanky",
@@ -38,7 +39,7 @@ curl "http://api.parade.pet/pet/leaderboard"
 	  "numFaceOffs": 1029,
 	  "numTreats": 29
 	},
-	{ 
+	{
 	  "id": 876,
 	  "image": 202,
 	  "name": "Donald",
@@ -62,15 +63,16 @@ Pets accumulate points for FaceOff wins and Treats received.  The leaderboard en
 Parameter | Required | Description
 --------- | ------- | -----------
 start | false | Start date in yyyy-mm-dd format to limit results. If no start date is defined, the first day of the current month is assumed as the time period.  
-end | false | End date in yyyy-mm-dd format to limit results.  The end date is inclusive, meaning if 2016-06-30 is specified then points scored any time on 6/30 are included. If no end date is defined, the last day of the start month is assumed as the time period. 
+end | false | End date in yyyy-mm-dd format to limit results.  The end date is inclusive, meaning if 2016-06-30 is specified then points scored any time on 6/30 are included. If no end date is defined, the last day of the start month is assumed as the time period.
 place | false | The placement position to start the return results.
 type | false | The type of pet to filter against: dog, cat, other.  No value indicates all pets.
 breed | false | The breedId of the pet to filter against; if type is "other", the breed here is the pettype id value
-placeId | false | The Google Places API placeId
+placeId | false | The locationId from our database
+state  | false | The 2-letter state abbreviation (e.g., NY)
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
 <aside class="success">
-This endpoint returns the leaderboard for the specified time period, contest, and pet type.  By default if no parameters are passed, then the top 100 pets for the current month across all contests are returned. 
+This endpoint returns the leaderboard for the specified time period, contest, and pet type.  By default if no parameters are passed, then the top 100 pets for the current month across all contests are returned.
 </aside>
 
 
@@ -86,10 +88,10 @@ curl "http://api.parade.pet/pets"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"pets": [
-	{ 
+	{
 	  "id": 129,
 	  "image": 234,
 	  "name": "Mr Big",
@@ -106,7 +108,7 @@ curl "http://api.parade.pet/pets"
 	    "name": "Hound"
     }  
 	},
-	{ 
+	{
 	  "id": 1928,
 	  "image": 2328,
 	  "name": "Sparks",
@@ -131,7 +133,7 @@ curl "http://api.parade.pet/pets"
 }
 ```
 
-This endpoint returns the authorized user's pets, their points total, their placement over the specified time period and contest, and the user's location information.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
+This endpoint returns the authorized user's pets, their points total, their placement over the specified time period and contest, and the user's location information.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests.
 
 ### HTTP Request
 
@@ -148,7 +150,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 start | false | Start date in yyyy-mm-dd format over which to calculate points and placement. If no start date is defined, the first day of the current month is assumed as the time period.  
-end | false | End date in yyyy-mm-dd format over which to calculate points and placement. If no end date is defined, the last day of the start month is assumed as the time period. 
+end | false | End date in yyyy-mm-dd format over which to calculate points and placement. If no end date is defined, the last day of the start month is assumed as the time period.
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
 <aside class="success">
@@ -166,10 +168,10 @@ curl "http://api.parade.pet/pets/vivachu@yahoo.com"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"pets": [
-	{ 
+	{
 	  "id": 129,
 	  "image": 234,
 	  "name": "Mr Big",
@@ -185,7 +187,7 @@ curl "http://api.parade.pet/pets/vivachu@yahoo.com"
 	  "numFaceOffs": 98,
 	  "numTreats": 9	  
 	},
-	{ 
+	{
 	  "id": 1928,
 	  "image": 2328,
 	  "name": "Sparks",
@@ -221,11 +223,11 @@ This endpoint returns the specified user's pets and their points total and place
 Parameter | Required | Description
 --------- | ------- | -----------
 start | false | Start date in yyyy-mm-dd format over which to calculate points and placement. If no start date is defined, the first day of the current month is assumed as the time period.  
-end | false | End date in yyyy-mm-dd format over which to calculate points and placement. If no end date is defined, the last day of the start month is assumed as the time period. 
+end | false | End date in yyyy-mm-dd format over which to calculate points and placement. If no end date is defined, the last day of the start month is assumed as the time period.
 contest | false | id value of the Contest to filter the results against.  If no contest is specified, then the points are summed across all contests.  
 
 <aside class="success">
-Returns the specified user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests. 
+Returns the specified user's pets and their points total and placement over the specified time period and contest.  By default if no parameters are passed, then the pet's points balance and placement are calculated for the current month across all contests.
 </aside>
 
 ## Get Pet Profile
@@ -237,7 +239,7 @@ curl "http://api.parade.pet/pet/profile"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "name": "Bella",
   "breed": "Yorkie",
@@ -322,7 +324,7 @@ curl "http://api.parade.pet/pet/update"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 "OK"
 ```
 
@@ -372,7 +374,7 @@ curl "http://api.parade.pet/pet/create"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "pet": {
     "name": "Radiant",
@@ -460,7 +462,7 @@ curl "http://api.parade.pet/pettype"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
   {
     "name": "Dog",
@@ -516,7 +518,7 @@ curl "http://api.parade.pet/breeds"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
   {
     "id": 1540,

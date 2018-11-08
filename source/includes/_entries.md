@@ -8,7 +8,7 @@ curl "http://api.parade.pet/entry/<id>"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "id": 283,
   "caption": "Arvel",
@@ -118,7 +118,7 @@ id | true |  entryId value, passed in the url path
 
 
 <aside class="success">
-Return a single entry based on entryId 
+Return a single entry based on entryId
 </aside>
 
 ## Delete Entry
@@ -168,10 +168,10 @@ curl "http://api.parade.pet/entries"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"entries": [
-	{ 
+	{
 	  "id": 129,
 	  "caption": "Glad to be home",
 	  "location": "Greenwich Point",
@@ -190,7 +190,7 @@ curl "http://api.parade.pet/entries"
 	  	"type": "Dog"
 	  }
 	},
-	{ 
+	{
 	  "id": 130,
 	  "caption": "Having fun",
 	  "location": "Miami Beach, FL",
@@ -209,7 +209,7 @@ curl "http://api.parade.pet/entries"
 	  	"type": "Dog"
 	  }
 	},
-	{ 
+	{
 	  "id": 131,
 	  "caption": "Woof woof",
 	  "location": "San Mateo, CA",
@@ -253,7 +253,7 @@ type | false | Comma separated list of pet types:  "Dog,Cat,Horse,Bird"
 sort | false | Sort by either "created" or "points" descending.  Default value is "points."  
 
 <aside class="success">
-Return sorted list of entries matching search query by points or by created date descending. 
+Return sorted list of entries matching search query by points or by created date descending.
 </aside>
 
 ## My Entries
@@ -265,7 +265,7 @@ curl "http://api.parade.pet/entries/me"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "entries": [
     {
@@ -351,7 +351,7 @@ curl "http://api.parade.pet/entries/me"
 }
 ```
 
-Return sorted list of authenticated user's entries ordered by created date descending. 
+Return sorted list of authenticated user's entries ordered by created date descending.
 
 ### HTTP Request
 
@@ -365,7 +365,7 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 
 <aside class="success">
-Return sorted list of entries owned by user ordered by created date descending. 
+Return sorted list of entries owned by user ordered by created date descending.
 </aside>
 
 ## Boost Entry
@@ -381,7 +381,7 @@ curl "http://api.parade.pet/entry/boost"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "boost": {
     "numBoosted": 25,
@@ -430,7 +430,7 @@ curl "http://api.parade.pet/boost/<id>"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "boost": {
     "entry": {
@@ -469,7 +469,7 @@ id | true |  boostId value, passed in the url path
 
 
 <aside class="success">
-Return a single boost based on boostId 
+Return a single boost based on boostId
 </aside>
 
 
@@ -485,6 +485,9 @@ curl "http://api.parade.pet/entry/create"
   -d 'caption=My good boy playing'
   -d 'locationName=Old Greenwich'
   -d 'locationPlaceId=ChIJ40eAhsuYwokRQRwdUvcEqH4'
+  -d 'city=Old Greenwich'
+  -d 'state=CT'
+  -d 'country=United States'
   -d 'locationAddress=Old Greenwich, CT 06870'
   -d 'locationLocale=US'
   -d 'shareOnFacebook=true'
@@ -493,7 +496,7 @@ curl "http://api.parade.pet/entry/create"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "entry": {
     "image": 39976,
@@ -533,10 +536,13 @@ pet | true | The ID of the pet.
 contest | true | The ID of the contest.    
 entryFee | false | The entry fee paid   
 caption | false | The description of the entry  
-locationName | false | The location name as returned from Google Place API.
-locationPlaceId | false | The location placeId as returned from Google Place API.
-locationAddress | false | The location address as returned from Google Place API.
-locationLocale | false | The location locale as returned from Google Place API.
+locationName | false | The location name as returned from Google Place API (deprecated)
+locationPlaceId | false | The location placeId as returned from Google Place API (deprecated)
+locationAddress | false | The location address as returned from Google Place API (deprecated)
+locationLocale | false | The location locale as returned from Google Place API  (deprecated)
+city | false | city name
+state | false | 2-letter state abbreviation (e.g., NY)
+country | false | full country name (e.g., United States)
 shareOnFacebook | false | Whether or not to share the entry on Facebook.
 shareOnTwitter | false | Whether or not to share the entry on Twitter.
 
@@ -560,7 +566,7 @@ curl "http://api.parade.pet/entry/update"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "entry": {
     "image": 39976,
@@ -882,7 +888,7 @@ curl "http://api.parade.pet/entries/topTenFeatured"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
   {
     "id": 49489,
@@ -947,7 +953,7 @@ curl "http://api.parade.pet/entries/topTenFeatured"
 ]
 ```
 
-Returns the top ten featured entries for the day. 
+Returns the top ten featured entries for the day.
 
 ### HTTP Request
 

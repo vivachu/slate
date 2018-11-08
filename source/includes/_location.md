@@ -10,7 +10,7 @@ curl "http://api.parade.pet/location/onlinePetStores"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
   "BarkBox",
   "Chewy",
@@ -64,61 +64,71 @@ curl "http://api.parade.pet/location/top
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
     {
       "name": "Texas",
-      "placeId": "ChIJGWX8w2t_b4YRLFJWSGka37E",
+      "state": "TX",
+      "placeId": "1234",
       "count": 312
     },
     {
       "name": "California",
-      "placeId": "ChIJvWVL3UDMkIARvE9eGaSLWEg",
+      "state": "CA",
+      "placeId": "2345",
       "count": 146
     },
     {
       "name": "New York",
-      "placeId": "ChIJgc1ChHnb3IkRYg4uANW_g6w",
+      "state": "NY",
+      "placeId": "4567",
       "count": 142
     },
     {
       "name": "Missouri",
-      "placeId": "ChIJ1cOynQSaeIgRgxmUgdI3T-g",
+      "state": "MO",
+      "placeId": "5678",
       "count": 139
     },
     {
       "name": "Little River, MO",
-      "placeId": "ChIJ1cOynQSaeIgRgxmUgdI3T-g",
+      "state": "MO",
+      "placeId": "6789",
       "count": 139
     },
     {
       "name": "Celeste, TX",
-      "placeId": "ChIJ6akkvNiSS4YRErv6N_ZS8Xo",
+      "state": "TX",
+      "placeId": "7890",
       "count": 129
     },
     {
       "name": "Brownsville, TX",
-      "placeId": "ChIJGWX8w2t_b4YRLFJWSGka37E",
+      "state": "TX",
+      "placeId": "8901",
       "count": 115
     },
     {
       "name": "Arkansas",
-      "placeId": "ChIJ5UTQkHCu1YcRxtzZD8B4qso",
+      "state": "AR",
+      "placeId": "9012",
       "count": 99
     },
     {
       "name": "Yarbo Place, AR",
-      "placeId": "ChIJ5UTQkHCu1YcRxtzZD8B4qso",
+      "state": "AR",
+      "placeId": "123",
       "count": 96
     },
     {
       "name": "Camp Earnest, CA",
-      "placeId": "ChIJvWVL3UDMkIARvE9eGaSLWEg",
+      "state": "CA",
+      "placeId": "234",
       "count": 93
     }
 ]
 ```
-Returns a list of locations ordered by number of pets in that location.
+Returns a list of locations ordered by number of pets in that location.  Note that placeId is now a string with the locationId (id value from Location table)
 
 ### HTTP Request
 
