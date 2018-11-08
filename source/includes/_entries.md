@@ -159,84 +159,58 @@ Return OK if the entry was successfully deleted.
 ## Search Entries
 
 ```shell
-curl "http://api.parade.pet/entries"
+curl -X "POST" "http://api.parade.pet/entries/search"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'search=Black Lab named Waggie'
-  -d 'type=Dog'
-  -d 'sort=created'
+  -d 'petName=Wilson'
+  -d 'petType=1'
+  -d 'state=NY'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-	"entries": [
-	{
-	  "id": 129,
-	  "caption": "Glad to be home",
-	  "location": "Greenwich Point",
-	  "image": 234,
-	  "points": 10,
-	  "numFaceOffs": 2,
-	  "numTreats": 0,
-	  "pet": {
-	  	"id": 298,
-	  	"name": "Waggie",
-	  	"owner": {
-          "id": 11720,
-          "name": "Chris Anderson",
-          "image": 26649
-        },	  
-	  	"type": "Dog"
-	  }
-	},
-	{
-	  "id": 130,
-	  "caption": "Having fun",
-	  "location": "Miami Beach, FL",
-	  "image": 235,
-	  "points": 90,
-	  "numFaceOffs": 291,
-	  "numTreats": 12,
-	  "pet": {
-	  	"id": 298,
-	  	"name": "Waggie",
-	  	"owner": {
-          "id": 11720,
-          "name": "Chris Anderson",
-          "image": 26649
+    "entries": [
+        {
+            "id": 719153,
+            "image": 968895,
+            "owner": {
+                "id": 109063,
+                "name": "Vickie Kolody",
+                "location": "Pataskala, NY",
+                "lastGamePlayed": "2018-01-10T11:30:53.000Z"
+            },
+            "pet": {
+                "id": 144396,
+                "name": "Wilson ",
+                "petType": 1,
+                "breed": 4688
+            }
         },
-	  	"type": "Dog"
-	  }
-	},
-	{
-	  "id": 131,
-	  "caption": "Woof woof",
-	  "location": "San Mateo, CA",
-	  "image": 236,
-	  "points": 100,
-	  "numFaceOffs": 198,
-	  "numTreats": 19,
-	  "pet": {
-	  	"id": 298,
-	  	"name": "Waggie",
-	  	"owner": {
-          "id": 11720,
-          "name": "Chris Anderson",
-          "image": 26649
-        },
-	  	"type": "Dog"
-	  }
-	}
-	]
+        {
+            "id": 719154,
+            "image": 968896,
+            "owner": {
+                "id": 109063,
+                "name": "Vickie Kolody",
+                "location": "Pataskala, NY",
+                "lastGamePlayed": "2018-01-10T11:30:53.000Z"
+            },
+            "pet": {
+                "id": 144396,
+                "name": "Wilson ",
+                "petType": 1,
+                "breed": 4688
+            }
+        }]
 }
 ```
 
-Search all entries by name, pet type, and breed. Return sorted list of entries by points or by created date descending.  If no query parameters are passed, then the top 300 entries across all pets types are returned sorted by points descending.  
+Search all entries by pet name, owner name, pet type, breed, city, and state. Returns list of entries matching ALL parameters with values.  At least one parameter is required.  
 
 ### HTTP Request
 
-`GET http://api.parade.pet/entries`
+`POST http://api.parade.pet/entries/search`
 
 ### Header Parameters
 
@@ -248,9 +222,13 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-search | false | Search by name, pet type or breed.  If no search query is passed then return the top 300 listings by points descending.  
-type | false | Comma separated list of pet types:  "Dog,Cat,Horse,Bird"
-sort | false | Sort by either "created" or "points" descending.  Default value is "points."  
+petName | false | The pet's name
+ownerName | false | The first, last or full name of the pet owner
+type | false | A single pet type.  This is the numeric id of the pet type object as returned from /pettype, i.e. 1 = Dogs, 2 = Cats, 8 = Rabbit
+breed | false | The name of the pet breed, i.e. Pitbull, Terrier, Mix  
+city | false | The city in which the owner lives, i.e. Oakland
+state | false | The 2 letter abbreviation in which the owner lives, i.e. CA = California.
+
 
 <aside class="success">
 Return sorted list of entries matching search query by points or by created date descending.
@@ -346,8 +324,14 @@ curl "http://api.parade.pet/entries/me"
     "shareReward": {
     	"type": "gold",
     	"reward": 5
-    }
-  }  
+    }    
+  },
+	"referralBonus": {
+		"amount": 25,
+		"type": "goldTickets"
+	},
+	"showTutorial": 4,
+	"showAds": true  
 }
 ```
 
@@ -446,7 +430,8 @@ curl "http://api.parade.pet/boost/<id>"
     "id": 1
   },
   "goldBalance": 80,
-  "boostRemaining": 9
+  "boostRemaining": 9,
+  "showAds": true
 }
 ```
 Return a specific boost based on boost id value. A single boost is returned.
@@ -492,6 +477,8 @@ curl "http://api.parade.pet/entry/create"
   -d 'locationLocale=US'
   -d 'shareOnFacebook=true'
   -d 'shareOnTwitter=true'
+  -d 'effect=2'
+  -d 'sound=3'
 ```
 
 > The above command returns JSON structured like this:
@@ -545,6 +532,9 @@ state | false | 2-letter state abbreviation (e.g., NY)
 country | false | full country name (e.g., United States)
 shareOnFacebook | false | Whether or not to share the entry on Facebook.
 shareOnTwitter | false | Whether or not to share the entry on Twitter.
+isAnimated | false | Whether or not entry is a video
+effect | false | Video effect (integer)
+sound | false | Video sound (integer)
 
 <aside class="success">
 Returns the newly created entry.
@@ -691,6 +681,48 @@ parent | false | The id of the parent comment if replying to a comment
 <aside class="success">
 Returns OK
 </aside>
+
+## Smart Comments
+
+```shell
+curl "http://api.parade.pet/entry/smartComments/2012"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```
+[
+    "❤️❤️❤️",
+    "Soo cute 😍",
+    "Gizmo 💜💜💜",
+    "Great photo!",
+    "Awww... so adorable"
+]
+```
+
+This endpoint gets the smart comments for an entry.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entry/smartComment:entryId`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entryId | true | The ID of the entry being commented on.   
+
+<aside class="success">
+Returns an array of comment suggestions for the user on the entry.
+</aside>
+
 
 ## Delete Comment
 
@@ -959,6 +991,96 @@ Returns the top ten featured entries for the day.
 
 `GET http://api.parade.pet/entries/topTenFeatured`
 
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+start | false | The number of days since today to grab the entries
+end | false | The ending day expressed as the number of days since today to count backwards.  This should be more than the start day.
+limit | false | The number of entries to return
+
 <aside class="success">
 Return list of top ten featured entries.
+</aside>
+
+## Recent Entries
+
+```shell
+curl "http://api.parade.pet/entries/recent"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 49489,
+    "image": 64599
+  },
+  {
+    "id": 49225,
+    "image": 64245
+  },
+  {
+    "id": 48252,
+    "image": 62939
+  }
+]
+```
+
+Returns a randomized list of entries created within the last 2 days.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries/recent`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+type | false | Filter by pettype, i.e. 1=Dog, 2=Cat.
+limit | false | Number of entries to return.
+
+<aside class="success">
+Return list of entries that were created within the last 2 days.
+</aside>
+
+## Friends Entries
+
+```shell
+curl "http://api.parade.pet/entries/friends"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 49489,
+    "image": 64599
+  },
+  {
+    "id": 49225,
+    "image": 64245
+  },
+  {
+    "id": 48252,
+    "image": 62939
+  }
+]
+```
+
+Returns the most recent entries of your friends sorted by entry.createdAt date.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries/friends`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+
+<aside class="success">
+Returns the 200 most recent entries of your friends sorted by entry.createdAt date.
 </aside>

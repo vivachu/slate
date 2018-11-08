@@ -254,10 +254,10 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Returns an array of Alert objects.  Each Alert has a timestamp, comment, entry, and user who sent the comment. 
 </aside>
 
-## Get Prizes
+## Get Prizes and Awards
 
 ```shell
-curl "http://api.parade.pet/alerts/prizes"
+curl "http://api.parade.pet/alerts/prizesAwards"
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -274,23 +274,36 @@ curl "http://api.parade.pet/alerts/prizes"
     "goldTickets": 5
   },
   "alerts": [
-    {
-      "timestamp": 234506.884,
-      "new": false,
-      "pet": {
-        "id": 1039,
-        "name": "Coder",
-        "profileImage": 5981
+      {
+            "type": "award",
+            "timestamp": 204588.979,
+            "new": false,
+            "pet": {
+                "id": 23658,
+                "name": "Pebbles",
+                "profileImage": 242840
+            },
+            "award": "Pebbles won 22nd Place All Pets for the Week of Aug 6, 2017.",
+            "ticketAward": {
+                "id": 16872,
+                "numTickets": 6,
+                "isGold": true,
+                "opened": true
+            }
       },
-      "award": "Coder won 44th for the Week of Jan 3, 2017.",
-      "ticketAward": {
-        "id": 1928,
-        "numTickets": 5,
-        "isGold": false,
-        "opened": true
-      }
-    },
-    {
+      {
+            "type": "prize",
+            "timestamp": 204517.935,
+            "new": false,
+            "prize": {
+                "name": "Grooming Glove",
+                "image": "https://images-na.ssl-images-amazon.com/images/I/81eizom38cL._SL600_.jpg",
+                "status": "Shipped",
+                "statusDetail": "Your order is expected to arrive by 8/15/17."
+            }
+      },
+      {
+      "type": "award",
       "timestamp": 234506.893,
       "new": true,
       "pet": {
@@ -326,7 +339,7 @@ This endpoint retrieves the user object with current ticket balance and a list o
  
 ### HTTP Request
 
-`GET http://api.parade.pet/alerts/prizes`
+`GET http://api.parade.pet/alerts/prizesAwards`
 
 ### Header Parameters
 
@@ -336,6 +349,76 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 <aside class="success">
 Returns an array of Alert objects.  Each Alert has a timestamp, award, and the profileImage or socialImageUrl of the person or pet who received the award.  If socialImageUrl is not null, use that as the image.   
+</aside>
+
+## Get Messages
+
+```shell
+curl "http://api.parade.pet/alerts/messages"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+[
+  {
+    "new": true,
+    "user": {
+      "id": 104,
+      "name": "Paula Pickles",
+      "profileImage": 713,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100"
+    },
+    "timestamp": 3524.368,
+    "message": {
+      "type": "messageGroup",
+      "messageGroup": {
+        "id": 1,
+        "message": "That's great! Your dog is georgeous",
+        "stickerpath": null,
+        "entry": null
+      }
+    }
+  },
+  {
+    "new": true,
+    "user": {
+      "id": 166628,
+      "name": "007 Pups",
+      "profileImage": 1262147,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10212733827974172/picture?height=100&width=100"
+    },
+    "timestamp": 23955487.368,
+    "message": {
+      "type": "comment",
+      "comment": {
+        "id": 1504083,
+        "comment": "Thank you",
+        "entry": {
+          "id": 594908,
+          "image": 806313
+        }
+      }
+    }
+  }
+]
+```
+
+This endpoint retrieves the a combined list of comments and messages. Each time this endpoint is called a timestamp is recorded on the backend which is used to determine whether the Alert is new or not.
+
+### HTTP Request
+
+`GET http://api.parade.pet/alerts/messages`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns an array of Alert objects.  Each Alert has a timestamp, sender, and message object. Please notice that a message object can be a Comment or a MessageGroup, determined by its "type" property.
 </aside>
 
 ## Get Alert Settings

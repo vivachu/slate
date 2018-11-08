@@ -239,6 +239,8 @@ curl "http://api.parade.pet/stickers/1"
     "path": "cny/rooster_doll",
     "price": 100,
     "isPremium": false,
+    "isFont": false,
+    "isAnimated": true,
     "id": 1
   },
   {
@@ -247,6 +249,8 @@ curl "http://api.parade.pet/stickers/1"
     "path": "cny/chinese_girl_hari",
     "price": 100,
     "isPremium": false,
+    "isFont": false,
+    "isAnimated": false,
     "id": 16
   },
   {
@@ -255,6 +259,8 @@ curl "http://api.parade.pet/stickers/1"
     "path": "cny/lotus_flower",
     "price": 100,
     "isPremium": false,
+    "isFont": false,
+    "isAnimated": false,
     "id": 17
   }
 ]

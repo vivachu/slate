@@ -103,6 +103,33 @@ curl "http://api.parade.pet/minigame/end"
     "coinBonus": {
         "amount": 190,
         "type": "silver"
+    },
+    "user": {
+        "profileImage": 123,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10154880732247388/picture?height=100&width=100",
+        "initials": "MW",
+        "silverCoins": 200,
+        "goldCoins": 100
+    },
+    "pointBonus": 100,
+    "pet": {
+        "id": 111668,
+        "name": "Sammy",
+        "profileImage": 474438,
+        "user": {
+            "id": 112944,
+            "profileImage": null,
+            "socialImageUrl": "https://graph.facebook.com/v2.7/10213976261738231/picture?height=100&width=100",
+            "name": "Sunshine Stone",
+            "initials": "SS"
+        }
+    },
+    "nextSession": {
+        "friendPet": {
+            "name": "Coder",
+            "image": 476501
+        },
+        "message": "Walk Coder in 6 h 0 m "
     }
 }
 ```
@@ -130,7 +157,87 @@ score | true | score for this minigame session
 Returns coin bonus.
 </aside>
 
+## Get Minigame Session
 
+```shell
+curl "http://api.parade.pet/minigame/session"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "firstName": "Jessica",
+    "lastName": "Wang",
+    "userId": 136746,
+    "profileImage": null,
+    "socialImageUrl": null,
+    "numEntries": 298,
+    "petName": "Munchkin",
+    "petImage": 703842,
+    "petPoints": 25,
+    "path": "pet-walk",
+    "actionPhrase": "walked Munchkin",
+    "pets": [
+        {
+            "id": 148882,
+            "name": "Cookie",
+            "entry": 474310,
+            "image": 649371,
+            "points": 1961,
+            "type": "Cat"
+        },
+        {
+            "id": 148876,
+            "name": "Oreo",
+            "entry": 474293,
+            "image": 649353,
+            "points": 1044,
+            "type": "Cat"
+        },
+        {
+            "id": 140358,
+            "name": "Mimi",
+            "entry": 443373,
+            "image": 608152,
+            "points": 1015,
+            "type": "Cat"
+        },
+        {
+            "id": 136777,
+            "name": "Xiao Guai",
+            "entry": 430676,
+            "image": 591033,
+            "points": 1460,
+            "type": "Cat"
+        }
+    ]
+}
+```
+
+Returns the list of entries to use for the minigame.
+
+### HTTP Request
+
+`GET http://api.parade.pet/minigame/session/:sessionId`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the minigame session token
+
+
+### Query Parameters
+Parameter | Required | Description
+--------- | ------- | -----------
+sessionId | true | id value of the MinigameSession to return.
+
+
+<aside class="success">
+Returns the minigame session story.  The user returned is the user who played the game with the target pet.  The pets array is the list of pets to treat back.  
+</aside>
 
 
 

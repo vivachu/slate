@@ -62,7 +62,10 @@ The user object and the user's authentication token is returned.
 ## Set Firebase Token
 
 ```shell
-curl "http://api.parade.pet/user/setFirebaseToken/<token>"
+curl "http://api.parade.pet/user/setFirebaseToken"
+  -d 'token=AJDAIWJEDMJ81221AJDJS'
+  -d 'advertiserId=00129-21292-21212mdsjd'
+  -d 'timeZoneOffset=-4'
   -H "Authorization:  Bearer meowmeowmeow"
 ```
 
@@ -76,7 +79,7 @@ This endpoint is used to set the authenticated user's Firebase Token.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/user/setFirebaseToken/<token>`
+`POST http://api.parade.pet/user/setFirebaseToken`
   
 ### Header Parameters
 
@@ -88,7 +91,8 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-token | true |  Firebase token string, included as part of url
+token | true |  Firebase token string
+advertiserId | false |  The unique device advertiser id of the mobile handset
 timeZoneOffset | false |  the local timezone offset as a signed floating point number.  For example -4.5 is four hours and 30 minutes from GMT. 
 
 
@@ -110,7 +114,7 @@ curl "http://api.parade.pet/user/block"
 "OK"
 ```
 
-This endpoint reports an entry that the user finds questionable.
+This endpoint blocks the user with id userToBlock.
 
 ### HTTP Request
 
@@ -127,6 +131,42 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Parameter | Required | Description
 --------- | ------- | -----------
 userToBlock | true | The ID of the user to block   
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Unblock User
+
+```shell
+curl "http://api.parade.pet/user/unblock"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'userToUnblock=8372'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint unblocks a user that was blocked.  If the userToUnblock was not blocked, then a 404 is returned.
+
+### HTTP Request
+
+`POST http://api.parade.pet/user/unblock`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+userToUnblock | true | The ID of the user to unblock   
 
 <aside class="success">
 Returns OK
@@ -612,7 +652,14 @@ curl "http://api.parade.pet/user/friendCode"
 
 ```json
 {
-    "friendCode": "123abc"
+    "friendCode": "123abc", 
+    "shareLink": "http://stage-share.parade.pet/vote/389360",
+    "shareMessage": "Hi! Use this link to vote for my dog Glen for The Cutest Pet of 2017 Photo Contest. To vote you have to download the Pet Parade app which is super fun (trust me you'll love it)! And if you enter your own Pet, we can help each other win cool prizes for our pets.",
+    "shareImage": "http://assets.parade.pet/images/534165/medium.jpg",
+    "referralBonus": { 
+      "amount": 25, 
+      "type": "goldTickets"
+    }
 }
 ```
 
@@ -781,6 +828,42 @@ friendCode | true | The friendCode of the friend to add
 Returns OK
 </aside>
 
+## Delete Friend
+
+```shell
+curl "http://api.parade.pet/user/deleteFriend/:friendUser"
+  -X DELETE
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+    "OK"
+```
+
+This endpoint delete a friend.
+
+### HTTP Request
+
+`DELETE http://api.parade.pet/user/deleteFriend/:friendUser`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+friendUser | true | User ID of the friend to delete
+
+<aside class="success">
+Returns OK
+</aside>
+
 ## Friend Ladder
 
 ```shell
@@ -795,96 +878,123 @@ curl "http://api.parade.pet/user/friends"
 > The above command returns JSON structured like this:
 
 ```json
-[
-    {
-        "id": 25,
-        "firstName": "Mike",
-        "lastName": "W",
-        "profileImage": 954,
-        "socialImageUrl": null,
-        "highestRank": 0,
-        "referralBonus": {
-          "amount": 25,
-          "type": "goldTickets"
-        },
-        "pets": [
-            {
-                "pet": 3151,
-                "name": "Birdie",
-                "image": 14858,
-                "type": "other",
-                "place": 2096,
-                "placeByBreed": 19,
-                "placeByType": 241,
-                "placeByLocation": 115,
-                "placeId": "ChIJOwg_06VPwokRYv534QaPC8g",
-                "points": 3450,
-                "birthYear": 2015,
-                "birthMonth": null,
-                "birthDay": null
-            },
-            {
-                "pet": 32,
-                "name": "Fido",
-                "image": 3227,
-                "type": "dog",
-                "place": 5798,
-                "placeByLocation": 303,
-                "placeId": "ChIJOwg_06VPwokRYv534QaPC8g",
-                "placeByBreed": 10000,
-                "placeByType": 2849,
-                "points": 1570,
-                "birthYear": 2016,
-                "birthMonth": null,
-                "birthDay": null
-            }
-        ]
+{
+    "referralBonus": {
+        "amount": 25,
+        "type": "goldTickets"
     },
-    {
-        "id": 26,
-        "firstName": "Kristi",
-        "lastName": " Clark",
-        "profileImage": null,
-        "socialImageUrl": null,
-        "highestRank": 26384,
-        "referralBonus": {
-          "amount": 50,
-          "type": "silverTickets"
+    "friendLadder":
+    [
+        {
+            "id": 25,
+            "firstName": "Mike",
+            "lastName": "W",
+            "profileImage": 954,
+            "socialImageUrl": null,
+            "highestRank": 0,
+            "pets": [
+                {
+                    "pet": 3151,
+                    "name": "Birdie",
+                    "image": 14858,
+                    "type": "other",
+                    "place": 2096,
+                    "placeByBreed": 19,
+                    "placeByType": 241,
+                    "placeByLocation": 115,
+                    "placeId": "ChIJOwg_06VPwokRYv534QaPC8g",
+                    "points": 3450,
+                    "birthYear": 2015,
+                    "birthMonth": null,
+                    "birthDay": null,
+                    "owner": 25,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NCwiaWF0IjoxNTA3NzQ5MzkwfQ.iDxXhU5u_iiUWw-4QSq2qdiTzW7phbCpZfGhcA_TpKA",
+                        "path": "pet-cleanup",
+                        "secondsRemaining": 11038,
+                        "percentWait": 0.57
+                    }
+                },
+                {
+                    "pet": 32,
+                    "name": "Fido",
+                    "image": 3227,
+                    "type": "dog",
+                    "place": 5798,
+                    "placeByLocation": 303,
+                    "placeId": "ChIJOwg_06VPwokRYv534QaPC8g",
+                    "placeByBreed": 10000,
+                    "placeByType": 2849,
+                    "points": 1570,
+                    "birthYear": 2016,
+                    "birthMonth": null,
+                    "birthDay": null,
+                    "owner": 25,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NSwiaWF0IjoxNTA3NzQ5MzkwfQ.nfSaTnHqschSAc5sCeUk_EgZv9GtAafkfKL29kzE8FY",
+                        "path": "pet-wash",
+                        "secondsRemaining": 32638,
+                        "percentWait": 0.31
+                    }
+                }
+            ]
         },
-        "pets": [
-            {
-                "pet": 1474,
-                "name": "Chirp",
-                "image": 6234,
-                "type": "other",
-                "place": 26384,
-                "placeByType": 1413,
-                "placeByLocation": 771,
-                "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
-                "placeByBreed": 139,
-                "points": 490,
-                "birthYear": 2016,
-                "birthMonth": 5,
-                "birthDay": 31
-            },
-            {
-                "pet": 49951,
-                "name": "Callie",
-                "image": 200918,
-                "type": "cat",
-                "place": 42314,
-                "placeByBreed": 547,
-                "points": 100,
-                "placeByType": 15674,
-                "placeByLocation": 1279,
-                "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
-                "birthYear": 2016,
-                "birthMonth": 3,
-                "birthDay": 2
-            }
-        ]
-    }
-]
+        {
+            "id": 26,
+            "firstName": "Kristi",
+            "lastName": " Clark",
+            "profileImage": null,
+            "socialImageUrl": null,
+            "highestRank": 26384,
+            "pets": [
+                {
+                    "pet": 1474,
+                    "name": "Chirp",
+                    "image": 6234,
+                    "type": "other",
+                    "place": 26384,
+                    "placeByType": 1413,
+                    "placeByLocation": 771,
+                    "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
+                    "placeByBreed": 139,
+                    "points": 490,
+                    "birthYear": 2016,
+                    "birthMonth": 5,
+                    "birthDay": 31,
+                    "owner": 26,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NiwiaWF0IjoxNTA3NzQ5MzkwfQ.GHd4TrqWJRhnBwSSNx0NxNS35UkgIULaRi-4pktb4EY",
+                        "path": "pet-walk",
+                        "secondsRemaining": 44038,
+                        "percentWait": 0.25
+                    }
+                },
+                {
+                    "pet": 49951,
+                    "name": "Callie",
+                    "image": 200918,
+                    "type": "cat",
+                    "place": 42314,
+                    "placeByBreed": 547,
+                    "points": 100,
+                    "placeByType": 15674,
+                    "placeByLocation": 1279,
+                    "placeId": "ChIJ7cv00DwsDogRAMDACa2m4K8",
+                    "birthYear": 2016,
+                    "birthMonth": 3,
+                    "birthDay": 2,
+                    "owner": 26,
+                    "minigameSession": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzaWQiOjI0NywiaWF0IjoxNTA3NzQ5MzkwfQ.nuecG6QpJgi24vqKY7e_iqn1k-SIIX0-Tjja4b922EY",
+                        "path": "pet-cleanup",
+                        "secondsRemaining": 57838,
+                        "percentWait": 0.2
+                    }
+                }
+            ]
+        }
+    ]
+}
 ```
 
 This endpoint returns the user's friend ladder for the specific leaderboard chosen.
