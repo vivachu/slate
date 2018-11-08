@@ -11,7 +11,7 @@ curl "http://api.parade.pet/pet/leaderboard"
   -d 'type=dog'
   -d 'breed=3529'
   -d 'city=New York'
-  -d 'placeId=ChIJ-0qgNoF_3YgRg3Lh7xHDooU'
+  -d 'placeId=1234'
   -d 'state=NY'
   -d 'contest=1'
 ```
@@ -393,7 +393,7 @@ curl "http://api.parade.pet/pet/profileProperties/treat/p"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
     "Peanut Butter Biscuits",
     "Peanut Butter",
@@ -424,7 +424,7 @@ value | true | Name of the property's value.
 Returns list of Profile Properties.
 </aside>
 
-## Create Pet Profile Property 
+## Create Pet Profile Property
 
 ```shell
 curl "http://api.parade.pet/pet/profileProperty/create"
@@ -436,7 +436,7 @@ curl "http://api.parade.pet/pet/profileProperty/create"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "pet": 1039,
   "profileProperty": 6,
@@ -477,7 +477,7 @@ curl -X "DELETE" "http://api.parade.pet/pet/profileProperty/<petPropertyId>"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 "OK"
 ```
 
