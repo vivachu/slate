@@ -523,10 +523,10 @@ pet | true | The ID of the pet.
 contest | true | The ID of the contest.    
 entryFee | false | The entry fee paid   
 caption | false | The description of the entry  
-locationName | false | The location name as returned from Google Place API (deprecated)
-locationPlaceId | false | The location placeId as returned from Google Place API (deprecated)
-locationAddress | false | The location address as returned from Google Place API (deprecated)
-locationLocale | false | The location locale as returned from Google Place API  (deprecated)
+locationName | false | The location name (place name or street address) as returned from Bing Places API
+locationPlaceId | false | The location placeId as returned from Google Places API (deprecated)
+locationAddress | false | The location full address as returned from Bing Places API
+locationLocale | false | The location locale as returned from Google Places API  (deprecated)
 city | false | city name
 state | false | 2-letter state abbreviation (e.g., NY)
 country | false | full country name (e.g., United States)
