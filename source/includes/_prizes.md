@@ -387,7 +387,6 @@ Parameter | Required | Description
 --------- | ------- | -----------
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -397,6 +396,85 @@ type | false | The leaderboard: all, location, dog, cat, or critter
 <aside class="success">
 Returns tickets payouts for weekly and monthly for the specified leaderboard type. The authorized user's ticket balance is also returned and the time till the end of the week and month.
 </aside>
+
+## Get Prize Tiers
+
+```shell
+curl "http://api.parade.pet/prize/tiers"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this :
+
+```json
+{
+  "tickets": 4355,
+  "prizeTiers": [
+    {
+      "id": 1,
+      "tier": 100,
+      "progress": 1
+    },
+    {
+      "id": 2,
+      "tier": 250,
+      "progress": 1
+    },
+    {
+      "id": 3,
+      "tier": 500,
+      "progress": 1
+    },
+    {
+      "id": 4,
+      "tier": 1000,
+      "progress": 1
+    },
+    {
+      "id": 5,
+      "tier": 2500,
+      "progress": 1
+    },
+    {
+      "id": 6,
+      "tier": 5000,
+      "progress": 0.871
+    },
+    {
+      "id": 7,
+      "tier": 7500,
+      "progress": 0
+    },
+    {
+      "id": 8,
+      "tier": 10000,
+      "progress": 0
+    },
+    {
+      "id": 9,
+      "tier": 25000,
+      "progress": 0
+    }
+  ]
+}
+```
+
+Retrieve the list of prize tiers.
+
+### HTTP Request
+
+`GET http://api.parade.pet/prize/tiers`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Return the authorized user's gold ticket balance and the list of prize tiers along with user's progress in each tier.
+</aside>
+
 
 ## Accept Tickets
 
