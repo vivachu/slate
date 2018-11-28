@@ -105,6 +105,103 @@ type | true | Either parent, dog, cat, or critter.
 Returns prizes for the specified store type. The authorized user's ticket balance is also returned.
 </aside>
 
+## Get Prizes based on Price Tier
+
+```shell
+curl "http://api.parade.pet/prizes/tier/2"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tickets": {
+    "silver": 558,
+    "gold": 4355
+  },
+  "prizes": [
+    {
+      "type": "Parent",
+      "name": "Pet Parade Bumper Sticker",
+      "brand": "Pet Parade",
+      "price": 2,
+      "shippingCost": 0.49,
+      "isPremium": true,
+      "description": "Get this bumper sticker to show everyone in town that you have the cutest pet on Pet Parade!",
+      "checkoutUrl": "http://localhost:1337/checkout/314/1090",
+      "imageUrl": "https://assets.parade.pet/prizes/1509557777535.jpeg",
+      "state": 1,
+      "prizeOption1": null,
+      "prizeOption2": null,
+      "prizeOption3": null,
+      "prizeOption4": null,
+      "fulfillmentTime": "Ships within 14 days.",
+      "isCharity": false,
+      "sortOrder": null,
+      "id": 314,
+      "pinned": false,
+      "isNew": false,
+      "buyButton": "GET IT NOW",
+      "ticketPrice": 250,
+      "promo": null
+    },
+    {
+      "type": "Cat",
+      "name": "Claw Protectors",
+      "brand": "Foreveryang",
+      "price": 4.99,
+      "shippingCost": 0,
+      "isPremium": true,
+      "description": "Cap your cat's nails to save your furniture from their claws.",
+      "checkoutUrl": "https://www.amazon.com/gp/product/B01N3Q82WU/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=petparade02-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01N3Q82WU&linkId=783a1f1fef0f6516910f5b387b170ab5",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61NdejU%2BzOL._SL1280_.jpg",
+      "state": 1,
+      "prizeOption1": null,
+      "prizeOption2": null,
+      "prizeOption3": null,
+      "prizeOption4": null,
+      "fulfillmentTime": "Ships within 14 days.",
+      "isCharity": false,
+      "sortOrder": null,
+      "id": 124,
+      "pinned": false,
+      "isNew": false,
+      "buyButton": "GET IT NOW",
+      "ticketPrice": 250,
+      "promo": {
+          "type": "price",
+          "value": 10.49,
+          "expires": 109325.671
+      }
+    }
+  ]
+}
+```
+
+Retrieve the Prize Catalog for the specified prize tier.     
+
+### HTTP Request
+
+`GET http://api.parade.pet/prizes/tier/:prizeTier`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+prizeTier | true | Prize tier ID.
+
+<aside class="success">
+Returns prizes for the specified prize tier. The authorized user's ticket balance is also returned.
+</aside>
+
 ## Get Prize
 
 ```shell
