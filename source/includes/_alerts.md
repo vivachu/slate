@@ -376,7 +376,12 @@ curl "http://api.parade.pet/alerts/messages"
       "messageGroup": {
         "id": 1,
         "message": "That's great! Your dog is georgeous",
-        "stickerpath": null,
+        "sticker": {
+          "state": 1,
+          "id": 1070,
+          "path": "animated_sticker/ladybug",
+          "isAnimated": 1
+        },
         "entry": null
       }
     }
@@ -396,8 +401,10 @@ curl "http://api.parade.pet/alerts/messages"
         "id": 1504083,
         "comment": "Thank you",
         "entry": {
+          "state": 1,
           "id": 594908,
-          "image": 806313
+          "image": 806313,
+          "isAnimated": 0
         }
       }
     }
