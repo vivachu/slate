@@ -726,3 +726,108 @@ prize | true | ID of the Prize object to unpin
 <aside class="success">
 Returns OK if success. The design of this call is such that the client should call this asynchronously without waiting for it to return.  
 </aside>
+
+## Charity Goals
+
+```shell
+curl "http://api.parade.pet/charityGoals"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 3,
+    "name": "Charity Test",
+    "description": "Description of the charity test",
+    "dollarGoal": 1500,
+    "ticketGoal": 100,
+    "ticketsRaised": 50,
+    "numGivers": 1,
+    "state": 1,
+    "dollarsRaised": 750,
+    "partner": {
+      "id": 1,
+      "name": "Pet Pantry Warehouse",
+      "path": "ppw",
+      "description": null
+    },
+    "donated": null
+  },
+  {
+    "id": 4,
+    "name": "Another Charity Test",
+    "description": "Description of another charity test",
+    "dollarGoal": 1000,
+    "ticketGoal": 100,
+    "ticketsRaised": 65,
+    "numGivers": 1,
+    "state": 1,
+    "dollarsRaised": 650,
+    "partner": {
+      "id": 2,
+      "name": "VitaPup",
+      "path": "vp",
+      "description": "Super healthy treats for your super pup."
+    },
+    "donated": 65
+  }
+]
+```
+
+This endpoint is used to get all active Charity Goals. 
+
+### HTTP Request
+
+`GET http://api.parade.pet/charityGoals`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns charity goals with each of its progress and amount of tickets donated by authenticated user for each charity.
+</aside>
+
+
+## Donate to Charity 
+
+```shell
+curl "http://api.parade.pet/charityGoal/donate"
+  -H "Authorization:  Bearer meowmeowmeow"
+  -d 'charityGoal=1'
+  -d 'ticketAmount=100'
+```
+
+> The above command returns "OK" or an error message
+
+```
+"OK"
+```
+
+This endpoint is used donate tickets to a charity.
+
+### HTTP Request
+
+`POST http://api.parade.pet/charityGoal/donate`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+ticketAmount | true | amount of gold ticket that authenticated user would like to donate 
+charityGoal | true | ID of the Charity Goal 
+
+<aside class="success">
+Returns OK if success.
+</aside>
