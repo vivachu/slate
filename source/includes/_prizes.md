@@ -748,6 +748,7 @@ curl "http://api.parade.pet/charityGoals"
     "numGivers": 1,
     "state": 1,
     "dollarsRaised": 750,
+    "path": "https://assets.parade.pet/partners/ppw/creatives/test-path/",
     "partner": {
       "id": 1,
       "name": "Pet Pantry Warehouse",
@@ -766,6 +767,7 @@ curl "http://api.parade.pet/charityGoals"
     "numGivers": 1,
     "state": 1,
     "dollarsRaised": 650,
+    "path": "https://assets.parade.pet/partners/vp/creatives/another-test-path/",
     "partner": {
       "id": 2,
       "name": "VitaPup",
@@ -793,6 +795,52 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Returns charity goals with each of its progress and amount of tickets donated by authenticated user for each charity.
 </aside>
 
+## Random Charity Goal
+
+```shell
+curl "http://api.parade.pet/charityGoal/serve"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 4,
+  "name": "Another Charity Test",
+  "description": "Description of another charity test",
+  "dollarGoal": 1000,
+  "ticketGoal": 100,
+  "ticketsRaised": 0,
+  "numGivers": 0,
+  "state": 1,
+  "dollarsRaised": 0,
+  "path": "https://assets.parade.pet/partners/vp/creatives/another-test-path/",
+  "partner": {
+    "id": 2,
+    "name": "VitaPup",
+    "path": "vp",
+    "description": "Super healthy treats for your super pup."
+  },
+  "donated": null
+}
+```
+
+This endpoint is used to get one random Charity Goal. 
+
+### HTTP Request
+
+`GET http://api.parade.pet/charityGoal/serve`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns one random charity goal with its progress and amount of tickets donated by authenticated user.
+</aside>
 
 ## Donate to Charity 
 
