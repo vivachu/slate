@@ -811,10 +811,12 @@ curl "http://api.parade.pet/charityGoal/serve"
   "description": "Description of another charity test",
   "dollarGoal": 1000,
   "ticketGoal": 100,
-  "ticketsRaised": 0,
+  "ticketsRaised": 120,
   "numGivers": 0,
   "state": 1,
   "dollarsRaised": 0,
+  "cashDonateUrl": "https://cash.donate.url/",
+  "userTickets": 5000,
   "path": "https://assets.parade.pet/partners/vp/creatives/another-test-path/",
   "partner": {
     "id": 2,
@@ -822,7 +824,23 @@ curl "http://api.parade.pet/charityGoal/serve"
     "path": "vp",
     "description": "Super healthy treats for your super pup."
   },
-  "donated": null
+  "donated": 100,
+  "angels": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "profileImage": 12345,
+      "socialImageUrl": null,
+      "ticketsDonated": 100
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/1234567890/picture?height=100&width=100",
+      "ticketsDonated": 20
+    }
+  ]
 }
 ```
 
