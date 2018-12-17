@@ -748,6 +748,8 @@ curl "http://api.parade.pet/charityGoals"
     "numGivers": 1,
     "state": 1,
     "dollarsRaised": 750,
+    "moreIntoUrl": "https://more.info.url/",
+    "cashDonateUrl": "https://cash.donate.url/",
     "path": "https://assets.parade.pet/partners/ppw/creatives/test-path/",
     "partner": {
       "id": 1,
@@ -767,6 +769,8 @@ curl "http://api.parade.pet/charityGoals"
     "numGivers": 1,
     "state": 1,
     "dollarsRaised": 650,
+    "moreIntoUrl": "https://more.info.url/",
+    "cashDonateUrl": "https://cash.donate.url/",
     "path": "https://assets.parade.pet/partners/vp/creatives/another-test-path/",
     "partner": {
       "id": 2,
@@ -815,6 +819,7 @@ curl "http://api.parade.pet/charityGoal/serve"
   "numGivers": 0,
   "state": 1,
   "dollarsRaised": 0,
+  "moreIntoUrl": "https://more.info.url/",
   "cashDonateUrl": "https://cash.donate.url/",
   "userTickets": 5000,
   "path": "https://assets.parade.pet/partners/vp/creatives/another-test-path/",
