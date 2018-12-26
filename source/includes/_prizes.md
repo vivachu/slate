@@ -830,6 +830,12 @@ curl "http://api.parade.pet/charityGoal/serve"
     "description": "Super healthy treats for your super pup."
   },
   "donated": 100,
+  "angelLevels": {
+    "platinum": 10,
+    "gold": 10,
+    "silver": 10,
+    "bronze": 10
+  },
   "angels": [
     {
       "id": 1,
