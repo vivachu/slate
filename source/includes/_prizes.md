@@ -880,10 +880,20 @@ curl "http://api.parade.pet/charityGoal/donate"
   -d 'ticketAmount=100'
 ```
 
-> The above command returns "OK" or an error message
+> The above command returns JSON structured like this:
 
 ```
-"OK"
+{
+  "periodType": 1,
+  "isPremium": false,
+  "periodStart": "2018-12-30",
+  "periodEnd": "2019-01-05",
+  "acceptDate": "2019-01-01T08:58:58.176Z",
+  "tickets": 0,
+  "category": "Angel:vp:VitaPup",
+  "award": "Gold",
+  "user": 302804
+}
 ```
 
 This endpoint is used donate tickets to a charity.
@@ -906,5 +916,5 @@ ticketAmount | true | amount of gold ticket that authenticated user would like t
 charityGoal | true | ID of the Charity Goal 
 
 <aside class="success">
-Returns OK if success.
+Returns Prize Award data.
 </aside>
