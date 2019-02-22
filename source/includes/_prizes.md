@@ -730,64 +730,79 @@ Returns OK if success. The design of this call is such that the client should ca
 ## Charity Goals
 
 ```shell
-curl "http://api.parade.pet/charityGoals"
+curl "http://api.parade.pet/charitygoals"
   -H "Authorization: Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 3,
-    "name": "Charity Test",
-    "description": "Description of the charity test",
-    "dollarGoal": 1500,
-    "ticketGoal": 100,
-    "ticketsRaised": 50,
-    "numGivers": 1,
-    "state": 1,
-    "dollarsRaised": 750,
-    "moreIntoUrl": "https://more.info.url/",
-    "cashDonateUrl": "https://cash.donate.url/",
-    "path": "https://assets.parade.pet/partners/ppw/creatives/test-path/",
-    "partner": {
-      "id": 1,
-      "name": "Pet Pantry Warehouse",
-      "path": "ppw",
-      "description": null
-    },
-    "donated": null
-  },
-  {
-    "id": 4,
-    "name": "Another Charity Test",
-    "description": "Description of another charity test",
-    "dollarGoal": 1000,
-    "ticketGoal": 100,
-    "ticketsRaised": 65,
-    "numGivers": 1,
-    "state": 1,
-    "dollarsRaised": 650,
-    "moreIntoUrl": "https://more.info.url/",
-    "cashDonateUrl": "https://cash.donate.url/",
-    "path": "https://assets.parade.pet/partners/vp/creatives/another-test-path/",
-    "partner": {
-      "id": 2,
-      "name": "VitaPup",
-      "path": "vp",
-      "description": "Super healthy treats for your super pup."
-    },
-    "donated": 65
-  }
-]
+{
+    "tickets": 722,
+    "goals": [
+        {
+            "id": 1,
+            "name": "Save A Rescue Dog",
+            "description": "Adopt-A-Dog's mission is to save, socialize and secure loving homes for unwanted or abandoned dogs.  Adopt-A-Dog accomplishes this goal by providing the highest standard of care for dogs in need with a particular focus on ensuring that all aspects of their overall health and well-being are addressed.",
+            "dollarGoal": 1000,
+            "ticketGoal": 100000,
+            "ticketsRaised": 114334,
+            "numGivers": 780,
+            "state": 1,
+            "moreInfoUrl": "https://adopt-a-dog.org/who-we-are/",
+            "cashDonateUrl": "https://adopt-a-dog.org/support/",
+            "dollarsRaised": 1143.34,
+            "path": "https://assets.parade.pet/partners/adopt-a-dog/creatives/jan-2019/",
+            "partner": {
+                "id": 10,
+                "name": "Adopt-A-Dog",
+                "path": "adopt-a-dog",
+                "description": "Adopt-A-Dog's mission is to save, socialize and secure loving homes for unwanted or abandoned dogs."
+            },
+            "donated": 2343,
+            "angelLevels": {
+                "platinum": 1000,
+                "gold": 500,
+                "silver": 250,
+                "bronze": 100
+            }
+        },
+        {
+            "id": 2,
+            "name": "Winter Charity Campaign",
+            "description": "Animal shelters across the nation are forced to stretch their resources to the brink to accommodate an overwhelming population of homeless and at-risk animals.",
+            "dollarGoal": 2500,
+            "ticketGoal": 750000,
+            "ticketsRaised": 90705,
+            "numGivers": 661,
+            "state": 1,
+            "moreInfoUrl": "https://aspca.org",
+            "cashDonateUrl": "https://secure.aspca.org/donate/donate",
+            "dollarsRaised": 302.35,
+            "path": "https://assets.parade.pet/partners/aspca/creatives/winter-2018/",
+            "partner": {
+                "id": 11,
+                "name": "ASPCA",
+                "path": "aspca",
+                "description": "We give all adoptable pets the best possible chance of finding loving homes."
+            },
+            "donated": 1330,
+            "angelLevels": {
+                "platinum": 1000,
+                "gold": 500,
+                "silver": 250,
+                "bronze": 100
+            }
+        }
+    ]
+}
 ```
 
 This endpoint is used to get all active Charity Goals. 
 
 ### HTTP Request
 
-`GET http://api.parade.pet/charityGoals`
+`GET http://api.parade.pet/charitygoals`
 
 ### Header Parameters
 
