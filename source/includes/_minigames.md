@@ -239,5 +239,105 @@ sessionId | true | id value of the MinigameSession to return.
 Returns the minigame session story.  The user returned is the user who played the game with the target pet.  The pets array is the list of pets to treat back.  
 </aside>
 
+## Get Daily Bonus
 
+```shell
+curl "http://api.parade.pet/minigame/dailybonus"
+  -H "Authorization: Bearer meowmeowmeow"
+```
 
+> The above command returns JSON structured like this:
+
+```json
+{
+  "user": 1090,
+  "winner1": {
+    "id": 597111,
+    "image": 9569
+  },
+  "winner2": {
+    "id": 80698,
+    "image": 104598
+  },
+  "winner3": null,
+  "winner4": null,
+  "winner5": null,
+  "round": 2,
+  "expires": 3525,
+  "completed": null,
+  "awardType": "goldTickets",
+  "award": 50,
+  "id": 15
+}
+```
+
+> And here is the countDown JSON object: 
+
+```json
+{
+  "countDown": 75250,
+  "id": null
+}
+```
+
+Returns current active game's daily bonus state or countdown to next bonus.
+
+### HTTP Request
+
+`GET http://api.parade.pet/minigame/dailybonus`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the minigame session token
+
+### Query Parameters
+
+None
+
+<aside class="success">
+Returns the state of current active game's daily bonus. If current game already completed or expired, so this endpoint will returns countdown time to next bonus.
+</aside>
+
+## Set Daily Bonus
+
+```shell
+curl "http://api.parade.pet/minigame/dailybonus/winner"
+  -H "Authorization: Bearer meowmeowmeow"
+  -d 'id=15'
+  -d 'entry=12345'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "award": null,
+  "nextGame": null,
+  "round": "2"
+}
+```
+
+Set an Entry as one of the winner, and returns the state of game's daily bonus.
+
+### HTTP Request
+
+`POST http://api.parade.pet/minigame/dailybonus/winner`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the minigame session token
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | id value of current DailyBonus
+entry | true | id value of entry
+
+<aside class="success">
+Returns current bonus' award, countDown to the next bonus, and current game's round.
+</aside>
