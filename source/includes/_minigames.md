@@ -313,9 +313,14 @@ curl "http://api.parade.pet/minigame/dailybonus/winner"
 
 ```json
 {
-  "award": null,
-  "nextGame": null,
-  "round": "2"
+    "award": {
+        "type": "goldTickets",
+        "award": 10
+    },
+    "goldCoins": null,
+    "goldTickets": 1315,
+    "nextGame": 86139,
+    "round": "5"
 }
 ```
 
@@ -339,5 +344,5 @@ id | true | id value of current DailyBonus
 entry | true | id value of entry
 
 <aside class="success">
-Returns current bonus' award, countDown to the next bonus, and current game's round.
+Returns current bonus' award, countDown to the next bonus, current game's round, and user's latest balance of goldTickets or goldCoins based on the awardType.
 </aside>
