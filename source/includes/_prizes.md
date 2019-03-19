@@ -933,3 +933,55 @@ charityGoal | true | ID of the Charity Goal
 <aside class="success">
 Returns Prize Award data.
 </aside>
+
+## Verify Address
+
+```shell
+curl "http://api.parade.pet/verifyAddress"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "isValid": true,
+  "inputAddress": {
+    "street": "1200 Park Ave",
+    "city": "Emeryville",
+    "state": "CA",
+    "postalCode": "94608"
+  },
+  "uspsAddress": {
+    "street": "1200 PARK AVE",
+    "city": "EMERYVILLE",
+    "state": "CA",
+    "postalCode": "94608"
+  }
+}
+```
+
+This endpoint is used to verify an address against US Postal Service database.
+
+### HTTP Request
+
+`POST http://api.parade.pet/verifyAddress`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+street | false | Address street
+city | false | Address city 
+state | false | Address state
+postalCode | false | Address postal code
+
+<aside class="success">
+Returns both user inputted and USPS verified addresses.  
+</aside>
