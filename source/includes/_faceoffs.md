@@ -32,9 +32,9 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
-faceOffId | true | faceOff id from /alerts/faceOffs
-petId | true | pet id from /alerts/faceOffs
-winner | true | winning entry id from /alerts/faceOffs
+faceOffId | true | faceOff id from /alerts/faceoffs
+petId | true | pet id from /alerts/faceoffs
+winner | true | winning entry id from /alerts/faceoffs
 
 <aside class="success">
 Returns OK
