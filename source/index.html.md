@@ -18,6 +18,7 @@ includes:
   - images
   - entries
   - alerts
+  - faceOffs
   - prizes
   - location
   - minigames
@@ -33,5 +34,3 @@ search: true
 Welcome to the Pets Parade API! You can use our API to access Pet Parade API endpoints.
 
 You can view examples on how to call each endpoint from the Shell using curl or via your web browser using the Postman extension in the dark area to the right.
-
-

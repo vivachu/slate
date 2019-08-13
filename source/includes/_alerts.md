@@ -9,10 +9,10 @@ curl "http://api.parade.pet/alerts/treats"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"alerts": [
-		{ 
+		{
 		  "timestamp": 99749.137,
 		  "new": true,
 		  "accepted": false,
@@ -51,14 +51,14 @@ curl "http://api.parade.pet/alerts/treats"
 			  "points": 100
 		  }	  	
 		},
-		{ 
+		{
 		  "timestamp": 99749.137,
 		  "new": false,
 		  "accepted": true,
 		  "sender": {
 		  	"id": 2812,
 		  	"name": "Taylor Swift",
-		  	"image": 276, 
+		  	"image": 276,
 			"socialImageUrl": "https://graph.facebook.com/v2.7/10211118676179859/picture?height=100&width=100",
         	"pets": null
 		  },
@@ -104,11 +104,13 @@ curl "http://api.parade.pet/alerts/faceoffs"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"alerts": [
-		{ 
+		{
 		  "timestamp": 99749.137,
+      "pet": 132045,
+      "xpCollected": 0,
 		  "new": true,
 		  "entryA": {
 		  	"id": 282,
@@ -127,8 +129,10 @@ curl "http://api.parade.pet/alerts/faceoffs"
 		  	"points": 10
 		  }
 		},
-		{ 
+		{
 		  "timestamp": 99749.137,
+      "pet": 132045,
+      "xpCollected": 1,
 		  "new": false,
 		  "entryA": {
 		  	"id": 398,
@@ -165,7 +169,7 @@ Parameter | Required | Description
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 <aside class="success">
-Returns an array of Alert objects.  Each Alert has a timestamp, entryA, entryB and winner. 
+Returns an array of Alert objects.  Each Alert has a timestamp, entryA, entryB and winner.
 </aside>
 
 ## Get Comments
@@ -177,7 +181,7 @@ curl "http://api.parade.pet/alerts/comments"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "alerts": [
     {
@@ -251,7 +255,7 @@ Parameter | Required | Description
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 <aside class="success">
-Returns an array of Alert objects.  Each Alert has a timestamp, comment, entry, and user who sent the comment. 
+Returns an array of Alert objects.  Each Alert has a timestamp, comment, entry, and user who sent the comment.
 </aside>
 
 ## Get Prizes and Awards
@@ -263,7 +267,7 @@ curl "http://api.parade.pet/alerts/prizesAwards"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "user": {
     "id": 1090,
@@ -336,7 +340,7 @@ curl "http://api.parade.pet/alerts/prizesAwards"
 ```
 
 This endpoint retrieves the user object with current ticket balance and a list of Prize alerts awarded to the user for the past 60 days. Each prize alert contains the award text and the ticketAward object to accept.  If the prize box has been opened, then display the alert in the opened state.  If the prize box has not been opened then show the Open button to allow the user to accept the ticketAward.  
- 
+
 ### HTTP Request
 
 `GET http://api.parade.pet/alerts/prizesAwards`
@@ -360,7 +364,7 @@ curl "http://api.parade.pet/alerts/messages"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 [
   {
     "new": true,
@@ -437,7 +441,7 @@ curl "http://api.parade.pet/alerts/settings"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
   "notifyAnnouncements": false,
   "notifyFaceOffSummary": true,
@@ -457,7 +461,7 @@ curl "http://api.parade.pet/alerts/settings"
 ```
 
 This endpoint retrieves the user's alert settings.
- 
+
 ### HTTP Request
 
 `GET http://api.parade.pet/alerts/settings`
