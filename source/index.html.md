@@ -18,7 +18,6 @@ includes:
   - images
   - entries
   - alerts
-  - faceoffs
   - prizes
   - location
   - minigames

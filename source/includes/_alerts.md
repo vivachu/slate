@@ -108,7 +108,7 @@ curl "http://api.parade.pet/alerts/faceoffs"
 {
 	"alerts": [
 		{
-		  "timestamp": 99749.137,
+      "timestamp": 99749.137,
       "faceOffId": 1565666911,
       "pet": 132045,
       "xpCollected": 0,

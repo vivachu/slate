@@ -11,11 +11,11 @@ curl "http://api.parade.pet/game/init"
 
 > The above command returns JSON structured like this:
 
-```json 
+```json
 {
 	"faceOffSet": {
 		"id": 29,
-		"type": "dogs vs cats", 
+		"type": "dogs vs cats",
 		"typeId": 2,
 		"contest": 2,
 		"partner": {
@@ -26,7 +26,7 @@ curl "http://api.parade.pet/game/init"
        	},
 		"numJudged": 4,
 		"size": 10,
-		"activeFaceOff": { 
+		"activeFaceOff": {
 			"id": 224789,
 			"entryA": {
 				"id":123,
@@ -59,51 +59,51 @@ curl "http://api.parade.pet/game/init"
 		"gold": 20
 	},
 	"dogs": [
-	{ 
+	{
 	  "entry": 129,
 	  "image": 234,
 	  "isAnimated": 0
 	},
-	{ 
+	{
 	  "entry": 282,
 	  "image": 123,
 	  "isAnimated": 1
 	},
-	{ 
+	{
 	  "entry": 1282,
 	  "image": 567,
 	  "isAnimated": 0
 	}
 	],
 	"cats": [
-	{ 
+	{
 	  "entry": 2182,
 	  "image": 678,
 	  "isAnimated": 1
 	},
-	{ 
+	{
 	  "entry": 18,
 	  "image": 480,
 	  "isAnimated": 0
 	},
-	{ 
+	{
 	  "entry": 128,
 	  "image": 170,
 	  "isAnimated": 0
 	}
 	],
 	"critters": [
-	{ 
+	{
 	  "entry": 282,
 	  "image": 681,
 	  "isAnimated": 0
 	},
-	{ 
+	{
 	  "entry": 8878,
 	  "image": 481,
 	  "isAnimated": 0
 	},
-	{ 
+	{
 	  "entry": 8982,
 	  "image": 801,
 	  "isAnimated": 0
@@ -144,7 +144,7 @@ curl "http://api.parade.pet/game/init"
     "entryFee": {
         "type": "silver",
         "fee": 50
-    },	
+    },
     "coinPromo": {
       	"coinBundle": 107,
     	"type": "gold",
@@ -153,7 +153,7 @@ curl "http://api.parade.pet/game/init"
 }
 ```
 
-This endpoint is called only once each time the app loaded. This call represents a game play session. 
+This endpoint is called only once each time the app loaded. This call represents a game play session.
 
 ### HTTP Request
 
@@ -199,7 +199,7 @@ curl "http://api.parade.pet/game/faceoff/start"
 
 ```json
 {
-  "faceOff": { 
+  "faceOff": {
   	"id": 224789,
   	"entryA": {
   		"id":123,
@@ -291,7 +291,7 @@ faceOff | true | id value of active FaceOff
 winner | true | id value of winning Pet
 
 <aside class="success">
-Returns "OK" or an error message.  The client does not need to wait for this call and can use the award values returned from /game/init to increment the user's silver and the pet's points returned from /faceoff/start. 
+Returns "OK" or an error message.  The client does not need to wait for this call and can use the award values returned from /game/init to increment the user's silver and the pet's points returned from /faceoff/start.
 </aside>
 
 ## End FaceOffSet
@@ -309,11 +309,11 @@ curl "http://api.parade.pet/game/faceoffset/end"
 {
   "award": {
   	"type": "treat",
-  	"value": {"id":292, "name": "Steak", "image": 2912 }	
+  	"value": {"id":292, "name": "Steak", "image": 2912 }
   },
   "faceOffSet": {
 	  "id": 29,
-	  "type": "Dogs vs Critters", 
+	  "type": "Dogs vs Critters",
 	  "size": 10
   },
   "winners": [
@@ -368,7 +368,7 @@ curl "http://api.parade.pet/game/faceoffset/end"
 		"type": "gold",
 		"reward": 5
 	  },
-	"showTutorial": 0	
+	"showTutorial": 0
 }
 ```
 
@@ -396,3 +396,42 @@ contest | false | id value of current contest
 Returns the award for completing the set and the new active FaceOffSet.  Valid award type values are treat, silver, or gold.  If the award type is "treat," then the value is the treat object.  If the award type is silver or gold, then the value is the amount of coins awarded.  It also returns the winners of the completed FaceOffSet, with number of points you gave to each winner.
 </aside>
 
+## Collect XP
+
+```shell
+curl "http://api.parade.pet/game/collect/xp"
+  -H "Authorization: Bearer meowmeowmeow"
+  -d 'faceOffId=1565666813'
+  -d 'petId=132045'
+  -d 'winner=416769'
+```
+
+> The above command returns JSON structured like this:
+
+```
+"{ awardedXP: 2, userLevel: 3 }"
+```
+
+This endpoint updates the collectXP field in the faceOff cache to 1 for the faceOff retrieved using petId and faceOffId.  It also updates the totalXP field on the user object based on whether the faceOff entry was the winner or loser.
+
+### HTTP Request
+
+`POST http://api.parade.pet/game/collect/xp`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+faceOffId | true | faceOff id from /alerts/faceoffs
+petId | true | pet id from /alerts/faceoffs
+winner | true | winning entry id from /alerts/faceoffs
+
+<aside class="success">
+Returns number of XP awarded to user and the current user level.
+</aside>
