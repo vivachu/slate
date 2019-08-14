@@ -409,7 +409,14 @@ curl "http://api.parade.pet/game/collect/xp"
 > The above command returns JSON structured like this:
 
 ```json
-{ "awardedXP": 2, "userLevel": 3 }
+{
+    "awardedXP": 2,
+    "userLevel": {
+        "number": 1,
+        "xp": 11,
+        "xpToNextLevel": 50
+    }
+}
 ```
 
 This endpoint updates the collectXP field in the faceOff cache to 1 for the faceOff retrieved using petId and faceOffId.  It also updates the totalXP field on the user object based on whether the faceOff entry was the winner or loser.
@@ -433,5 +440,5 @@ petId | true | pet id from /alerts/faceoffs
 winner | true | winning entry id from /alerts/faceoffs
 
 <aside class="success">
-Returns number of XP awarded to user and the current user level.
+Returns number of XP awarded to user and the current userLevel.
 </aside>
