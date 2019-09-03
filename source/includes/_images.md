@@ -117,6 +117,8 @@ curl "http://api.parade.pet/image/payEntryFee"
   -d 'fee=10'
   -d 'feeType=silver'
   -d 'stickers=92,928,392,2393'
+  -d 'frame=1'
+  -d 'layout=1'
 ```
 
 > The above command returns JSON structured like this:
@@ -160,6 +162,8 @@ image | true | The image to pay the fee on.
 fee| true | The fee to pay in gold or silver coins. 
 feeType| true | Whether to pay in gold or silver coins. 
 stickers| false | Comma separated list of sticker IDs to purchase. 
+frame | false | Photo frame ID.
+layout | false | Photo frame layout ID.
 
 <aside class="success">
 Returns the EntryFee object and the user's gold and silver balance after the fee has been deducted.
@@ -286,4 +290,76 @@ Parameter | Required | Description
 
 <aside class="success">
 Returns the stickers belonging to the specified collection.
+</aside>
+
+## Get Frames
+
+```shell
+curl "http://api.parade.pet/frames"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json 
+[
+  {
+    "name": "Plain Frame",
+    "path": "default",
+    "state": 1,
+    "sortOrder": 1,
+    "price": 100,
+    "isPremium": false,
+    "id": 1
+  },
+  {
+    "name": "Blue Dog Bakery Frame",
+    "path": "blue_dog_bakery",
+    "state": 1,
+    "sortOrder": 2,
+    "price": 100,
+    "isPremium": false,
+    "id": 2
+  },
+  {
+    "name": "Jungle Frame",
+    "path": "jungle",
+    "state": 1,
+    "sortOrder": 3,
+    "price": 100,
+    "isPremium": false,
+    "id": 3
+  },
+  {
+    "name": "Pink Frame",
+    "path": "pink_pattern",
+    "state": 1,
+    "sortOrder": 4,
+    "price": 100,
+    "isPremium": false,
+    "id": 4
+  }
+]
+```
+
+This endpoint returns an array of available photo frames.
+
+### HTTP Request
+
+`GET http://api.parade.pet/frames`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+
+
+<aside class="success">
+Returns the list of available photo frames.
 </aside>
