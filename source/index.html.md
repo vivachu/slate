@@ -12,6 +12,7 @@ includes:
   - authentication
   - users
   - gameplay
+  - v2
   - treats
   - coins
   - pets
