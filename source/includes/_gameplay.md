@@ -15,15 +15,15 @@ curl "http://api.parade.pet/game/init"
 {
 	"faceOffSet": {
 		"id": 29,
-		"type": "dogs vs cats",
-		"typeId": 2,
-		"contest": 2,
-		"partner": {
+		"type": "Cutest Pet of 2019",
+		"typeId": 0,
+		"contest": 1,
+		"sponsor": {
             "name": "VitaPup",
             "path": "vp",
             "hexCode": "B6C800",
           	"id": 1
-       	},
+    },
 		"numJudged": 4,
 		"size": 10,
 		"activeFaceOff": {
@@ -54,61 +54,152 @@ curl "http://api.parade.pet/game/init"
 			} 	
 		}
 	},
+  "matches": [
+    {
+      "id": 6956,
+      "type": "u",
+      "entryA": {
+        "id": 327920,
+        "image": 446653,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 150559,
+        "image": 194124,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 6968,
+      "type": "u",
+      "entryA": {
+        "id": 2129915,
+        "image": 2811444,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 198330,
+        "image": 261390,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 6958,
+      "type": "u",
+      "entryA": {
+        "id": 1245619,
+        "image": 1672322,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 2317405,
+        "image": 3057588,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 6981,
+      "type": "u",
+      "entryA": {
+        "id": 1336282,
+        "image": 1792389,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 1353338,
+        "image": 1815319,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 7014,
+      "type": "u",
+      "entryA": {
+        "id": 1293592,
+        "image": 1736169,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 2007045,
+        "image": 2653787,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 7035,
+      "type": "u",
+      "entryA": {
+        "id": 870592,
+        "image": 1176131,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 1938007,
+        "image": 2565372,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 7059,
+      "type": "u",
+      "entryA": {
+        "id": 2293165,
+        "image": 3025832,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 850448,
+        "image": 1148318,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 7011,
+      "type": "u",
+      "entryA": {
+        "id": 98484,
+        "image": 123649,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 165018,
+        "image": 214737,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 7024,
+      "type": "u",
+      "entryA": {
+        "id": 1842642,
+        "image": 2444439,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 2387521,
+        "image": 3155347,
+        "isAnimated": 0
+      }
+    },
+    {
+      "id": 7058,
+      "type": "u",
+      "entryA": {
+        "id": 223575,
+        "image": 297072,
+        "isAnimated": 0
+      },
+      "entryB": {
+        "id": 1085274,
+        "image": 1462330,
+        "isAnimated": 0
+      }
+    }
+  ],
 	"coins": {
 		"silver": 300,
 		"gold": 20
 	},
-	"dogs": [
-	{
-	  "entry": 129,
-	  "image": 234,
-	  "isAnimated": 0
-	},
-	{
-	  "entry": 282,
-	  "image": 123,
-	  "isAnimated": 1
-	},
-	{
-	  "entry": 1282,
-	  "image": 567,
-	  "isAnimated": 0
-	}
-	],
-	"cats": [
-	{
-	  "entry": 2182,
-	  "image": 678,
-	  "isAnimated": 1
-	},
-	{
-	  "entry": 18,
-	  "image": 480,
-	  "isAnimated": 0
-	},
-	{
-	  "entry": 128,
-	  "image": 170,
-	  "isAnimated": 0
-	}
-	],
-	"critters": [
-	{
-	  "entry": 282,
-	  "image": 681,
-	  "isAnimated": 0
-	},
-	{
-	  "entry": 8878,
-	  "image": 481,
-	  "isAnimated": 0
-	},
-	{
-	  "entry": 8982,
-	  "image": 801,
-	  "isAnimated": 0
-	}
-	],
 	"award": {
 		"silver": 5,
 		"points": 10
@@ -262,6 +353,8 @@ curl "http://api.parade.pet/game/faceoff/end"
   -H "Authorization:  Bearer meowmeowmeow"
   -d 'faceOff=274661'
   -d 'winner=123'
+  -d 'matchId=6956'
+  -d 'matchType=u'
 ```
 
 > The above command returns "OK" or an error message
@@ -289,6 +382,8 @@ Parameter | Required | Description
 --------- | ------- | -----------
 faceOff | true | id value of active FaceOff
 winner | true | id value of winning Pet
+matchId | true | id of match
+matchType | true | u for UserMatch, t for TournamentMatch
 
 <aside class="success">
 Returns "OK" or an error message.  The client does not need to wait for this call and can use the award values returned from /game/init to increment the user's silver and the pet's points returned from /faceoff/start.
