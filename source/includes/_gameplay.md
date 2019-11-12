@@ -328,7 +328,9 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "image": 282,
       "points": 30,
       "place": 212,
-      "type": "Dog"
+      "type": "Dog",
+      "matchId": 123,
+      "matchType": "u"
     },
     {
 	  "id": 927,
@@ -337,7 +339,9 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "image": 2292,
       "points": 30,
       "place": 87,
-      "type": "Rabbit"
+      "type": "Rabbit",
+      "matchId": 456,
+      "matchType": "t"
     },
     {
 	  "id": 288,
@@ -346,7 +350,9 @@ curl "http://api.parade.pet/game/faceoffset/end"
       "image": 2828,
       "points": 20,
       "place": 928,
-      "type": "Horse"
+      "type": "Horse",
+      "matchId": 789,
+      "matchType": "u"
     }
     ],
 	"alerts": {
