@@ -153,7 +153,7 @@ curl "http://api.parade.pet/game/init"
 }
 ```
 
-This endpoint is called only once each time the app loaded. This call represents a game play session.
+This endpoint is called only once for each faceOffSet.
 
 ### HTTP Request
 
