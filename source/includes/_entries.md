@@ -254,6 +254,9 @@ curl "http://api.parade.pet/entries/me"
       "points": 950,
       "numFaceOffs": 0,
       "numTreats": 0,
+      "numFaceoffs": 36,
+      "winPercent": 42,
+      "cuteness": 16,
       "timestamp": 6948791.919,
       "activeBoost": {
         "numBoosted": 50,
@@ -279,6 +282,9 @@ curl "http://api.parade.pet/entries/me"
       "points": 660,
       "numFaceOffs": 0,
       "numTreats": 0,
+      "numFaceoffs": 36,
+      "winPercent": 42,
+      "cuteness": 16,
       "timestamp": 8210362.925,
 	  "activeBoost": null,
       "pet": {
@@ -932,7 +938,8 @@ curl "http://api.parade.pet/entries/topTenFeatured"
     "breed": "Bernese Mountain Dog",
     "numFaceOffs": 247,
     "numWins": 180,
-    "winRate": 0.7287
+    "winRate": 0.7287,
+    "cuteness": 68
   },
   {
     "id": 49225,
@@ -944,7 +951,8 @@ curl "http://api.parade.pet/entries/topTenFeatured"
     "breed": "Tabby",
     "numFaceOffs": 149,
     "numWins": 108,
-    "winRate": 0.7248
+    "winRate": 0.7248,
+    "cuteness": 83
   },
   {
     "id": 48252,
@@ -956,7 +964,8 @@ curl "http://api.parade.pet/entries/topTenFeatured"
     "breed": "Persian",
     "numFaceOffs": 278,
     "numWins": 147,
-    "winRate": 0.5288
+    "winRate": 0.5288,
+    "cuteness": 37
   },
   {
     "id": 49205,
@@ -968,7 +977,8 @@ curl "http://api.parade.pet/entries/topTenFeatured"
     "breed": "Black Labrador Retriever4",
     "numFaceOffs": 438,
     "numWins": 255,
-    "winRate": 0.5822
+    "winRate": 0.5822,
+    "cuteness": 23
   },
   {
     "id": 49016,
@@ -980,7 +990,8 @@ curl "http://api.parade.pet/entries/topTenFeatured"
     "breed": "Dwarf Chinese ",
     "numFaceOffs": 477,
     "numWins": 249,
-    "winRate": 0.522
+    "winRate": 0.522,
+    "cuteness": 17
   },
 ]
 ```
@@ -1015,15 +1026,24 @@ curl "http://api.parade.pet/entries/recent"
 [
   {
     "id": 49489,
-    "image": 64599
+    "image": 64599,
+    "numFaceoffs": 36,
+    "winPercent": 42,
+    "cuteness": 16,
   },
   {
     "id": 49225,
-    "image": 64245
+    "image": 64245,
+    "numFaceoffs": 36,
+    "winPercent": 42,
+    "cuteness": 33,
   },
   {
     "id": 48252,
-    "image": 62939
+    "image": 62939,
+    "numFaceoffs": 36,
+    "winPercent": 42,
+    "cuteness": 98,
   }
 ]
 ```
