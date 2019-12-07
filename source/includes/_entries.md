@@ -1029,21 +1029,21 @@ curl "http://api.parade.pet/entries/recent"
     "image": 64599,
     "numFaceoffs": 36,
     "winPercent": 42,
-    "cuteness": 16,
+    "cuteness": 16
   },
   {
     "id": 49225,
     "image": 64245,
     "numFaceoffs": 36,
     "winPercent": 42,
-    "cuteness": 33,
+    "cuteness": 33
   },
   {
     "id": 48252,
     "image": 62939,
     "numFaceoffs": 36,
     "winPercent": 42,
-    "cuteness": 98,
+    "cuteness": 98
   }
 ]
 ```
