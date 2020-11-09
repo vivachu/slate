@@ -358,6 +358,87 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 Return sorted list of entries owned by user ordered by created date descending.
 </aside>
 
+## My Entries by Pet
+
+```shell
+curl "https://api.parade.pet/v2/entries/mypets"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 242,
+    "name": "Glen",
+    "image": 9998,
+    "type": "Dog",
+    "entries": [
+      {
+        "id": 550065,
+        "image": 748765,
+        "isAnimated": 0
+      },
+      {
+        "id": 514964,
+        "image": 701763,
+        "isAnimated": 0
+      },
+      {
+        "id": 6280,
+        "image": 9998,
+        "isAnimated": 1
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "name": "Stomper",
+    "image": 459,
+    "type": "Pig",
+    "entries": [
+      {
+        "id": 348824,
+        "image": 476605,
+        "isAnimated": 0
+      },
+      {
+        "id": 147765,
+        "image": 190199,
+        "isAnimated": 0
+      },
+      {
+        "id": 20644,
+        "image": 27855,
+        "isAnimated": 0
+      },
+      {
+        "id": 18099,
+        "image": 24827,
+        "isAnimated": 0
+      }
+    ]
+  }
+]
+```
+
+This endpoint returns current logged in user's entries grouped by Pet.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/entries/mypets`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns current logged in user's entries, grouped by Pet.
+</aside>
+
 ## Boost Entry
 
 ```shell

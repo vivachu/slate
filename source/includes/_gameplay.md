@@ -1,9 +1,10 @@
 # Game Play
 
-## Initialize the game
+
+## Initialize the Game with Matches
 
 ```shell
-curl "http://api.parade.pet/game/init"
+curl "http://api.parade.pet/v2/game/init"
   -H "Authorization:  Bearer meowmeowmeow"
   -d "entry=283"
   -d "contest=2"
@@ -12,99 +13,174 @@ curl "http://api.parade.pet/game/init"
 > The above command returns JSON structured like this:
 
 ```json
-{
-	"faceOffSet": {
-		"id": 29,
-		"type": "Cutest Pet of 2019",
-		"typeId": 0,
-		"contest": 1,
-		"sponsor": {
-            "name": "VitaPup",
-            "path": "vp",
-            "hexCode": "B6C800",
-          	"id": 1
-    },
-		"numJudged": 4,
-		"size": 10,
-		"activeFaceOff": {
-			"id": 224789,
-			"entryA": {
-				"id":123,
-				"image": 2292,
-				"pt": 1,
-				"isAnimated": 1,
-				"pet": {
-					"id": 292,
-					"name": "Sparky",
-					"image": 92,
-					"points": 9282
-				}
-			},
-			"entryB": {
-				"id":456,
-				"image": 222,
-				"pt": 2,
-				"isAnimated": 0,
-				"pet": {
-					"id": 908,
-					"name": "Tom",
-					"image": 211,
-					"points": 282
-				}
-			} 	
-		}
+{    
+  "faceOffSet": {
+    "type": "#play",
+    "contest": 2,
+    "sponsor": null
 	},
-  "dogs": [
-  	{
-  	  "entry": 129,
-  	  "image": 234,
-  	  "isAnimated": 0
-  	},
-  	{
-  	  "entry": 282,
-  	  "image": 123,
-  	  "isAnimated": 1
-  	},
-  	{
-  	  "entry": 1282,
-  	  "image": 567,
-  	  "isAnimated": 0
-  	}
-	],
-	"cats": [
-  	{
-  	  "entry": 2182,
-  	  "image": 678,
-  	  "isAnimated": 1
-  	},
-  	{
-  	  "entry": 18,
-  	  "image": 480,
-  	  "isAnimated": 0
-  	},
-  	{
-  	  "entry": 128,
-  	  "image": 170,
-  	  "isAnimated": 0
-  	}
-	],
-	"critters": [
-  	{
-  	  "entry": 282,
-  	  "image": 681,
-  	  "isAnimated": 0
-  	},
-  	{
-  	  "entry": 8878,
-  	  "image": 481,
-  	  "isAnimated": 0
-  	},
-  	{
-  	  "entry": 8982,
-  	  "image": 801,
-  	  "isAnimated": 0
-  	}
-	],
+  "matches": [
+    {
+      "id": 6956,
+      "type": "u",
+      "entryA": {
+        "id": 327920,
+        "image": 446653,
+        "isAnimated": 0,
+        "petName": "Fido"
+      },
+      "entryB": {
+        "id": 150559,
+        "image": 194124,
+        "isAnimated": 0,
+        "petName": "Rosco"
+      }
+    },
+    {
+      "id": 6968,
+      "type": "u",
+      "entryA": {
+        "id": 2129915,
+        "image": 2811444,
+        "isAnimated": 0,
+        "petName": "Snoopy"
+      },
+      "entryB": {
+        "id": 198330,
+        "image": 261390,
+        "isAnimated": 0,
+        "petName": "Dogbeard"
+      }
+    },
+    {
+      "id": 6958,
+      "type": "u",
+      "entryA": {
+        "id": 1245619,
+        "image": 1672322,
+        "isAnimated": 0,
+        "petName": "Max"
+      },
+      "entryB": {
+        "id": 2317405,
+        "image": 3057588,
+        "isAnimated": 0,
+        "petName": "Lady"
+      }
+    },
+    {
+      "id": 6981,
+      "type": "u",
+      "entryA": {
+        "id": 1336282,
+        "image": 1792389,
+        "isAnimated": 0,
+        "petName": "Doggo"
+      },
+      "entryB": {
+        "id": 1353338,
+        "image": 1815319,
+        "isAnimated": 0,
+        "petName": "Buddy"
+      }
+    },
+    {
+      "id": 7014,
+      "type": "u",
+      "entryA": {
+        "id": 1293592,
+        "image": 1736169,
+        "isAnimated": 0,
+        "petName": "Fido"
+      },
+      "entryB": {
+        "id": 2007045,
+        "image": 2653787,
+        "isAnimated": 0,
+        "petName": "Bella"
+      }
+    },
+    {
+      "id": 7035,
+      "type": "u",
+      "entryA": {
+        "id": 870592,
+        "image": 1176131,
+        "isAnimated": 0,
+        "petName": "Daisy"
+      },
+      "entryB": {
+        "id": 1938007,
+        "image": 2565372,
+        "isAnimated": 0,
+        "petName": "Luna"
+      }
+    },
+    {
+      "id": 7059,
+      "type": "u",
+      "entryA": {
+        "id": 2293165,
+        "image": 3025832,
+        "isAnimated": 0,
+        "petName": "Willow"
+      },
+      "entryB": {
+        "id": 850448,
+        "image": 1148318,
+        "isAnimated": 0,
+        "petName": "Rosie"
+      }
+    },
+    {
+      "id": 7011,
+      "type": "u",
+      "entryA": {
+        "id": 98484,
+        "image": 123649,
+        "isAnimated": 0,
+        "petName": "Roxy"
+      },
+      "entryB": {
+        "id": 165018,
+        "image": 214737,
+        "isAnimated": 0,
+        "petName": "Teddy"
+      }
+    },
+    {
+      "id": 7024,
+      "type": "u",
+      "entryA": {
+        "id": 1842642,
+        "image": 2444439,
+        "isAnimated": 0,
+        "petName": "Bear"
+      },
+      "entryB": {
+        "id": 2387521,
+        "image": 3155347,
+        "isAnimated": 0,
+        "petName": "Tiger"
+      }
+    },
+    {
+      "id": 7058,
+      "type": "u",
+      "entryA": {
+        "id": 223575,
+        "image": 297072,
+        "isAnimated": 0,
+        "petName": "Teddy"
+      },
+      "entryB": {
+        "id": 1085274,
+        "image": 1462330,
+        "isAnimated": 0,
+        "petName": "Duke"
+      }
+    }
+  ],
 	"coins": {
 		"silver": 300,
 		"gold": 20
@@ -153,11 +229,13 @@ curl "http://api.parade.pet/game/init"
 }
 ```
 
-This endpoint is called only once for each faceOffSet.
+This endpoint is called once for each faceOffSet.
 
 ### HTTP Request
 
-`GET http://api.parade.pet/game/init`
+`GET http://api.parade.pet/v2/game/init`
+or
+`POST http://api.parade.pet/v2/game/init`
 
 ### Header Parameters
 
@@ -166,16 +244,15 @@ Parameter | Required | Description
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
 
-### Query Parameters
+### Query (POST) Parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-entry | false | id value of first faceOff entry
-contest | false | id value of contest
-
+userMatch | false | matchId to add to end of queue
+size | false | number of matches to return
 
 <aside class="success">
-The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes three arrays of possible entries organized by pet type that the game can use to create new FaceOffs. If the entry parameter is specified, this entry will be added to the top of the appropriate dogs/cats/critters list, and will be used  as entryA in the first faceOff.
+The endpoint returns the user's active FaceOffSet, which is where the user left off in the game. In the FaceOffSet returned, there will optionally be a activeFaceOff object returned which is the currently active FaceOff for the set if the user is returning to the game without having completed the FaceOff.  The return data also includes an array of matches for the upcoming faceOffSet.
 
 The alerts object contains the count of new faceoff and treat alerts to show in the Alerts tab.  The total number of alerts in the bottom nav is the sum of faceoff and treat alerts.
 
@@ -184,6 +261,3406 @@ The return data also contains the award values for silver and points for success
 Also, a the "messages" field will is an array of warning messages for testing purposes, and to be used by the client if necessary.
 </aside>
 
+## Initialize Match
+
+```shell
+curl "https://api.parade.pet/v2/match/init"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "user": {
+    "id": 104,
+    "firstName": "Paula",
+    "lastName": "Pickles",
+    "fullName": "Paula Pickles",
+    "initials": "PP",
+    "profileImage": 713,
+    "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100",
+    "silverCoins": 23605,
+    "goldCoins": 14096,
+    "prizeTickets": 3000,
+    "level": {
+      "number": 0,
+      "xp": 0,
+      "xpToNextLevel": 100
+    }
+  },
+  "myEntries": [
+    {
+      "name": "Stomper",
+      "id": 43529,
+      "image": 56892,
+      "isAnimated": 0
+    },
+    {
+      "name": "Stomper",
+      "id": 20644,
+      "image": 27855,
+      "isAnimated": 0
+    }
+  ],
+  "vsEntries": [
+    {
+      "userId": 172133,
+      "firstName": "Kayla",
+      "lastName": "Ellis",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/371922859901443/picture?height=100&width=100",
+      "name": "Damian* and Bear",
+      "id": 596961,
+      "image": 808828,
+      "isAnimated": 0
+    },
+    {
+      "userId": 167818,
+      "firstName": "Dave",
+      "lastName": "Legault",
+      "profileImage": null,
+      "socialImageUrl": null,
+      "name": "Bergy",
+      "id": 596204,
+      "image": 807886,
+      "isAnimated": 0
+    },
+    {
+      "userId": 177991,
+      "firstName": "Danielle",
+      "lastName": "Prescott",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10213087280609563/picture?height=100&width=100",
+      "name": "Ninja",
+      "id": 595536,
+      "image": 807071,
+      "isAnimated": 0
+    },
+    {
+      "userId": 178364,
+      "firstName": "",
+      "lastName": "Veronica Casias",
+      "profileImage": null,
+      "socialImageUrl": null,
+      "name": "Rico / Pebbles",
+      "id": 597041,
+      "image": 808931,
+      "isAnimated": 0
+    },
+    {
+      "userId": 178343,
+      "firstName": "Tammy",
+      "lastName": "Damphier Murphy",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10213711972409028/picture?height=100&width=100",
+      "name": "Dusty",
+      "id": 596940,
+      "image": 808800,
+      "isAnimated": 0
+    }
+  ],
+  "params": [
+    {
+      "bestOf": 15,
+      "entryFee": 100,
+      "winnerGets": 10
+    },
+    {
+      "bestOf": 25,
+      "entryFee": 250,
+      "winnerGets": 25
+    },
+    {
+      "bestOf": 75,
+      "entryFee": 500,
+      "winnerGets": 50
+    },
+    {
+      "bestOf": 125,
+      "entryFee": 1000,
+      "winnerGets": 100
+    }
+  ]
+}
+```
+
+This endpoint returns all required datas to create a new User Match.
+
+### HTTP Request
+
+`GET https://api.parade.pet/v2/match/init`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns current user info, list of current user's entries, opponents entries, and list of User Match params.
+</aside>
+
+## Create User Match
+
+```shell
+curl "https://api.parade.pet/v2/match/create"
+  -H "Authorization: Bearer meowmeowmeow"
+  -d "entryA=1099"
+  -d "entryB=2001"
+  -d "bestOf=15"
+  -d "entryFee=10"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 3,
+  "entryA": 1099,
+  "entryB": 2001,
+  "bestOf": 15,
+  "entryFee": 10,
+  "winnerGets": 100,
+  "numFaceOffs": 0,
+  "pointsA": 0,
+  "pointsB": 0,
+  "user": 104
+}
+```
+
+This endpoint will create a new user match.
+
+### HTTP Request
+
+`POST https://api.parade.pet/v2/match/create`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+entryA | true | first entry's ID
+entryB | true | second entry's ID
+bestOf | true | match's bestOf param
+entryFee | true | silverCoins amount fee to create the userMatch
+
+<aside class="success">
+The newly created User Match is returned.
+</aside>
+
+## Get User Match
+
+```shell
+curl "https://api.parade.pet/v2/match/:id"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "bestOf": 125,
+  "entryFee": 1000,
+  "winnerGets": 100,
+  "numFaceOffs": 5,
+  "pointsA": 0,
+  "pointsB": 3,
+  "winDate": null,
+  "prizeAccepted": null,
+  "id": 32,
+  "createdAt": "2019-10-21T03:03:37.000Z",
+  "updatedAt": "2019-10-21T03:03:42.000Z",
+  "user": 94706,
+  "entryA": {
+    "id": 445223,
+    "image": 610294,
+    "isAnimated": 0,
+    "pet": {
+      "id": 119507,
+      "name": "Bo",
+      "profileImage": 610294,
+      "petType": "Cat"
+    },
+    "owner": {
+      "id": 120517,
+      "firstName": "Jason",
+      "lastName": "Thorpe",
+      "fullName": "Jason Thorpe",
+      "initials": "JT",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/1625382240840200/picture?height=100&width=100",
+      "silverCoins": 50,
+      "goldCoins": 10,
+      "prizeTickets": 6,
+      "level": {
+        "number": 0,
+        "xp": 0,
+        "xpToNextLevel": 100
+      }
+    }
+  },
+  "entryB": {
+    "id": 452223,
+    "image": 619821,
+    "isAnimated": 0,
+    "pet": {
+      "id": 93229,
+      "name": "Farley",
+      "profileImage": 619821,
+      "petType": "Dog"
+    },
+    "owner": {
+      "id": 94706,
+      "firstName": "Suzie",
+      "lastName": "Griffith",
+      "fullName": "Suzie Griffith",
+      "initials": "SG",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10212859610996733/picture?height=100&width=100",
+      "silverCoins": 5,
+      "goldCoins": 0,
+      "prizeTickets": 4324,
+      "level": {
+        "number": 0,
+        "xp": 0,
+        "xpToNextLevel": 100
+      }
+    }
+  },
+  "winner": null,
+  "feed": [
+    {
+      "timestamp": 454.445,
+      "user": {
+        "id": 976695,
+        "name": "Tabbi ",
+        "profileImage": null,
+        "socialImageUrl": null
+      },
+      "action": "treat",
+      "pet": {
+        "id": 119507,
+        "name": "Bo",
+        "profileImage": 511552,
+        "petType": "Cat"
+      },
+      "treat": {
+        "treatId": 1003,
+        "treatGiftId": 280,
+        "name": "Goldfish Crackers",
+        "type": "cat",
+        "accepted": false
+      },
+      "xp": null
+    },
+    {
+      "timestamp": 454.445,
+      "user": {
+        "id": 833585,
+        "name": "Jessica Ramos",
+        "profileImage": null,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/1211242902358114/picture?height=100&width=100"
+      },
+      "action": "treat",
+      "pet": {
+        "id": 119507,
+        "name": "Bo",
+        "profileImage": 511552,
+        "petType": "Cat"
+      },
+      "treat": {
+        "treatId": 1002,
+        "treatGiftId": 287,
+        "name": "California Roll",
+        "type": "cat",
+        "accepted": false
+      },
+      "xp": null
+    },
+    {
+      "timestamp": 461.851,
+      "user": {
+        "id": 37540,
+        "name": "Jamie Olson",
+        "profileImage": null,
+        "socialImageUrl": null
+      },
+      "action": "vote",
+      "pet": {
+        "id": 93229,
+        "name": "Farley",
+        "profileImage": 619821,
+        "petType": "Dog"
+      },
+      "treat": null,
+      "xp": null
+    }
+  ]
+}
+```
+
+This endpoint returns the specified User Match.
+
+### HTTP Request
+
+`GET https://api.parade.pet/v2/match/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | User Match ID value, passed in the url path
+
+<aside class="success">
+Returns User Match object.
+</aside>
+
+## Get My User Matches
+
+```shell
+curl "https://api.parade.pet/v2/match/my"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "bestOf": 1,
+    "entryFee": 10,
+    "winnerGets": 2,
+    "numFaceOffs": 3,
+    "pointsA": 10,
+    "pointsB": 15,
+    "winDate": null,
+    "id": 1,
+    "user": 104,
+    "entryA": {
+      "comments": [],
+      "caption": "Fur baby",
+      "numFaceOffs": 2,
+      "numWins": 0,
+      "numTreats": 40,
+      "numPoints": 228,
+      "numBoosts": 0,
+      "numShares": 0,
+      "state": 3,
+      "isAnimated": false,
+      "effect": null,
+      "sound": null,
+      "id": 2599,
+      "image": 4855,
+      "contest": 1,
+      "owner": {
+        "id": 104,
+        "firstName": "Paula",
+        "lastName": "Pickles",
+        "fullName": "Paula Pickles",
+        "initials": "PP",
+        "profileImage": 713,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100",
+        "silverCoins": 23605,
+        "goldCoins": 14096,
+        "prizeTickets": 3000,
+        "level": {
+          "number": 0,
+          "xp": 0,
+          "xpToNextLevel": 100
+        }
+      },
+      "pet": {
+        "id": 242,
+        "name": "Glen"
+      },
+      "entryFee": 10,
+      "activeBoost": null,
+      "location": 824
+    },
+    "entryB": {
+      "comments": [],
+      "caption": "Baby stomp",
+      "numFaceOffs": 3229,
+      "numWins": 1625,
+      "numTreats": 42,
+      "numPoints": 16570,
+      "numBoosts": 4,
+      "numShares": 0,
+      "state": 1,
+      "isAnimated": false,
+      "effect": null,
+      "sound": null,
+      "id": 4699,
+      "image": 8012,
+      "contest": 1,
+      "owner": {
+        "id": 104,
+        "firstName": "Paula",
+        "lastName": "Pickles",
+        "fullName": "Paula Pickles",
+        "initials": "PP",
+        "profileImage": 713,
+        "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100",
+        "silverCoins": 23605,
+        "goldCoins": 14096,
+        "prizeTickets": 3000,
+        "level": {
+          "number": 0,
+          "xp": 0,
+          "xpToNextLevel": 100
+        }
+      },
+      "pet": {
+        "id": 136,
+        "name": "Stomper"
+      },
+      "entryFee": 50,
+      "activeBoost": 21548,
+      "location": 824
+    },
+    "winner": null
+  }
+]
+```
+
+This endpoint returns a list of current user's User Matches.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/match/my`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns an array of current user's User Match object.
+</aside>
+
+## Get Next Matches
+
+```shell
+curl "https://api.parade.pet/v2/matches"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "f": "0",
+    "t": "t",
+    "a": 123,
+    "b": 456,
+    "id": 2161
+  },
+  {
+    "f": "0",
+    "t": "t",
+    "a": 567,
+    "b": 789,
+    "id": 2176
+  }
+]
+```
+
+This endpoint gets the next X (10 or less) matches in the queue
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/matches`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user (must be admin for this endpoint)
+
+<aside class="success">
+Returns an array of matches.
+</aside>
+
+## Push Match
+
+```shell
+curl "https://api.parade.pet/v2/match/push"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "f": "2",
+    "t": "t",
+    "a": 123,
+    "b": 456,
+    "id": 2161
+  },
+  {
+    "f": "1",
+    "t": "t",
+    "a": 567,
+    "b": 789,
+    "id": 2176
+  },
+  {
+    "f": "3",
+    "t": "t",
+    "a": 592,
+    "b": 385,
+    "id": 2178
+  },
+]
+```
+
+This endpoint pushes a specific match to the top of the queue and returns all matches for that hashtag contest
+
+### HTTP Request
+
+`POST http://api.parade.pet/v2/match/push`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user (must be admin for this endpoint)
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+matchId | true | Match ID value
+
+<aside class="success">
+Returns an array of updated matches.
+</aside>
+
+## Get list of matches and total uncollected XP
+
+```shell
+curl "https://api.parade.pet/v2/admin/matches/xp"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "tournamentMatches": [
+    {
+      "id": 31,
+      "xpToCollect": 5
+    },
+    {
+      "id": 38,
+      "xpToCollect": 5
+    }
+  ],
+  "userMatches": [
+    {
+      "id": 49,
+      "xpToCollect": 5
+    },
+    {
+      "id": 35,
+      "xpToCollect": 5
+    },
+    {
+      "id": 16,
+      "xpToCollect": 6
+    },
+  ]
+}
+```
+
+This endpoint returns a list of user and tournament matches with their associated uncollected XP.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/admin/matches/xp`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+None
+
+<aside class="success">
+Returns an array of tournament and user matches
+</aside>
+
+
+## Get Tournament
+
+```shell
+curl "https://api.parade.pet/v2/tournament/:id"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "name": "#goodEats",
+  "hexCode": null,
+  "prompt": null,
+  "contest": 7,
+  "numPets": 16,
+  "spotsLeft": null,
+  "entriesPerPet": 3,
+  "minLevel": null,
+  "maxLevel": null,
+  "dogs": 1,
+  "cats": 1,
+  "critters": 1,
+  "entryFee": 100,
+  "voteDate": "2019-11-01T13:04:04.000Z",
+  "winDate": null,
+  "winner": null,
+  "currentRound": 1,
+  "id": 120,
+  "numRounds": 4,
+  "votingStartsIn": null,
+  "status": "Round 1",
+  "instructions": "Submit 3 photos or videos of your pet that match the theme #goodEats.",
+  "levelRequirement": "Any"
+}
+```
+This endpoint returns the specified Tournament.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | Tournament ID value, passed in the url path
+
+<aside class="success">
+Returns a Tournament object.
+</aside>
+
+
+## Get Tournament Round
+
+```shell
+curl "https://api.parade.pet/v2/tournament/:id/round/:roundId"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "round": 4,
+    "groupName": "A",
+    "position": 1,
+    "bestOf": 125,
+    "numFaceOffs": 125,
+    "pointsA": 2,
+    "pointsB": 123,
+    "winDate": "2019-10-29T13:07:40.000Z",
+    "startDate": null,
+    "id": 834,
+    "createdAt": "2019-10-29T13:07:35.000Z",
+    "updatedAt": "2019-10-29T13:07:40.000Z",
+    "tournament": 121,
+    "entryA": [
+      {
+        "caption": null,
+        "numFaceOffs": 572,
+        "numWins": 231,
+        "numTreats": 0,
+        "numPoints": 2310,
+        "numBoosts": 0,
+        "numShares": 0,
+        "state": 1,
+        "isAnimated": false,
+        "effect": null,
+        "sound": null,
+        "id": 320,
+        "createdAt": "2016-10-16T17:54:01.000Z",
+        "updatedAt": "2017-11-29T17:18:58.000Z",
+        "image": 814,
+        "contest": 1,
+        "owner": {
+          "id": 208,
+          "firstName": "Caroline",
+          "lastName": "Loyer",
+          "fullName": "Caroline Loyer",
+          "initials": "CL",
+          "profileImage": 816,
+          "socialImageUrl": "https://graph.facebook.com/v2.7/10157613921070788/picture?height=100&width=100",
+          "silverCoins": 0,
+          "goldCoins": 0,
+          "prizeTickets": 0,
+          "level": {
+            "number": 0,
+            "xp": 0,
+            "xpToNextLevel": 100
+          }
+        },
+        "pet": {
+          "petType": 1,
+          "petBreed": 3609,
+          "owner": 208,
+          "profileImage": 814,
+          "name": "LUCY",
+          "gender": 0,
+          "birthDay": null,
+          "birthMonth": null,
+          "birthYear": 2013,
+          "state": 1,
+          "numFaceOffs": 1140,
+          "numWins": 452,
+          "lastFaceOff": "2017-12-03T15:33:25.000Z",
+          "lastWin": "2017-12-03T15:33:19.000Z",
+          "numWinsSinceInstall": 259,
+          "onTreatBreak": false,
+          "shortBio": null,
+          "longBio": null,
+          "weightProfile": null,
+          "adoptedFrom": null,
+          "adoptedWhen": null,
+          "id": 208,
+          "createdAt": "2016-10-16T17:51:13.000Z",
+          "updatedAt": "2017-12-03T15:33:25.000Z"
+        },
+        "entryFee": null,
+        "activeBoost": null,
+        "location": null
+      },
+      {
+        "caption": null,
+        "numFaceOffs": 162,
+        "numWins": 114,
+        "numTreats": 0,
+        "numPoints": 1140,
+        "numBoosts": 0,
+        "numShares": 0,
+        "state": 1,
+        "isAnimated": false,
+        "effect": null,
+        "sound": null,
+        "id": 244766,
+        "createdAt": "2017-07-20T16:12:05.000Z",
+        "updatedAt": "2017-11-26T02:55:02.000Z",
+        "image": 326113,
+        "contest": 1,
+        "owner": {
+          "id": 78612,
+          "firstName": "Alexis",
+          "lastName": "",
+          "fullName": "Alexis ",
+          "initials": "A",
+          "profileImage": null,
+          "socialImageUrl": null,
+          "silverCoins": 0,
+          "goldCoins": 0,
+          "prizeTickets": 0,
+          "level": {
+            "number": 0,
+            "xp": 0,
+            "xpToNextLevel": 100
+          }
+        },
+        "pet": {
+          "petType": 1,
+          "petBreed": 3537,
+          "owner": 78612,
+          "profileImage": 326113,
+          "name": "Jake",
+          "gender": 1,
+          "birthDay": null,
+          "birthMonth": null,
+          "birthYear": 2015,
+          "state": 1,
+          "numFaceOffs": 319,
+          "numWins": 208,
+          "lastFaceOff": "2017-11-26T02:55:02.000Z",
+          "lastWin": "2017-11-26T02:55:02.000Z",
+          "numWinsSinceInstall": 208,
+          "onTreatBreak": false,
+          "shortBio": null,
+          "longBio": null,
+          "weightProfile": null,
+          "adoptedFrom": null,
+          "adoptedWhen": null,
+          "id": 78165,
+          "createdAt": "2017-07-20T16:10:15.000Z",
+          "updatedAt": "2017-11-26T02:55:02.000Z"
+        },
+        "entryFee": null,
+        "activeBoost": null,
+        "location": null
+      },
+      {
+        "caption": null,
+        "numFaceOffs": 59,
+        "numWins": 34,
+        "numTreats": 0,
+        "numPoints": 340,
+        "numBoosts": 0,
+        "numShares": 0,
+        "state": 1,
+        "isAnimated": false,
+        "effect": null,
+        "sound": null,
+        "id": 544744,
+        "createdAt": "2017-11-14T00:32:59.000Z",
+        "updatedAt": "2017-12-03T22:59:38.000Z",
+        "image": 741553,
+        "contest": 1,
+        "owner": 164607,
+        "pet": {
+          "petType": 1,
+          "petBreed": 3577,
+          "owner": 164607,
+          "profileImage": 741553,
+          "name": "Tux",
+          "gender": 1,
+          "birthDay": null,
+          "birthMonth": null,
+          "birthYear": 2016,
+          "state": 1,
+          "numFaceOffs": 178,
+          "numWins": 102,
+          "lastFaceOff": "2017-12-03T22:59:42.000Z",
+          "lastWin": "2017-11-27T05:05:45.000Z",
+          "numWinsSinceInstall": 102,
+          "onTreatBreak": false,
+          "shortBio": null,
+          "longBio": null,
+          "weightProfile": null,
+          "adoptedFrom": null,
+          "adoptedWhen": null,
+          "id": 167911,
+          "createdAt": "2017-11-14T00:27:06.000Z",
+          "updatedAt": "2017-12-03T22:59:42.000Z"
+        },
+        "entryFee": null,
+        "activeBoost": null,
+        "location": null
+      }
+    ],
+    "entryB": [
+      {
+        "caption": null,
+        "numFaceOffs": 83,
+        "numWins": 42,
+        "numTreats": 0,
+        "numPoints": 420,
+        "numBoosts": 0,
+        "numShares": 0,
+        "state": 1,
+        "isAnimated": false,
+        "effect": null,
+        "sound": null,
+        "id": 276536,
+        "createdAt": "2017-08-02T15:24:42.000Z",
+        "updatedAt": "2017-11-26T04:05:39.000Z",
+        "image": 371230,
+        "contest": 1,
+        "owner": 89978,
+        "pet": {
+          "petType": 1,
+          "petBreed": 3566,
+          "owner": 89978,
+          "profileImage": 371230,
+          "name": "Buck Belue & Boss Bailey",
+          "gender": 1,
+          "birthDay": null,
+          "birthMonth": null,
+          "birthYear": 2017,
+          "state": 1,
+          "numFaceOffs": 266,
+          "numWins": 160,
+          "lastFaceOff": "2017-12-02T08:25:22.000Z",
+          "lastWin": "2017-12-02T08:25:17.000Z",
+          "numWinsSinceInstall": 160,
+          "onTreatBreak": false,
+          "shortBio": null,
+          "longBio": null,
+          "weightProfile": null,
+          "adoptedFrom": null,
+          "adoptedWhen": null,
+          "id": 88601,
+          "createdAt": "2017-08-02T15:24:07.000Z",
+          "updatedAt": "2017-12-02T08:25:22.000Z"
+        },
+        "entryFee": null,
+        "activeBoost": null,
+        "location": null
+      },
+      {
+        "caption": "Who needs a view when Sam can look at trail mix? ",
+        "numFaceOffs": 163,
+        "numWins": 96,
+        "numTreats": 2,
+        "numPoints": 967,
+        "numBoosts": 1,
+        "numShares": 0,
+        "state": 1,
+        "isAnimated": false,
+        "effect": null,
+        "sound": null,
+        "id": 128217,
+        "createdAt": "2017-05-21T00:03:07.000Z",
+        "updatedAt": "2017-11-10T04:28:05.000Z",
+        "image": 162322,
+        "contest": 1,
+        "owner": 42393,
+        "pet": {
+          "petType": 1,
+          "petBreed": 3543,
+          "owner": 42393,
+          "profileImage": 162322,
+          "name": "Sam",
+          "gender": 1,
+          "birthDay": 5,
+          "birthMonth": 10,
+          "birthYear": 2007,
+          "state": 1,
+          "numFaceOffs": 164,
+          "numWins": 96,
+          "lastFaceOff": "2017-11-10T04:28:10.000Z",
+          "lastWin": "2017-11-10T04:28:05.000Z",
+          "numWinsSinceInstall": 96,
+          "onTreatBreak": false,
+          "shortBio": null,
+          "longBio": null,
+          "weightProfile": null,
+          "adoptedFrom": null,
+          "adoptedWhen": null,
+          "id": 41393,
+          "createdAt": "2017-05-21T00:03:02.000Z",
+          "updatedAt": "2017-11-10T04:28:10.000Z"
+        },
+        "entryFee": 100,
+        "activeBoost": 128868,
+        "location": null
+      },
+      {
+        "caption": null,
+        "numFaceOffs": 151,
+        "numWins": 71,
+        "numTreats": 0,
+        "numPoints": 710,
+        "numBoosts": 0,
+        "numShares": 0,
+        "state": 1,
+        "isAnimated": false,
+        "effect": null,
+        "sound": null,
+        "id": 136895,
+        "createdAt": "2017-05-26T02:08:24.000Z",
+        "updatedAt": "2017-11-21T13:44:14.000Z",
+        "image": 174697,
+        "contest": 1,
+        "owner": {
+          "id": 45080,
+          "firstName": "Jenn",
+          "lastName": "Schuler",
+          "fullName": "Jenn Schuler",
+          "initials": "JS",
+          "profileImage": null,
+          "socialImageUrl": "https://graph.facebook.com/v2.7/10212670268049561/picture?height=100&width=100",
+          "silverCoins": 0,
+          "goldCoins": 0,
+          "prizeTickets": 0,
+          "level": {
+            "number": 0,
+            "xp": 0,
+            "xpToNextLevel": 100
+          }
+        },
+        "pet": {
+          "petType": 1,
+          "petBreed": 3839,
+          "owner": 45080,
+          "profileImage": 174697,
+          "name": "Sven",
+          "gender": 1,
+          "birthDay": null,
+          "birthMonth": null,
+          "birthYear": 2015,
+          "state": 1,
+          "numFaceOffs": 434,
+          "numWins": 169,
+          "lastFaceOff": "2017-12-04T06:06:53.000Z",
+          "lastWin": "2017-12-02T19:32:25.000Z",
+          "numWinsSinceInstall": 168,
+          "onTreatBreak": false,
+          "shortBio": null,
+          "longBio": null,
+          "weightProfile": null,
+          "adoptedFrom": null,
+          "adoptedWhen": null,
+          "id": 44231,
+          "createdAt": "2017-05-26T02:07:56.000Z",
+          "updatedAt": "2017-12-04T06:06:53.000Z"
+        },
+        "entryFee": null,
+        "activeBoost": null,
+        "location": null
+      }
+    ],
+    "winner": 649
+  }
+]
+```
+
+This endpoint returns the list of matches from specified round of a specified Tournament.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/:id/round/:roundId`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | Tournament ID value, passed in the url path
+roundId | true | Rround number, passed in the url path
+
+<aside class="success">
+Returns list of Tournament Matches from specified round of a specified Tournament.
+</aside>
+
+## Get Tournament Bracket
+
+```shell
+curl "https://api.parade.pet/v2/tournament/:id/bracket"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  [
+    {
+      "id": 805,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 1,
+      "groupName": "A",
+      "winner": 623,
+      "entryA": {
+        "id": 623,
+        "pet": "Jovi",
+        "image": 586357,
+        "points": 11,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 624,
+        "pet": "Oliver",
+        "image": 478506,
+        "points": 4,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 806,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 2,
+      "groupName": "B",
+      "winner": 626,
+      "entryA": {
+        "id": 626,
+        "pet": "Bucky",
+        "image": 528307,
+        "points": 10,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 625,
+        "pet": "Bonnie",
+        "image": 110539,
+        "points": 5,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 810,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 3,
+      "groupName": "C",
+      "winner": 633,
+      "entryA": {
+        "id": 633,
+        "pet": "Zeus",
+        "image": 107859,
+        "points": 12,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 636,
+        "pet": "Rocky, Cooper and Daisy",
+        "image": 478503,
+        "points": 3,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 807,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 4,
+      "groupName": "D",
+      "winner": 627,
+      "entryA": {
+        "id": 627,
+        "pet": "Rachel",
+        "image": 700026,
+        "points": 9,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 628,
+        "pet": "Charlie",
+        "image": 283546,
+        "points": 6,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 808,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 5,
+      "groupName": "A",
+      "winner": 629,
+      "entryA": {
+        "id": 629,
+        "pet": "Bindi Sue",
+        "image": 752294,
+        "points": 9,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 630,
+        "pet": "Summit",
+        "image": 601493,
+        "points": 6,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 809,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 6,
+      "groupName": "B",
+      "winner": 632,
+      "entryA": {
+        "id": 631,
+        "pet": "Remy",
+        "image": 571354,
+        "points": 0,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 632,
+        "pet": "Nellie",
+        "image": 131041,
+        "points": 15,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 811,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 7,
+      "groupName": "C",
+      "winner": 634,
+      "entryA": {
+        "id": 634,
+        "pet": "Toby",
+        "image": 32631,
+        "points": 14,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 635,
+        "pet": "Cocoa",
+        "image": 234694,
+        "points": 1,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 812,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 8,
+      "groupName": "D",
+      "winner": 637,
+      "entryA": {
+        "id": 637,
+        "pet": "Dior Aoki",
+        "image": 35243,
+        "points": 13,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 638,
+        "pet": "Beckett",
+        "image": 371604,
+        "points": 2,
+        "isMyPet": false
+      }
+    }
+  ],
+  [
+    {
+      "id": 813,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 0,
+      "position": 1,
+      "groupName": "A",
+      "winner": null,
+      "entryA": {
+        "id": 623,
+        "pet": "Jovi",
+        "image": 586357,
+        "points": 0,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 626,
+        "pet": "Bucky",
+        "image": 528307,
+        "points": 0,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 814,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 0,
+      "position": 2,
+      "groupName": "B",
+      "winner": null,
+      "entryA": {
+        "id": 633,
+        "pet": "Zeus",
+        "image": 107859,
+        "points": 0,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 627,
+        "pet": "Rachel",
+        "image": 700026,
+        "points": 0,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 815,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 0,
+      "position": 3,
+      "groupName": "C",
+      "winner": null,
+      "entryA": {
+        "id": 629,
+        "pet": "Bindi Sue",
+        "image": 752294,
+        "points": 0,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 632,
+        "pet": "Nellie",
+        "image": 131041,
+        "points": 0,
+        "isMyPet": false
+      }
+    },
+    {
+      "id": 816,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 0,
+      "position": 4,
+      "groupName": "D",
+      "winner": null,
+      "entryA": {
+        "id": 634,
+        "pet": "Toby",
+        "image": 32631,
+        "points": 0,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 637,
+        "pet": "Dior Aoki",
+        "image": 35243,
+        "points": 0,
+        "isMyPet": false
+      }
+    }
+  ],
+  [
+    {
+      "id": 817,
+      "round": 3,
+      "bestOf": 75,
+      "numFaceOffs": 0,
+      "position": 1,
+      "groupName": "A",
+      "winner": null,
+      "entryA": null,
+      "entryB": null
+    },
+    {
+      "id": 818,
+      "round": 3,
+      "bestOf": 75,
+      "numFaceOffs": 0,
+      "position": 2,
+      "groupName": "B",
+      "winner": null,
+      "entryA": null,
+      "entryB": null
+    }
+  ],
+  [
+    {
+      "id": 819,
+      "round": 4,
+      "bestOf": 125,
+      "numFaceOffs": 0,
+      "position": 1,
+      "groupName": "A",
+      "winner": null,
+      "entryA": null,
+      "entryB": null
+    }
+  ]
+]
+```
+
+This endpoint returns the complete bracket of a specified Tournament.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/:id/bracket`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | Tournament ID value, passed in the url path
+
+<aside class="success">
+Returns a multidimensional array of rounds with round 1 matches are located at index 0, round 2 matches are at index 1 and so on.
+</aside>
+
+## Get Tournament Prizes
+
+```shell
+curl "https://api.parade.pet/v2/tournament/:id/prizes"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "round": "GRAND PRIZE WINNER",
+    "prizeTickets": 400,
+    "prize": {
+      "id": 93,
+      "name": "Flower Accessory",
+      "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71Q3w0NCIoL._SL600_.jpg",
+      "brand": "Pet Head",
+      "description": "Give your pooch some real flower power!"
+    }
+  },
+  {
+    "round": "SEMI-FINAL WINNER",
+    "prizeTickets": 300,
+    "prize": null
+  },
+  {
+    "round": "ROUND 2",
+    "prizeTickets": 200,
+    "prize": null
+  },
+  {
+    "round": "ROUND 1",
+    "prizeTickets": 100,
+    "prize": null
+  }
+]
+```
+
+This endpoint returns the list of prizes for each round of a specified Tournament.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/:id/prizes`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | Tournament ID value, passed in the url path
+
+<aside class="success">
+Returns a list of prizes object for each round of a specified tournament.
+</aside>
+
+## Get Tournament Feed
+
+```shell
+curl "https://api.parade.pet/v2/tournament/:id/feed"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594255.779,
+    "event": "The winner of #tricks4Treats is Buck Belue & Boss Bailey",
+    "entries": [
+      {
+        "id": 276536,
+        "image": 371230,
+        "isAnimated": false
+      },
+      {
+        "id": 128217,
+        "image": 162322,
+        "isAnimated": false
+      },
+      {
+        "id": 136895,
+        "image": 174697,
+        "isAnimated": false
+      }
+    ],
+    "match": null
+  },
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594258.765,
+    "event": "Round 4 is completed.",
+    "entries": [],
+    "match": null
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594258.766,
+    "event": "Buck Belue & Boss Bailey won vs LUCY",
+    "entries": [],
+    "match": {
+      "id": 834,
+      "round": 4,
+      "bestOf": 125,
+      "numFaceOffs": 125,
+      "position": 1,
+      "groupName": "A",
+      "winner": 649,
+      "entryA": {
+        "id": 640,
+        "pet": "LUCY",
+        "image": 814,
+        "points": 2,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 649,
+        "pet": "Buck Belue & Boss Bailey",
+        "points": 123,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594263.765,
+    "event": "Round 3 is completed.",
+    "entries": [],
+    "match": null
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594263.766,
+    "event": "Buck Belue & Boss Bailey won vs Toby",
+    "entries": [],
+    "match": {
+      "id": 833,
+      "round": 3,
+      "bestOf": 75,
+      "numFaceOffs": 75,
+      "position": 2,
+      "groupName": "B",
+      "winner": 649,
+      "entryA": {
+        "id": 653,
+        "pet": "Toby",
+        "image": 384624,
+        "points": 37,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 649,
+        "pet": "Buck Belue & Boss Bailey",
+        "points": 38,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594264.766,
+    "event": "LUCY won vs Chloe",
+    "entries": [],
+    "match": {
+      "id": 832,
+      "round": 3,
+      "bestOf": 75,
+      "numFaceOffs": 75,
+      "position": 1,
+      "groupName": "A",
+      "winner": 640,
+      "entryA": {
+        "id": 640,
+        "pet": "LUCY",
+        "image": 814,
+        "points": 74,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 642,
+        "pet": "Chloe",
+        "points": 1,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594266.765,
+    "event": "Round 2 is completed.",
+    "entries": [],
+    "match": null
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594266.766,
+    "event": "Buck Belue & Boss Bailey won vs Cali, Odie, Remi",
+    "entries": [],
+    "match": {
+      "id": 831,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 25,
+      "position": 4,
+      "groupName": "D",
+      "winner": 649,
+      "entryA": {
+        "id": 649,
+        "pet": "Buck Belue & Boss Bailey",
+        "image": 371230,
+        "points": 19,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 650,
+        "pet": "Cali, Odie, Remi",
+        "points": 6,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594267.766,
+    "event": "Toby won vs Missy",
+    "entries": [],
+    "match": {
+      "id": 830,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 25,
+      "position": 3,
+      "groupName": "C",
+      "winner": 653,
+      "entryA": {
+        "id": 653,
+        "pet": "Toby",
+        "image": 384624,
+        "points": 18,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 645,
+        "pet": "Missy",
+        "points": 7,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594268.766,
+    "event": "Chloe won vs Squishy",
+    "entries": [],
+    "match": {
+      "id": 829,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 25,
+      "position": 2,
+      "groupName": "B",
+      "winner": 642,
+      "entryA": {
+        "id": 641,
+        "pet": "Squishy",
+        "image": 153747,
+        "points": 7,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 642,
+        "pet": "Chloe",
+        "points": 18,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594269.766,
+    "event": "LUCY won vs Rupert",
+    "entries": [],
+    "match": {
+      "id": 828,
+      "round": 2,
+      "bestOf": 25,
+      "numFaceOffs": 25,
+      "position": 1,
+      "groupName": "A",
+      "winner": 640,
+      "entryA": {
+        "id": 640,
+        "pet": "LUCY",
+        "image": 814,
+        "points": 23,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 648,
+        "pet": "Rupert",
+        "points": 2,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594272.765,
+    "event": "Round 1 is completed.",
+    "entries": [],
+    "match": null
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594272.766,
+    "event": "Cali, Odie, Remi won vs Loui",
+    "entries": [],
+    "match": {
+      "id": 827,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 8,
+      "groupName": "D",
+      "winner": 650,
+      "entryA": {
+        "id": 652,
+        "pet": "Loui",
+        "image": 661267,
+        "points": 2,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 650,
+        "pet": "Cali, Odie, Remi",
+        "points": 13,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594273.766,
+    "event": "Buck Belue & Boss Bailey won vs Diesel",
+    "entries": [],
+    "match": {
+      "id": 826,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 7,
+      "groupName": "C",
+      "winner": 649,
+      "entryA": {
+        "id": 649,
+        "pet": "Buck Belue & Boss Bailey",
+        "image": 371230,
+        "points": 12,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 651,
+        "pet": "Diesel",
+        "points": 3,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594274.766,
+    "event": "Toby won vs Mowgli",
+    "entries": [],
+    "match": {
+      "id": 825,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 5,
+      "groupName": "A",
+      "winner": 653,
+      "entryA": {
+        "id": 653,
+        "pet": "Toby",
+        "image": 384624,
+        "points": 15,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 654,
+        "pet": "Mowgli",
+        "points": 0,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594275.766,
+    "event": "Rupert won vs BooBoo",
+    "entries": [],
+    "match": {
+      "id": 824,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 2,
+      "groupName": "B",
+      "winner": 648,
+      "entryA": {
+        "id": 647,
+        "pet": "BooBoo",
+        "image": 371001,
+        "points": 4,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 648,
+        "pet": "Rupert",
+        "points": 11,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594276.766,
+    "event": "Missy won vs Lucy",
+    "entries": [],
+    "match": {
+      "id": 823,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 6,
+      "groupName": "B",
+      "winner": 645,
+      "entryA": {
+        "id": 645,
+        "pet": "Missy",
+        "image": 40970,
+        "points": 13,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 646,
+        "pet": "Lucy",
+        "points": 2,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594277.766,
+    "event": "Chloe won vs Zoe",
+    "entries": [],
+    "match": {
+      "id": 822,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 4,
+      "groupName": "D",
+      "winner": 642,
+      "entryA": {
+        "id": 642,
+        "pet": "Chloe",
+        "image": 749819,
+        "points": 14,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 644,
+        "pet": "Zoe",
+        "points": 1,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594278.766,
+    "event": "Squishy won vs Benny",
+    "entries": [],
+    "match": {
+      "id": 821,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 3,
+      "groupName": "C",
+      "winner": 641,
+      "entryA": {
+        "id": 643,
+        "pet": "Benny",
+        "image": 232359,
+        "points": 6,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 641,
+        "pet": "Squishy",
+        "points": 9,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Match",
+    "user": null,
+    "timestamp": 594279.766,
+    "event": "LUCY won vs Hailey",
+    "entries": [],
+    "match": {
+      "id": 820,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 1,
+      "groupName": "A",
+      "winner": 640,
+      "entryA": {
+        "id": 639,
+        "pet": "Hailey",
+        "image": 752460,
+        "points": 1,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 640,
+        "pet": "LUCY",
+        "points": 14,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594281.757,
+    "event": "#tricks4Treats Round 1 voting has begun!",
+    "entries": [],
+    "match": null
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 166752,
+      "firstName": "Cheryl",
+      "lastName": "Hamilton",
+      "fullName": "Cheryl Hamilton",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/1879880308707490/picture?height=100&width=100"
+    },
+    "timestamp": 594281.818,
+    "event": "Cheryl entered Hailey",
+    "entries": [
+      {
+        "id": 552703,
+        "image": 752460,
+        "isAnimated": false
+      },
+      {
+        "id": 503083,
+        "image": 685597,
+        "isAnimated": false
+      },
+      {
+        "id": 185287,
+        "image": 243260,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 820,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 1,
+      "groupName": "A",
+      "winner": 640,
+      "entryA": {
+        "id": 639,
+        "pet": "Hailey",
+        "image": 752460,
+        "points": 1,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 640,
+        "pet": "LUCY",
+        "points": 14,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 208,
+      "firstName": "Caroline",
+      "lastName": "Loyer",
+      "fullName": "Caroline Loyer",
+      "profileImage": 816,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10157613921070788/picture?height=100&width=100"
+    },
+    "timestamp": 594281.821,
+    "event": "Caroline entered LUCY",
+    "entries": [
+      {
+        "id": 320,
+        "image": 814,
+        "isAnimated": false
+      },
+      {
+        "id": 244766,
+        "image": 326113,
+        "isAnimated": false
+      },
+      {
+        "id": 544744,
+        "image": 741553,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 820,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 1,
+      "groupName": "A",
+      "winner": 640,
+      "entryA": {
+        "id": 639,
+        "pet": "Hailey",
+        "image": 752460,
+        "points": 1,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 640,
+        "pet": "LUCY",
+        "points": 14,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 40353,
+      "firstName": "Wilberto",
+      "lastName": "Hernandez Perez",
+      "fullName": "Wilberto Hernandez Perez",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/1483172231742847/picture?height=100&width=100"
+    },
+    "timestamp": 594281.823,
+    "event": "Wilberto entered Squishy",
+    "entries": [
+      {
+        "id": 121985,
+        "image": 153747,
+        "isAnimated": false
+      },
+      {
+        "id": 209799,
+        "image": 277749,
+        "isAnimated": false
+      },
+      {
+        "id": 526634,
+        "image": 717299,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 821,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 3,
+      "groupName": "C",
+      "winner": 641,
+      "entryA": {
+        "id": 643,
+        "pet": "Benny",
+        "image": 232359,
+        "points": 6,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 641,
+        "pet": "Squishy",
+        "points": 9,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 166230,
+      "firstName": "Lorraine",
+      "lastName": "Rafuse",
+      "fullName": "Lorraine Rafuse",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10155098547453581/picture?height=100&width=100"
+    },
+    "timestamp": 594281.824,
+    "event": "Lorraine entered Chloe",
+    "entries": [
+      {
+        "id": 550808,
+        "image": 749819,
+        "isAnimated": false
+      },
+      {
+        "id": 587917,
+        "image": 797777,
+        "isAnimated": false
+      },
+      {
+        "id": 157939,
+        "image": 204672,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 822,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 4,
+      "groupName": "D",
+      "winner": 642,
+      "entryA": {
+        "id": 642,
+        "pet": "Chloe",
+        "image": 749819,
+        "points": 14,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 644,
+        "pet": "Zoe",
+        "points": 1,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 65862,
+      "firstName": "Ronda",
+      "lastName": "Castillo",
+      "fullName": "Ronda Castillo",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/1547534845278649/picture?height=100&width=100"
+    },
+    "timestamp": 594281.825,
+    "event": "Ronda entered Zoe",
+    "entries": [
+      {
+        "id": 204159,
+        "image": 269641,
+        "isAnimated": false
+      },
+      {
+        "id": 550102,
+        "image": 748813,
+        "isAnimated": false
+      },
+      {
+        "id": 25826,
+        "image": 34081,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 822,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 4,
+      "groupName": "D",
+      "winner": 642,
+      "entryA": {
+        "id": 642,
+        "pet": "Chloe",
+        "image": 749819,
+        "points": 14,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 644,
+        "pet": "Zoe",
+        "points": 1,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 9767,
+      "firstName": "Judy",
+      "lastName": "Walker ",
+      "fullName": "Judy Walker ",
+      "profileImage": null,
+      "socialImageUrl": null
+    },
+    "timestamp": 594281.829,
+    "event": "Judy entered Missy",
+    "entries": [
+      {
+        "id": 31263,
+        "image": 40970,
+        "isAnimated": false
+      },
+      {
+        "id": 455084,
+        "image": 623480,
+        "isAnimated": false
+      },
+      {
+        "id": 132376,
+        "image": 168328,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 823,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 6,
+      "groupName": "B",
+      "winner": 645,
+      "entryA": {
+        "id": 645,
+        "pet": "Missy",
+        "image": 40970,
+        "points": 13,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 646,
+        "pet": "Lucy",
+        "points": 2,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 68463,
+      "firstName": "Denise",
+      "lastName": "Klingensmith",
+      "fullName": "Denise Klingensmith",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10209219929470379/picture?height=100&width=100"
+    },
+    "timestamp": 594281.831,
+    "event": "Denise entered Lucy",
+    "entries": [
+      {
+        "id": 212271,
+        "image": 281145,
+        "isAnimated": false
+      },
+      {
+        "id": 121983,
+        "image": 153744,
+        "isAnimated": false
+      },
+      {
+        "id": 562126,
+        "image": 765058,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 823,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 6,
+      "groupName": "B",
+      "winner": 645,
+      "entryA": {
+        "id": 645,
+        "pet": "Missy",
+        "image": 40970,
+        "points": 13,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 646,
+        "pet": "Lucy",
+        "points": 2,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 89891,
+      "firstName": "Jean",
+      "lastName": "Johnson",
+      "fullName": "Jean Johnson",
+      "profileImage": null,
+      "socialImageUrl": null
+    },
+    "timestamp": 594281.833,
+    "event": "Jean entered BooBoo",
+    "entries": [
+      {
+        "id": 276372,
+        "image": 371001,
+        "isAnimated": false
+      },
+      {
+        "id": 216593,
+        "image": 287232,
+        "isAnimated": false
+      },
+      {
+        "id": 155816,
+        "image": 201594,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 824,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 2,
+      "groupName": "B",
+      "winner": 648,
+      "entryA": {
+        "id": 647,
+        "pet": "BooBoo",
+        "image": 371001,
+        "points": 4,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 648,
+        "pet": "Rupert",
+        "points": 11,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 156984,
+      "firstName": "Desiree",
+      "lastName": "Stormont",
+      "fullName": "Desiree Stormont",
+      "profileImage": null,
+      "socialImageUrl": null
+    },
+    "timestamp": 594281.837,
+    "event": "Desiree entered Rupert",
+    "entries": [
+      {
+        "id": 514460,
+        "image": 700682,
+        "isAnimated": false
+      },
+      {
+        "id": 298225,
+        "image": 402632,
+        "isAnimated": false
+      },
+      {
+        "id": 242220,
+        "image": 322699,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 824,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 2,
+      "groupName": "B",
+      "winner": 648,
+      "entryA": {
+        "id": 647,
+        "pet": "BooBoo",
+        "image": 371001,
+        "points": 4,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 648,
+        "pet": "Rupert",
+        "points": 11,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 57719,
+      "firstName": "Sami",
+      "lastName": "Smalley",
+      "fullName": "Sami Smalley",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10209866694923928/picture?height=100&width=100"
+    },
+    "timestamp": 594281.84,
+    "event": "Sami entered Benny",
+    "entries": [
+      {
+        "id": 177312,
+        "image": 232359,
+        "isAnimated": false
+      },
+      {
+        "id": 546460,
+        "image": 743913,
+        "isAnimated": false
+      },
+      {
+        "id": 299503,
+        "image": 404595,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 821,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 3,
+      "groupName": "C",
+      "winner": 641,
+      "entryA": {
+        "id": 643,
+        "pet": "Benny",
+        "image": 232359,
+        "points": 6,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 641,
+        "pet": "Squishy",
+        "points": 9,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 149663,
+      "firstName": "Hakop",
+      "lastName": "Aboyan",
+      "fullName": "Hakop Aboyan",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/244421259417378/picture?height=100&width=100"
+    },
+    "timestamp": 594281.842,
+    "event": "Hakop entered Loui",
+    "entries": [
+      {
+        "id": 484247,
+        "image": 661267,
+        "isAnimated": false
+      },
+      {
+        "id": 98992,
+        "image": 124169,
+        "isAnimated": false
+      },
+      {
+        "id": 22097,
+        "image": 29603,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 827,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 8,
+      "groupName": "D",
+      "winner": 650,
+      "entryA": {
+        "id": 652,
+        "pet": "Loui",
+        "image": 661267,
+        "points": 2,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 650,
+        "pet": "Cali, Odie, Remi",
+        "points": 13,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 89978,
+      "firstName": "Carla Renee",
+      "lastName": "Ogletree",
+      "fullName": "Carla Renee Ogletree",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10209043505875816/picture?height=100&width=100"
+    },
+    "timestamp": 594281.843,
+    "event": "Carla Renee entered Buck Belue & Boss Bailey",
+    "entries": [
+      {
+        "id": 276536,
+        "image": 371230,
+        "isAnimated": false
+      },
+      {
+        "id": 128217,
+        "image": 162322,
+        "isAnimated": false
+      },
+      {
+        "id": 136895,
+        "image": 174697,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 826,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 7,
+      "groupName": "C",
+      "winner": 649,
+      "entryA": {
+        "id": 649,
+        "pet": "Buck Belue & Boss Bailey",
+        "image": 371230,
+        "points": 12,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 651,
+        "pet": "Diesel",
+        "points": 3,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 106667,
+      "firstName": "Kara",
+      "lastName": "Huhta",
+      "fullName": "Kara Huhta",
+      "profileImage": null,
+      "socialImageUrl": null
+    },
+    "timestamp": 594281.844,
+    "event": "Kara entered Cali, Odie, Remi",
+    "entries": [
+      {
+        "id": 326937,
+        "image": 445222,
+        "isAnimated": false
+      },
+      {
+        "id": 596627,
+        "image": 808389,
+        "isAnimated": false
+      },
+      {
+        "id": 34417,
+        "image": 45257,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 827,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 8,
+      "groupName": "D",
+      "winner": 650,
+      "entryA": {
+        "id": 652,
+        "pet": "Loui",
+        "image": 661267,
+        "points": 2,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 650,
+        "pet": "Cali, Odie, Remi",
+        "points": 13,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 58889,
+      "firstName": "T.m.",
+      "lastName": "Zielonko",
+      "fullName": "T.m. Zielonko",
+      "profileImage": null,
+      "socialImageUrl": "https://graph.facebook.com/v2.7/10100924007942919/picture?height=100&width=100"
+    },
+    "timestamp": 594281.845,
+    "event": "T.m. entered Diesel",
+    "entries": [
+      {
+        "id": 181365,
+        "image": 238117,
+        "isAnimated": false
+      },
+      {
+        "id": 91410,
+        "image": 116158,
+        "isAnimated": false
+      },
+      {
+        "id": 475061,
+        "image": 650384,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 826,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 7,
+      "groupName": "C",
+      "winner": 649,
+      "entryA": {
+        "id": 649,
+        "pet": "Buck Belue & Boss Bailey",
+        "image": 371230,
+        "points": 12,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 651,
+        "pet": "Diesel",
+        "points": 3,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 14731,
+      "firstName": "Kylie",
+      "lastName": "knerr",
+      "fullName": "Kylie knerr",
+      "profileImage": null,
+      "socialImageUrl": null
+    },
+    "timestamp": 594281.846,
+    "event": "Kylie entered Mowgli",
+    "entries": [
+      {
+        "id": 55326,
+        "image": 72043,
+        "isAnimated": false
+      },
+      {
+        "id": 428131,
+        "image": 587540,
+        "isAnimated": false
+      },
+      {
+        "id": 481245,
+        "image": 657752,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 825,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 5,
+      "groupName": "A",
+      "winner": 653,
+      "entryA": {
+        "id": 653,
+        "pet": "Toby",
+        "image": 384624,
+        "points": 15,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 654,
+        "pet": "Mowgli",
+        "points": 0,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "New Entry",
+    "user": {
+      "id": 93296,
+      "firstName": "Debra",
+      "lastName": "Hargon ",
+      "fullName": "Debra Hargon ",
+      "profileImage": null,
+      "socialImageUrl": null
+    },
+    "timestamp": 594281.847,
+    "event": "Debra entered Toby",
+    "entries": [
+      {
+        "id": 286001,
+        "image": 384624,
+        "isAnimated": false
+      },
+      {
+        "id": 18924,
+        "image": 25817,
+        "isAnimated": false
+      },
+      {
+        "id": 163100,
+        "image": 212087,
+        "isAnimated": false
+      }
+    ],
+    "match": {
+      "id": 825,
+      "round": 1,
+      "bestOf": 15,
+      "numFaceOffs": 15,
+      "position": 5,
+      "groupName": "A",
+      "winner": 653,
+      "entryA": {
+        "id": 653,
+        "pet": "Toby",
+        "image": 384624,
+        "points": 15,
+        "isMyPet": false
+      },
+      "entryB": {
+        "id": 654,
+        "pet": "Mowgli",
+        "points": 0,
+        "isMyPet": false
+      }
+    }
+  },
+  {
+    "eventType": "Tournament",
+    "user": null,
+    "timestamp": 594285.757,
+    "event": "#tricks4Treats is open.",
+    "entries": [],
+    "match": null
+  }
+]
+```
+
+This endpoint returns specified Tournament activity feed.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/:id/feed`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | Tournament ID value, passed in the url path
+
+<aside class="success">
+Returns an array of Tournament's activity feed, with the most recent events appearing first.
+</aside>
+
+## Get Tournament Scoreboard
+
+```shell
+curl "https://api.parade.pet/v2/tournament/scoreboard"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 103,
+    "name": "Tournament Name Zero",
+    "hexCode": "#000000",
+    "matches": [
+      {
+        "id": 570,
+        "round": 1,
+        "bestOf": 15,
+        "numFaceOffs": 0,
+        "entryA": {
+          "id": 413,
+          "petName": "Romeo",
+          "image": 204854,
+          "points": 0,
+          "isMyPet": false
+        },
+        "entryB": {
+          "id": 417,
+          "petName": "Stomper",
+          "image": 459,
+          "points": 0,
+          "isMyPet": true
+        }
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Tournament Name One",
+    "hexCode": "#123456",
+    "matches": [
+      {
+        "id": 588,
+        "round": 2,
+        "bestOf": 25,
+        "numFaceOffs": 0,
+        "entryA": {
+          "id": 426,
+          "petName": "Stomper",
+          "image": 459,
+          "points": 0,
+          "isMyPet": true
+        },
+        "entryB": {
+          "id": 420,
+          "petName": "Leah Clementine Simmons",
+          "image": 695206,
+          "points": 0,
+          "isMyPet": false
+        }
+      },
+      {
+        "id": 581,
+        "round": 1,
+        "bestOf": 15,
+        "numFaceOffs": 0,
+        "entryA": {
+          "id": 426,
+          "petName": "Stomper",
+          "image": 459,
+          "points": 165,
+          "isMyPet": true
+        },
+        "entryB": {
+          "id": 421,
+          "petName": "Luna",
+          "image": 227840,
+          "points": 150,
+          "isMyPet": false
+        }
+      }
+    ]
+  }
+]
+```
+
+This endpoint returns the scoreboard of all active Tournament.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/scoreboard`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns a tournament scoreboard that consisting a list of active tournaments and their matches.
+</aside>
+
+## Get Tournament Home
+
+```shell
+curl "https://api.parade.pet/v2/tournament/home"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "active": [],
+  "open": [
+    {
+      "id": 292,
+      "name": "#spoiled",
+      "createdAt": "2020-07-13T09:51:11.000Z",
+      "updatedAt": "2020-07-13T09:51:11.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 6,
+      "status": "Open",
+      "image": 807481,
+      "votingStartsIn": 1080000,
+      "numRounds": 5,
+      "levelRequirements": "Any",
+      "numPets": 32,
+      "spotsLeft": 25,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 3,
+      "voteDate": "2020-07-16T09:51:11.000Z",
+      "winner": null,
+      "winnerPet": null,
+      "winDate": null,
+      "currentRound": 1,
+      "prompt": "Who is more spoiled?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": true,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 5,
+        "prizeTickets": 0,
+        "prize": {
+          "id": 946,
+          "name": "$100 Amazon Gift Card",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/719koGVIzNL._AC_SL1500_.jpg",
+          "brand": "Amazon",
+          "description": "Win a $100 e-gift card to use at Amazon.com."
+        }
+      }
+    },
+    {
+      "id": 290,
+      "name": "#trippin",
+      "createdAt": "2020-07-03T04:17:41.000Z",
+      "updatedAt": "2020-11-03T09:53:24.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 16,
+      "status": "Closed",
+      "image": 282715,
+      "votingStartsIn": 18000,
+      "numRounds": 2,
+      "levelRequirements": "Any",
+      "numPets": 4,
+      "spotsLeft": 1,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 1,
+      "voteDate": "2020-11-03T09:53:24.000Z",
+      "winner": 3136,
+      "winnerPet": {
+        "id": 68379,
+        "name": "Khali",
+        "image": 282715,
+        "type": "Dog"
+      },
+      "winDate": "2020-07-03T04:20:31.000Z",
+      "currentRound": 2,
+      "prompt": "Who is cuter traveling?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": false,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 2,
+        "prizeTickets": 0,
+        "prize": {
+          "id": 313,
+          "name": "Orthopedic Pet Bed with Removable Cover",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71atE8K3G0L._SL1500_.jpg",
+          "brand": "Furhaven Pet",
+          "description": "Have your furry friend lounge on this 27-inch x 36-inch egg-crate orthopedic dog bed. This bed fits medium to large dogs. Also comes with removable covers that are machine washable!"
+        }
+      }
+    }
+  ],
+  "ended": [
+    {
+      "id": 291,
+      "name": "#spoiled",
+      "createdAt": "2020-07-03T04:17:41.000Z",
+      "updatedAt": "2020-07-03T04:20:27.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 6,
+      "status": "Closed",
+      "image": 319262,
+      "votingStartsIn": -10799095.078,
+      "numRounds": 2,
+      "levelRequirements": "Any",
+      "numPets": 4,
+      "spotsLeft": 0,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 1,
+      "voteDate": "2020-07-02T04:20:27.000Z",
+      "winner": 3141,
+      "winnerPet": {
+        "id": 76563,
+        "name": "Hazel",
+        "image": 319262,
+        "type": "Dog"
+      },
+      "winDate": "2020-07-03T04:20:26.000Z",
+      "currentRound": 2,
+      "prompt": "Who is more spoiled?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": false,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 2,
+        "prizeTickets": 15,
+        "prize": null
+      }
+    },
+    {
+      "id": 290,
+      "name": "#trippin",
+      "createdAt": "2020-07-03T04:17:41.000Z",
+      "updatedAt": "2020-11-03T09:53:24.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 16,
+      "status": "Closed",
+      "image": 282715,
+      "votingStartsIn": 18000,
+      "numRounds": 2,
+      "levelRequirements": "Any",
+      "numPets": 4,
+      "spotsLeft": 1,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 1,
+      "voteDate": "2020-11-03T09:53:24.000Z",
+      "winner": 3136,
+      "winnerPet": {
+        "id": 68379,
+        "name": "Khali",
+        "image": 282715,
+        "type": "Dog"
+      },
+      "winDate": "2020-07-03T04:20:31.000Z",
+      "currentRound": 2,
+      "prompt": "Who is cuter traveling?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": false,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 2,
+        "prizeTickets": 15,
+        "prize": null
+      }
+    },
+    {
+      "id": 289,
+      "name": "#spoiled",
+      "createdAt": "2020-07-03T04:17:41.000Z",
+      "updatedAt": "2020-07-03T04:20:24.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 6,
+      "status": "Closed",
+      "image": 177973,
+      "votingStartsIn": -10799098.078,
+      "numRounds": 2,
+      "levelRequirements": "Any",
+      "numPets": 4,
+      "spotsLeft": 0,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 1,
+      "voteDate": "2020-07-02T04:20:24.000Z",
+      "winner": 3132,
+      "winnerPet": {
+        "id": 44946,
+        "name": "Dixie Lou",
+        "image": 177973,
+        "type": "Dog"
+      },
+      "winDate": "2020-07-03T04:20:23.000Z",
+      "currentRound": 2,
+      "prompt": "Who is more spoiled?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": false,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 2,
+        "prizeTickets": 15,
+        "prize": null
+      }
+    },
+    {
+      "id": 288,
+      "name": "#spoiled",
+      "createdAt": "2020-07-03T04:14:48.000Z",
+      "updatedAt": "2020-07-03T04:17:17.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 6,
+      "status": "Closed",
+      "image": 637801,
+      "votingStartsIn": -10799285.078,
+      "numRounds": 3,
+      "levelRequirements": "Any",
+      "numPets": 8,
+      "spotsLeft": 0,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 1,
+      "voteDate": "2020-07-02T04:17:17.000Z",
+      "winner": 3131,
+      "winnerPet": {
+        "id": 146430,
+        "name": "Blaise",
+        "image": 637801,
+        "type": "Dog"
+      },
+      "winDate": "2020-07-03T04:17:16.000Z",
+      "currentRound": 3,
+      "prompt": "Who is more spoiled?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": false,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 3,
+        "prizeTickets": 25,
+        "prize": null
+      }
+    },
+    {
+      "id": 285,
+      "name": "#spoiled",
+      "createdAt": "2020-07-03T03:57:44.000Z",
+      "updatedAt": "2020-07-03T04:05:44.000Z",
+      "hexCode": "FC4F4F",
+      "contestId": 6,
+      "status": "Closed",
+      "image": 414232,
+      "votingStartsIn": -10799978.078,
+      "numRounds": 5,
+      "levelRequirements": "Any",
+      "numPets": 32,
+      "spotsLeft": 0,
+      "entriesPerPet": 1,
+      "minLevel": null,
+      "maxLevel": null,
+      "dogs": 1,
+      "cats": 1,
+      "critters": 1,
+      "entryFee": 3,
+      "voteDate": "2020-07-02T04:05:44.000Z",
+      "winner": 3078,
+      "winnerPet": {
+        "id": 98490,
+        "name": "Mohawk",
+        "image": 414232,
+        "type": "Cat"
+      },
+      "winDate": "2020-07-03T04:05:43.000Z",
+      "currentRound": 5,
+      "prompt": "Who is more spoiled?",
+      "sponsor": null,
+      "joined": null,
+      "isPremium": true,
+      "grandPrize": {
+        "round": "GRAND PRIZE WINNER",
+        "roundNumber": 5,
+        "prizeTickets": 50,
+        "prize": null
+      }
+    }
+  ]
+}
+```
+
+This endpoint returns tournaments data for the tournament home view, grouped by its status: Active, Open, and Ended.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/tournament/home`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns list of tournaments object, grouped by their status.
+</aside>
+
+## Enter Tournament
+
+```shell
+curl "https://api.parade.pet/v2/tournament/enter"
+  -H "Authorization: Bearer meowmeowmeow"
+  -d "tournament=120"
+  -d "tournamentMatch=800"
+  -d "spot=A"
+  -d "pet=136"
+  -d "entry1=180"
+  -d "entry2=4699"
+  -d "entry3=16236"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "entry1": {
+    "id": 180,
+    "image": 459
+  },
+  "entry2": {
+    "id": 4699,
+    "image": 8012
+  },
+  "entry3": {
+    "id": 16236,
+    "image": 22636
+  },
+  "entry4": null,
+  "entry5": null,
+  "id": 426
+}
+```
+
+Use this endpoint to enter a pet into a tournament.
+
+### HTTP Request
+
+`POST http://api.parade.pet/v2/tournament/enter`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+tournament | true | Tournament ID
+tournamentMatch | true | Tournament Match ID
+spot | true | Empty spot, either "A" or "B"
+pet | true | pet ID
+entry1 | true | entry ID
+entry2 | false | entry ID
+entry3 | false | entry ID
+entry4 | false | entry ID
+entry5 | false | entry ID
+
+The number of entries included is based on the entriesPerPet value of the Tournament.
+
+<aside class="success">
+Returns a newly created Tournament Entry with its entries.
+</aside>
 
 ## Start FaceOff
 
@@ -451,4 +3928,69 @@ winner | true | winning entry id from /alerts/faceoffs
 
 <aside class="success">
 Returns number of XP awarded to user and the current userLevel.
+</aside>
+
+## Accept Award
+
+```shell
+curl "https://api.parade.pet/v2/match/acceptPrize/:id"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+"OK"
+```
+
+Use this endpoint to accept a UserMatch Award.
+
+### HTTP Request
+
+`POST http://api.parade.pet/v2/match/acceptPrize/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | UserMatch ID
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Reset accepted treats and XP collected
+
+```shell
+curl "https://api.parade.pet/v2/admin/reset/match/:type/:id"
+  -H "Authorization: Bearer meowmeowmeow"
+```
+
+This endpoint sets the acceptDate for the treatgift to null and sets the XP field in the cache to 0 for the specified user or tournament match.
+
+### HTTP Request
+
+`POST http://api.parade.pet/v2/admin/reset/match/:type/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+type | true | Match Type: 't' or 'u' for tournament or user match
+id | true | matchId
+
+<aside class="success">
+Returns a 200 response
 </aside>
