@@ -698,7 +698,7 @@ Return list of breeds that start with the "name" parameter and match "petType" p
 
 ### HTTP Request
 
-`GET https://api.parade.pet/breeds?name=labra&petType=1
+`GET https://api.parade.pet/breeds?name=labra&petType=1`
 
 ### Header Parameters
 
@@ -716,4 +716,189 @@ petType | true | The ID of the pet's type.  Call /pettype to get the list of pet
 
 <aside class="success">
 Return list of pet breeds that start with the "name" parameter and match the "petType" parameter.
+</aside>
+
+## Pet's Fans
+
+```shell
+curl "https://api.parade.pet/v2/pet/fans/:id"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Username One",
+    "profileImage": 123,
+    "socialImageUrl": null
+  },
+  {
+    "id": 2,
+    "name": "Username Two",
+    "profileImage": 456,
+    "socialImageUrl": "url of socialImage URL"
+  }
+]
+```
+
+This endpoint returns a list of users that fan of specified pet.
+
+### HTTP Request
+
+`GET https://api.parade.pet/v2/pet/fans/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  petId value, passed in the url path
+
+<aside class="success">
+Returns a list of users that fan of specified pet. User data consist of user id, fullname, profileImage id, and socialImageUrl
+</aside>
+
+## Fans of
+
+```shell
+curl https://api.parade.pet/v2/user/:id/fanOf
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 59,
+    "name": "Gopal",
+    "profileImage": null
+  },
+  {
+    "id": 63,
+    "name": "Stella",
+    "profileImage": 218
+  },
+  {
+    "id": 64,
+    "name": "Oliver",
+    "profileImage": 228
+  },
+  {
+    "id": 65,
+    "name": "Fish",
+    "profileImage": null
+  },
+  {
+    "id": 66,
+    "name": "Jagger",
+    "profileImage": null
+  },
+  {
+    "id": 67,
+    "name": "Fonzi",
+    "profileImage": 845
+  }
+]
+```
+
+Return a list of pets where specified user is a fan of.
+
+### HTTP Request
+
+`GET https://api.parade.pet/v2/user/:id/fanOf`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  userId value, passed in the url path
+
+<aside class="success">
+Returns list of pets. Pet data consist of fan id, pet's name, and pet's profileImage id.
+</aside>
+
+## Fan a Pet
+
+```shell
+curl -X "POST" "https://api.parade.pet/v2/pet/fan/:id"
+```
+
+> The above command returns JSON structured like this:
+
+```
+OK
+```
+```json
+{
+  "message": "Already a fan"
+}
+```
+
+Call this endpoint to be a fan of specified pet. Please notice that a user only able to be a fan of specific pet once.
+
+### HTTP Request
+
+`POST https://api.parade.pet/v2/pet/fan/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  petId value, passed in the url path
+
+<aside class="success">
+Returns OK
+</aside>
+
+## Unfan a Pet
+
+```shell
+curl -X "POST" "https://api.parade.pet/v2/pet/unfan/:id"
+```
+
+> The above command returns JSON structured like this:
+
+```
+OK
+```
+
+Call thi sendpoint to unfan the specified pet.
+
+### HTTP Request
+
+`POST https://api.parade.pet/v2/pet/unfan/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true |  petId value, passed in the url path
+
+<aside class="success">
+Returns OK
 </aside>
