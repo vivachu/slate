@@ -161,58 +161,88 @@ Return OK if the entry was successfully deleted.
 ## Search Entries
 
 ```shell
-curl -X "POST" "http://api.parade.pet/entries/search"
+curl "http://api.parade.pet/v2/entries/search?hashtagId=1&petName=Wilson&petBreeds[]=3568&petBreeds[]=3781&petTypes[]=1&cutenessMin=50&video=true"
   -H "Authorization:  Bearer meowmeowmeow"
-  -d 'petName=Wilson'
-  -d 'petType=1'
-  -d 'state=NY'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "entries": [
-        {
-            "id": 719153,
-            "image": 968895,
-            "owner": {
-                "id": 109063,
-                "name": "Vickie Kolody",
-                "location": "Pataskala, NY",
-                "lastGamePlayed": "2018-01-10T11:30:53.000Z"
-            },
-            "pet": {
-                "id": 144396,
-                "name": "Wilson ",
-                "petType": 1,
-                "breed": 4688
-            }
-        },
-        {
-            "id": 719154,
-            "image": 968896,
-            "owner": {
-                "id": 109063,
-                "name": "Vickie Kolody",
-                "location": "Pataskala, NY",
-                "lastGamePlayed": "2018-01-10T11:30:53.000Z"
-            },
-            "pet": {
-                "id": 144396,
-                "name": "Wilson ",
-                "petType": 1,
-                "breed": 4688
-            }
-        }]
-}
+[
+  {
+    "id": 597128,
+    "caption": null,
+    "image": 10060,
+    "isAnimated": 0,
+    "numFaceOffs": 0,
+    "numTreats": 0,
+    "timestamp": 71868164.903,
+    "hashtag": "#spoiled",
+    "winPercent": 0,
+    "winRate": 0,
+    "cuteness": 50,
+    "numLikes": 0,
+    "liked": false,
+    "numComments": 0,
+    "pet": {
+      "id": 1039,
+      "name": "Coder",
+      "image": 476501,
+      "type": "Dog"
+    }
+  },
+  {
+    "id": 597127,
+    "caption": null,
+    "image": 36947,
+    "isAnimated": 0,
+    "numFaceOffs": 0,
+    "numTreats": 0,
+    "timestamp": 71868226.903,
+    "hashtag": "#highTechPet",
+    "winPercent": 0,
+    "winRate": 0,
+    "cuteness": 50,
+    "numLikes": 0,
+    "liked": false,
+    "numComments": 0,
+    "pet": {
+      "id": 1039,
+      "name": "Coder",
+      "image": 476501,
+      "type": "Dog"
+    }
+  },
+  {
+    "id": 597126,
+    "caption": null,
+    "image": 23762,
+    "isAnimated": 0,
+    "numFaceOffs": 0,
+    "numTreats": 0,
+    "timestamp": 71869707.903,
+    "hashtag": "#treats",
+    "winPercent": 0,
+    "winRate": 0,
+    "cuteness": 50,
+    "numLikes": 0,
+    "liked": false,
+    "numComments": 0,
+    "pet": {
+      "id": 1039,
+      "name": "Coder",
+      "image": 476501,
+      "type": "Dog"
+    }
+  }
+]
 ```
 
-Search all entries by pet name, owner name, pet type, breed, city, and state. Returns list of entries matching ALL parameters with values.  At least one parameter is required.  
+Search all entries by pet name, pet type, pet breed, contest ID, cuteness score, entry type, and entry creation date. Returns list of entries matching ALL parameters with values.
 
 ### HTTP Request
 
-`POST http://api.parade.pet/entries/search`
+`GET http://api.parade.pet/v2/entries/search?hashtagId=1&petName=Wilson&petBreeds[]=3568&petBreeds[]=3781&petTypes[]=1&cutenessMin=50&video=true`
 
 ### Header Parameters
 
@@ -224,16 +254,286 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 
 Parameter | Required | Description
 --------- | ------- | -----------
+hashtagId | false | Contest ID / Hashtag ID the entry belong to
 petName | false | The pet's name
-ownerName | false | The first, last or full name of the pet owner
-type | false | A single pet type.  This is the numeric id of the pet type object as returned from /pettype, i.e. 1 = Dogs, 2 = Cats, 8 = Rabbit
-breed | false | The name of the pet breed, i.e. Pitbull, Terrier, Mix  
-city | false | The city in which the owner lives, i.e. Oakland
-state | false | The 2 letter abbreviation in which the owner lives, i.e. CA = California.
-
+petBreeds[] | false | Pet's breed ID. Can use multiple breeds.
+petTypes[] | false | Pet types ID. Can use multiple pet types.
+cutenessMin | false | Minimum cuteness score value, valid between 1 - 100, must be less than cutenessMax
+cutenessMax | false | Maximum cuteness score value, valid between 1 - 100, must be greater than cutenessMin
+photo / photos | false | Set "true" as value, to include matched Photo Entries
+video / videos | false | Set "true" as value, to include matched Video Entries
+postedWithin | false | Number of day(s). Limit the entries were created within the number of days.
 
 <aside class="success">
-Return sorted list of entries matching search query by points or by created date descending.
+Return sorted list of entries matching search query by created date descending.
+</aside>
+
+## Favorite Entries
+
+```shell
+curl "https://api.parade.pet/v2/entries/favorites"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 597388,
+    "caption": null,
+    "location": null,
+    "image": 1313426,
+    "isAnimated": 0,
+    "points": 0,
+    "numFaceOffs": 0,
+    "numTreats": 0,
+    "timestamp": 36701827.388,
+    "hashtag": "#selfie",
+    "winPercent": 0,
+    "winRate": 0,
+    "cuteness": 50,
+    "numLikes": 1,
+    "liked": true,
+    "numComments": 0,
+    "activeBoost": null,
+    "pet": {
+      "id": 183358,
+      "name": "vidar",
+      "image": 1313426,
+      "type": "Dog"
+    }
+  },
+  {
+    "id": 597066,
+    "caption": null,
+    "location": null,
+    "image": 808959,
+    "isAnimated": 0,
+    "points": 0,
+    "numFaceOffs": 0,
+    "numTreats": 0,
+    "timestamp": 92579190.401,
+    "hashtag": null,
+    "winPercent": 0,
+    "winRate": 0,
+    "cuteness": 50,
+    "numLikes": 1,
+    "liked": true,
+    "numComments": 0,
+    "activeBoost": null,
+    "pet": {
+      "id": 182978,
+      "name": "Denver",
+      "image": 808955,
+      "type": "Dog"
+    }
+  }
+]
+```
+
+Return a list of entries that liked by current logged in user.
+
+### HTTP Request
+
+`GET https://api.parade.pet/v2/entries/favorites`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Return all entries that liked by current logged in user.
+</aside>
+
+## Recent Entries
+
+```shell
+curl "http://api.parade.pet/entries/recent"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 49489,
+    "image": 64599,
+    "numFaceoffs": 36,
+    "winPercent": 42,
+    "cuteness": 16
+  },
+  {
+    "id": 49225,
+    "image": 64245,
+    "numFaceoffs": 36,
+    "winPercent": 42,
+    "cuteness": 33
+  },
+  {
+    "id": 48252,
+    "image": 62939,
+    "numFaceoffs": 36,
+    "winPercent": 42,
+    "cuteness": 98
+  }
+]
+```
+
+Returns a randomized list of entries created within the last 2 days.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries/recent`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+type | false | Filter by pettype, i.e. 1=Dog, 2=Cat.
+limit | false | Number of entries to return.
+
+<aside class="success">
+Return list of entries that were created within the last 2 days.
+</aside>
+
+## Top 10 Featured Entries
+
+```shell
+curl "http://api.parade.pet/entries/topTenFeatured"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 49489,
+    "image": 64599,
+    "imageUrl": "http://stage-assets.parade.pet/images/64599/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49489&link=http://parade.pet/entry/49489",
+    "petName": "Bear",
+    "petType": "Dog",
+    "breed": "Bernese Mountain Dog",
+    "numFaceOffs": 247,
+    "numWins": 180,
+    "winRate": 0.7287,
+    "cuteness": 68
+  },
+  {
+    "id": 49225,
+    "image": 64245,
+    "imageUrl": "http://stage-assets.parade.pet/images/64245/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49225&link=http://parade.pet/entry/49225",
+    "petName": "Bennie",
+    "petType": "Cat",
+    "breed": "Tabby",
+    "numFaceOffs": 149,
+    "numWins": 108,
+    "winRate": 0.7248,
+    "cuteness": 83
+  },
+  {
+    "id": 48252,
+    "image": 62939,
+    "imageUrl": "http://stage-assets.parade.pet/images/62939/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/48252&link=http://parade.pet/entry/48252",
+    "petName": "Lexie",
+    "petType": "Cat",
+    "breed": "Persian",
+    "numFaceOffs": 278,
+    "numWins": 147,
+    "winRate": 0.5288,
+    "cuteness": 37
+  },
+  {
+    "id": 49205,
+    "image": 64213,
+    "imageUrl": "http://stage-assets.parade.pet/images/64213/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49205&link=http://parade.pet/entry/49205",
+    "petName": "Lyra",
+    "petType": "Dog",
+    "breed": "Black Labrador Retriever4",
+    "numFaceOffs": 438,
+    "numWins": 255,
+    "winRate": 0.5822,
+    "cuteness": 23
+  },
+  {
+    "id": 49016,
+    "image": 63972,
+    "imageUrl": "http://stage-assets.parade.pet/images/63972/medium.jpg",
+    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49016&link=http://parade.pet/entry/49016",
+    "petName": "Squeak ",
+    "petType": "Hamster",
+    "breed": "Dwarf Chinese ",
+    "numFaceOffs": 477,
+    "numWins": 249,
+    "winRate": 0.522,
+    "cuteness": 17
+  },
+]
+```
+
+Returns the top ten featured entries for the day.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries/topTenFeatured`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+start | false | The number of days since today to grab the entries
+end | false | The ending day expressed as the number of days since today to count backwards.  This should be more than the start day.
+limit | false | The number of entries to return
+
+<aside class="success">
+Return list of top ten featured entries.
+</aside>
+
+
+## Friends Entries
+
+```shell
+curl "http://api.parade.pet/entries/friends"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 49489,
+    "image": 64599
+  },
+  {
+    "id": 49225,
+    "image": 64245
+  },
+  {
+    "id": 48252,
+    "image": 62939
+  }
+]
+```
+
+Returns the most recent entries of your friends sorted by entry.createdAt date.
+
+### HTTP Request
+
+`GET http://api.parade.pet/entries/friends`
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+
+<aside class="success">
+Returns the 200 most recent entries of your friends sorted by entry.createdAt date.
 </aside>
 
 ## My Entries
@@ -692,6 +992,41 @@ shareOnTwitter | false | Whether or not to share the entry on Twitter.
 Returns the updated entry.
 </aside>
 
+## Like Entry
+
+```shell
+curl -X "POST" "https://api.parade.pet/v2/entry/like/:id"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```
+"OK"
+```
+
+This endpoint adds an entry to user's list of favorite entries.
+
+### HTTP Request
+
+`POST http://api.parade.pet/v2/entry/like/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | The ID of the entry being liked.   
+
+<aside class="success">
+Returns OK
+</aside>
+
 ## Report Entry
 
 ```shell
@@ -999,189 +1334,3 @@ rewardType | false | Either gold or silver
 Returns OK
 </aside>
 
-## Top 10 Featured Entries
-
-```shell
-curl "http://api.parade.pet/entries/topTenFeatured"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 49489,
-    "image": 64599,
-    "imageUrl": "http://stage-assets.parade.pet/images/64599/medium.jpg",
-    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49489&link=http://parade.pet/entry/49489",
-    "petName": "Bear",
-    "petType": "Dog",
-    "breed": "Bernese Mountain Dog",
-    "numFaceOffs": 247,
-    "numWins": 180,
-    "winRate": 0.7287,
-    "cuteness": 68
-  },
-  {
-    "id": 49225,
-    "image": 64245,
-    "imageUrl": "http://stage-assets.parade.pet/images/64245/medium.jpg",
-    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49225&link=http://parade.pet/entry/49225",
-    "petName": "Bennie",
-    "petType": "Cat",
-    "breed": "Tabby",
-    "numFaceOffs": 149,
-    "numWins": 108,
-    "winRate": 0.7248,
-    "cuteness": 83
-  },
-  {
-    "id": 48252,
-    "image": 62939,
-    "imageUrl": "http://stage-assets.parade.pet/images/62939/medium.jpg",
-    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/48252&link=http://parade.pet/entry/48252",
-    "petName": "Lexie",
-    "petType": "Cat",
-    "breed": "Persian",
-    "numFaceOffs": 278,
-    "numWins": 147,
-    "winRate": 0.5288,
-    "cuteness": 37
-  },
-  {
-    "id": 49205,
-    "image": 64213,
-    "imageUrl": "http://stage-assets.parade.pet/images/64213/medium.jpg",
-    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49205&link=http://parade.pet/entry/49205",
-    "petName": "Lyra",
-    "petType": "Dog",
-    "breed": "Black Labrador Retriever4",
-    "numFaceOffs": 438,
-    "numWins": 255,
-    "winRate": 0.5822,
-    "cuteness": 23
-  },
-  {
-    "id": 49016,
-    "image": 63972,
-    "imageUrl": "http://stage-assets.parade.pet/images/63972/medium.jpg",
-    "link": "https://pets.test-app.link/?channel=Email&campaign=top-10-daily&source=mailchimp&$desktop_url=http://share-stage.parade.pet/vote/49016&link=http://parade.pet/entry/49016",
-    "petName": "Squeak ",
-    "petType": "Hamster",
-    "breed": "Dwarf Chinese ",
-    "numFaceOffs": 477,
-    "numWins": 249,
-    "winRate": 0.522,
-    "cuteness": 17
-  },
-]
-```
-
-Returns the top ten featured entries for the day.
-
-### HTTP Request
-
-`GET http://api.parade.pet/entries/topTenFeatured`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-start | false | The number of days since today to grab the entries
-end | false | The ending day expressed as the number of days since today to count backwards.  This should be more than the start day.
-limit | false | The number of entries to return
-
-<aside class="success">
-Return list of top ten featured entries.
-</aside>
-
-## Recent Entries
-
-```shell
-curl "http://api.parade.pet/entries/recent"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 49489,
-    "image": 64599,
-    "numFaceoffs": 36,
-    "winPercent": 42,
-    "cuteness": 16
-  },
-  {
-    "id": 49225,
-    "image": 64245,
-    "numFaceoffs": 36,
-    "winPercent": 42,
-    "cuteness": 33
-  },
-  {
-    "id": 48252,
-    "image": 62939,
-    "numFaceoffs": 36,
-    "winPercent": 42,
-    "cuteness": 98
-  }
-]
-```
-
-Returns a randomized list of entries created within the last 2 days.
-
-### HTTP Request
-
-`GET http://api.parade.pet/entries/recent`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-type | false | Filter by pettype, i.e. 1=Dog, 2=Cat.
-limit | false | Number of entries to return.
-
-<aside class="success">
-Return list of entries that were created within the last 2 days.
-</aside>
-
-## Friends Entries
-
-```shell
-curl "http://api.parade.pet/entries/friends"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 49489,
-    "image": 64599
-  },
-  {
-    "id": 49225,
-    "image": 64245
-  },
-  {
-    "id": 48252,
-    "image": 62939
-  }
-]
-```
-
-Returns the most recent entries of your friends sorted by entry.createdAt date.
-
-### HTTP Request
-
-`GET http://api.parade.pet/entries/friends`
-
-### Query Parameters
-
-Parameter | Required | Description
---------- | ------- | -----------
-
-<aside class="success">
-Returns the 200 most recent entries of your friends sorted by entry.createdAt date.
-</aside>
