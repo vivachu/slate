@@ -94,7 +94,6 @@ Parameter | Required | Description
 --------- | ------- | -----------
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
 
-
 ### Query Parameters
 
 Parameter | Required | Description
@@ -190,7 +189,6 @@ Retrieve the Prize Catalog for the specified prize tier.
 Parameter | Required | Description
 --------- | ------- | -----------
 Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
-
 
 ### Query Parameters
 
@@ -571,7 +569,6 @@ Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the tok
 <aside class="success">
 Return the authorized user's gold ticket balance and the list of prize tiers along with user's progress in each tier.
 </aside>
-
 
 ## Accept Tickets
 
