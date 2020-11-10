@@ -722,6 +722,7 @@ Return list of pet breeds that start with the "name" parameter and match the "pe
 
 ```shell
 curl "https://api.parade.pet/v2/pet/fans/:id"
+  -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
@@ -769,6 +770,7 @@ Returns a list of users that fan of specified pet. User data consist of user id,
 
 ```shell
 curl https://api.parade.pet/v2/user/:id/fanOf
+  -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
@@ -834,6 +836,7 @@ Returns list of pets. Pet data consist of fan id, pet's name, and pet's profileI
 
 ```shell
 curl -X "POST" "https://api.parade.pet/v2/pet/fan/:id"
+  -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
@@ -873,6 +876,7 @@ Returns OK
 
 ```shell
 curl -X "POST" "https://api.parade.pet/v2/pet/unfan/:id"
+  -H "Authorization:  Bearer meowmeowmeow"
 ```
 
 > The above command returns JSON structured like this:
