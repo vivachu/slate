@@ -200,6 +200,247 @@ prizeTier | true | Prize tier ID.
 Returns prizes for the specified prize tier. The authorized user's ticket balance is also returned.
 </aside>
 
+## Get Prizes by Level
+
+```shell
+curl "http://api.parade.pet/v2/level/prizes"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "user": {
+    "id": 104,
+    "firstName": "Paula",
+    "lastName": "Pickles",
+    "fullName": "Paula Pickles",
+    "initials": "PP",
+    "profileImage": 713,
+    "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100",
+    "silverCoins": 23095,
+    "goldCoins": 13575,
+    "goldKeys": 150,
+    "prizeTickets": 0,
+    "isAdFree": false,
+    "level": {
+      "number": 8,
+      "xp": 2800,
+      "xpToNextLevel": 4000,
+      "discount": 0.08
+    }
+  },
+  "levels": [
+    {
+      "id": 1,
+      "goldTickets": 0,
+      "goldCoins": 0,
+      "xpThreshold": 0,
+      "unlocked": true,
+      "prizes": [
+        {
+          "id": 587,
+          "name": "Pet Parade Pet Tag",
+          "imageUrl": "https://assets.parade.pet/prizes/1552331572506.jpeg",
+          "ticketPrice": 500
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "goldTickets": 50,
+      "goldCoins": 50,
+      "xpThreshold": 35,
+      "unlocked": true,
+      "prizes": [
+        {
+          "id": 887,
+          "name": "Funny Dog Sticker",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71n-hmUWpmL._AC_SL1300_.jpg",
+          "ticketPrice": 1000
+        },
+        {
+          "id": 432,
+          "name": "Blueberry Yogurt Dipped Treats (2)",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81iOuQaebwL._SL1500_.jpg",
+          "ticketPrice": 1000
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "goldTickets": 50,
+      "goldCoins": 50,
+      "xpThreshold": 100,
+      "unlocked": true,
+      "prizes": [
+        {
+          "id": 888,
+          "name": "1300 pcs Animal Stickers",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/91mp3a4IUcL._AC_SL1500_.jpg",
+          "ticketPrice": 1000
+        },
+        {
+          "id": 894,
+          "name": "Activity Sticker Book",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/716x1RQkwVL._AC_SL1500_.jpg",
+          "ticketPrice": 1000
+        },
+        {
+          "id": 874,
+          "name": "Banana Flavor Yogurt Dipped Treat",
+          "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/81LRNXFsShL._SL1500_.jpg",
+          "ticketPrice": 1000
+        }
+      ]
+    }
+  ]
+}
+```
+
+Retrieve current user level status, along with list of prizes for each level.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/level/prizes`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns current user data with his/her level status. This endpoint also returns all available levels and its prize.
+</aside>
+
+## Get Prize Store Homepage
+
+```shell
+curl "https://api.parade.pet/v2/store/home"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "store": {
+    "baseUrl": "https://stage-shop.parade.pet/",
+    "cdnBaseUrl": "https://stage-assets.parade.pet/",
+    "testMode": true
+  },
+  "user": {
+    "id": 104,
+    "firstName": "Paula",
+    "lastName": "Pickles",
+    "fullName": "Paula Pickles",
+    "initials": "PP",
+    "profileImage": 713,
+    "socialImageUrl": "https://graph.facebook.com/v2.7/10204723564482688/picture?height=100&width=100",
+    "silverCoins": 23095,
+    "goldCoins": 13575,
+    "goldKeys": 150,
+    "prizeTickets": 0,
+    "isAdFree": false,
+    "level": {
+      "number": 8,
+      "xp": 2800,
+      "xpToNextLevel": 4000,
+      "discount": 0.08
+    }
+  },
+  "partners": [
+    {
+      "name": "Unique Pet",
+      "path": "unique_pet",
+      "hexCode": "77990E",
+      "numFans": 916,
+      "description": "We tackle tinkle.",
+      "id": 46,
+      "createdAt": "2020-04-24T17:41:36.000Z",
+      "updatedAt": "2020-10-08T20:16:25.000Z",
+      "isFan": false
+    },
+    {
+      "name": "Dogs Love Us",
+      "path": "dogs-love-us",
+      "hexCode": "32cd32",
+      "numFans": 4860,
+      "description": "Happy treats that bring on the happy dance.",
+      "id": 26,
+      "createdAt": "2019-06-20T18:06:02.000Z",
+      "updatedAt": "2020-07-30T14:32:16.000Z",
+      "isFan": true
+    },
+    {
+      "name": "Cuddle Clones",
+      "path": "cuddle_clones",
+      "hexCode": "A14099",
+      "numFans": 14329,
+      "description": "Turn your beloved pet into a custom stuffed animal, slippers, pillow, or mug.",
+      "id": 45,
+      "createdAt": "2020-04-21T16:23:56.000Z",
+      "updatedAt": "2020-10-08T20:16:19.000Z",
+      "isFan": false
+    }
+  ],
+  "dogs": [
+    {
+      "id": 2,
+      "name": "Treats",
+      "path": "treats"
+    },
+    {
+      "id": 3,
+      "name": "Toys",
+      "path": "toys"
+    },
+    {
+      "id": 4,
+      "name": "Clothing",
+      "path": "clothing"
+    }
+  ],
+  "cats": [
+    {
+      "id": 4,
+      "name": "Clothing",
+      "path": "clothing"
+    }
+  ],
+  "critters": [],
+  "parents": [
+    {
+      "id": 7,
+      "name": "Gifts",
+      "path": "gifts"
+    },
+    {
+      "id": 14,
+      "name": "Cleaning",
+      "path": "cleaning"
+    }
+  ]
+}
+```
+
+Retrive all data required for the Pet Parade Store home page.
+
+### HTTP Request
+
+`GET http://api.parade.pet/v2/store/home`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns Pet Parade Store home page data that consisting of Store Info, Current User data, List of Store's Partners, and List of Product Categories for each pet types. 
+</aside>
+
 ## Get Prize
 
 ```shell
@@ -490,6 +731,133 @@ type | false | The leaderboard: all, location, dog, cat, or critter
 
 <aside class="success">
 Returns tickets payouts for weekly and monthly for the specified leaderboard type. The authorized user's ticket balance is also returned and the time till the end of the week and month.
+</aside>
+
+## Get Prize Tickets
+
+```shell
+curl "https://api.parade.pet/v2/prize/tickets"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this :
+
+```json
+{
+  "total": 0,
+  "tickets": [
+    {
+      "id": 66353,
+      "createdAt": 19190561.413,
+      "awarded": 39,
+      "balance": 39,
+      "expires": -3638561.413
+    },
+    {
+      "id": 65899,
+      "createdAt": 23990740.413,
+      "awarded": 25,
+      "balance": 25,
+      "expires": -8442340.413
+    },
+    {
+      "id": 65851,
+      "createdAt": 24332668.413,
+      "awarded": 25,
+      "balance": 25,
+      "expires": -8784268.413
+    },
+    {
+      "id": 65849,
+      "createdAt": 24351710.413,
+      "awarded": 25,
+      "balance": 25,
+      "expires": -8803310.413
+    },
+    {
+      "id": 65848,
+      "createdAt": 24438703.413,
+      "awarded": 514,
+      "balance": 408,
+      "expires": -8890303.413
+    },
+    {
+      "id": 33113,
+      "createdAt": 24438784.413,
+      "awarded": 514,
+      "balance": 0,
+      "expires": -8890384.413
+    }
+  ]
+}
+```
+
+Returns a list of the user's PrizeTickets as well as the user's current ticket balance. For each ticket will has the id, createdAt, award, balance, and expires properties.
+
+### HTTP Request
+
+`GET https://api.parade.pet/v2/price/tickets`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+<aside class="success">
+Returns a list of the user's PrizeTickets as well as the user's current ticket balance
+</aside>
+
+## Get Single Prize Ticket
+
+```shell
+curl "https://api.parade.pet/v2/prize/ticket/:id"
+  -H "Authorization:  Bearer meowmeowmeow"
+```
+
+> The above command returns JSON structured like this :
+
+```json
+[
+  {
+    "prizeName": null,
+    "prizeImageUrl": null,
+    "charityName": "California Wildfire Survivors",
+    "charityImage": "https://stage-assets.parade.pet/partners/adopt-a-dog/ios/logo@1x.png",
+    "redemptionDate": "2020-02-01T11:50:57.000Z",
+    "ticketsUsed": 100
+  },
+  {
+    "prizeName": "Bacon Flavored Chew Toy",
+    "prizeImageUrl": "https://images-na.ssl-images-amazon.com/images/I/81RxDVLzC7L._SL1500_.jpg",
+    "charityName": null,
+    "charityImage": null,
+    "redemptionDate": "2020-02-01T11:52:00.000Z",
+    "ticketsUsed": 414
+  }
+]
+```
+
+Returns a list of prizes that the ticket was used for. Include the name, image, and redemption date and amount of tickets used for the prize.
+
+### HTTP Request
+
+`POST http://api.parade.pet/v2/prize/ticket/:id`
+
+### Header Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+Authorization:  Bearer meowmeowmeow | true | Replace "meowmeowmeow" with the token of the authenticated user
+
+### Query Parameters
+
+Parameter | Required | Description
+--------- | ------- | -----------
+id | true | ID of the PrizeTicket object 
+
+<aside class="success">
+Returns all the prize or charity the ticket was used for.
 </aside>
 
 ## Get Prize Tiers
